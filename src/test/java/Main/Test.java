@@ -1,4 +1,4 @@
-package Loads;
+package Main;
 
 public class Test {
 }
