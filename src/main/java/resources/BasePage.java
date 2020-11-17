@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.junit.Assert.assertFalse;
-
 public class BasePage {
 
     public WebDriverWait wait;
@@ -17,12 +15,6 @@ public class BasePage {
     public BasePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-    }
-
-    public void DriverSetUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 10);
     }
 
     public void waitToBeClickable (int timeOut, WebElement element){
@@ -81,6 +73,12 @@ public class BasePage {
         } catch (ElementNotInteractableException ignored) {
             return false;
         }
+    }
+
+    public void DriverSetUp() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 10);
     }
 
     public String getInputValue(WebElement input){
