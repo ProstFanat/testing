@@ -7,10 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AutoTesting" />
+        <module name="testing" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11">
       <module name="AutoTesting" target="1.5" />
+      <module name="testing" target="7" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="PREFER_TARGET_JDK_COMPILER" value="false" />
   </component>
 </project>
