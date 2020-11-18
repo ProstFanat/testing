@@ -12,14 +12,10 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CreateLoadMainFlow {
 
-    public static LoginPage login;
-
-
     @BeforeClass
     public static void setup() {
-        //Configuration.timeout = 100000;
+        Configuration.startMaximized =true;
         open("http://localhost:8080/TrackEnsure/login.do");
-        //login = new LoginPage();
     }
 
 @Test
@@ -32,13 +28,13 @@ public class CreateLoadMainFlow {
     loginPage.login("5", "test");
     mainAdminScreenPage.clickLoadSearchBtn();
     loadListPage.clickNewLoadBtn();
-    createLoadPage.getLoadSettingsFragment().setPickupDate(22,"Nov", 2020);
-//            .setDeliveryDate()
-//            .inputPickupLocation("Toronto, ON, Canada")
-//            .inputPickupLocation("New Glarus, WI, United States")
-//            .inputPickupZipCode("123NY")
-//            .inputDeliveryZipCode("321CA")
-//            .selectTrailerType("Dry Van")
+    createLoadPage.getLoadSettingsFragment().setPickupDate(22,"Nov", 2020)
+            .setDeliveryDate(26,"Nov",2020)
+            .setPickupLocation("Toronto, ON, Canada")
+            .setDeliveryLocation("New Glarus, WI, United States")
+            .setPickupZipCode("123NY")
+            .setDeliveryZipCode("321CA")
+            .selectTrailerType("Dry Van");
 //            .inputWeight(500)
 //            .selectTrailerLength("53")
 //            .inpeuRate(200)
@@ -46,7 +42,7 @@ public class CreateLoadMainFlow {
 //            .selectFP("F")
 //            .inputDimension("testDimension")
 //            .inputComment("testComment");
-//    createLoadPage.getOfferFragment().clickSearchDriverBtn()
+//   createLoadPage.getOfferFragment().clickSearchDriverBtn()    //выцепить имя и запомнить в стрингу
 //            .selectDriversFromDrvList()
 //            .clickSaveLoadAndSendOffersBtn();
 //
@@ -55,4 +51,6 @@ public class CreateLoadMainFlow {
 
 
 }
+
+
 }
