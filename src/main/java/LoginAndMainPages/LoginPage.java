@@ -1,17 +1,17 @@
-package Login;
+package LoginAndMainPages;
 
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Login {
+public class LoginPage {
 
     SelenideElement loginField = $x("//*[@id = 'email']");
     SelenideElement loginBtn = $x("//input[@value='Log In']");
-    SelenideElement passwdField = $x("//*[@id = 'password']");
+    SelenideElement passwordField = $x("//*[@id = 'password']");
 
-    public void login(){
-        loginField.sendKeys("10");
-        passwdField.sendKeys("test");
+    public void login(String logIn, String pass){
+        loginField.sendKeys(logIn);
+        passwordField.sendKeys(pass);
         loginBtn.click();
     }
 }

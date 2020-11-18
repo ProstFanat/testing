@@ -1,25 +1,24 @@
 package Main;
 
-import Login.Login;
+import LoginAndMainPages.LoginPage;
 import com.codeborne.selenide.Configuration;
 import org.junit.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Test111 {
-    public static Login login;
+    public static LoginPage login;
 
     @BeforeClass
     public static void setup() {
         Configuration.timeout = 100000;
         open("http://localhost:8080/TrackEnsure/login.do");
-        login = new Login();
-        Configuration.timeout = 6000;
+        login = new LoginPage();
     }
 
-    @Test
-    public void test(){
-        login.login();
-
-    }
+//    @Test
+//    public void test(){
+//        login.login();
+//
+//    }
 
 }
