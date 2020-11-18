@@ -109,3 +109,5 @@ collectionsTimeout
 browser
 baseUrl
 reportsFolder
+
+Configuration.startMaximized = true;  -- сделать на весь экран
