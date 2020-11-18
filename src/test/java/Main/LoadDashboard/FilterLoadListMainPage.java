@@ -2,6 +2,7 @@ package Main.LoadDashboard;
 
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import loadDashboardPages.LoadListPage;
@@ -11,6 +12,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -35,8 +37,17 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByLoadId(){
+        int startSize = loadListPage.getTableSize();
         loadListPage.inputLoadId("602")
                 .clickBtnFilter();
+        loadListPage.tableSize.shouldBe(size(startSize));
+    }
 
+    @Test
+    public void filterByStatus(){
+        int startSize = loadListPage.getTableSize();
+        loadListPage.inputLoadId("602")
+                .clickBtnFilter();
+        loadListPage.tableSize.shouldBe(size(startSize));
     }
 }
