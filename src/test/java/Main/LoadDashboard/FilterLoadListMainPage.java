@@ -6,6 +6,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import loadDashboardPages.LoadListPage;
+import loadDashboardPages.fragments.FilterLoadPageFragment;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,6 +20,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class FilterLoadListMainPage {
 
     public static LoadListPage loadListPage;
+    public static FilterLoadPageFragment filterLoadPageFragment;
 
 
     @BeforeClass
@@ -29,6 +31,7 @@ public class FilterLoadListMainPage {
 
         LoginPage loginPage = new LoginPage();
         MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
+        filterLoadPageFragment = new FilterLoadPageFragment();
         loadListPage = new LoadListPage();
 
         loginPage.login("5", "test");
@@ -37,17 +40,15 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByLoadId(){
-        int startSize = loadListPage.getTableSize();
-        loadListPage.inputLoadId("602")
+        filterLoadPageFragment.inputLoadId("624")
                 .clickBtnFilter();
-        loadListPage.tableSize.shouldBe(size(startSize));
+        filterLoadPageFragment.checkTable("loadId", "999");
     }
 
     @Test
     public void filterByStatus(){
-        int startSize = loadListPage.getTableSize();
-        loadListPage.inputLoadId("602")
+        filterLoadPageFragment.inputLoadId("602")
                 .clickBtnFilter();
-        loadListPage.tableSize.shouldBe(size(startSize));
+        filterLoadPageFragment.checkTable("loadId", "612");
     }
 }

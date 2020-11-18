@@ -15,7 +15,7 @@ public class LoadSettingsFragment {
     SelenideElement deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']");
     SelenideElement pickupZipCodeInput = $x("//input[@id = 'zipCodePick']");
     SelenideElement deliveryZipCodeInput = $x("//input[@id = 'zipCodeDrop']");
-    SelenideElement trailetTypeDropdown = $x("")
+    SelenideElement trailetTypeDropdown = $x("");
 
 
 
