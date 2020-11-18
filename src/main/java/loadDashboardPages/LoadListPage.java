@@ -9,7 +9,8 @@ public class LoadListPage {
     SelenideElement newLoadBtn = $x("//button[@routerlink='/load-list/create-load']");
 
 
-    public void clickNewLoadBtn() {
+    public LoadListPage clickNewLoadBtn() {
         newLoadBtn.click();
+        return this;
     }
 }

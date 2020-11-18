@@ -17,7 +17,7 @@ public class CreateLoadMainFlow {
 
     @BeforeClass
     public static void setup() {
-        Configuration.timeout = 100000;
+        //Configuration.timeout = 100000;
         open("http://localhost:8080/TrackEnsure/login.do");
         //login = new LoginPage();
     }
@@ -32,25 +32,25 @@ public class CreateLoadMainFlow {
     loginPage.login("5", "test");
     mainAdminScreenPage.clickLoadSearchBtn();
     loadListPage.clickNewLoadBtn();
-    createLoadPage.loadSettingsFragment.setPickupDate()
-            .setDeliveryDate()
-            .inputPickupLocation("Toronto, ON, Canada")
-            .inputPickupLocation("New Glarus, WI, United States")
-            .inputPickupZipCode("123NY")
-            .inputDeliveryZipCode("321CA")
-            .selectTrailerType("Dry Van")
-            .inputWeight(500)
-            .selectTrailerLength("53")
-            .inpeuRate(200)
-            .inputItemtype("test")
-            .selectFP("F")
-            .inputDimension("testDimension")
-            .inputComment("testComment");
-    createLoadPage.addOfferFragment.clickSearchDriverBtn()
-            .selectDriversFromDrvList()
-            .clickSaveLoadAndSendOffersBtn();
-
-    createLoadPage.offerFragment.selectOffersList()   ;  //собрать в колекцию весь список и сравнить его с selectDriversFromDrvList()
+    createLoadPage.getLoadSettingsFragment().setPickupDate(22,"Nov", 2020);
+//            .setDeliveryDate()
+//            .inputPickupLocation("Toronto, ON, Canada")
+//            .inputPickupLocation("New Glarus, WI, United States")
+//            .inputPickupZipCode("123NY")
+//            .inputDeliveryZipCode("321CA")
+//            .selectTrailerType("Dry Van")
+//            .inputWeight(500)
+//            .selectTrailerLength("53")
+//            .inpeuRate(200)
+//            .inputItemtype("test")
+//            .selectFP("F")
+//            .inputDimension("testDimension")
+//            .inputComment("testComment");
+//    createLoadPage.getOfferFragment().clickSearchDriverBtn()
+//            .selectDriversFromDrvList()
+//            .clickSaveLoadAndSendOffersBtn();
+//
+//    createLoadPage.getOfferFragment().selectOffersList()   ;  //собрать в колекцию весь список и сравнить его с selectDriversFromDrvList()
 
 
 
