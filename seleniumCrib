@@ -1,0 +1,201 @@
+ - xpath -
+через / абсолютный
+через // можно перескакивать
+
+/ и // можно комбинировать
+
+//div[@class='portal' and @role='navigation']  - и так далее  // найти див с классов портал и ролью навигация
+//*[@id='input']  - найти любой елемент с ид инпут
+эти два можно комбинировать
+В квабдратных можно написать номер элемента
+//input[1]  - найти первый инпут
+
+/. - указывает на текущий узел
+/.. - указывает на узел выше
+
+чтобы искать по таблице - //table/./tr[2]
+
+ancestor:: //все элементы родителя
+following-sibling::div // след элемент от родителя
+//div[@id='id']/parrent::div // родитель от родителся
+
+Функции Xpath
+//table[@id='table']//tr[last()]  // последний элемент
+...//*[last]
+...//*[text()='hello'] //найти по тексту
+...//*[contains(@class, 'hello')]  // contains
+...//*[contains(text(), 'hel']  //найти по части текста
+...//*[starts-with(@title, 'go to')]  //найти по началу чего-то
+
+// основы селениума
+
+driver.get()
+driver.navigate() // и там куча функций по работе с кладкой
+driver.manage().window().maxsize
+driver.navigate().getTitle()
+driver.navigate().forward()
+driver.navigate().refresh()
+driver.navigate().getCurrentUrl()
+driver.quit()
+
+// неявное ожидание
+driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);   // ждёт 1 секунду до появления каждого нужного элемента
+
+//поиск Web элементов элементов
+driver.findElement(By.linkText("Log In"))
+By.partialLinkText('some') //по части текста ссылки
+By.name('name')
+By.ClassName('className')
+By.id('id')
+
+// Работа с кнопками
+.click()
+.submit() // на кнопку у которой есть тип сабмит (но в этом нету смысла, работает так же как и клик)
+.getText() // получить текст кнопки
+
+// Работа с текстовыми полями
+.sendKeys()
+.click()
+.clear()
+.getAttribute() // получить значение текстового поля
+
+// Работа с ссылками
+.click()
+.getText()
+
+// Работа с чекбоксами и радио кнопками
+.click()
+.isSelected()
+
+// Работа с выпадающими спискми
+просто по очереди кликать сначала на оглавлние, потом на элемент списка
+
+// поиска списка элементов
+List <WebElement> checkboxes = driver.findElements(By.xpath(...))
+checkboxes.get(3).click()
+checkboxes.size()
+
+// Работа с таблицами
+Всё вынеёс в отдельный класс Table.java, там созданны свои методы для работы с таблицами
+
+// Явные ожидания
+WebDriverWait wait = (new WebDriverWait(driver, 5));
+wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("")));
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(""))); // пока не станет видимым
+wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(""))); //пока не станет невидимым
+...
+
+// Сложные действия
+Actions actions = new Actions(driver);
+actions.moveToElement("link");
+.dragAndDrop("element", "toElement");
+.clickAndHold("element")
+.clickAndHols("element").moveToElement("element").release(); // зажать - перевестм - отпустить
+.doubleClick(); // дабл клик
+.contextClick(); // ПКМ
+
+// Выполнение JS
+JavascriptExecutor js = (JavascriptExecutor)driver;
+js.executeScript("alert("Hello World")");
+.................("window.scrollBy(0, 1000), "" ")
+
+// Работа с Alert
+driver.switchTo().alert().accept();
+driver.switchTo().alert().dismiss();
+
+// Работа с окнами браузера
+driver.getWindowHandel()   //  получить имя окна
+driver.switchTo().window(windowHandel); // переключиться на другое окно
+
+for( String windowHandle : driver.getWindowHandels()) {  // переключиться на последнее окно
+    driver.switchTo().window(windowHandle);
+}
+
+// Работа с вкладками   - так же как и с окнами
+...
+
+
+// Проверка доступности элементов
+.isEnabled();
+.isSelected();
+.isDisplayed();
+
+// Проверка наличия элемента
+if (driver.findElements(By.xpath()).size() > 0 )  // вернёт тру если элемент существует. False если не найдёт элементы по xpath
+
+// Имитация нажатия клавиш клавиатуры
+.sendKeys(Keys.ENTER) // на клавишу enter
+Keys.TAB
+и тд
+
+Keys.chord(Keys.SHIFT, "test")  // напишет test  с зажатей клавишей шифт
+Keys.chord(Keys.CONTROL, "a") // Ctrl + a
+
+// Создание скриншотов
+
+// Загрузка файлов
+когда просит отправать файл какой-то используем просто .sendKeys(src)
+
+// Запуск драйверов ( и так знаешь как это сделать )
+
+// Запуск тестов без запуска браузера - fantom js (юзать не буим)
+просто скачать файл фантом ехе и привязавть его как гугл хром
+
+// PageObject
+Структурирование проэкта. Разбивать всё на разные файлы, проще говоря то, что ты уже знаешь
+
+// PageFactory
+@FindBy(xpath = "")
+private WebElement test;
+
+// Введение в Juinit
+
+@BeforeClass // выполняеться перед всеми тестами
+public void before(){
+}
+@Before  // выполняеться перед каждым тестом
+public void before(){}
+@After // выполняеться после каждого теста
+
+@Test
+
+
+@AfterClass // выполняеться после всего класса
+public void after(){
+}
+
+// Assert методы
+все асёрты. Тоже уже знаешь
+
+
+// robot
+
+public class KeyBoardExample {
+    public static void main(String[] args) {
+        try {
+            Robot robot = new Robot();
+            robot.delay(3000);
+            robot.keyPress(KeyEvent.VK_Q); // нажать Q
+            robot.keyRelease(KeyEvent.VK_Q); // отжать Q
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+////////////////////////////
+
+    @FindBy(xpath = "//*[contains(@class, 'btn-log-out') ]")
+    private WebElement logoutBtn;
+
+    @FindBy(xpath = "//button[contains(text(), 'Open Transaction')]")
+
+    WebDriverWait wait = new WebDriverWait(driver, 10);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class, 'btn-log-out') ]")));
+
+`            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }`

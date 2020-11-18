@@ -18,7 +18,6 @@ public class Test111 {
     public static WebDriver driver;
     public static BasePage basePage;
     public static Login login;
-    private Object WebDriver;
 
     @BeforeClass
     public static void setup() {
@@ -31,7 +30,6 @@ public class Test111 {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        Configuration.timeout = 6000;
 
         login.login("10");
     }

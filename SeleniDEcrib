@@ -1,0 +1,111 @@
+Селенид сам будет всё ждать
+Намного проще
+Сам будет всё выключать, будет сам делать скриншоты
+
+open("url");
+
+$(By.name("")) -- By
+$("")  -- CSS
+$x("")  -- XPath
+$$() -- колекция элементов
+$$("CSS").findBy(text("text")).click();  - найдёт коллекцию по CSS и уже в коллекции будет искать по тексту
+
+
+.should(appear)   // disappear
+.shouldBe(visible)
+.shouldHave(text("hello"))
+.shouldNotHave(cssClass("errorField"))
+
+.click()
+.doubleClick()
+.contextClick()
+.hover()
+.setValue("")
+.pressEnter()
+.pressEscape()
+.pressTab()
+.selectOption()
+.selectRadio()
+.append()
+.dragAndDropTo()
+.....
+
+.getValue() / val()
+.data()
+.attr(String)
+.text() -- вернёт текст который видно на странице
+.innerText() -- вернёт текст элемента из ДОМ
+.getSelectedOption()
+.getSelectedText()
+.getSelectedValue()
+.isDisplayed()
+.exists() -- тру если элемент существует
+.download()
+.toWebElement()
+.uploadFile(File...)
+
+условия(исп для ShouldBe и тд.)
+visible / appear
+present / exist
+hidden / disappear
+readonly
+name
+value
+type
+id
+empty
+attribute(name)
+attribute(name, value)
+cssClass
+focused
+enabled
+disabled
+selected
+matchText() -- полный текст
+text()  -- частичнчй текст
+exactText() -- целый текст
+textCaseSensitive() -- частичный независимый от регистров
+exactTextCaseSensitive -- полный независымый от регистров
+
+
+Селекторы
+byText
+withText
+by(attributeName, value)
+byTitle
+byValue
+Xpath
+Css
+
+ПО КОллекциям
+size()
+isEmpty()
+getTexts()
+empty
+sizeGreaterThanOrEqual - и похожие
+
+filterBy
+excludeWith
+get
+findBy
+
+*******по драйверу
+isChrome
+isFirefox
+isHeadless
+url()
+source()
+getWebDriver()
+setWebDriver(WebDriver)
+
+WebElement в селениде - ******SelenideElement******
+
+waitUntil(Condition, miliseconds)
+waitWhile(Condition, miliseconds)
+
+******* конфигурация
+timeout
+collectionsTimeout
+browser
+baseUrl
+reportsFolder
