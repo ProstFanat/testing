@@ -5,6 +5,7 @@ import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
+import loadDashboardPages.fragments.LoadSettingsFragment;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -34,9 +35,9 @@ public class CreateLoadMainFlow {
             .setDeliveryLocation("New Glarus, WI, United States")
             .setPickupZipCode("123NY")
             .setDeliveryZipCode("321CA")
-            .selectTrailerType("Dry Van");
-//            .inputWeight(500)
-//            .selectTrailerLength("53")
+            .selectTrailerType("Dry Van")
+            .setWeight("500")
+            .selectTrailerLength("53");
 //            .inpeuRate(200)
 //            .inputItemtype("test")
 //            .selectFP("F")
@@ -51,6 +52,7 @@ public class CreateLoadMainFlow {
 
 
 }
+
 
 
 }

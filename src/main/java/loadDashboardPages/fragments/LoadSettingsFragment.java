@@ -15,9 +15,9 @@ public class LoadSettingsFragment {
     SelenideElement deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']");
     SelenideElement pickupZipCodeInput = $x("//input[@id = 'zipCodePick']");
     SelenideElement deliveryZipCodeInput = $x("//input[@id = 'zipCodeDrop']");
-    SelenideElement trailetTypeDropdown = $x("");
-
-
+    SelenideElement trailerTypeDropdown = $x("//*[@placeholder = 'Trailer Type']");
+    SelenideElement weightInput = $x("//input[@id='weight']");
+    SelenideElement trailerLengthDropBox = $x("//select[@id = 'trailerLength']");
 
 
     public LoadSettingsFragment setPickupDate(int day, String month, int year) {
@@ -52,17 +52,29 @@ public class LoadSettingsFragment {
         return this;
     }
 
-public LoadSettingsFragment setPickupZipCode(String zipCode){
-    pickupZipCodeInput.setValue(zipCode);
+    public LoadSettingsFragment setPickupZipCode(String zipCode) {
+        pickupZipCodeInput.setValue(zipCode);
         return this;
-}
-public LoadSettingsFragment setDeliveryZipCode(String zipCode){
-    deliveryZipCodeInput.setValue(zipCode);
+    }
+
+    public LoadSettingsFragment setDeliveryZipCode(String zipCode) {
+        deliveryZipCodeInput.setValue(zipCode);
         return this;
-}
-    public LoadSettingsFragment selectTrailerType(String TrailerType) {
+    }
 
+    public LoadSettingsFragment selectTrailerType(String trailerType) {   //нот воркинг =((( надо доработать
+        trailerTypeDropdown.click();
+//        trailerTypeDropdown
+        return this;
+    }
 
+    public LoadSettingsFragment setWeight(String Weight) {
+        weightInput.setValue(Weight);
+        return this;
+    }
+
+    public LoadSettingsFragment selectTrailerLength(String length) {
+        trailerLengthDropBox.selectOptionByValue(length);
         return this;
     }
 }
