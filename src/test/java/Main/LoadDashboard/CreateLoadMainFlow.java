@@ -5,7 +5,7 @@ import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
-import loadDashboardPages.fragments.LoadSettingsFragment;
+import loadDashboardPages.fragments.OffersTableFragment;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -25,25 +25,16 @@ public class CreateLoadMainFlow {
     MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
     CreateLoadPage createLoadPage = new CreateLoadPage();
     LoadListPage loadListPage = new LoadListPage();
+    //OffersTableFragment offersTableFragment = new OffersTableFragment();
 
     loginPage.login("5", "test");
+
     mainAdminScreenPage.clickLoadSearchBtn();
+
     loadListPage.clickNewLoadBtn();
-    createLoadPage.getLoadSettingsFragment().setPickupDate(22,"Nov", 2020)
-            .setDeliveryDate(26,"Nov",2020)
-            .setPickupLocation("Toronto, ON, Canada")
-            .setDeliveryLocation("New Glarus, WI, United States")
-            .setPickupZipCode("123NY")
-            .setDeliveryZipCode("321CA")
-            .selectTrailerType("Dry Van")
-            .setWeight("500")
-            .selectTrailerLength("53");
-//            .inpeuRate(200)
-//            .inputItemtype("test")
-//            .selectFP("F")
-//            .inputDimension("testDimension")
-//            .inputComment("testComment");
-//   createLoadPage.getOfferFragment().clickSearchDriverBtn()    //выцепить имя и запомнить в стрингу
+
+    createLoadPage.setDefaultLoadSettings();
+    createLoadPage.getOffersTableFragment().searchDriver();    //выцепить имя и запомнить в стрингу
 //            .selectDriversFromDrvList()
 //            .clickSaveLoadAndSendOffersBtn();
 //

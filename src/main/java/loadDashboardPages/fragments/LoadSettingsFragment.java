@@ -1,8 +1,11 @@
 package loadDashboardPages.fragments;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class LoadSettingsFragment {
@@ -18,7 +21,11 @@ public class LoadSettingsFragment {
     SelenideElement trailerTypeDropdown = $x("//*[@placeholder = 'Trailer Type']");
     SelenideElement weightInput = $x("//input[@id='weight']");
     SelenideElement trailerLengthDropBox = $x("//select[@id = 'trailerLength']");
-
+    ElementsCollection trailerTypesCollection = $$x("//span[@class='ng-option-label ng-star-inserted']");
+    SelenideElement rateInput = $x("//input[@id='rate']");
+    SelenideElement itemTypeInput = $x("//input[@id='itemType']");
+    SelenideElement dimensionsInput = $x("//input[@id='dimensions']");
+    SelenideElement commentInput = $x("//textarea[@id='comments']");
 
     public LoadSettingsFragment setPickupDate(int day, String month, int year) {
         pickupDatePickerField.click();
@@ -62,19 +69,45 @@ public class LoadSettingsFragment {
         return this;
     }
 
-    public LoadSettingsFragment selectTrailerType(String trailerType) {   //нот воркинг =((( надо доработать
+    public LoadSettingsFragment selectTrailerType(String trailerType) {
         trailerTypeDropdown.click();
-//        trailerTypeDropdown
+        trailerTypesCollection.findBy(exactText(trailerType)).click();
         return this;
     }
 
     public LoadSettingsFragment setWeight(String Weight) {
+        weightInput.click();
         weightInput.setValue(Weight);
         return this;
     }
 
     public LoadSettingsFragment selectTrailerLength(String length) {
         trailerLengthDropBox.selectOptionByValue(length);
+        return this;
+    }
+
+    public LoadSettingsFragment setRate(String rate) {
+        rateInput.setValue(rate);
+        return this;
+    }
+
+    public LoadSettingsFragment inputItemType(String itemType) {
+        itemTypeInput.setValue(itemType);
+        return this;
+    }
+
+    public LoadSettingsFragment selectFP(String FullOrPart) {
+        itemTypeInput.setValue(FullOrPart).pressEnter();
+        return this;
+    }
+
+    public LoadSettingsFragment inputDimension(String testDimension) {
+        dimensionsInput.setValue(testDimension);
+        return this;
+    }
+
+    public LoadSettingsFragment inputComment(String testComment) {
+        commentInput.setValue(testComment);
         return this;
     }
 }
