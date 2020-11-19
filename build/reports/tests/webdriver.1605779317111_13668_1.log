@@ -1,0 +1,1663 @@
+[1605779317,377][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 13813
+[1605779317,377][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1605779317,977][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "acceptInsecureCerts": true,
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+            "excludeSwitches": [ "enable-automation", "load-extension" ],
+            "extensions": [  ],
+            "prefs": {
+               "credentials_enable_service": false,
+               "download.default_directory": "/home/user/IdeaProjects/testing/build/downloads/1605779316041_13668_1",
+               "plugins.always_open_pdf_externally": true
+            }
+         },
+         "pageLoadStrategy": "normal"
+      } ]
+   },
+   "desiredCapabilities": {
+      "acceptInsecureCerts": true,
+      "acceptSslCerts": true,
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+         "excludeSwitches": [ "enable-automation", "load-extension" ],
+         "extensions": [  ],
+         "prefs": {
+            "credentials_enable_service": false,
+            "download.default_directory": "/home/user/IdeaProjects/testing/build/downloads/1605779316041_13668_1",
+            "plugins.always_open_pdf_externally": true
+         }
+      },
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "pageLoadStrategy": "normal",
+      "takesScreenshot": true
+   }
+}
+[1605779317,978][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "credentials_enable_service": false,
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "download": {
+      "default_directory": "/home/user/IdeaProjects/testing/build/downloads/1605779316041_13668_1"
+   },
+   "plugins": {
+      "always_open_pdf_externally": true
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1605779317,978][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1605779317,978][INFO]: Launching chrome: /usr/bin/google-chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-blink-features=ShadowDOMV0 --enable-logging --ignore-certificate-errors --log-level=0 --no-first-run --no-sandbox --password-store=basic --proxy-bypass-list=<-loopback> --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/tmp/.com.google.Chrome.qP1B0q data:,
+[1605779318,389][INFO]: resolved localhost to ["127.0.0.1"]
+[1605779318,429][INFO]: resolved localhost to ["127.0.0.1"]
+[1605779318,465][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "84.0.4147.105",
+      "chrome": {
+         "chromedriverVersion": "84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310})",
+         "userDataDir": "/tmp/.com.google.Chrome.qP1B0q"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:33019"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "linux",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "7fb5a923743cf8c72783c08406f08803"
+}
+[1605779318,573][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND MaximizeWindow {
+
+}
+[1605779318,573][INFO]: Waiting for pending navigations...
+[1605779318,574][INFO]: Done waiting for pending navigations. Status: ok
+[1605779318,681][INFO]: Waiting for pending navigations...
+[1605779318,681][INFO]: Done waiting for pending navigations. Status: ok
+[1605779318,681][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE MaximizeWindow {
+   "height": 1050,
+   "width": 1680,
+   "x": 1920,
+   "y": 0
+}
+[1605779318,686][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND SetTimeouts {
+   "pageLoad": 30000
+}
+[1605779318,686][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE SetTimeouts
+[1605779318,692][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND Navigate {
+   "url": "http://localhost:8080/TrackEnsure/login.do"
+}
+[1605779318,692][INFO]: Waiting for pending navigations...
+[1605779318,693][INFO]: Done waiting for pending navigations. Status: ok
+[1605779318,745][INFO]: Waiting for pending navigations...
+[1605779319,281][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,281][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE Navigate
+[1605779319,371][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@id = 'email']"
+}
+[1605779319,371][INFO]: Waiting for pending navigations...
+[1605779319,371][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,382][INFO]: Waiting for pending navigations...
+[1605779319,385][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,385][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "779cab97-0263-4164-99c4-6501de28687b"
+}
+[1605779319,395][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND TypeElement {
+   "id": "779cab97-0263-4164-99c4-6501de28687b",
+   "text": "5",
+   "value": [ "5" ]
+}
+[1605779319,395][INFO]: Waiting for pending navigations...
+[1605779319,395][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,431][INFO]: Waiting for pending navigations...
+[1605779319,437][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,437][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE TypeElement
+[1605779319,441][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@id = 'password']"
+}
+[1605779319,441][INFO]: Waiting for pending navigations...
+[1605779319,444][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,465][INFO]: Waiting for pending navigations...
+[1605779319,468][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,468][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "e8c381ad-9148-411b-b29e-d411fcbbafdb"
+}
+[1605779319,473][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND TypeElement {
+   "id": "e8c381ad-9148-411b-b29e-d411fcbbafdb",
+   "text": "test",
+   "value": [ "t", "e", "s", "t" ]
+}
+[1605779319,473][INFO]: Waiting for pending navigations...
+[1605779319,475][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,544][INFO]: Waiting for pending navigations...
+[1605779319,546][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,546][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE TypeElement
+[1605779319,619][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@value='Log In']"
+}
+[1605779319,619][INFO]: Waiting for pending navigations...
+[1605779319,620][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,630][INFO]: Waiting for pending navigations...
+[1605779319,631][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,631][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "91c6987b-51de-4d1b-be5b-3a62fc340dde"
+}
+[1605779319,662][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND ExecuteScript {
+   "args": [ {
+      "element-6066-11e4-a52e-4f735466cecf": "91c6987b-51de-4d1b-be5b-3a62fc340dde"
+   } ],
+   "script": "return (function(){return function(){var k=this;function l(a){return void 0!==a}function m(a){return\"string\"==typeof a}function aa(a,b){a=a.split(\".\");var c=k;a[0]in c||!c.execScript||c.execScript(..."
+}
+[1605779319,662][INFO]: Waiting for pending navigations...
+[1605779319,663][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,676][INFO]: Waiting for pending navigations...
+[1605779319,676][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,676][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE ExecuteScript true
+[1605779319,680][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND ClickElement {
+   "id": "91c6987b-51de-4d1b-be5b-3a62fc340dde"
+}
+[1605779319,680][INFO]: Waiting for pending navigations...
+[1605779319,681][INFO]: Done waiting for pending navigations. Status: ok
+[1605779319,735][INFO]: Waiting for pending navigations...
+[1605779324,234][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,234][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE ClickElement
+[1605779324,238][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//p[contains(text(), 'Load Search')]"
+}
+[1605779324,238][INFO]: Waiting for pending navigations...
+[1605779324,239][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,247][INFO]: Waiting for pending navigations...
+[1605779324,248][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,248][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//p[contains(text(), 'Load Search')]"}
+  (Session info: chrome=84.0.4147.105)
+[1605779324,470][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//p[contains(text(), 'Load Search')]"
+}
+[1605779324,470][INFO]: Waiting for pending navigations...
+[1605779324,576][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,661][INFO]: Waiting for pending navigations...
+[1605779324,684][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,684][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "732c8631-42f3-45fd-8914-3662f58d6209"
+}
+[1605779324,773][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND ExecuteScript {
+   "args": [ {
+      "element-6066-11e4-a52e-4f735466cecf": "732c8631-42f3-45fd-8914-3662f58d6209"
+   } ],
+   "script": "return (function(){return function(){var k=this;function l(a){return void 0!==a}function m(a){return\"string\"==typeof a}function aa(a,b){a=a.split(\".\");var c=k;a[0]in c||!c.execScript||c.execScript(..."
+}
+[1605779324,773][INFO]: Waiting for pending navigations...
+[1605779324,774][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,787][INFO]: Waiting for pending navigations...
+[1605779324,788][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,788][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE ExecuteScript true
+[1605779324,792][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND ClickElement {
+   "id": "732c8631-42f3-45fd-8914-3662f58d6209"
+}
+[1605779324,792][INFO]: Waiting for pending navigations...
+[1605779324,792][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,845][INFO]: Waiting for pending navigations...
+[1605779324,899][INFO]: Done waiting for pending navigations. Status: ok
+[1605779324,899][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE ClickElement
+[1605779324,920][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605779324,920][INFO]: Waiting for pending navigations...
+[1605779324,992][INFO]: Done waiting for pending navigations. Status: ok
+[1605779325,104][INFO]: Waiting for pending navigations...
+[1605779325,110][INFO]: Done waiting for pending navigations. Status: ok
+[1605779325,110][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder = 'Load ID']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779325,315][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605779325,315][INFO]: Waiting for pending navigations...
+[1605779326,692][INFO]: Done waiting for pending navigations. Status: ok
+[1605779326,715][INFO]: Waiting for pending navigations...
+[1605779326,718][INFO]: Done waiting for pending navigations. Status: ok
+[1605779326,718][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder = 'Load ID']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779326,925][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605779326,925][INFO]: Waiting for pending navigations...
+[1605779327,337][INFO]: Done waiting for pending navigations. Status: ok
+[1605779327,357][INFO]: Waiting for pending navigations...
+[1605779327,362][INFO]: Done waiting for pending navigations. Status: ok
+[1605779327,362][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder = 'Load ID']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779327,567][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605779327,567][INFO]: Waiting for pending navigations...
+[1605779327,568][INFO]: Done waiting for pending navigations. Status: ok
+[1605779327,572][INFO]: Waiting for pending navigations...
+[1605779327,573][INFO]: Done waiting for pending navigations. Status: ok
+[1605779327,573][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder = 'Load ID']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779327,785][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605779327,785][INFO]: Waiting for pending navigations...
+[1605779327,946][INFO]: Done waiting for pending navigations. Status: ok
+[1605779327,984][INFO]: Waiting for pending navigations...
+[1605779328,003][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,003][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "10b16d11-5845-45a7-bbd3-31738d502cf9"
+}
+[1605779328,010][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND TypeElement {
+   "id": "10b16d11-5845-45a7-bbd3-31738d502cf9",
+   "text": "624",
+   "value": [ "6", "2", "4" ]
+}
+[1605779328,010][INFO]: Waiting for pending navigations...
+[1605779328,012][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,089][INFO]: Waiting for pending navigations...
+[1605779328,096][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,096][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE TypeElement
+[1605779328,100][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@placeholder = 'Status']//input"
+}
+[1605779328,100][INFO]: Waiting for pending navigations...
+[1605779328,102][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,110][INFO]: Waiting for pending navigations...
+[1605779328,111][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,111][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "fb98a36b-5f32-4ad3-9d46-cd07daf718a4"
+}
+[1605779328,121][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND TypeElement {
+   "id": "fb98a36b-5f32-4ad3-9d46-cd07daf718a4",
+   "text": "Prebooked",
+   "value": [ "P", "r", "e", "b", "o", "o", "k", "e", "d" ]
+}
+[1605779328,121][INFO]: Waiting for pending navigations...
+[1605779328,345][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,507][INFO]: Waiting for pending navigations...
+[1605779328,513][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,513][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE TypeElement
+[1605779328,518][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@placeholder = 'Status']//input"
+}
+[1605779328,518][INFO]: Waiting for pending navigations...
+[1605779328,521][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,529][INFO]: Waiting for pending navigations...
+[1605779328,530][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,530][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "fb98a36b-5f32-4ad3-9d46-cd07daf718a4"
+}
+[1605779328,589][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND ExecuteScript {
+   "args": [ {
+      "element-6066-11e4-a52e-4f735466cecf": "fb98a36b-5f32-4ad3-9d46-cd07daf718a4"
+   } ],
+   "script": "return (function(){return function(){var k=this;function l(a){return void 0!==a}function m(a){return\"string\"==typeof a}function aa(a,b){a=a.split(\".\");var c=k;a[0]in c||!c.execScript||c.execScript(..."
+}
+[1605779328,589][INFO]: Waiting for pending navigations...
+[1605779328,590][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,607][INFO]: Waiting for pending navigations...
+[1605779328,608][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,608][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE ExecuteScript true
+[1605779328,620][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND TypeElement {
+   "id": "fb98a36b-5f32-4ad3-9d46-cd07daf718a4",
+   "text": "",
+   "value": [ "" ]
+}
+[1605779328,620][INFO]: Waiting for pending navigations...
+[1605779328,621][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,647][INFO]: Waiting for pending navigations...
+[1605779328,647][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,647][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE TypeElement
+[1605779328,651][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'PickUp Location']"
+}
+[1605779328,651][INFO]: Waiting for pending navigations...
+[1605779328,653][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,663][INFO]: Waiting for pending navigations...
+[1605779328,664][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,664][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "6bd871ab-0ea9-44e3-b85b-ed99315b80ef"
+}
+[1605779328,671][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND TypeElement {
+   "id": "6bd871ab-0ea9-44e3-b85b-ed99315b80ef",
+   "text": "Toronto",
+   "value": [ "T", "o", "r", "o", "n", "t", "o" ]
+}
+[1605779328,671][INFO]: Waiting for pending navigations...
+[1605779328,672][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,785][INFO]: Waiting for pending navigations...
+[1605779328,790][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,791][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE TypeElement
+[1605779328,797][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779328,797][INFO]: Waiting for pending navigations...
+[1605779328,797][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,811][INFO]: Waiting for pending navigations...
+[1605779328,812][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,812][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779328,819][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779328,819][INFO]: Waiting for pending navigations...
+[1605779328,824][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,858][INFO]: Waiting for pending navigations...
+[1605779328,860][INFO]: Done waiting for pending navigations. Status: ok
+[1605779328,861][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779329,086][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779329,086][INFO]: Waiting for pending navigations...
+[1605779329,089][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,110][INFO]: Waiting for pending navigations...
+[1605779329,111][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,111][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779329,119][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779329,119][INFO]: Waiting for pending navigations...
+[1605779329,121][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,139][INFO]: Waiting for pending navigations...
+[1605779329,141][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,141][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779329,351][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779329,351][INFO]: Waiting for pending navigations...
+[1605779329,353][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,373][INFO]: Waiting for pending navigations...
+[1605779329,375][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,375][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779329,386][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779329,386][INFO]: Waiting for pending navigations...
+[1605779329,390][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,417][INFO]: Waiting for pending navigations...
+[1605779329,419][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,419][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779329,630][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779329,630][INFO]: Waiting for pending navigations...
+[1605779329,632][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,652][INFO]: Waiting for pending navigations...
+[1605779329,654][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,654][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "5a92be31-92f7-4800-9cd1-bf19ed55bdbf"
+}
+[1605779329,726][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND ExecuteScript {
+   "args": [ {
+      "element-6066-11e4-a52e-4f735466cecf": "5a92be31-92f7-4800-9cd1-bf19ed55bdbf"
+   } ],
+   "script": "return (function(){return function(){var k=this;function l(a){return void 0!==a}function m(a){return\"string\"==typeof a}function aa(a,b){a=a.split(\".\");var c=k;a[0]in c||!c.execScript||c.execScript(..."
+}
+[1605779329,726][INFO]: Waiting for pending navigations...
+[1605779329,727][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,744][INFO]: Waiting for pending navigations...
+[1605779329,745][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,745][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE ExecuteScript true
+[1605779329,750][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND ClickElement {
+   "id": "5a92be31-92f7-4800-9cd1-bf19ed55bdbf"
+}
+[1605779329,750][INFO]: Waiting for pending navigations...
+[1605779329,751][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,807][INFO]: Waiting for pending navigations...
+[1605779329,808][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,809][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE ClickElement
+[1605779329,812][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'PickUp Location']"
+}
+[1605779329,812][INFO]: Waiting for pending navigations...
+[1605779329,813][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,817][INFO]: Waiting for pending navigations...
+[1605779329,819][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,819][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "6bd871ab-0ea9-44e3-b85b-ed99315b80ef"
+}
+[1605779329,823][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND TypeElement {
+   "id": "6bd871ab-0ea9-44e3-b85b-ed99315b80ef",
+   "text": "New York",
+   "value": [ "N", "e", "w", " ", "Y", "o", "r", "k" ]
+}
+[1605779329,823][INFO]: Waiting for pending navigations...
+[1605779329,824][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,885][INFO]: Waiting for pending navigations...
+[1605779329,891][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,891][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE TypeElement
+[1605779329,894][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779329,894][INFO]: Waiting for pending navigations...
+[1605779329,895][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,900][INFO]: Waiting for pending navigations...
+[1605779329,901][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,901][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779329,904][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779329,904][INFO]: Waiting for pending navigations...
+[1605779329,905][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,909][INFO]: Waiting for pending navigations...
+[1605779329,910][INFO]: Done waiting for pending navigations. Status: ok
+[1605779329,910][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779330,116][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,116][INFO]: Waiting for pending navigations...
+[1605779330,118][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,139][INFO]: Waiting for pending navigations...
+[1605779330,141][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,141][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779330,150][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,150][INFO]: Waiting for pending navigations...
+[1605779330,152][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,171][INFO]: Waiting for pending navigations...
+[1605779330,173][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,173][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779330,381][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,381][INFO]: Waiting for pending navigations...
+[1605779330,382][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,392][INFO]: Waiting for pending navigations...
+[1605779330,392][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,392][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779330,397][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,397][INFO]: Waiting for pending navigations...
+[1605779330,398][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,404][INFO]: Waiting for pending navigations...
+[1605779330,404][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,404][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779330,612][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,612][INFO]: Waiting for pending navigations...
+[1605779330,614][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,637][INFO]: Waiting for pending navigations...
+[1605779330,638][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,638][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779330,647][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,648][INFO]: Waiting for pending navigations...
+[1605779330,650][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,674][INFO]: Waiting for pending navigations...
+[1605779330,676][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,676][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779330,883][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,883][INFO]: Waiting for pending navigations...
+[1605779330,883][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,888][INFO]: Waiting for pending navigations...
+[1605779330,888][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,888][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779330,891][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779330,891][INFO]: Waiting for pending navigations...
+[1605779330,892][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,896][INFO]: Waiting for pending navigations...
+[1605779330,896][INFO]: Done waiting for pending navigations. Status: ok
+[1605779330,896][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779331,101][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,101][INFO]: Waiting for pending navigations...
+[1605779331,101][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,107][INFO]: Waiting for pending navigations...
+[1605779331,108][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,108][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779331,111][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,111][INFO]: Waiting for pending navigations...
+[1605779331,112][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,122][INFO]: Waiting for pending navigations...
+[1605779331,123][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,123][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779331,330][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,330][INFO]: Waiting for pending navigations...
+[1605779331,331][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,356][INFO]: Waiting for pending navigations...
+[1605779331,357][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,357][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779331,363][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,363][INFO]: Waiting for pending navigations...
+[1605779331,364][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,372][INFO]: Waiting for pending navigations...
+[1605779331,372][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,373][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779331,579][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,579][INFO]: Waiting for pending navigations...
+[1605779331,581][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,600][INFO]: Waiting for pending navigations...
+[1605779331,601][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,601][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779331,609][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,609][INFO]: Waiting for pending navigations...
+[1605779331,611][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,627][INFO]: Waiting for pending navigations...
+[1605779331,629][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,629][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779331,837][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,837][INFO]: Waiting for pending navigations...
+[1605779331,839][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,858][INFO]: Waiting for pending navigations...
+[1605779331,859][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,859][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779331,866][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779331,866][INFO]: Waiting for pending navigations...
+[1605779331,868][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,883][INFO]: Waiting for pending navigations...
+[1605779331,884][INFO]: Done waiting for pending navigations. Status: ok
+[1605779331,884][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779332,092][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,092][INFO]: Waiting for pending navigations...
+[1605779332,094][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,112][INFO]: Waiting for pending navigations...
+[1605779332,114][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,114][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779332,121][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,121][INFO]: Waiting for pending navigations...
+[1605779332,123][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,134][INFO]: Waiting for pending navigations...
+[1605779332,135][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,135][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779332,341][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,341][INFO]: Waiting for pending navigations...
+[1605779332,343][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,361][INFO]: Waiting for pending navigations...
+[1605779332,363][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,363][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779332,370][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,370][INFO]: Waiting for pending navigations...
+[1605779332,372][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,381][INFO]: Waiting for pending navigations...
+[1605779332,382][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,382][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779332,588][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,588][INFO]: Waiting for pending navigations...
+[1605779332,590][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,608][INFO]: Waiting for pending navigations...
+[1605779332,610][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,610][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779332,617][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,617][INFO]: Waiting for pending navigations...
+[1605779332,618][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,635][INFO]: Waiting for pending navigations...
+[1605779332,636][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,637][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779332,847][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,847][INFO]: Waiting for pending navigations...
+[1605779332,849][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,869][INFO]: Waiting for pending navigations...
+[1605779332,870][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,870][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779332,879][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779332,879][INFO]: Waiting for pending navigations...
+[1605779332,881][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,897][INFO]: Waiting for pending navigations...
+[1605779332,898][INFO]: Done waiting for pending navigations. Status: ok
+[1605779332,898][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779333,106][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,106][INFO]: Waiting for pending navigations...
+[1605779333,107][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,126][INFO]: Waiting for pending navigations...
+[1605779333,127][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,127][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779333,135][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,135][INFO]: Waiting for pending navigations...
+[1605779333,137][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,154][INFO]: Waiting for pending navigations...
+[1605779333,155][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,156][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779333,365][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,365][INFO]: Waiting for pending navigations...
+[1605779333,367][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,388][INFO]: Waiting for pending navigations...
+[1605779333,388][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,388][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779333,392][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,392][INFO]: Waiting for pending navigations...
+[1605779333,392][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,399][INFO]: Waiting for pending navigations...
+[1605779333,399][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,399][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779333,603][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,603][INFO]: Waiting for pending navigations...
+[1605779333,604][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,609][INFO]: Waiting for pending navigations...
+[1605779333,610][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,610][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779333,612][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,612][INFO]: Waiting for pending navigations...
+[1605779333,613][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,617][INFO]: Waiting for pending navigations...
+[1605779333,618][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,618][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779333,821][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,821][INFO]: Waiting for pending navigations...
+[1605779333,822][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,827][INFO]: Waiting for pending navigations...
+[1605779333,828][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,828][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779333,831][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779333,831][INFO]: Waiting for pending navigations...
+[1605779333,836][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,840][INFO]: Waiting for pending navigations...
+[1605779333,841][INFO]: Done waiting for pending navigations. Status: ok
+[1605779333,841][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779334,046][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,046][INFO]: Waiting for pending navigations...
+[1605779334,048][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,069][INFO]: Waiting for pending navigations...
+[1605779334,070][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,070][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779334,077][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,077][INFO]: Waiting for pending navigations...
+[1605779334,079][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,098][INFO]: Waiting for pending navigations...
+[1605779334,099][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,099][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779334,307][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,308][INFO]: Waiting for pending navigations...
+[1605779334,309][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,328][INFO]: Waiting for pending navigations...
+[1605779334,330][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,330][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779334,338][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,338][INFO]: Waiting for pending navigations...
+[1605779334,340][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,356][INFO]: Waiting for pending navigations...
+[1605779334,358][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,358][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779334,567][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,567][INFO]: Waiting for pending navigations...
+[1605779334,568][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,587][INFO]: Waiting for pending navigations...
+[1605779334,588][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,588][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779334,595][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,595][INFO]: Waiting for pending navigations...
+[1605779334,597][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,614][INFO]: Waiting for pending navigations...
+[1605779334,615][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,615][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779334,824][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,824][INFO]: Waiting for pending navigations...
+[1605779334,826][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,846][INFO]: Waiting for pending navigations...
+[1605779334,847][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,847][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779334,853][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779334,853][INFO]: Waiting for pending navigations...
+[1605779334,854][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,862][INFO]: Waiting for pending navigations...
+[1605779334,864][INFO]: Done waiting for pending navigations. Status: ok
+[1605779334,864][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779335,070][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,070][INFO]: Waiting for pending navigations...
+[1605779335,072][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,092][INFO]: Waiting for pending navigations...
+[1605779335,093][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,093][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779335,099][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,099][INFO]: Waiting for pending navigations...
+[1605779335,100][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,108][INFO]: Waiting for pending navigations...
+[1605779335,109][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,109][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779335,315][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,315][INFO]: Waiting for pending navigations...
+[1605779335,317][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,334][INFO]: Waiting for pending navigations...
+[1605779335,335][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,335][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779335,339][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,339][INFO]: Waiting for pending navigations...
+[1605779335,340][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,346][INFO]: Waiting for pending navigations...
+[1605779335,347][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,347][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779335,554][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,554][INFO]: Waiting for pending navigations...
+[1605779335,556][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,574][INFO]: Waiting for pending navigations...
+[1605779335,575][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,575][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779335,580][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,580][INFO]: Waiting for pending navigations...
+[1605779335,581][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,588][INFO]: Waiting for pending navigations...
+[1605779335,590][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,590][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779335,803][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,803][INFO]: Waiting for pending navigations...
+[1605779335,824][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,858][INFO]: Waiting for pending navigations...
+[1605779335,860][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,860][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779335,867][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779335,867][INFO]: Waiting for pending navigations...
+[1605779335,869][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,880][INFO]: Waiting for pending navigations...
+[1605779335,881][INFO]: Done waiting for pending navigations. Status: ok
+[1605779335,881][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779336,089][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,089][INFO]: Waiting for pending navigations...
+[1605779336,091][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,111][INFO]: Waiting for pending navigations...
+[1605779336,112][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,112][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779336,120][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,120][INFO]: Waiting for pending navigations...
+[1605779336,122][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,144][INFO]: Waiting for pending navigations...
+[1605779336,151][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,151][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779336,360][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,360][INFO]: Waiting for pending navigations...
+[1605779336,361][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,366][INFO]: Waiting for pending navigations...
+[1605779336,367][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,367][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779336,369][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,369][INFO]: Waiting for pending navigations...
+[1605779336,370][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,375][INFO]: Waiting for pending navigations...
+[1605779336,376][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,376][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779336,579][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,579][INFO]: Waiting for pending navigations...
+[1605779336,580][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,585][INFO]: Waiting for pending navigations...
+[1605779336,585][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,585][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779336,588][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,588][INFO]: Waiting for pending navigations...
+[1605779336,589][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,594][INFO]: Waiting for pending navigations...
+[1605779336,595][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,595][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779336,799][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,799][INFO]: Waiting for pending navigations...
+[1605779336,800][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,806][INFO]: Waiting for pending navigations...
+[1605779336,807][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,807][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779336,811][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779336,811][INFO]: Waiting for pending navigations...
+[1605779336,812][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,820][INFO]: Waiting for pending navigations...
+[1605779336,821][INFO]: Done waiting for pending navigations. Status: ok
+[1605779336,821][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779337,030][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,030][INFO]: Waiting for pending navigations...
+[1605779337,032][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,057][INFO]: Waiting for pending navigations...
+[1605779337,059][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,059][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779337,066][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,067][INFO]: Waiting for pending navigations...
+[1605779337,068][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,101][INFO]: Waiting for pending navigations...
+[1605779337,102][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,102][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779337,310][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,310][INFO]: Waiting for pending navigations...
+[1605779337,312][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,335][INFO]: Waiting for pending navigations...
+[1605779337,337][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,337][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779337,346][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,346][INFO]: Waiting for pending navigations...
+[1605779337,349][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,373][INFO]: Waiting for pending navigations...
+[1605779337,376][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,376][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779337,587][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,587][INFO]: Waiting for pending navigations...
+[1605779337,589][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,608][INFO]: Waiting for pending navigations...
+[1605779337,610][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,610][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779337,616][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,617][INFO]: Waiting for pending navigations...
+[1605779337,618][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,635][INFO]: Waiting for pending navigations...
+[1605779337,637][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,637][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779337,845][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,845][INFO]: Waiting for pending navigations...
+[1605779337,847][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,867][INFO]: Waiting for pending navigations...
+[1605779337,869][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,869][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779337,875][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779337,875][INFO]: Waiting for pending navigations...
+[1605779337,877][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,894][INFO]: Waiting for pending navigations...
+[1605779337,895][INFO]: Done waiting for pending navigations. Status: ok
+[1605779337,895][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779338,104][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,104][INFO]: Waiting for pending navigations...
+[1605779338,106][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,124][INFO]: Waiting for pending navigations...
+[1605779338,126][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,126][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779338,133][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,133][INFO]: Waiting for pending navigations...
+[1605779338,134][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,151][INFO]: Waiting for pending navigations...
+[1605779338,153][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,153][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779338,359][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,359][INFO]: Waiting for pending navigations...
+[1605779338,361][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,381][INFO]: Waiting for pending navigations...
+[1605779338,382][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,382][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779338,388][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,389][INFO]: Waiting for pending navigations...
+[1605779338,390][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,407][INFO]: Waiting for pending navigations...
+[1605779338,409][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,409][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779338,616][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,617][INFO]: Waiting for pending navigations...
+[1605779338,617][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,626][INFO]: Waiting for pending navigations...
+[1605779338,626][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,626][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779338,629][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,629][INFO]: Waiting for pending navigations...
+[1605779338,630][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,637][INFO]: Waiting for pending navigations...
+[1605779338,637][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,637][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779338,844][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,844][INFO]: Waiting for pending navigations...
+[1605779338,846][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,873][INFO]: Waiting for pending navigations...
+[1605779338,874][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,875][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779338,882][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779338,882][INFO]: Waiting for pending navigations...
+[1605779338,883][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,903][INFO]: Waiting for pending navigations...
+[1605779338,904][INFO]: Done waiting for pending navigations. Status: ok
+[1605779338,904][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779339,116][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,116][INFO]: Waiting for pending navigations...
+[1605779339,118][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,136][INFO]: Waiting for pending navigations...
+[1605779339,137][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,138][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779339,144][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,144][INFO]: Waiting for pending navigations...
+[1605779339,146][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,163][INFO]: Waiting for pending navigations...
+[1605779339,165][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,165][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779339,373][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,373][INFO]: Waiting for pending navigations...
+[1605779339,374][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,393][INFO]: Waiting for pending navigations...
+[1605779339,394][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,394][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779339,400][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,400][INFO]: Waiting for pending navigations...
+[1605779339,402][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,419][INFO]: Waiting for pending navigations...
+[1605779339,421][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,421][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779339,628][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,628][INFO]: Waiting for pending navigations...
+[1605779339,629][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,635][INFO]: Waiting for pending navigations...
+[1605779339,636][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,636][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779339,639][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,639][INFO]: Waiting for pending navigations...
+[1605779339,641][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,646][INFO]: Waiting for pending navigations...
+[1605779339,647][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,647][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779339,852][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,852][INFO]: Waiting for pending navigations...
+[1605779339,854][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,876][INFO]: Waiting for pending navigations...
+[1605779339,877][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,877][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779339,883][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779339,883][INFO]: Waiting for pending navigations...
+[1605779339,883][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,891][INFO]: Waiting for pending navigations...
+[1605779339,892][INFO]: Done waiting for pending navigations. Status: ok
+[1605779339,892][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779340,096][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,097][INFO]: Waiting for pending navigations...
+[1605779340,097][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,103][INFO]: Waiting for pending navigations...
+[1605779340,103][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,103][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779340,107][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,107][INFO]: Waiting for pending navigations...
+[1605779340,107][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,112][INFO]: Waiting for pending navigations...
+[1605779340,113][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,113][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779340,316][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,316][INFO]: Waiting for pending navigations...
+[1605779340,317][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,323][INFO]: Waiting for pending navigations...
+[1605779340,324][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,324][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779340,327][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,327][INFO]: Waiting for pending navigations...
+[1605779340,328][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,333][INFO]: Waiting for pending navigations...
+[1605779340,333][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,333][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779340,538][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,539][INFO]: Waiting for pending navigations...
+[1605779340,540][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,559][INFO]: Waiting for pending navigations...
+[1605779340,560][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,560][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779340,567][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,567][INFO]: Waiting for pending navigations...
+[1605779340,568][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,582][INFO]: Waiting for pending navigations...
+[1605779340,583][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,583][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779340,788][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,788][INFO]: Waiting for pending navigations...
+[1605779340,789][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,799][INFO]: Waiting for pending navigations...
+[1605779340,800][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,800][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779340,804][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779340,804][INFO]: Waiting for pending navigations...
+[1605779340,805][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,813][INFO]: Waiting for pending navigations...
+[1605779340,817][INFO]: Done waiting for pending navigations. Status: ok
+[1605779340,817][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779341,021][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,022][INFO]: Waiting for pending navigations...
+[1605779341,022][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,040][INFO]: Waiting for pending navigations...
+[1605779341,045][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,045][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779341,049][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,049][INFO]: Waiting for pending navigations...
+[1605779341,051][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,062][INFO]: Waiting for pending navigations...
+[1605779341,063][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,063][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779341,267][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,267][INFO]: Waiting for pending navigations...
+[1605779341,268][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,272][INFO]: Waiting for pending navigations...
+[1605779341,273][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,273][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779341,275][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,275][INFO]: Waiting for pending navigations...
+[1605779341,276][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,280][INFO]: Waiting for pending navigations...
+[1605779341,280][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,280][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779341,485][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,485][INFO]: Waiting for pending navigations...
+[1605779341,487][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,510][INFO]: Waiting for pending navigations...
+[1605779341,512][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,512][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779341,518][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,518][INFO]: Waiting for pending navigations...
+[1605779341,519][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,538][INFO]: Waiting for pending navigations...
+[1605779341,539][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,540][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779341,745][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,745][INFO]: Waiting for pending navigations...
+[1605779341,745][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,750][INFO]: Waiting for pending navigations...
+[1605779341,751][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,751][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779341,753][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,753][INFO]: Waiting for pending navigations...
+[1605779341,754][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,758][INFO]: Waiting for pending navigations...
+[1605779341,759][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,759][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779341,963][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,963][INFO]: Waiting for pending navigations...
+[1605779341,965][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,988][INFO]: Waiting for pending navigations...
+[1605779341,990][INFO]: Done waiting for pending navigations. Status: ok
+[1605779341,990][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779341,995][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779341,995][INFO]: Waiting for pending navigations...
+[1605779341,996][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,013][INFO]: Waiting for pending navigations...
+[1605779342,014][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,014][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779342,218][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,218][INFO]: Waiting for pending navigations...
+[1605779342,219][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,223][INFO]: Waiting for pending navigations...
+[1605779342,224][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,224][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779342,226][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,226][INFO]: Waiting for pending navigations...
+[1605779342,227][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,231][INFO]: Waiting for pending navigations...
+[1605779342,232][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,232][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779342,436][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,436][INFO]: Waiting for pending navigations...
+[1605779342,438][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,458][INFO]: Waiting for pending navigations...
+[1605779342,459][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,459][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779342,463][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,464][INFO]: Waiting for pending navigations...
+[1605779342,464][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,472][INFO]: Waiting for pending navigations...
+[1605779342,473][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,473][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779342,676][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,676][INFO]: Waiting for pending navigations...
+[1605779342,677][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,682][INFO]: Waiting for pending navigations...
+[1605779342,683][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,683][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779342,685][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,685][INFO]: Waiting for pending navigations...
+[1605779342,686][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,690][INFO]: Waiting for pending navigations...
+[1605779342,690][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,690][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779342,895][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,895][INFO]: Waiting for pending navigations...
+[1605779342,897][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,921][INFO]: Waiting for pending navigations...
+[1605779342,922][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,922][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779342,930][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779342,930][INFO]: Waiting for pending navigations...
+[1605779342,932][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,949][INFO]: Waiting for pending navigations...
+[1605779342,951][INFO]: Done waiting for pending navigations. Status: ok
+[1605779342,951][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779343,159][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,159][INFO]: Waiting for pending navigations...
+[1605779343,160][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,179][INFO]: Waiting for pending navigations...
+[1605779343,181][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,181][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779343,187][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,187][INFO]: Waiting for pending navigations...
+[1605779343,189][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,206][INFO]: Waiting for pending navigations...
+[1605779343,208][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,208][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779343,415][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,416][INFO]: Waiting for pending navigations...
+[1605779343,417][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,436][INFO]: Waiting for pending navigations...
+[1605779343,437][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,437][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779343,444][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,444][INFO]: Waiting for pending navigations...
+[1605779343,446][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,462][INFO]: Waiting for pending navigations...
+[1605779343,464][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,464][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779343,669][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,669][INFO]: Waiting for pending navigations...
+[1605779343,670][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,677][INFO]: Waiting for pending navigations...
+[1605779343,678][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,678][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779343,681][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,681][INFO]: Waiting for pending navigations...
+[1605779343,682][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,688][INFO]: Waiting for pending navigations...
+[1605779343,689][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,689][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779343,895][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,895][INFO]: Waiting for pending navigations...
+[1605779343,896][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,915][INFO]: Waiting for pending navigations...
+[1605779343,916][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,917][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779343,922][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779343,922][INFO]: Waiting for pending navigations...
+[1605779343,924][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,940][INFO]: Waiting for pending navigations...
+[1605779343,941][INFO]: Done waiting for pending navigations. Status: ok
+[1605779343,942][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779344,148][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779344,148][INFO]: Waiting for pending navigations...
+[1605779344,150][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,168][INFO]: Waiting for pending navigations...
+[1605779344,170][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,170][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779344,176][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779344,176][INFO]: Waiting for pending navigations...
+[1605779344,178][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,194][INFO]: Waiting for pending navigations...
+[1605779344,196][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,196][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
+[1605779344,403][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779344,403][INFO]: Waiting for pending navigations...
+[1605779344,404][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,423][INFO]: Waiting for pending navigations...
+[1605779344,425][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,425][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"}
+  (Session info: chrome=84.0.4147.105)
+[1605779344,431][INFO]: [7fb5a923743cf8c72783c08406f08803] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"
+}
+[1605779344,431][INFO]: Waiting for pending navigations...
+[1605779344,433][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,453][INFO]: Waiting for pending navigations...
+[1605779344,455][INFO]: Done waiting for pending navigations. Status: ok
+[1605779344,455][INFO]: [7fb5a923743cf8c72783c08406f08803] RESPONSE FindElements [  ]
