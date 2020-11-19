@@ -34,7 +34,7 @@ public class CreateLoadMainFlow {
 
     createLoadPage.setDefaultLoadSettings();
     createLoadPage.getOffersTableFragment().searchDriver();    //выцепить имя и запомнить в стрингу
-//            .selectDriversFromDrvList()
+           // .selectDriversFromDrvList();
 //            .clickSaveLoadAndSendOffersBtn();
 //
 //    createLoadPage.getOfferFragment().selectOffersList()   ;  //собрать в колекцию весь список и сравнить его с selectDriversFromDrvList()
