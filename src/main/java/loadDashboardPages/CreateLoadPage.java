@@ -18,8 +18,8 @@ public class CreateLoadPage {
     public CreateLoadPage setDefaultLoadSettings(){
         getLoadSettingsFragment().setPickupDate(22,"Nov", 2020)
                 .setDeliveryDate(26,"Nov",2020)
-                .setPickupLocation("Toronto, ON, Canada")
-                .setDeliveryLocation("New Glarus, WI, United States")
+                .setPickupLocation("Toront")
+                .setDeliveryLocation("New Glaru")
                 .setPickupZipCode("123NY")
                 .setDeliveryZipCode("321CA")
                 .selectTrailerType("Dry-Van")
