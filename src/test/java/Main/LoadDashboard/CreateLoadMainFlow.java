@@ -5,7 +5,6 @@ import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
-import loadDashboardPages.fragments.OffersTableFragment;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
