@@ -33,6 +33,9 @@ public class FilterLoadPageFragment {
         return this;
     }
 
+
+
+
     public FilterLoadPageFragment inputTrailerType(String trailerType) {
         trailerTypeInput.sendKeys(trailerType);
         trailerTypeInput.pressEnter();
