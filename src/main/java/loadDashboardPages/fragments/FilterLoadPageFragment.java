@@ -13,9 +13,9 @@ public class FilterLoadPageFragment {
     SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']");
     SelenideElement statusInput = $x("//*[@placeholder = 'Status']//input");
     SelenideElement pickUpLocationInput = $x("//input[@placeholder = 'PickUp Location']");
-    ElementsCollection pickUpLocationElements = $$x("");
+    ElementsCollection pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']");
     SelenideElement deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']");
-    ElementsCollection deliveryLocationElements = $$x("");
+    ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']");
     SelenideElement trailerTypeInput = $x("//*[@placeholder = 'Trailer Type']//input");
     SelenideElement organizationInput = $x("//*[@placeholder = 'Organization']//input");
     SelenideElement driverInput = $x("//*[@placeholder = 'Driver']//input");
@@ -83,30 +83,76 @@ public class FilterLoadPageFragment {
         } else if(filterBy.equals("pickUpLocation")){
             j = 5;
         } else if(filterBy.equals("deliveryLocation")){
-            j = 6;
-        } else if(filterBy.equals("trailerType")){
             j = 7;
+        } else if(filterBy.equals("trailerType")){
+            j = 8;
         } else if(filterBy.equals("organization")){
-            j = 11;
-        } else if(filterBy.equals("driver")){
             j = 12;
+        } else if(filterBy.equals("driver")){
+            j = 13;
         } else {
             System.out.println("INPUT CORRECT FILTER BY");
         }
 
         sleep(500);
         int startSize = getTableSize();
-        System.out.println(startSize);
         int finishSize = 0;
         for(int i = 1 ; i <= startSize;i++){
-            System.out.println($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j +"]//span").getText());
-            if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j +"]//span").getText().equals(value)) {
-                finishSize++;
+            if(j == 5 || j == 7) {
+                System.out.println($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j + "]//span").getText().contains(value));
+                System.out.println($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j + "]//span").getText());
+                if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j + "]//span").getText().contains(value)) {
+                    finishSize++;
+                }
+            } else {
+                if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j + "]//span").getText().equals(value)) {
+                    finishSize++;
+                }
             }
         }
 
         Assert.assertEquals(startSize, finishSize);
 
         return this;
+    }
+
+    public void checkAll(String loadId, String status, String pickUpLocation, String deliveryLocation, String trailerType, String organization, String driver){
+        sleep(500);
+        int startSize = getTableSize();
+        int finishSize = 0;
+
+        for(int i = 1 ; i <= startSize;i++){
+            if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//span").getText().equals(loadId)){
+                if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[3]//span").getText().equals(status)){
+                    if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[5]//span").getText().contains(pickUpLocation)){
+                        if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[7]//span").getText().contains(deliveryLocation)){
+                            if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[8]//span").getText().equals(trailerType)){
+                                if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[12]//span").getText().equals(organization)){
+                                    if($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(driver)){
+                                        finishSize++;
+                                    } else {
+                                        Assert.assertFalse(true);
+                                    }
+                                } else {
+                                    Assert.assertFalse(true);
+                                }
+                            } else {
+                                Assert.assertFalse(true);
+                            }
+                        } else {
+                            Assert.assertFalse(true);
+                        }
+                    } else {
+                        Assert.assertFalse(true);
+                    }
+                } else {
+                    Assert.assertFalse(true);
+                }
+            } else {
+                Assert.assertFalse(true);
+            }
+        }
+
+        Assert.assertEquals(startSize, finishSize);
     }
 }
