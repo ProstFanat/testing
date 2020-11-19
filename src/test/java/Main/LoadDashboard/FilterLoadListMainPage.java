@@ -34,9 +34,9 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByLoadId(){
-        filterLoadPageFragment.inputLoadId("624")
+        filterLoadPageFragment.inputLoadId("647")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("loadId", "624");
+        filterLoadPageFragment.checkTable("loadId", "647");
     }
 
     @Test
@@ -69,29 +69,29 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByOrganization(){
-        filterLoadPageFragment.inputOrganization("")
+        filterLoadPageFragment.inputOrganization("Abc")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("organization", "dry-van");
+        filterLoadPageFragment.checkTable("organization", "Abc");
     }
 
     @Test
     public void filterByDriver(){
-        filterLoadPageFragment.inputDriver("")
+        filterLoadPageFragment.inputDriver("Bill Driver")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("driver", "");
+        filterLoadPageFragment.checkTable("driver", "Bill Driver");
     }
 
     @Test
     public void filterByUsingAllFilters(){
-        filterLoadPageFragment.inputLoadId("642")
-                .inputStatus("Prebooked")
+        filterLoadPageFragment.inputLoadId("647")
+                .inputStatus("Delivered")
                 .inputPickUpLocation("Toronto")
                 .inputDeliveryLocation("West New York")
                 .inputTrailerType("dry-van")
-                .inputOrganization("")
-                .inputDriver("")
+                .inputOrganization("Abc")
+                .inputDriver("Bill Driver")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkAll("642", "Prebooked", "Toronto", "West New York", "dry-van", "", "");
+        filterLoadPageFragment.checkAll("647", "Delivered", "Toronto", "West New York", "dry-van", "Abc", "Bill Driver");
     }
 
 
