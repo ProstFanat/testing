@@ -98,8 +98,6 @@ public class FilterLoadPageFragment {
         int finishSize = 0;
         for (int i = 1; i <= startSize; i++) {
             if (j == 5 || j == 7) {
-                System.out.println($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j + "]//span").getText().contains(value));
-                System.out.println($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j + "]//span").getText());
                 if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[" + j + "]//span").getText().contains(value)) {
                     finishSize++;
                 }
