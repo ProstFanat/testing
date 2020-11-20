@@ -1,16 +1,14 @@
 package Main.LoadDashboard;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import loadDashboardPages.CreateLoadPage;
 import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
-import loadDashboardPages.fragments.OffersTableFragment;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
 public class CreateLoadMainFlow {
@@ -18,38 +16,29 @@ public class CreateLoadMainFlow {
     @BeforeClass
     public static void setup() {
         Configuration.timeout = 10000;
-        Configuration.startMaximized =true;
+        Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
     }
 
-@Test
-    public void createNewLoad(){
-    LoginPage loginPage = new LoginPage();
-    MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
-    CreateLoadPage createLoadPage = new CreateLoadPage();
-    LoadListPage loadListPage = new LoadListPage();
-    //OffersTableFragment offersTableFragment = new OffersTableFragment();
+    @Test
+    public void createNewLoad() {
+        LoginPage loginPage = new LoginPage();
+        MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
+        CreateLoadPage createLoadPage = new CreateLoadPage();
+        LoadListPage loadListPage = new LoadListPage();
 
-    loginPage.login("5", "test");
+        loginPage.login("5", "test");
 
-    mainAdminScreenPage.clickLoadSearchBtn();
+        mainAdminScreenPage.clickLoadSearchBtn();
 
-    loadListPage.clickNewLoadBtn();
+        loadListPage.clickNewLoadBtn();
 
-    createLoadPage.setDefaultLoadSettings();
-    createLoadPage.getOffersTableFragment().searchAndSelectDrivers();//.toString();//выцепить имя и запомнить в стрингу
-    createLoadPage.getOffersTableFragment().rememberDrivers();
-    createLoadPage.getOffersTableFragment().clickSaveLoadAndSendOffersBtn();
-    createLoadPage.getOffersTableFragment().getOffers();
+        createLoadPage.setDefaultLoadSettings();
+        createLoadPage.getOffersTableFragment().searchDrivers()
+                .selectDrivers()
+                .clickSaveLoadAndSendOffersBtn() ;
 
-    createLoadPage.getOffersTableFragment().checkDrivers();
+        createLoadPage.getOffersTableFragment().checkDriversName();
 
-//    createLoadPage.getOfferFragment().selectOffersList()   ;  //собрать в колекцию весь список и сравнить его с selectDriversFromDrvList()
-
-
-
-}
-
-
-
+    }
 }
