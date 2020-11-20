@@ -1,16 +1,13 @@
 package Main.LoadDashboard;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import loadDashboardPages.CreateLoadPage;
-import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
-import loadDashboardPages.fragments.OffersTableFragment;
+import loadDashboardPages.CreateLoadPage;
+import loadDashboardPages.LoadListPage;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
 public class CreateLoadMainFlow {
