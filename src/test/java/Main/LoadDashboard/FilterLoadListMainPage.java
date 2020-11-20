@@ -34,16 +34,16 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByLoadId(){
-        filterLoadPageFragment.inputLoadId("647")
+        filterLoadPageFragment.inputLoadId("658")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("loadId", "647");
+        filterLoadPageFragment.checkTable("loadId", "658");
     }
 
     @Test
     public void filterByStatus(){
-        filterLoadPageFragment.inputStatus("Prebooked")
+        filterLoadPageFragment.inputStatus("Booked")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("status", "Prebooked");
+        filterLoadPageFragment.checkTable("status", "Booked");
     }
 
     @Test
@@ -55,7 +55,7 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByDeliveryLocation(){
-        filterLoadPageFragment.inputDeliveryLocation("West New York")
+        filterLoadPageFragment.inputDeliveryLocation("New York")
                 .clickBtnFilter();
         filterLoadPageFragment.checkTable("deliveryLocation", "West New York");
     }
@@ -69,29 +69,29 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByOrganization(){
-        filterLoadPageFragment.inputOrganization("Abc")
+        filterLoadPageFragment.inputOrganization("Test with TP 2")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("organization", "Abc");
+        filterLoadPageFragment.checkTable("organization", "Test with TP 2");
     }
 
     @Test
     public void filterByDriver(){
-        filterLoadPageFragment.inputDriver("Bill Driver")
+        filterLoadPageFragment.inputDriver("VASILII MOUZIKA")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("driver", "Bill Driver");
+        filterLoadPageFragment.checkTable("driver", "VASILII MOUZIKA");
     }
 
     @Test
     public void filterByUsingAllFilters(){
-        filterLoadPageFragment.inputLoadId("647")
+        filterLoadPageFragment.inputLoadId("658")
                 .inputStatus("Delivered")
                 .inputPickUpLocation("Toronto")
                 .inputDeliveryLocation("West New York")
                 .inputTrailerType("dry-van")
-                .inputOrganization("Abc")
-                .inputDriver("Bill Driver")
+                .inputOrganization("Test with TP 2")
+                .inputDriver("VASILII MOUZIKA")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkAll("647", "Delivered", "Toronto", "West New York", "dry-van", "Abc", "Bill Driver");
+        filterLoadPageFragment.checkAll("658", "Delivered", "Toronto", "West New York", "dry-van", "Test with TP 2", "VASILII MOUZIKA");
     }
 
 

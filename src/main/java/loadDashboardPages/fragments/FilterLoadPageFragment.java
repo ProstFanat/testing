@@ -11,6 +11,7 @@ public class FilterLoadPageFragment {
 
     SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']");
     SelenideElement statusInput = $x("//*[@placeholder = 'Status']//input");
+    ElementsCollection statusElements = $$x("//*[@placeholder = 'Status']//*[@role = 'option']");
     SelenideElement pickUpLocationInput = $x("//input[@placeholder = 'PickUp Location']");
     ElementsCollection pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']");
     SelenideElement deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']");
@@ -21,7 +22,6 @@ public class FilterLoadPageFragment {
     SelenideElement btnFilter = $x("//button[text() = ' Filter ']");
     public ElementsCollection tableSize = $$x("//datatable-row-wrapper");
 
-
     public FilterLoadPageFragment inputLoadId(String id) {
         loadIdInput.sendKeys(id);
         return this;
@@ -29,7 +29,12 @@ public class FilterLoadPageFragment {
 
     public FilterLoadPageFragment inputStatus(String status) {
         statusInput.sendKeys(status);
-        statusInput.pressEnter();
+        for(int i = 1; i < statusElements.size(); i++){
+            if(statusElements.get(i).getText().startsWith(status)){
+                statusElements.get(i).click();
+            }
+        }
+        //statusInput.pressEnter();
         return this;
     }
 
@@ -53,13 +58,23 @@ public class FilterLoadPageFragment {
 
     public FilterLoadPageFragment inputPickUpLocation(String city) {
         pickUpLocationInput.sendKeys(city);
-        pickUpLocationElements.first().click();
+        for(int i = 1; i < pickUpLocationElements.size(); i++){
+            if(pickUpLocationElements.get(i).getText().startsWith(city)){
+                pickUpLocationElements.get(i).click();
+            }
+        }
+//        pickUpLocationElements.first().click();
         return this;
     }
 
     public FilterLoadPageFragment inputDeliveryLocation(String city) {
         deliveryLocationInput.sendKeys(city);
-        deliveryLocationElements.first().click();
+        for(int i = 1; i < deliveryLocationElements.size(); i++){
+            if(deliveryLocationElements.get(i).getText().startsWith(city)){
+                deliveryLocationElements.get(i).click();
+            }
+        }
+        //deliveryLocationElements.first().click();
         return this;
     }
 
@@ -119,32 +134,15 @@ public class FilterLoadPageFragment {
         int finishSize = 0;
 
         for (int i = 1; i <= startSize; i++) {
-            if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//span").getText().equals(loadId)) {
-                if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[3]//span").getText().equals(status)) {
-                    if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[5]//span").getText().contains(pickUpLocation)) {
-                        if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[7]//span").getText().contains(deliveryLocation)) {
-                            if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[8]//span").getText().equals(trailerType)) {
-                                if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[12]//span").getText().equals(organization)) {
-                                    if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(driver)) {
-                                        finishSize++;
-                                    } else {
-                                        Assert.assertFalse(true);
-                                    }
-                                } else {
-                                    Assert.assertFalse(true);
-                                }
-                            } else {
-                                Assert.assertFalse(true);
-                            }
-                        } else {
-                            Assert.assertFalse(true);
-                        }
-                    } else {
-                        Assert.assertFalse(true);
-                    }
-                } else {
-                    Assert.assertFalse(true);
-                }
+            if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//span").getText().equals(loadId)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[3]//span").getText().equals(status)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[5]//span").getText().contains(pickUpLocation)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[7]//span").getText().contains(deliveryLocation)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[8]//span").getText().equals(trailerType)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[12]//span").getText().equals(organization)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(driver)
+            ) {
+                finishSize++;
             } else {
                 Assert.assertFalse(true);
             }
