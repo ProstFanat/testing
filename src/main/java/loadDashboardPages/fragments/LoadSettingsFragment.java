@@ -26,6 +26,9 @@ public class LoadSettingsFragment {
     SelenideElement itemTypeInput = $x("//input[@id='itemType']");
     SelenideElement dimensionsInput = $x("//input[@id='dimensions']");
     SelenideElement commentInput = $x("//textarea[@id='comments']");
+    ElementsCollection pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']");
+    ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']");
+SelenideElement fullPart = $x("//select[@id = 'fp']");
 
     public LoadSettingsFragment setPickupDate(int day, String month, int year) {
         pickupDatePickerField.click();
@@ -47,16 +50,17 @@ public class LoadSettingsFragment {
         return this;
     }
 
-    public LoadSettingsFragment setPickupLocation(String fullLocationName) {
-        pickupLocationInput.click();
-        pickupLocationInput.val(fullLocationName).pressEnter();
+    public LoadSettingsFragment setPickupLocation(String partLocationName) {
+        pickupLocationInput.sendKeys(partLocationName);
+        pickUpLocationElements.first().click();
         return this;
     }
 
-    public LoadSettingsFragment setDeliveryLocation(String fullLocationName) {
-        deliveryLocationInput.click();
-        deliveryLocationInput.val(fullLocationName).pressEnter();
+    public LoadSettingsFragment setDeliveryLocation(String partLocationName) {
+        deliveryLocationInput.sendKeys(partLocationName);
+        deliveryLocationElements.first().click();
         return this;
+
     }
 
     public LoadSettingsFragment setPickupZipCode(String zipCode) {
@@ -97,7 +101,9 @@ public class LoadSettingsFragment {
     }
 
     public LoadSettingsFragment selectFP(String FullOrPart) {
-        itemTypeInput.setValue(FullOrPart).pressEnter();
+        fullPart.click();
+        fullPart.sendKeys(FullOrPart);
+        fullPart.pressEnter();
         return this;
     }
 
