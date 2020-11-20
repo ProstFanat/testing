@@ -10,15 +10,14 @@ public class OffersTableFragment {
 
 SelenideElement radiusPlaceHolder = $x("//input[@placeholder='Radius']");
     SelenideElement searchDriversBtn = $x("//button[contains(text(), 'Search ')]");
-    ElementsCollection driversCollection = $$x("");
 
 
     public void searchDriver() {
         radiusPlaceHolder.setValue("10");
         searchDriversBtn.click();
-        driversCollection.get(0).click();
-        driversCollection.get(1).click();
-        driversCollection.get(2).click();
+//        driversCollection.get(0).click();
+//        driversCollection.get(1).click();
+//        driversCollection.get(2).click();
 
     }
 }

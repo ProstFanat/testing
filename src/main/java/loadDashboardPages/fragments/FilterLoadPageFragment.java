@@ -122,32 +122,15 @@ public class FilterLoadPageFragment {
         int finishSize = 0;
 
         for (int i = 1; i <= startSize; i++) {
-            if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//span").getText().equals(loadId)) {
-                if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[3]//span").getText().equals(status)) {
-                    if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[5]//span").getText().contains(pickUpLocation)) {
-                        if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[7]//span").getText().contains(deliveryLocation)) {
-                            if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[8]//span").getText().equals(trailerType)) {
-                                if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[12]//span").getText().equals(organization)) {
-                                    if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(driver)) {
-                                        finishSize++;
-                                    } else {
-                                        Assert.assertFalse(true);
-                                    }
-                                } else {
-                                    Assert.assertFalse(true);
-                                }
-                            } else {
-                                Assert.assertFalse(true);
-                            }
-                        } else {
-                            Assert.assertFalse(true);
-                        }
-                    } else {
-                        Assert.assertFalse(true);
-                    }
-                } else {
-                    Assert.assertFalse(true);
-                }
+            if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//span").getText().equals(loadId)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[3]//span").getText().equals(status)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[5]//span").getText().contains(pickUpLocation)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[7]//span").getText().contains(deliveryLocation)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[8]//span").getText().equals(trailerType)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[12]//span").getText().equals(organization)
+                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(driver)
+            ) {
+                finishSize++;
             } else {
                 Assert.assertFalse(true);
             }
