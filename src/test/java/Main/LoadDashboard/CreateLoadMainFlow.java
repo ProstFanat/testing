@@ -36,8 +36,7 @@ public class CreateLoadMainFlow {
         createLoadPage.setDefaultLoadSettings();
         createLoadPage.getOffersTableFragment().searchDrivers()
                 .selectDrivers()
-                .clickSaveLoadAndSendOffersBtn() ;
-
+                .clickSaveLoadAndSendOffersBtn();
         createLoadPage.getOffersTableFragment().checkDriversName();
 
     }

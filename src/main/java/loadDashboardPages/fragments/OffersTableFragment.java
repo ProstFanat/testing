@@ -4,8 +4,10 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.codeborne.selenide.Selenide.*;
 
 public class OffersTableFragment {
 
@@ -14,6 +16,7 @@ public class OffersTableFragment {
     ElementsCollection driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]");
     SelenideElement SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']");
     ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]");
+    List<String> drivers = new ArrayList<>();
 
     public OffersTableFragment searchDrivers() {
         radiusPlaceHolder.setValue("7");
@@ -21,30 +24,24 @@ public class OffersTableFragment {
         return this;
     }
 
-
-    public OffersTableFragment selectDrivers(){
-        for (int i = 0; i <= driversCollection.size(); i++) {
+    public OffersTableFragment selectDrivers() {
+        sleep(5000);
+        for (int i = 0; i < driversCollection.size(); i++) {
             driversCollection.get(i).click();
+            drivers.add(driversCollection.get(i).getText());
         }
         return this;
     }
-
 
     public OffersTableFragment clickSaveLoadAndSendOffersBtn() {
         SaveLoadAndSendOffersBtn.click();
         return this;
     }
 
-
     public OffersTableFragment checkDriversName() {
-        for (int i = 0; i <= driversCollectionOnOffers.size(); i++)
-            driversCollectionOnOffers.get(i).shouldHave(Condition.text(driversCollection.get(i).getText()));
+        sleep(5000);
+        for (int i = 0; i < driversCollectionOnOffers.size(); i++)
+            driversCollectionOnOffers.get(i).shouldHave(Condition.text(drivers.get(i)));
         return this;
-    }
-
-
-
-    public ElementsCollection checkDrivers() {
-        return driversCollectionOnOffers;
     }
 }
