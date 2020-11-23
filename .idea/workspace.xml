@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ca7147b9-8ccc-48ae-8096-650f6d821650" name="Default Changelist" comment="add project" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="LoadDashboard" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kPqARGGkQJaYbWPgGgVBccuZij" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2045977" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/.." />
+      <recent name="$PROJECT_DIR$/src/test/java/fleetEvents/fleet" />
+      <recent name="$PROJECT_DIR$/src/test/java/fleetEvents" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.FilterLoadListMainPage.filterByOrganization">
+    <configuration name="CreateLoadMainFlow.createNewLoad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.LoadDashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main.LoadDashboard" />
+      <option name="MAIN_CLASS_NAME" value="Main.LoadDashboard.CreateLoadMainFlow" />
+      <option name="METHOD_NAME" value="createNewLoad" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterLoadListMainPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.LoadDashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main.LoadDashboard" />
+      <option name="MAIN_CLASS_NAME" value="Main.LoadDashboard.FilterLoadListMainPage" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterLoadListMainPage.filterByOrganization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.LoadDashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main.LoadDashboard" />
+      <option name="MAIN_CLASS_NAME" value="Main.LoadDashboard.FilterLoadListMainPage" />
+      <option name="METHOD_NAME" value="filterByOrganization" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterLoadListMainPage.filterByPickUpLocation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.LoadDashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main.LoadDashboard" />
+      <option name="MAIN_CLASS_NAME" value="Main.LoadDashboard.FilterLoadListMainPage" />
+      <option name="METHOD_NAME" value="filterByPickUpLocation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterLoadListMainPage.filterByStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.LoadDashboard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main.LoadDashboard" />
+      <option name="MAIN_CLASS_NAME" value="Main.LoadDashboard.FilterLoadListMainPage" />
+      <option name="METHOD_NAME" value="filterByStatus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FilterLoadListMainPage.filterByOrganization" />
+        <item itemvalue="JUnit.FilterLoadListMainPage" />
+        <item itemvalue="JUnit.CreateLoadMainFlow.createNewLoad" />
+        <item itemvalue="JUnit.FilterLoadListMainPage.filterByPickUpLocation" />
+        <item itemvalue="JUnit.FilterLoadListMainPage.filterByStatus" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca7147b9-8ccc-48ae-8096-650f6d821650" name="Default Changelist" comment="" />
+      <created>1605612430821</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605612430821</updated>
+    </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1605612730638</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605612730638</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Настройка проэкта">
+      <created>1605616319364</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605616319364</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Готово для использования">
+      <created>1605616841793</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605616841793</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test">
+      <created>1605617736812</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605617736812</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test">
+      <created>1605619856498</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605619856498</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test">
+      <created>1605623376107</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605623376107</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test">
+      <created>1605623460823</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605623460823</updated>
+    </task>
+    <task id="LOCAL-00008" summary="ya ebal v rot">
+      <created>1605627344635</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605627344635</updated>
+    </task>
+    <task id="LOCAL-00009" summary="добавил шпоргалки)">
+      <created>1605691507972</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605691507972</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Добавил ветку FleetEvents">
+      <created>1605694136620</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605694136620</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Добавил ветку dispatcherManager">
+      <created>1605695626343</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1605695626343</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Добавил ветку eldTransactionManagment">
+      <created>1605695807794</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1605695807794</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Добавил ветку fleetEventsOld">
+      <created>1605696408057</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1605696408057</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Добавил ветку fleetEventsOld">
+      <created>1605696950834</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1605696950834</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Добавил ветку TGLN">
+      <created>1605697213518</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1605697213518</updated>
+    </task>
+    <task id="LOCAL-00016" summary="добавил по пикерам">
+      <created>1605699753372</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1605699753372</updated>
+    </task>
+    <task id="LOCAL-00017" summary="АХхахахкахаха">
+      <created>1605704323141</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605704323141</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Сделать на весь экран">
+      <created>1605706675187</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1605706675187</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Сделаль филтьтр по таблице">
+      <created>1605710061330</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1605710061330</updated>
+    </task>
+    <task id="LOCAL-00020" summary="переделал метод checkTable&#10;добавил Junit">
+      <created>1605714026476</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1605714026476</updated>
+    </task>
+    <task id="LOCAL-00021" summary="написал позитивные тесты по фильтрации лоадов">
+      <created>1605780790197</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1605780790197</updated>
+    </task>
+    <task id="LOCAL-00022" summary="test">
+      <created>1605790922918</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1605790922918</updated>
+    </task>
+    <task id="LOCAL-00023" summary="test">
+      <created>1605791185810</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1605791185810</updated>
+    </task>
+    <task id="LOCAL-00024" summary="test">
+      <created>1605791759287</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1605791759287</updated>
+    </task>
+    <task id="LOCAL-00025" summary="обновил метод checkAll">
+      <created>1605866058333</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1605866058333</updated>
+    </task>
+    <task id="LOCAL-00026" summary="обновил методы по работе со статусами и локейшинам">
+      <created>1605873195881</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1605873195881</updated>
+    </task>
+    <task id="LOCAL-00027" summary="test">
+      <created>1606124097082</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1606124097082</updated>
+    </task>
+    <task id="LOCAL-00028" summary="test">
+      <created>1606124806422</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1606124806422</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add project">
+      <created>1606124956159</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1606124956159</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Настройка проэкта" />
+    <MESSAGE value="Готово для использования" />
+    <MESSAGE value="ya ebal v rot" />
+    <MESSAGE value="добавил шпоргалки)" />
+    <MESSAGE value="Добавил ветку FleetEvents" />
+    <MESSAGE value="Добавил ветку dispatcherManager" />
+    <MESSAGE value="Добавил ветку eldTransactionManagment" />
+    <MESSAGE value="Добавил ветку fleetEventsOld" />
+    <MESSAGE value="Добавил ветку TGLN" />
+    <MESSAGE value="добавил по пикерам" />
+    <MESSAGE value="АХхахахкахаха" />
+    <MESSAGE value="Сделать на весь экран" />
+    <MESSAGE value="Сделаль филтьтр по таблице" />
+    <MESSAGE value="переделал метод checkTable&#10;добавил Junit" />
+    <MESSAGE value="написал позитивные тесты по фильтрации лоадов" />
+    <MESSAGE value="обновил метод checkAll" />
+    <MESSAGE value="обновил методы по работе со статусами и локейшинам" />
+    <MESSAGE value="test" />
+    <MESSAGE value="add project" />
+    <option name="LAST_COMMIT_MESSAGE" value="add project" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="686" y="330" width="537" height="385" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605790834892">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="686" y="330" width="537" height="385" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605790834892" />
+    <state x="768" y="235" width="374" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1605624630011">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="768" y="235" width="374" height="576" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605624630011" />
+    <state x="705" y="409" width="500" height="228" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605800612410">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="705" y="409" width="500" height="228" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605800612410" />
+    <state x="100" y="99" width="1720" height="853" key="DiffContextDialog" timestamp="1605617905347">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="100" y="99" width="1720" height="853" key="DiffContextDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605617905347" />
+    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl" timestamp="1606124745759">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="743" y="283" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1606124745759" />
+    <state width="1878" height="346" key="GridCell.Tab.0.bottom" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state width="1878" height="346" key="GridCell.Tab.0.center" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.0.center/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state width="1878" height="346" key="GridCell.Tab.0.left" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.0.left/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state width="1878" height="346" key="GridCell.Tab.0.right" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.0.right/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state width="1878" height="346" key="GridCell.Tab.1.bottom" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state width="1878" height="346" key="GridCell.Tab.1.center" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.1.center/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state width="1878" height="346" key="GridCell.Tab.1.left" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.1.left/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state width="1878" height="346" key="GridCell.Tab.1.right" timestamp="1605888446257">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="346" key="GridCell.Tab.1.right/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605888446257" />
+    <state x="493" y="183" width="924" height="679" key="Maven.ArtifactSearchDialog" timestamp="1605623992790">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="493" y="183" width="924" height="679" key="Maven.ArtifactSearchDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605623992790" />
+    <state x="182" y="87" width="1536" height="867" key="MergeDialog" timestamp="1605880236392">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="182" y="87" width="1536" height="867" key="MergeDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605880236392" />
+    <state x="586" y="230" width="715" height="466" key="MultipleFileMergeDialog" timestamp="1605866093684">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="586" y="230" width="715" height="466" key="MultipleFileMergeDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605866093684" />
+    <state x="443" y="103" width="1024" height="840" key="SettingsEditor" timestamp="1605623126753">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="443" y="103" width="1024" height="840" key="SettingsEditor/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605623126753" />
+    <state x="100" y="99" width="1720" height="853" key="ShowDiffWithBranchDialog" timestamp="1605617905347">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="100" y="99" width="1720" height="853" key="ShowDiffWithBranchDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605617905347" />
+    <state x="555" y="261" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1606124962677">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="555" y="261" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1606124962677" />
+    <state x="100" y="99" width="1720" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605687472615">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="100" y="99" width="1720" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605687472615" />
+    <state x="100" y="99" width="1720" height="853" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1605687472615">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="100" y="99" width="1720" height="853" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605687472615" />
+    <state x="768" y="442" width="373" height="161" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606125155174">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="768" y="442" width="373" height="161" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1606125155174" />
+    <state x="720" y="242" width="470" height="562" key="git4idea.branch.GitSmartOperationDialog" timestamp="1606124880949">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="720" y="242" width="470" height="562" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1606124880949" />
+    <state x="376" y="230" width="1157" height="585" key="new project wizard" timestamp="1605620663740">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="376" y="230" width="1157" height="585" key="new project wizard/0.0.1920.1053/1920.0.1680.1050@0.0.1920.1053" timestamp="1605620663740" />
+  </component>
+</project>
