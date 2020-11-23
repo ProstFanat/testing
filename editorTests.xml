@@ -1,0 +1,10 @@
+<suite name="EditorTests" verbose="1">
+    <test name="Editor">
+        <classes>
+            <class name="logic.EditorTests.CreateToolTest"/>
+            <class name="logic.EditorTests.ShiftToolTest"/>
+            <class name="logic.EditorTests.TransferTests"/>
+            <class name="logic.EditorTests.DeleteToolTest"/>
+        </classes>
+    </test>
+</suite>

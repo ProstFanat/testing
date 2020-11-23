@@ -1,0 +1,10 @@
+<suite name="ProfilesTest" verbose="1">
+    <test name="Profiles">
+        <classes>
+            <class name="logic.RegistrationTest"/>
+            <class name="logic.AddAndEditDriverProfileTests"/>
+            <class name="logic.assetsTest.AddAndEditTruckProfileTests"/>
+            <class name="logic.assetsTest.AddAndEditTrailerProfileTests"/>
+        </classes>
+    </test>
+</suite>

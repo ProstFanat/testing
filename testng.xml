@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suites>
+    <suite name="Test" verbose="1">
+        <test name="TestName">
+            <classes>
+                <class name="logic.EditorTests.CreateToolTest"/>
+                <class name="logic.EditorTests.ShiftToolTest"/>
+                <class name="logic.EditorTests.TransferTests"/>
+                <class name="logic.EditorTests.DeleteToolTest"/>
+                <class name="logic.assetsTest.AddAndEditTrailerProfileTests"/>
+                <class name="logic.assetsTest.AddAndEditTruckProfileTests"/>
+                <class name="logic.smokeTests.DisplayElementsOnPageTest"/>
+                <class name="logic.smokeTests.HosAndFmcsaReportsTest"/>
+                <class name="logic.AddAndEditDriverProfileTests"/>
+                <class name="logic.RegistrationTest"/>
+            </classes>
+        </test>
+    </suite>
+</suites>
+

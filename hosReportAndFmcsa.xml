@@ -1,0 +1,7 @@
+<suite name="Reports" verbose="1">
+    <test name="HOS">
+        <classes>
+            <class name="logic.EventsCsvAndDbTests"/>
+        </classes>
+    </test>
+</suite>
