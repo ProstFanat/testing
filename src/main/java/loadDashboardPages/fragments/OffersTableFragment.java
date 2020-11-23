@@ -38,10 +38,16 @@ public class OffersTableFragment {
         return this;
     }
 
-    public OffersTableFragment checkDriversName() {
-        sleep(5000);
+    public OffersTableFragment checkDriversName() throws Exception {
+        try{
         for (int i = 0; i < driversCollectionOnOffers.size(); i++)
             driversCollectionOnOffers.get(i).shouldHave(Condition.text(drivers.get(i)));
         return this;
+        } catch (Exception e) {
+            throw new Exception("Test Failed");
+        }
+
     }
+
+
 }

@@ -28,7 +28,7 @@ public class LoadSettingsFragment {
     SelenideElement commentInput = $x("//textarea[@id='comments']");
     ElementsCollection pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']");
     ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']");
-SelenideElement fullPart = $x("//select[@id = 'fp']");
+    SelenideElement fullPart = $x("//select[@id = 'fp']");
 
     public LoadSettingsFragment setPickupDate(int day, String month, int year) {
         pickupDatePickerField.click();

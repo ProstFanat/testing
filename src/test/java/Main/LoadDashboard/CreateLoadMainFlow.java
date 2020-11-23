@@ -21,7 +21,7 @@ public class CreateLoadMainFlow {
     }
 
     @Test
-    public void createNewLoad() {
+    public void createNewLoad() throws Exception {
         LoginPage loginPage = new LoginPage();
         MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
         CreateLoadPage createLoadPage = new CreateLoadPage();
