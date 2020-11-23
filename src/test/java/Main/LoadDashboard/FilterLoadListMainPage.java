@@ -40,11 +40,34 @@ public class FilterLoadListMainPage {
     }
 
     @Test
-    public void filterByStatus(){
+    public void filterByStatusBooked(){
         filterLoadPageFragment.inputStatus("Booked")
                 .clickBtnFilter();
         filterLoadPageFragment.checkTable("status", "Booked");
     }
+
+    @Test
+    public void filterByStatusPreBooked(){
+        filterLoadPageFragment.inputStatus("Prebooked")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("status", "Prebooked");
+    }
+
+    @Test
+    public void filterByStatusDispatched(){
+        filterLoadPageFragment.inputStatus("Dispatched")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("status", "Dispatched");
+    }
+
+    @Test
+    public void filterByStatusDelivered(){
+        filterLoadPageFragment.inputStatus("Delivered")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("status", "Delivered");
+    }
+
+
 
     @Test
     public void filterByPickUpLocation(){
@@ -61,10 +84,52 @@ public class FilterLoadListMainPage {
     }
 
     @Test
-    public void filterByTrailerType(){
+    public void filterByTrailerTypeDryVan(){
         filterLoadPageFragment.inputTrailerType("dry-van")
                 .clickBtnFilter();
         filterLoadPageFragment.checkTable("trailerType", "dry-van");
+    }
+
+    @Test
+    public void filterByTrailerTypeHeater(){
+        filterLoadPageFragment.inputTrailerType("heater")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("trailerType", "heater");
+    }
+
+    @Test
+    public void filterByTrailerTypeFlatbed(){
+        filterLoadPageFragment.inputTrailerType("flatbed")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("trailerType", "flatbed");
+    }
+
+    @Test
+    public void filterByTrailerTypeThreeAxle(){
+        filterLoadPageFragment.inputTrailerType("three-axle")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("trailerType", "three-axle");
+    }
+
+    @Test
+    public void filterByTrailerTypeStepdeck(){
+        filterLoadPageFragment.inputTrailerType("stepdeck")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("trailerType", "stepdeck");
+    }
+
+    @Test
+    public void filterByTrailerTypeConestoga(){
+        filterLoadPageFragment.inputTrailerType("conestoga")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("trailerType", "conestoga");
+    }
+
+    @Test
+    public void filterByTrailerTypeCarHauler(){
+        filterLoadPageFragment.inputTrailerType("car hauler")
+                .clickBtnFilter();
+        filterLoadPageFragment.checkTable("trailerType", "car hauler");
     }
 
     @Test
