@@ -33,15 +33,22 @@ public class OffersTableFragment {
         return this;
     }
 
+
     public OffersTableFragment clickSaveLoadAndSendOffersBtn() {
         SaveLoadAndSendOffersBtn.click();
         return this;
     }
 
+
     public OffersTableFragment checkDriversName() {
-        sleep(5000);
-        for (int i = 0; i < driversCollectionOnOffers.size(); i++)
-            driversCollectionOnOffers.get(i).shouldHave(Condition.text(drivers.get(i)));
+        for (int i = 0; i <= driversCollectionOnOffers.size(); i++)
+            driversCollectionOnOffers.get(i).shouldHave(Condition.text(driversCollection.get(i).getText()));
         return this;
+    }
+
+
+
+    public ElementsCollection checkDrivers() {
+        return driversCollectionOnOffers;
     }
 }
