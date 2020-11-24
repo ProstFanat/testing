@@ -2,6 +2,8 @@ package resources;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.ex.ElementNotFound;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,7 +50,7 @@ public class BasePage {
         try {
             element.should(exist);
             return true;
-        } catch (NoSuchElementException e) {
+        } catch (ElementNotFound ignored) {
             return false;
         }
     }

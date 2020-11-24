@@ -23,7 +23,7 @@ public class FilterLoadListMainPage {
 
     @BeforeClass
     public static void setup(){
-        Configuration.timeout = 100000;
+        Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
 
@@ -85,10 +85,10 @@ public class FilterLoadListMainPage {
     }
 
     @Test
-    public void filterByDeliveryLocation(){
-        filterLoadPageFragment.inputDeliveryLocation("New York")
+    public void filterByDeliveryLocation() throws Exception {
+        filterLoadPageFragment.inputDeliveryLocation("Vasiliy")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkTable("deliveryLocation", "West New York");
+        filterLoadPageFragment.checkTable("deliveryLocation", "New York");
     }
 
     @Test
@@ -155,7 +155,7 @@ public class FilterLoadListMainPage {
     }
 
     @Test
-    public void filterByUsingAllFilters(){
+    public void filterByUsingAllFilters() throws Exception {
         filterLoadPageFragment.inputLoadId("658")
                 .inputStatus("Delivered")
                 .inputPickUpLocation("Toronto")

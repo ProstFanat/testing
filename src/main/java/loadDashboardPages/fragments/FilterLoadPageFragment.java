@@ -5,12 +5,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.junit.Assert;
+import org.openqa.selenium.ElementNotInteractableException;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class FilterLoadPageFragment extends BasePage{
+public class FilterLoadPageFragment extends BasePage {
 
     SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']");
     SelenideElement statusInput = $x("//*[@placeholder = 'Status']//input");
@@ -71,13 +73,19 @@ public class FilterLoadPageFragment extends BasePage{
         return this;
     }
 
-    public FilterLoadPageFragment inputDeliveryLocation(String city) {
+    public FilterLoadPageFragment inputDeliveryLocation(String city) throws Exception {
         deliveryLocationInput.sendKeys(city);
-        isVisible(deliveryLocationElements.first());
-        for (int i = 1; i < deliveryLocationElements.size(); i++) {
-            if (deliveryLocationElements.get(i).getText().startsWith(city)) {
-                deliveryLocationElements.get(i).click();
+
+        if (isVisible($x("//div[contains(@class, 'locations-popup')]//div//div"))) {
+            for (int i = 1; i < deliveryLocationElements.size(); i++) {
+                if (deliveryLocationElements.get(i).getText().startsWith(city)) {
+                    deliveryLocationElements.get(i).click();
+                }
             }
+        } else {
+//            System.out.println("hello");
+//            Assert.assertTrue(false);
+            throw new Exception("Hello");
         }
         //deliveryLocationElements.first().click();
         return this;
