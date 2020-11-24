@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class ProfileDelete {
+public class A8_ProfileDelete {
 
 
     public static WebDriver driver;

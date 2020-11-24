@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class NotificationsCreateNotification {
+public class A3_NotificationsCreateNotification {
 
     public static WebDriver driver;
     public static OpenGPSDevices open;
@@ -355,7 +355,6 @@ public class NotificationsCreateNotification {
     public void testPositionWithZero(){
         create.selectPosition();
         create.inputPosition("0");
-        System.out.println(create.btnSaveNotification.isEnabled());
         Assert.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }

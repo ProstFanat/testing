@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class DevicesAdvancedSearch {
+public class A6_DevicesAdvancedSearch {
 
     public static WebDriver driver;
     public static OpenGPSDevices open;

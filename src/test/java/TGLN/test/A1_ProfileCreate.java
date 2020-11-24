@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class ProfileCreate {
+public class A1_ProfileCreate {
 
     public static WebDriver driver;
     public static OpenGPSDevices open;

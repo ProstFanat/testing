@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class DevicesDeleteDevice {
+public class A7_DevicesDeleteDevice {
     public static WebDriver driver;
     public static OpenGPSDevices open;
     public static BasePage basePage;

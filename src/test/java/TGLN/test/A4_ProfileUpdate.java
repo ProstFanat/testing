@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class ProfileUpdate {
+public class A4_ProfileUpdate {
 
 
     public static WebDriver driver;
@@ -33,10 +33,6 @@ public class ProfileUpdate {
 
     @BeforeClass
     public static void setup() {
-//        //определение пути до драйвера и его настройка
-//        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
-//        //создание экземпляра драйвера
-//        driver = new ChromeDriver();
         open("http://localhost:8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenGPSDevices(driver);
