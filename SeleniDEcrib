@@ -111,3 +111,12 @@ baseUrl
 reportsFolder
 
 Configuration.startMaximized = true;  -- сделать на весь экран
+
+// Alert
+switchTo()
+switchTo().alert().accept();
+
+// cookies
+WebDriverRunner.driver().getWebDriver().manage().getCookies();
+                                                .deleteAllCookies();
+                                                .addCookies();

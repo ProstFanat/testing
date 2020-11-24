@@ -1,13 +1,16 @@
 package loadDashboardPages.fragments;
 
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.Assert;
+import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class FilterLoadPageFragment {
+public class FilterLoadPageFragment extends BasePage{
 
     SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']");
     SelenideElement statusInput = $x("//*[@placeholder = 'Status']//input");
@@ -29,8 +32,9 @@ public class FilterLoadPageFragment {
 
     public FilterLoadPageFragment inputStatus(String status) {
         statusInput.sendKeys(status);
-        for(int i = 1; i < statusElements.size(); i++){
-            if(statusElements.get(i).getText().startsWith(status)){
+        isVisible(statusElements.first());
+        for (int i = 1; i < statusElements.size(); i++) {
+            if (statusElements.get(i).getText().startsWith(status)) {
                 statusElements.get(i).click();
             }
         }
@@ -58,19 +62,20 @@ public class FilterLoadPageFragment {
 
     public FilterLoadPageFragment inputPickUpLocation(String city) {
         pickUpLocationInput.sendKeys(city);
-        for(int i = 1; i < pickUpLocationElements.size(); i++){
-            if(pickUpLocationElements.get(i).getText().startsWith(city)){
+        isVisible(pickUpLocationElements.first());
+        for (int i = 1; i < pickUpLocationElements.size(); i++) {
+            if (pickUpLocationElements.get(i).getText().startsWith(city)) {
                 pickUpLocationElements.get(i).click();
             }
         }
-//        pickUpLocationElements.first().click();
         return this;
     }
 
     public FilterLoadPageFragment inputDeliveryLocation(String city) {
         deliveryLocationInput.sendKeys(city);
-        for(int i = 1; i < deliveryLocationElements.size(); i++){
-            if(deliveryLocationElements.get(i).getText().startsWith(city)){
+        isVisible(deliveryLocationElements.first());
+        for (int i = 1; i < deliveryLocationElements.size(); i++) {
+            if (deliveryLocationElements.get(i).getText().startsWith(city)) {
                 deliveryLocationElements.get(i).click();
             }
         }
@@ -106,6 +111,7 @@ public class FilterLoadPageFragment {
             j = 13;
         } else {
             System.out.println("INPUT CORRECT FILTER BY");
+            Assert.assertTrue(false);
         }
 
         sleep(500);

@@ -1,16 +1,27 @@
-//package resources;
-//
-//import io.github.bonigarcia.wdm.WebDriverManager;
-//import org.openqa.selenium.*;
-//import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.support.PageFactory;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.WebDriverWait;
-//
-//import static org.junit.Assert.assertFalse;
-//
-//public class BasePage {
-//
+package resources;
+
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Selenide.$;
+import static org.junit.Assert.assertFalse;
+
+public class BasePage {
+
+    public BasePage waitForPageToLoad() {
+        new WebDriverWait(WebDriverRunner.getWebDriver(), 10).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+        return this;
+    }
+
 //    public WebDriverWait wait;
 //
 //    public WebDriver driver;
@@ -38,7 +49,16 @@
 //    public void waitToVisibilityOf (int timeOut, WebElement element){
 //        new WebDriverWait(driver, timeOut).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
 //    }
-//
+
+    public boolean isVisible(SelenideElement element) {
+        try {
+            element.should(exist);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
 //    public Boolean isElementPresent(String path) {
 //        try {
 //            driver.findElement(By.xpath(path));
@@ -86,5 +106,5 @@
 //    public String getInputValue(WebElement input){
 //        return input.getAttribute("value");
 //    }
-//}
+}
 
