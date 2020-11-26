@@ -46,4 +46,5 @@ public class CreateLoadMainFlow {
         loadListPage.getFilterLoadPageFragment().clickBtnFilter();
         loadListPage.checkTableNotEmpty();
     }
+
 }

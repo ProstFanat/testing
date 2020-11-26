@@ -78,15 +78,15 @@ public class FilterLoadListMainPage {
     }
 
     @Test
-    public void filterByPickUpLocation(){
-        filterLoadPageFragment.inputPickUpLocation("Toronto")
+    public void filterByPickUpLocation() throws Exception {
+        filterLoadPageFragment.inputPickUpLocation("Vasya")
                 .clickBtnFilter();
         filterLoadPageFragment.checkTable("pickUpLocation", "Toronto, ON");
     }
 
     @Test
     public void filterByDeliveryLocation() throws Exception {
-        filterLoadPageFragment.inputDeliveryLocation("Vasiliy")
+        filterLoadPageFragment.inputDeliveryLocation("sdssd")
                 .clickBtnFilter();
         filterLoadPageFragment.checkTable("deliveryLocation", "New York");
     }

@@ -9,6 +9,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 
 public class BasePage {
 
@@ -16,6 +17,16 @@ public class BasePage {
         new WebDriverWait(WebDriverRunner.getWebDriver(), 10).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
         return this;
+    }
+
+    public boolean isVisible(SelenideElement element) {
+        try {
+            element.should(visible);
+            return true;
+            // } catch (Exception e) {
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 //    public WebDriverWait wait;
@@ -46,14 +57,7 @@ public class BasePage {
 //        new WebDriverWait(driver, timeOut).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
 //    }
 
-    public boolean isVisible(SelenideElement element) {
-        try {
-            element.should(exist);
-            return true;
-        } catch (ElementNotFound ignored) {
-            return false;
-        }
-    }
+
 
 //    public Boolean isElementPresent(String path) {
 //        try {
