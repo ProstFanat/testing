@@ -10,7 +10,7 @@ public class Login {
     SelenideElement passwdField = $x("//*[@id = 'password']");
 
     public void login(){
-        loginField.sendKeys("10");
+        loginField.sendKeys("5");
         passwdField.sendKeys("test");
         loginBtn.click();
     }
