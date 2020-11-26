@@ -3,6 +3,8 @@ package loadDashboardPages;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 import loadDashboardPages.fragments.OffersTableFragment;
 
+import static com.codeborne.selenide.WebDriverRunner.url;
+
 public class CreateLoadPage {
 
     LoadSettingsFragment loadSettingsFragment = new LoadSettingsFragment();
@@ -32,4 +34,16 @@ public class CreateLoadPage {
                 .inputComment("testComment");
     return this;
     }
+
+    public CreateLoadPage checkLoadIdInUrl() {
+        url().contains("edit-load;loadId=");
+        return  this;
+    }
+
+    public String getID() {
+        String id = url().substring(url().indexOf("=") + 1);
+        return id;
+
+    }
+
 }

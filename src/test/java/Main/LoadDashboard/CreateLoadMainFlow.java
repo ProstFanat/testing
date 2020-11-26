@@ -1,6 +1,5 @@
 package Main.LoadDashboard;
 
-
 import loadDashboardPages.CreateLoadPage;
 import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
@@ -9,7 +8,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class CreateLoadMainFlow {
 
@@ -38,6 +37,13 @@ public class CreateLoadMainFlow {
                 .selectDrivers()
                 .clickSaveLoadAndSendOffersBtn();
         createLoadPage.getOffersTableFragment().checkDriversName();
+        createLoadPage.checkLoadIdInUrl();
+        String id = createLoadPage.getID();
+        back();
+        back();
 
+        loadListPage.getFilterLoadPageFragment().inputLoadId(id);
+        loadListPage.getFilterLoadPageFragment().clickBtnFilter();
+        loadListPage.checkTableNotEmpty();
     }
 }
