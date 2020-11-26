@@ -9,6 +9,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 
 public class BasePage {
 
@@ -48,9 +49,10 @@ public class BasePage {
 
     public boolean isVisible(SelenideElement element) {
         try {
-            element.should(exist);
+            element.should(visible);
             return true;
-        } catch (ElementNotFound ignored) {
+       // } catch (Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }

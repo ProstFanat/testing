@@ -1,13 +1,8 @@
 package loadDashboardPages.fragments;
 
-
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.junit.Assert;
-import org.openqa.selenium.ElementNotInteractableException;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -40,7 +35,6 @@ public class FilterLoadPageFragment extends BasePage {
                 statusElements.get(i).click();
             }
         }
-        //statusInput.pressEnter();
         return this;
     }
 
@@ -62,13 +56,17 @@ public class FilterLoadPageFragment extends BasePage {
         return this;
     }
 
-    public FilterLoadPageFragment inputPickUpLocation(String city) {
+    public FilterLoadPageFragment inputPickUpLocation(String city) throws Exception {
         pickUpLocationInput.sendKeys(city);
-        isVisible(pickUpLocationElements.first());
-        for (int i = 1; i < pickUpLocationElements.size(); i++) {
-            if (pickUpLocationElements.get(i).getText().startsWith(city)) {
-                pickUpLocationElements.get(i).click();
+
+        if (isVisible($x("//div[contains(@class, 'locations-popup')]//div//div"))) {
+            for (int i = 1; i < pickUpLocationElements.size(); i++) {
+                if (pickUpLocationElements.get(i).getText().startsWith(city)) {
+                    pickUpLocationElements.get(i).click();
+                }
             }
+        } else {
+            throw new Exception("Hello");
         }
         return this;
     }
@@ -83,11 +81,8 @@ public class FilterLoadPageFragment extends BasePage {
                 }
             }
         } else {
-//            System.out.println("hello");
-//            Assert.assertTrue(false);
             throw new Exception("Hello");
         }
-        //deliveryLocationElements.first().click();
         return this;
     }
 

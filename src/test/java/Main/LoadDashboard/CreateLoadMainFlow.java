@@ -40,4 +40,5 @@ public class CreateLoadMainFlow {
         createLoadPage.getOffersTableFragment().checkDriversName();
 
     }
+
 }
