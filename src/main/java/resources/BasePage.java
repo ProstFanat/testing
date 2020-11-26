@@ -19,6 +19,16 @@ public class BasePage {
         return this;
     }
 
+    public boolean isVisible(SelenideElement element) {
+        try {
+            element.should(visible);
+            return true;
+            // } catch (Exception e) {
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 //    public WebDriverWait wait;
 //
 //    public WebDriver driver;
@@ -47,15 +57,7 @@ public class BasePage {
 //        new WebDriverWait(driver, timeOut).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
 //    }
 
-    public boolean isVisible(SelenideElement element) {
-        try {
-            element.should(visible);
-            return true;
-       // } catch (Exception e) {
-        } catch (Exception e) {
-            return false;
-        }
-    }
+
 
 //    public Boolean isElementPresent(String path) {
 //        try {
