@@ -26,9 +26,10 @@ public class LoadSettingsFragment {
     SelenideElement itemTypeInput = $x("//input[@id='itemType']");
     SelenideElement dimensionsInput = $x("//input[@id='dimensions']");
     SelenideElement commentInput = $x("//textarea[@id='comments']");
-    ElementsCollection pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']");
-    ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']");
+    ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']");
+    ElementsCollection deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']");
     SelenideElement fullPart = $x("//select[@id = 'fp']");
+SelenideElement saveBtnLoad = $x("//button[contains (text(), ' Save Load ')]");
 
     public LoadSettingsFragment setPickupDate(int day, String month, int year) {
         pickupDatePickerField.click();
@@ -51,12 +52,14 @@ public class LoadSettingsFragment {
     }
 
     public LoadSettingsFragment setPickupLocation(String partLocationName) {
+        pickupLocationInput.clear();
         pickupLocationInput.sendKeys(partLocationName);
         pickUpLocationElements.first().click();
         return this;
     }
 
     public LoadSettingsFragment setDeliveryLocation(String partLocationName) {
+        deliveryLocationInput.clear();
         deliveryLocationInput.sendKeys(partLocationName);
         deliveryLocationElements.first().click();
         return this;
@@ -64,11 +67,13 @@ public class LoadSettingsFragment {
     }
 
     public LoadSettingsFragment setPickupZipCode(String zipCode) {
+        pickupZipCodeInput.clear();
         pickupZipCodeInput.setValue(zipCode);
         return this;
     }
 
     public LoadSettingsFragment setDeliveryZipCode(String zipCode) {
+        deliveryZipCodeInput.clear();
         deliveryZipCodeInput.setValue(zipCode);
         return this;
     }
@@ -81,6 +86,7 @@ public class LoadSettingsFragment {
 
     public LoadSettingsFragment setWeight(String Weight) {
         weightInput.click();
+        weightInput.clear();
         weightInput.setValue(Weight);
         return this;
     }
@@ -91,11 +97,13 @@ public class LoadSettingsFragment {
     }
 
     public LoadSettingsFragment setRate(String rate) {
+        rateInput.clear();
         rateInput.setValue(rate);
         return this;
     }
 
     public LoadSettingsFragment inputItemType(String itemType) {
+        itemTypeInput.clear();
         itemTypeInput.setValue(itemType);
         return this;
     }
@@ -108,12 +116,19 @@ public class LoadSettingsFragment {
     }
 
     public LoadSettingsFragment inputDimension(String testDimension) {
+        dimensionsInput.clear();
         dimensionsInput.setValue(testDimension);
         return this;
     }
 
     public LoadSettingsFragment inputComment(String testComment) {
+        commentInput.clear();
         commentInput.setValue(testComment);
         return this;
+    }
+
+    public LoadSettingsFragment clickSaveBtn() {
+        saveBtnLoad.click();
+    return this;
     }
 }

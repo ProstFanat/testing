@@ -69,8 +69,16 @@ public class LoadListPage {
     }
 
     public LoadListPage compareRawData() {
-        tableFragment.saveLoadData().get("ID");//  ("hjk");
+        tableFragment.saveLoadData().get("id") ;//  ("hjk");
 
 return  this;
     }
+public  LoadListPage checkPickUpdate(){
+        return this;
 }
+
+
+}
+
+
+
