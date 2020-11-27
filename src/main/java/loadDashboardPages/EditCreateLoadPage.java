@@ -5,7 +5,7 @@ import loadDashboardPages.fragments.OffersTableFragment;
 
 import static com.codeborne.selenide.WebDriverRunner.url;
 
-public class CreateLoadPage {
+public class EditCreateLoadPage {
 
     LoadSettingsFragment loadSettingsFragment = new LoadSettingsFragment();
     OffersTableFragment offersTableFragment = new OffersTableFragment();
@@ -17,7 +17,7 @@ public class CreateLoadPage {
         return offersTableFragment;
     }
 
-    public CreateLoadPage setDefaultLoadSettings(){
+    public EditCreateLoadPage setDefaultLoadSettings(){
         getLoadSettingsFragment().setPickupDate(22,"Nov", 2020)
                 .setDeliveryDate(26,"Nov",2020)
                 .setPickupLocation("Toront")
@@ -35,7 +35,7 @@ public class CreateLoadPage {
     return this;
     }
 
-    public CreateLoadPage checkLoadIdInUrl() {
+    public EditCreateLoadPage checkLoadIdInUrl() {
         url().contains("edit-load;loadId=");
         return  this;
     }

@@ -1,6 +1,6 @@
 package Main.LoadDashboard;
 
-import loadDashboardPages.CreateLoadPage;
+import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
@@ -23,8 +23,9 @@ public class CreateLoadMainFlow {
     public void createNewLoad() throws Exception {
         LoginPage loginPage = new LoginPage();
         MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
-        CreateLoadPage createLoadPage = new CreateLoadPage();
+        EditCreateLoadPage editCreateLoadPage = new EditCreateLoadPage();
         LoadListPage loadListPage = new LoadListPage();
+
 
         loginPage.login("5", "test");
 
@@ -32,19 +33,19 @@ public class CreateLoadMainFlow {
 
         loadListPage.clickNewLoadBtn();
 
-        createLoadPage.setDefaultLoadSettings();
-        createLoadPage.getOffersTableFragment().searchDrivers()
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getOffersTableFragment().searchDrivers()
                 .selectDrivers()
                 .clickSaveLoadAndSendOffersBtn();
-        createLoadPage.getOffersTableFragment().checkDriversName();
-        createLoadPage.checkLoadIdInUrl();
-        String id = createLoadPage.getID();
+        editCreateLoadPage.getOffersTableFragment().checkDriversName();
+        editCreateLoadPage.checkLoadIdInUrl();
+        String id = editCreateLoadPage.getID();
         back();
         back();
 
         loadListPage.getFilterLoadPageFragment().inputLoadId(id);
         loadListPage.getFilterLoadPageFragment().clickBtnFilter();
-        loadListPage.checkTableNotEmpty();
+
     }
 
 }
