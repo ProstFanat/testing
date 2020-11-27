@@ -1,13 +1,18 @@
 package resources;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.json.JsonOutput;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.IOException;
 
 import static com.codeborne.selenide.Condition.visible;
 
@@ -21,13 +26,26 @@ public class BasePage {
 
     public boolean isVisible(SelenideElement element) {
         try {
-            element.should(visible);
+            element.isDisplayed();
             return true;
             // } catch (Exception e) {
-        } catch (Exception e) {
+        } catch (Exception ignored) {
             return false;
         }
     }
+
+    public boolean isHidden(SelenideElement element) {
+        if(element.is(Condition.hidden)) {
+            System.out.println("pivet");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
 
 //    public WebDriverWait wait;
 //

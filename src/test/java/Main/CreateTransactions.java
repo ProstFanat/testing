@@ -30,6 +30,6 @@ public class CreateTransactions {
 
     @Test
     public void test(){
-        create.create(4, 5);
+        create.create(10, 20);
     }
 }
