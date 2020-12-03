@@ -8,7 +8,6 @@ public class MainAdminScreenPage {
 
     SelenideElement loadSearchBtn = $x("//p[contains(text(), 'Load Search')]");
 
-
     public void clickLoadSearchBtn() {
         loadSearchBtn.click();
     }

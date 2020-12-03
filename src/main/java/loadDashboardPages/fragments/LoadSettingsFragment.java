@@ -10,27 +10,30 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class LoadSettingsFragment {
 
-    SelenideElement pickupDatePickerField = $x("//input[@id='pickupDate']");
-    SelenideElement chooseMonthAndYearBtn = $x("//button[@aria-label='Choose month and year']");
-    SelenideElement deliveryDatePickerField = $x("//input[@id='deliveryDate']");
-    SelenideElement setDatePickerBtn = $x("//span[text() = 'Set']");
-    SelenideElement pickupLocationInput = $x("//input[@placeholder = 'PickUp Location']");
-    SelenideElement deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']");
-    SelenideElement pickupZipCodeInput = $x("//input[@id = 'zipCodePick']");
-    SelenideElement deliveryZipCodeInput = $x("//input[@id = 'zipCodeDrop']");
-    SelenideElement trailerTypeDropdown = $x("//*[@placeholder = 'Trailer Type']");
-    SelenideElement weightInput = $x("//input[@id='weight']");
-    SelenideElement trailerLengthDropBox = $x("//select[@id = 'trailerLength']");
-    ElementsCollection trailerTypesCollection = $$x("//span[@class='ng-option-label ng-star-inserted']");
-    SelenideElement rateInput = $x("//input[@id='rate']");
-    SelenideElement itemTypeInput = $x("//input[@id='itemType']");
-    SelenideElement dimensionsInput = $x("//input[@id='dimensions']");
-    SelenideElement commentInput = $x("//textarea[@id='comments']");
-    ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']");
-    ElementsCollection deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']");
-    SelenideElement fullPart = $x("//select[@id = 'fp']");
-    SelenideElement saveBtnLoad = $x("//button[contains (text(), ' Save Load ')]");
-    public SelenideElement btnFilter = $x("//button[text() = ' Filter ']");
+    public static SelenideElement pickupDatePickerField = $x("//input[@id='pickupDate']"),
+            chooseMonthAndYearBtn = $x("//button[@aria-label='Choose month and year']"),
+            deliveryDatePickerField = $x("//input[@id='deliveryDate']"),
+            setDatePickerBtn = $x("//span[text() = 'Set']"),
+            pickupLocationInput = $x("//input[@placeholder = 'PickUp Location']"),
+            deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']"),
+            pickupZipCodeInput = $x("//input[@id = 'zipCodePick']"),
+            deliveryZipCodeInput = $x("//input[@id = 'zipCodeDrop']"),
+            trailerTypeDropdown = $x("//*[@placeholder = 'Trailer Type']"),
+            weightInput = $x("//input[@id='weight']"),
+            trailerLengthDropBox = $x("//select[@id = 'trailerLength']"),
+            fullPart = $x("//select[@id = 'fp']"),
+            saveBtnLoad = $x("//button[contains (text(), ' Save Load ')]"),
+            rateInput = $x("//input[@id='rate']"),
+            itemTypeInput = $x("//input[@id='itemType']"),
+            dimensionsInput = $x("//input[@id='dimensions']"),
+            commentInput = $x("//textarea[@id='comments']"),
+            btnFilter = $x("//button[text() = ' Filter ']");
+
+    public static ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']"),
+            deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']"),
+            trailerTypesCollection = $$x("//span[@class='ng-option-label ng-star-inserted']");
+
+
 
     public LoadSettingsFragment setPickupDate(int day, String month, int year) {
         pickupDatePickerField.click();
@@ -130,6 +133,6 @@ public class LoadSettingsFragment {
 
     public LoadSettingsFragment clickSaveBtn() {
         saveBtnLoad.click();
-    return this;
+        return this;
     }
 }

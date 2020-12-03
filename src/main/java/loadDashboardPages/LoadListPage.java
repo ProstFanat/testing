@@ -8,28 +8,29 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoadListPage {
 
-
     TableFragment tableFragment = new TableFragment();
     FilterLoadPageFragment filterLoadPageFragment = new FilterLoadPageFragment();
-    SelenideElement newLoadBtn = $x("//button[@routerlink='/load-list/create-load']");
-    ElementsCollection tableRows = $$x("//datatable-row-wrapper");
-    SelenideElement tabDispatchingSettings = $x("//a[text() = 'Dispatch Settings']");
-    public ElementsCollection tableSize = $$x("//datatable-row-wrapper");
-    SelenideElement pickupLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[5]//span");
-    SelenideElement deliveryLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[7]//span");
-    SelenideElement deliveryDateInTable = $x("//datatable-row-wrapper//datatable-body-cell[6]//span");
-    SelenideElement pickupDateInTable = $x("//datatable-row-wrapper//datatable-body-cell[4]//span");
-    SelenideElement trailerTypeInTable = $x("//datatable-row-wrapper//datatable-body-cell[8]//span");
-    SelenideElement weightInTable = $x("//datatable-row-wrapper//datatable-body-cell[9]//span");
-    SelenideElement rateInTable = $x("//datatable-row-wrapper//datatable-body-cell[10]//span");
-    SelenideElement fPInTable = $x("//datatable-row-wrapper//datatable-body-cell[11]//span");
-SelenideElement reqFieldMessage = $x("//arial-label");
 
+    public static SelenideElement newLoadBtn = $x("//button[@routerlink='/load-list/create-load']"),
+            tabDispatchingSettings = $x("//a[text() = 'Dispatch Settings']"),
+            pickupLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[5]//span"),
+            deliveryLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[7]//span"),
+            deliveryDateInTable = $x("//datatable-row-wrapper//datatable-body-cell[6]//span"),
+            pickupDateInTable = $x("//datatable-row-wrapper//datatable-body-cell[4]//span"),
+            trailerTypeInTable = $x("//datatable-row-wrapper//datatable-body-cell[8]//span"),
+            weightInTable = $x("//datatable-row-wrapper//datatable-body-cell[9]//span"),
+            rateInTable = $x("//datatable-row-wrapper//datatable-body-cell[10]//span"),
+            fPInTable = $x("//datatable-row-wrapper//datatable-body-cell[11]//span");
+
+
+    public static ElementsCollection tableSize = $$x("//datatable-row-wrapper"),
+            tableRows = $$x("//datatable-row-wrapper");
 
     public LoadListPage clickNewLoadBtn() {
         newLoadBtn.click();
         return this;
     }
+
     public FilterLoadPageFragment getFilterLoadPageFragment() {
         return filterLoadPageFragment;
     }
@@ -43,32 +44,25 @@ SelenideElement reqFieldMessage = $x("//arial-label");
         tabDispatchingSettings.click();
         return this;
     }
+
     public TableFragment getTableFragment() {
         return tableFragment;
     }
 
-    public SelenideElement getPickupLocationInTable(){
+    public SelenideElement getPickupLocationInTable() {
         return pickupLocationInTable;
-}
-
-    public String getPickupDateInTable() {
-        return pickupDateInTable.getText().substring(0,11);
     }
 
-//    public SelenideElement getPickupDateInTable() {
-//        return pickupDateInTable;
-//    }
-//
-//    public SelenideElement getDeliveryDateInTable() {
-//        return deliveryDateInTable;
-//    }
+    public String getPickupDateInTable() {
+        return pickupDateInTable.getText().substring(0, 11);
+    }
 
-        public String getDeliveryDateInTable() {
-        return deliveryDateInTable.getText().substring(0,11);
+    public String getDeliveryDateInTable() {
+        return deliveryDateInTable.getText().substring(0, 11);
     }
 
     public SelenideElement getDeliveryPlaceInTable() {
-    return deliveryLocationInTable;
+        return deliveryLocationInTable;
     }
 
     public SelenideElement getTrailerTypeInTable() {
@@ -77,12 +71,12 @@ SelenideElement reqFieldMessage = $x("//arial-label");
 
 
     public SelenideElement getRateInTable() {
-    return rateInTable;
+        return rateInTable;
     }
 
 
     public SelenideElement getWeightInTable() {
-    return weightInTable;
+        return weightInTable;
     }
 
     public SelenideElement getFPInTable() {

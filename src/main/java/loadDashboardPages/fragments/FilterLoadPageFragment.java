@@ -9,18 +9,19 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class FilterLoadPageFragment extends BasePage {
 
-    SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']");
-    SelenideElement statusInput = $x("//*[@placeholder = 'Status']//input");
-    ElementsCollection statusElements = $$x("//*[@placeholder = 'Status']//*[@role = 'option']");
-    SelenideElement pickUpLocationInput = $x("//input[@placeholder = 'PickUp Location']");
-    ElementsCollection pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']");
-    SelenideElement deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']");
-    ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']");
-    SelenideElement trailerTypeInput = $x("//*[@placeholder = 'Trailer Type']//input");
-    SelenideElement organizationInput = $x("//*[@placeholder = 'Organization']//input");
-    SelenideElement driverInput = $x("//*[@placeholder = 'Driver']//input");
-    SelenideElement btnFilter = $x("//button[text() = ' Filter ']");
-    public ElementsCollection tableSize = $$x("//datatable-row-wrapper");
+    public static SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']"),
+            statusInput = $x("//*[@placeholder = 'Status']//input"),
+            pickUpLocationInput = $x("//input[@placeholder = 'PickUp Location']"),
+            deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']"),
+            trailerTypeInput = $x("//*[@placeholder = 'Trailer Type']//input"),
+            organizationInput = $x("//*[@placeholder = 'Organization']//input"),
+            driverInput = $x("//*[@placeholder = 'Driver']//input"),
+            btnFilter = $x("//button[text() = ' Filter ']");
+
+    public static ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']"),
+            pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"),
+            statusElements = $$x("//*[@placeholder = 'Status']//*[@role = 'option']"),
+            tableSize = $$x("//datatable-row-wrapper");
 
     public FilterLoadPageFragment inputLoadId(String id) {
         loadIdInput.sendKeys(id);

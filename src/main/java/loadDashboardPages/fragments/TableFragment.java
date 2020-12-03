@@ -11,21 +11,22 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class TableFragment {
 
-    SelenideElement actionBtn = $x("//button[@id='button-actions']");
-    ElementsCollection id = $$x("//datatable-row-wrapper//datatable-body-cell[1]//span");
-    SelenideElement pickupDate = $x("//datatable-row-wrapper//datatable-body-cell[4]//span");
-    SelenideElement pickupPlace = $x("//datatable-row-wrapper//datatable-body-cell[5]//span");
-    SelenideElement deliveryDate = $x("//datatable-row-wrapper//datatable-body-cell[6]//span");
-    SelenideElement deliveryPlace = $x("//datatable-row-wrapper//datatable-body-cell[7]//span");
-    SelenideElement trailerType = $x("//datatable-row-wrapper//datatable-body-cell[8]//span");
-    SelenideElement weight = $x("//datatable-row-wrapper//datatable-body-cell[9]//span");
-    SelenideElement rate = $x("//datatable-row-wrapper//datatable-body-cell[10]//span");
-    SelenideElement fullPart = $x("//datatable-row-wrapper//datatable-body-cell[11]//span");
-    SelenideElement editBtn = $x("//i[@class='fa fa-pencil mr-2']");
+    public static SelenideElement actionBtn = $x("//button[@id='button-actions']"),
+            pickupDate = $x("//datatable-row-wrapper//datatable-body-cell[4]//span"),
+            pickupPlace = $x("//datatable-row-wrapper//datatable-body-cell[5]//span"),
+            deliveryDate = $x("//datatable-row-wrapper//datatable-body-cell[6]//span"),
+            deliveryPlace = $x("//datatable-row-wrapper//datatable-body-cell[7]//span"),
+            trailerType = $x("//datatable-row-wrapper//datatable-body-cell[8]//span"),
+            weight = $x("//datatable-row-wrapper//datatable-body-cell[9]//span"),
+            rate = $x("//datatable-row-wrapper//datatable-body-cell[10]//span"),
+            fullPart = $x("//datatable-row-wrapper//datatable-body-cell[11]//span"),
+            editBtn = $x("//i[@class='fa fa-pencil mr-2']");
+
+    public static ElementsCollection id = $$x("//datatable-row-wrapper//datatable-body-cell[1]//span");
+
+
     public Map<String, String> saveLoadData() {
-
         Map<String, String> rawData = new HashMap<>();
-
         rawData.put("PICKUP DATE", pickupDate.getText());
         rawData.put("PICKUP PLACE", pickupPlace.getText());
         rawData.put("DELIVERY DATE", deliveryDate.getText());
@@ -37,7 +38,6 @@ public class TableFragment {
         System.out.println(rawData);
         return rawData;
     }
-
 
     public String getFirstLoadId() {
         return id.get(1).getText();

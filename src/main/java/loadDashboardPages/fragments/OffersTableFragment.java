@@ -12,12 +12,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class OffersTableFragment extends BasePage {
 
-    SelenideElement radiusPlaceHolder = $x("//input[@placeholder='Radius']");
-    SelenideElement searchDriversBtn = $x("//button[contains(text(), 'Search ')]");
-    ElementsCollection driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]");
-    SelenideElement SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']");
-    ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]");
-    SelenideElement aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]");
+    public static SelenideElement radiusPlaceHolder = $x("//input[@placeholder='Radius']"),
+            searchDriversBtn = $x("//button[contains(text(), 'Search ')]"),
+            SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']"),
+            aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]");
+
+    public static ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
+            driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]");
+
     List<String> drivers = new ArrayList<>();
 
     public OffersTableFragment searchDrivers(String value) {
@@ -38,7 +40,7 @@ public class OffersTableFragment extends BasePage {
     public OffersTableFragment selectDriverByName(String name) {
         waitToVisibilityOf(driversCollection.first());
         for (int i = 0; i < driversCollection.size(); i++) {
-            if(driversCollection.get(i).getText().equals(name)) {
+            if (driversCollection.get(i).getText().equals(name)) {
                 driversCollection.get(i).click();
             }
         }
@@ -51,17 +53,17 @@ public class OffersTableFragment extends BasePage {
     }
 
     public OffersTableFragment checkDriversName() throws Exception {
-        try{
-        for (int i = 0; i < driversCollectionOnOffers.size(); i++)
-            driversCollectionOnOffers.get(i).shouldHave(Condition.text(drivers.get(i)));
-        return this;
+        try {
+            for (int i = 0; i < driversCollectionOnOffers.size(); i++)
+                driversCollectionOnOffers.get(i).shouldHave(Condition.text(drivers.get(i)));
+            return this;
         } catch (Exception e) {
             throw new Exception("Test Failed");
         }
 
     }
 
-    public boolean isAclUserPresent(){
+    public boolean isAclUserPresent() {
         return aclUserIcon.isDisplayed();
     }
 }
