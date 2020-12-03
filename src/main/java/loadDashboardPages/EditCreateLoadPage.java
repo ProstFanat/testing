@@ -41,9 +41,7 @@ public class EditCreateLoadPage {
     }
 
     public String getID() {
-        String id = url().substring(url().indexOf("=") + 1);
-        return id;
-
+        return url().substring(url().indexOf("=") + 1);
     }
 
 }

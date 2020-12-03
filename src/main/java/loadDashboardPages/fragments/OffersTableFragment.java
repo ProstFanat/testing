@@ -17,6 +17,7 @@ public class OffersTableFragment extends BasePage {
     ElementsCollection driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]");
     SelenideElement SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']");
     ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]");
+    SelenideElement aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]");
     List<String> drivers = new ArrayList<>();
 
     public OffersTableFragment searchDrivers(String value) {
@@ -61,6 +62,6 @@ public class OffersTableFragment extends BasePage {
     }
 
     public boolean isAclUserPresent(){
-        return $x("//datatable-body-cell//*[contains(@class, 'fa-user')]").isDisplayed();
+        return aclUserIcon.isDisplayed();
     }
 }

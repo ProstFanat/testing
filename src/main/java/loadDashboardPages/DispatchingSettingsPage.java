@@ -53,16 +53,16 @@ public class DispatchingSettingsPage {
         return this;
     }
 
-    public DispatchingSettingsPage setAllOrgCheckBoxesTrue(){
+    public DispatchingSettingsPage setAllOrgCheckBoxes(boolean value){
         for (int i = 1; i <= organizationsList.size(); i++){
-            $x("//*[@placeholder = 'Organization Name']//..//..//..//..//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//input").setSelected(true);
+            $x("//*[@placeholder = 'Organization Name']//..//..//..//..//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//input").setSelected(value);
         }
         return this;
     }
 
-    public DispatchingSettingsPage setAllDriverCheckBoxesTrue(){
+    public DispatchingSettingsPage setAllDriverCheckBoxes(boolean value){
         for (int i = 1; i <= driversList.size(); i++){
-            $x("//*[@placeholder = 'Driver Name']//..//..//..//datatable-row-wrapper[ " + i + "]//datatable-body-cell[1]//input").setSelected(true);
+            $x("//*[@placeholder = 'Driver Name']//..//..//..//datatable-row-wrapper[ " + i + "]//datatable-body-cell[1]//input").setSelected(value);
         }
         return this;
     }

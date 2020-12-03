@@ -70,20 +70,20 @@ public class DispatchSettings {
     @Test
     public void showDriversForCompanyAndDeactivateCheckBoxForAnotherCompany(){
         dispatchingSettingsPage.inputOrgName("EZH INC")
-                .setAllOrgCheckBoxesTrue()
+                .setAllOrgCheckBoxes(true)
                 .showDriversForOrg("Hellen Log LLC")
                 .inputOrgName("Hellen Log LLC")
-                .setAllOrgCheckBoxesTrue();
+                .setAllOrgCheckBoxes(true);
         dispatchingSettingsPage.checkBoxesForOrgList.first().setSelected(false);
         Assert.assertTrue(dispatchingSettingsPage.driversList.size() > 0);
     }
 
     @Test
-    public void deactivateCheckBoxForDriver(){
+    public void deactivateCheckBoxForDriverBeforeCreatingLoad(){
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .showDrivers(1)
                 .inputDriver("Rouzi Yalikun")
-                .setAllDriverCheckBoxesTrue()
+                .setAllDriverCheckBoxes(true)
                 .checkBoxesForDriversList.first().setSelected(false);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
@@ -94,5 +94,35 @@ public class DispatchSettings {
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         basePage.waitForPageToLoad();
         Assert.assertTrue(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
+    }
+
+    @Test
+    public void deactivateCheckBoxForDriverAfterCreatingLoad(){
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .showDrivers(1)
+                .inputDriver("Rouzi Yalikun")
+                .setAllDriverCheckBoxes(true);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Rouzi Yalikun")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        basePage.waitForPageToLoad();
+        String id = editCreateLoadPage.getID();
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .showDrivers(1)
+                .inputDriver("Rouzi Yalikun")
+                .setAllDriverCheckBoxes(false);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
+        basePage.waitForPageToLoad();
+        Assert.assertTrue(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
+    }
+
+    @Test
+    public void Test(){
+
     }
 }
