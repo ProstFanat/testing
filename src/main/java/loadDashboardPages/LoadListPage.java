@@ -14,7 +14,7 @@ public class LoadListPage {
     FilterLoadPageFragment filterLoadPageFragment = new FilterLoadPageFragment();
     SelenideElement newLoadBtn = $x("//button[@routerlink='/load-list/create-load']");
     ElementsCollection tableRows = $$x("//datatable-row-wrapper");
-    SelenideElement tabDispatchingSettings = $x("//a[@ng-reflect-router-link='dispatch-settings']");
+    SelenideElement tabDispatchingSettings = $x("//a[text() = 'Dispatch Settings']");
     public ElementsCollection tableSize = $$x("//datatable-row-wrapper");
 
 
