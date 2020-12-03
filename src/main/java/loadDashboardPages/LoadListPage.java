@@ -3,7 +3,6 @@ package loadDashboardPages;
 import com.codeborne.selenide.*;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
 import loadDashboardPages.fragments.TableFragment;
-import org.junit.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -16,6 +15,15 @@ public class LoadListPage {
     ElementsCollection tableRows = $$x("//datatable-row-wrapper");
     SelenideElement tabDispatchingSettings = $x("//a[text() = 'Dispatch Settings']");
     public ElementsCollection tableSize = $$x("//datatable-row-wrapper");
+    SelenideElement pickupLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[5]//span");
+    SelenideElement deliveryLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[7]//span");
+    SelenideElement deliveryDateInTable = $x("//datatable-row-wrapper//datatable-body-cell[6]//span");
+    SelenideElement pickupDateInTable = $x("//datatable-row-wrapper//datatable-body-cell[4]//span");
+    SelenideElement trailerTypeInTable = $x("//datatable-row-wrapper//datatable-body-cell[8]//span");
+    SelenideElement weightInTable = $x("//datatable-row-wrapper//datatable-body-cell[9]//span");
+    SelenideElement rateInTable = $x("//datatable-row-wrapper//datatable-body-cell[10]//span");
+    SelenideElement fPInTable = $x("//datatable-row-wrapper//datatable-body-cell[11]//span");
+SelenideElement reqFieldMessage = $x("//arial-label");
 
 
     public LoadListPage clickNewLoadBtn() {
@@ -39,43 +47,47 @@ public class LoadListPage {
         return tableFragment;
     }
 
-    public int getTableSize() {
-        return tableSize.size();
-    }
-
-    public void checkAll(String loadId, String status, String pickUpLocation, String deliveryLocation, String trailerType, String organization, String driver, String fullPart, String weight, String rate) {
-        sleep(500);
-        int startSize = getTableSize();
-        int finishSize = 0;
-
-        for (int i = 1; i <= startSize; i++) {
-            if ($x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[1]//span").getText().equals(loadId)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[3]//span").getText().equals(status)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[5]//span").getText().contains(pickUpLocation)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[7]//span").getText().contains(deliveryLocation)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[8]//span").getText().equals(trailerType)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[12]//span").getText().equals(organization)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(driver)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(fullPart)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(rate)
-                    && $x("//datatable-row-wrapper[" + i + "]//datatable-body-cell[13]//span").getText().equals(weight)
-            ) {
-                finishSize++;
-            } else {
-                Assert.assertFalse(true);
-            }
-        }
-        Assert.assertEquals(startSize, finishSize);
-    }
-
-    public LoadListPage compareRawData() {
-        tableFragment.saveLoadData().get("id") ;//  ("hjk");
-
-return  this;
-    }
-public  LoadListPage checkPickUpdate(){
-        return this;
+    public SelenideElement getPickupLocationInTable(){
+        return pickupLocationInTable;
 }
+
+    public String getPickupDateInTable() {
+        return pickupDateInTable.getText().substring(0,11);
+    }
+
+//    public SelenideElement getPickupDateInTable() {
+//        return pickupDateInTable;
+//    }
+//
+//    public SelenideElement getDeliveryDateInTable() {
+//        return deliveryDateInTable;
+//    }
+
+        public String getDeliveryDateInTable() {
+        return deliveryDateInTable.getText().substring(0,11);
+    }
+
+    public SelenideElement getDeliveryPlaceInTable() {
+    return deliveryLocationInTable;
+    }
+
+    public SelenideElement getTrailerTypeInTable() {
+        return trailerTypeInTable;
+    }
+
+
+    public SelenideElement getRateInTable() {
+    return rateInTable;
+    }
+
+
+    public SelenideElement getWeightInTable() {
+    return weightInTable;
+    }
+
+    public SelenideElement getFPInTable() {
+        return fPInTable;
+    }
 
 
 }

@@ -2,9 +2,11 @@ package Main.LoadDashboard;
 
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import resources.BasePage;
@@ -13,7 +15,7 @@ import resources.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.back;
 
-public class EditLoadContactPerson {
+public class EditLoad {
 
     public static LoadListPage loadListPage;
     public static BasePage basePage;
@@ -46,7 +48,6 @@ public void editLoad() {
     mainAdminScreenPage.clickLoadSearchBtn();
 
     String id = loadListPage.getTableFragment().getFirstLoadId();
-    System.out.println(id);
     loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
     loadListPage.getTableFragment().saveLoadData();
     loadListPage.getTableFragment().loadActionBtnClick();
@@ -72,18 +73,15 @@ public void editLoad() {
     loadListPage.getFilterLoadPageFragment().inputLoadId(id);
     loadListPage.getFilterLoadPageFragment().clickBtnFilter();
     basePage.waitForPageToLoad();
-    loadListPage.checkAll(id,
-            "",
-            confProperties.getProperty("setPickupLocation"),
-            confProperties.getProperty("setDeliveryLocation"),
-            confProperties.getProperty("selectTrailerType"),
-            "",
-            "",
-            confProperties.getProperty("selectFP"),
-            confProperties.getProperty("setWeight"),
-            confProperties.getProperty("setRate"));
+    loadListPage.getPickupLocationInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setPickupLocation")));
 
-
+    Assert.assertEquals(loadListPage.getPickupDateInTable() , "23-Nov-2020");
+    loadListPage.getDeliveryPlaceInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setDeliveryLocation")));
+    Assert.assertEquals(loadListPage.getDeliveryDateInTable(), "30-Nov-2020");
+    loadListPage.getTrailerTypeInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectTrailerType")));
+    loadListPage.getRateInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setRate")));
+    loadListPage.getWeightInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setWeight")));
+    loadListPage.getFPInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectFP")));
 }
 }
 
