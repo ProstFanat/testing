@@ -1,8 +1,10 @@
 package loadDashboardPages;
 
+import com.codeborne.selenide.SelenideElement;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 import loadDashboardPages.fragments.OffersTableFragment;
 
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class EditCreateLoadPage {
@@ -42,6 +44,11 @@ public class EditCreateLoadPage {
 
     public String getID() {
         return url().substring(url().indexOf("=") + 1);
+    }
+
+    char quoMark = '"';
+    public SelenideElement getReqAlertsMessage(String message){
+        return $x("//*[@aria-label= " + quoMark + message + quoMark + "]");
     }
 
 }
