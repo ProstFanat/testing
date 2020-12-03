@@ -29,7 +29,8 @@ public class LoadSettingsFragment {
     ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']");
     ElementsCollection deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']");
     SelenideElement fullPart = $x("//select[@id = 'fp']");
-SelenideElement saveBtnLoad = $x("//button[contains (text(), ' Save Load ')]");
+    SelenideElement saveBtnLoad = $x("//button[contains (text(), ' Save Load ')]");
+    public SelenideElement btnFilter = $x("//button[text() = ' Filter ']");
 
     public LoadSettingsFragment setPickupDate(int day, String month, int year) {
         pickupDatePickerField.click();

@@ -60,4 +60,11 @@ public class DispatchingSettingsPage {
         return this;
     }
 
+    public DispatchingSettingsPage setAllDriverCheckBoxesTrue(){
+        for (int i = 1; i <= driversList.size(); i++){
+            $x("//*[@placeholder = 'Driver Name']//..//..//..//datatable-row-wrapper[ " + i + "]//datatable-body-cell[1]//input").setSelected(true);
+        }
+        return this;
+    }
+
 }

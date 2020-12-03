@@ -6,6 +6,8 @@ import com.codeborne.selenide.ex.ElementNotFound;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -53,9 +55,9 @@ public class BasePage {
 //        }
 //    }
 //
-//    public void waitToVisibilityOf (int timeOut, WebElement element){
-//        new WebDriverWait(driver, timeOut).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
-//    }
+    public void waitToVisibilityOf (SelenideElement element){
+        element.should(exist);
+    }
 
 
 

@@ -3,13 +3,14 @@ package loadDashboardPages.fragments;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import resources.BasePage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class OffersTableFragment {
+public class OffersTableFragment extends BasePage {
 
     SelenideElement radiusPlaceHolder = $x("//input[@placeholder='Radius']");
     SelenideElement searchDriversBtn = $x("//button[contains(text(), 'Search ')]");
@@ -18,8 +19,8 @@ public class OffersTableFragment {
     ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]");
     List<String> drivers = new ArrayList<>();
 
-    public OffersTableFragment searchDrivers() {
-        radiusPlaceHolder.setValue("7");
+    public OffersTableFragment searchDrivers(String value) {
+        radiusPlaceHolder.setValue(value);
         searchDriversBtn.click();
         return this;
     }
@@ -29,6 +30,16 @@ public class OffersTableFragment {
         for (int i = 0; i < driversCollection.size(); i++) {
             driversCollection.get(i).click();
             drivers.add(driversCollection.get(i).getText());
+        }
+        return this;
+    }
+
+    public OffersTableFragment selectDriverByName(String name) {
+        waitToVisibilityOf(driversCollection.first());
+        for (int i = 0; i < driversCollection.size(); i++) {
+            if(driversCollection.get(i).getText().equals(name)) {
+                driversCollection.get(i).click();
+            }
         }
         return this;
     }
@@ -49,5 +60,7 @@ public class OffersTableFragment {
 
     }
 
-
+    public boolean isAclUserPresent(){
+        return $x("//datatable-body-cell//*[contains(@class, 'fa-user')]").isDisplayed();
+    }
 }

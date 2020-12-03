@@ -4,13 +4,14 @@ import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
 import loadDashboardPages.DispatchingSettingsPage;
+import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
+import loadDashboardPages.fragments.LoadSettingsFragment;
 import org.junit.*;
 import resources.BasePage;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.refresh;
+import static com.codeborne.selenide.Selenide.*;
 
 public class DispatchSettings {
 
@@ -18,6 +19,8 @@ public class DispatchSettings {
     public static FilterLoadPageFragment filterLoadPageFragment;
     public static DispatchingSettingsPage dispatchingSettingsPage;
     public static BasePage basePage;
+    public static EditCreateLoadPage editCreateLoadPage;
+    public static LoadSettingsFragment loadSettingsFragment;
 
 
     @BeforeClass
@@ -28,6 +31,8 @@ public class DispatchSettings {
 
         dispatchingSettingsPage = new DispatchingSettingsPage();
         basePage = new BasePage();
+        loadSettingsFragment = new LoadSettingsFragment();
+        editCreateLoadPage = new EditCreateLoadPage();
         LoginPage loginPage = new LoginPage();
         MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
         filterLoadPageFragment = new FilterLoadPageFragment();
@@ -35,11 +40,11 @@ public class DispatchSettings {
 
         loginPage.login("5", "test");
         mainAdminScreenPage.clickLoadSearchBtn();
-        loadListPage.clickTabDispatchingSettings();
     }
 
     @Before
     public void beforeTest(){
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
         basePage.waitForPageToLoad();
     }
 
@@ -74,7 +79,20 @@ public class DispatchSettings {
     }
 
     @Test
-    public void test(){
-
+    public void deactivateCheckBoxForDriver(){
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .showDrivers(1)
+                .inputDriver("Rouzi Yalikun")
+                .setAllDriverCheckBoxesTrue()
+                .checkBoxesForDriversList.first().setSelected(false);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Rouzi Yalikun")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        basePage.waitForPageToLoad();
+        Assert.assertTrue(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
     }
 }
