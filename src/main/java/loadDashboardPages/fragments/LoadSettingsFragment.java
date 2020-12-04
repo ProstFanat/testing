@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class LoadSettingsFragment {
 
-    public static SelenideElement pickupDatePickerField = $x("//input[@id='pickupDate']"),
+    public  SelenideElement pickupDatePickerField = $x("//input[@id='pickupDate']"),
             chooseMonthAndYearBtn = $x("//button[@aria-label='Choose month and year']"),
             deliveryDatePickerField = $x("//input[@id='deliveryDate']"),
             setDatePickerBtn = $x("//span[text() = 'Set']"),
@@ -29,7 +29,7 @@ public class LoadSettingsFragment {
             commentInput = $x("//textarea[@id='comments']"),
             btnFilter = $x("//button[text() = ' Filter ']");
 
-    public static ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']"),
+    public  ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']"),
             deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']"),
             trailerTypesCollection = $$x("//span[@class='ng-option-label ng-star-inserted']");
 

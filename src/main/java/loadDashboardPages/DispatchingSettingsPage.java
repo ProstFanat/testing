@@ -7,10 +7,10 @@ import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DispatchingSettingsPage {
-    public static SelenideElement orgNameInput = $x("//input[@placeholder='Organization Name']"),
+    public  SelenideElement orgNameInput = $x("//input[@placeholder='Organization Name']"),
             btnFilter = $x("//button[text() = ' Filter ']"),
             driverNameInput = $x("//input[@placeholder='Driver Name']");
-    public static ElementsCollection organizationsList = $$x("//*[@placeholder = 'Organization Name']//..//..//..//..//datatable-row-wrapper"),
+    public  ElementsCollection organizationsList = $$x("//*[@placeholder = 'Organization Name']//..//..//..//..//datatable-row-wrapper"),
             checkBoxesForOrgList = $$x("//*[@placeholder = 'Organization Name']//..//..//..//..//datatable-row-wrapper//datatable-body-cell[1]//input"),
             btnShowDriversList = $$x("//*[@placeholder = 'Organization Name']//..//..//..//..//datatable-row-wrapper//datatable-body-cell[3]//button"),
             driversList = $$x("//*[@placeholder = 'Driver Name']//..//..//..//datatable-row-wrapper"),

@@ -12,12 +12,12 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class OffersTableFragment extends BasePage {
 
-    public static SelenideElement radiusPlaceHolder = $x("//input[@placeholder='Radius']"),
+    public SelenideElement radiusPlaceHolder = $x("//input[@placeholder='Radius']"),
             searchDriversBtn = $x("//button[contains(text(), 'Search ')]"),
             SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']"),
             aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]");
 
-    public static ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
+    public  ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
             driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]");
 
     List<String> drivers = new ArrayList<>();

@@ -11,7 +11,7 @@ public class LoadListPage {
     TableFragment tableFragment = new TableFragment();
     FilterLoadPageFragment filterLoadPageFragment = new FilterLoadPageFragment();
 
-    public static SelenideElement newLoadBtn = $x("//button[@routerlink='/load-list/create-load']"),
+    public  SelenideElement newLoadBtn = $x("//button[@routerlink='/load-list/create-load']"),
             tabDispatchingSettings = $x("//a[text() = 'Dispatch Settings']"),
             pickupLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[5]//span"),
             deliveryLocationInTable = $x("//datatable-row-wrapper//datatable-body-cell[7]//span"),
@@ -23,7 +23,7 @@ public class LoadListPage {
             fPInTable = $x("//datatable-row-wrapper//datatable-body-cell[11]//span");
 
 
-    public static ElementsCollection tableSize = $$x("//datatable-row-wrapper"),
+    public  ElementsCollection tableSize = $$x("//datatable-row-wrapper"),
             tableRows = $$x("//datatable-row-wrapper");
 
     public LoadListPage clickNewLoadBtn() {

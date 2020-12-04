@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class FilterLoadPageFragment extends BasePage {
 
-    public static SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']"),
+    public  SelenideElement loadIdInput = $x("//input[@placeholder = 'Load ID']"),
             statusInput = $x("//*[@placeholder = 'Status']//input"),
             pickUpLocationInput = $x("//input[@placeholder = 'PickUp Location']"),
             deliveryLocationInput = $x("//input[@placeholder = 'Delivery Location']"),
@@ -18,7 +18,7 @@ public class FilterLoadPageFragment extends BasePage {
             driverInput = $x("//*[@placeholder = 'Driver']//input"),
             btnFilter = $x("//button[text() = ' Filter ']");
 
-    public static ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']"),
+    public  ElementsCollection deliveryLocationElements = $$x("//*[@ng-reflect-placeholder = 'Delivery Location']//*[@class = 'ng-star-inserted']"),
             pickUpLocationElements = $$x("//*[@ng-reflect-placeholder = 'PickUp Location']//*[@class = 'ng-star-inserted']"),
             statusElements = $$x("//*[@placeholder = 'Status']//*[@role = 'option']"),
             tableSize = $$x("//datatable-row-wrapper");

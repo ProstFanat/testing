@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class TableFragment {
 
-    public static SelenideElement actionBtn = $x("//button[@id='button-actions']"),
+    public  SelenideElement actionBtn = $x("//button[@id='button-actions']"),
             pickupDate = $x("//datatable-row-wrapper//datatable-body-cell[4]//span"),
             pickupPlace = $x("//datatable-row-wrapper//datatable-body-cell[5]//span"),
             deliveryDate = $x("//datatable-row-wrapper//datatable-body-cell[6]//span"),
@@ -22,7 +22,7 @@ public class TableFragment {
             fullPart = $x("//datatable-row-wrapper//datatable-body-cell[11]//span"),
             editBtn = $x("//i[@class='fa fa-pencil mr-2']");
 
-    public static ElementsCollection id = $$x("//datatable-row-wrapper//datatable-body-cell[1]//span");
+    public  ElementsCollection id = $$x("//datatable-row-wrapper//datatable-body-cell[1]//span");
 
 
     public Map<String, String> saveLoadData() {
