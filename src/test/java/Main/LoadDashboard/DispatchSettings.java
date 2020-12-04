@@ -9,6 +9,7 @@ import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 import org.junit.*;
+import org.testng.annotations.AfterSuite;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -53,6 +54,14 @@ public class DispatchSettings {
         refresh();
     }
 
+    @AfterClass
+    public static void afterAll(){
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        basePage.waitForPageToLoad();
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(true);
+    }
+
     @Test
     public void deactivateCheckBoxForCompany(){
         dispatchingSettingsPage.inputOrgName("EZH");
@@ -62,6 +71,8 @@ public class DispatchSettings {
 
     @Test
     public void deactivateCheckBoxForCompanyWithShowDrivers(){
+        dispatchingSettingsPage.inputOrgName("EZH")
+            .setAllOrgCheckBoxes(true);
         dispatchingSettingsPage.showDriversForOrg("EZH INC");
         dispatchingSettingsPage.checkBoxesForOrgList.first().setSelected(false);
         Assert.assertEquals(dispatchingSettingsPage.driversList.size(), 0);
@@ -81,10 +92,10 @@ public class DispatchSettings {
     @Test
     public void deactivateCheckBoxForDriverBeforeCreatingLoad(){
         dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(true)
                 .showDrivers(1)
                 .inputDriver("Rouzi Yalikun")
-                .setAllDriverCheckBoxes(true)
-                .checkBoxesForDriversList.first().setSelected(false);
+                .setAllDriverCheckBoxes(false);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
@@ -99,6 +110,7 @@ public class DispatchSettings {
     @Test
     public void deactivateCheckBoxForDriverAfterCreatingLoad(){
         dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(true)
                 .showDrivers(1)
                 .inputDriver("Rouzi Yalikun")
                 .setAllDriverCheckBoxes(true);
@@ -122,7 +134,26 @@ public class DispatchSettings {
     }
 
     @Test
-    public void Test(){
-
+    public void deactivateCheckBoxForOrgAfterCreatingLoad(){
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(true)
+                .showDrivers(1)
+                .inputDriver("Rouzi Yalikun")
+                .setAllDriverCheckBoxes(true);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Rouzi Yalikun")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        basePage.waitForPageToLoad();
+        String id = editCreateLoadPage.getID();
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(false);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
+        basePage.waitForPageToLoad();
+        Assert.assertEquals(1, editCreateLoadPage.getOffersTableFragment().driversCollectionOnOffers.size());
     }
 }

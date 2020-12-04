@@ -2,11 +2,12 @@ package loadDashboardPages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class DispatchingSettingsPage {
+public class DispatchingSettingsPage extends BasePage {
     public  SelenideElement orgNameInput = $x("//input[@placeholder='Organization Name']"),
             btnFilter = $x("//button[text() = ' Filter ']"),
             driverNameInput = $x("//input[@placeholder='Driver Name']");
@@ -18,6 +19,7 @@ public class DispatchingSettingsPage {
 
 
     public DispatchingSettingsPage inputOrgName(String org) {
+        waitToVisibilityOf(orgNameInput);
         orgNameInput.setValue(org);
         btnFilter.click();
 
