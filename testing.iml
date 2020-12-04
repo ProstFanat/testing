@@ -87,6 +87,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.xml.bind:jaxb-osgi:2.2.10" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.sling:org.apache.sling.javax.activation:0.1.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: javax.activation:activation:1.1.1" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.13" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:4.13.1" level="project" />
   </component>
 </module>

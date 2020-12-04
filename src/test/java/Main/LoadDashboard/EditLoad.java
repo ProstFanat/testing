@@ -24,7 +24,7 @@ public class EditLoad {
     public static ConfProperties confProperties;
 
     @BeforeClass
-    public static void setup(){
+    public static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
@@ -42,46 +42,46 @@ public class EditLoad {
 
     }
 
-@Test
-public void editLoad() {
+    @Test
+    public void editLoad() {
 
-    mainAdminScreenPage.clickLoadSearchBtn();
+        mainAdminScreenPage.clickLoadSearchBtn();
 
-    String id = loadListPage.getTableFragment().getFirstLoadId();
-    loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
-    loadListPage.getTableFragment().saveLoadData();
-    loadListPage.getTableFragment().loadActionBtnClick();
-    loadListPage.getTableFragment().loadActionEditBtnClick();
+        String id = loadListPage.getTableFragment().getFirstLoadId();
+        loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
+        loadListPage.getTableFragment().saveLoadData();
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
 
-    editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020);
-    editCreateLoadPage.getLoadSettingsFragment().setDeliveryDate(30, "Nov", 2020);
-    editCreateLoadPage.getLoadSettingsFragment().setPickupLocation(ConfProperties.getProperty("editLoad.setPickupLocation"));
-    editCreateLoadPage.getLoadSettingsFragment().setDeliveryLocation(ConfProperties.getProperty("editLoad.setDeliveryLocation"));
-    editCreateLoadPage.getLoadSettingsFragment().setPickupZipCode(ConfProperties.getProperty("editLoad.setPickupZipCode"));
-    editCreateLoadPage.getLoadSettingsFragment().setDeliveryZipCode(ConfProperties.getProperty("editLoad.setDeliveryZipCode"));
-    editCreateLoadPage.getLoadSettingsFragment().selectTrailerType(ConfProperties.getProperty("editLoad.selectTrailerType"));
-    editCreateLoadPage.getLoadSettingsFragment().setWeight(ConfProperties.getProperty("editLoad.setWeight"));
-    editCreateLoadPage.getLoadSettingsFragment().selectTrailerLength(ConfProperties.getProperty("editLoad.selectTrailerLength"));
-    editCreateLoadPage.getLoadSettingsFragment().setRate(ConfProperties.getProperty("editLoad.setRate"));
-    editCreateLoadPage.getLoadSettingsFragment().inputItemType(ConfProperties.getProperty("editLoad.inputItemType"));
-    editCreateLoadPage.getLoadSettingsFragment().selectFP(ConfProperties.getProperty("editLoad.selectFP"));
-    editCreateLoadPage.getLoadSettingsFragment().inputDimension(ConfProperties.getProperty("editLoad.inputDimension"));
-    editCreateLoadPage.getLoadSettingsFragment().inputComment(ConfProperties.getProperty("editLoad.inputComment"));
+        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
+                .setDeliveryDate(30, "Nov", 2020)
+                .setPickupLocation(ConfProperties.getProperty("editLoad.setPickupLocation"))
+                .setDeliveryLocation(ConfProperties.getProperty("editLoad.setDeliveryLocation"))
+                .setPickupZipCode(ConfProperties.getProperty("editLoad.setPickupZipCode"))
+                .setDeliveryZipCode(ConfProperties.getProperty("editLoad.setDeliveryZipCode"))
+                .selectTrailerType(ConfProperties.getProperty("editLoad.selectTrailerType"))
+                .setWeight(ConfProperties.getProperty("editLoad.setWeight"))
+                .selectTrailerLength(ConfProperties.getProperty("editLoad.selectTrailerLength"))
+                .setRate(ConfProperties.getProperty("editLoad.setRate"))
+                .inputItemType(ConfProperties.getProperty("editLoad.inputItemType"))
+                .selectFP(ConfProperties.getProperty("editLoad.selectFP"))
+                .inputDimension(ConfProperties.getProperty("editLoad.inputDimension"))
+                .inputComment(ConfProperties.getProperty("editLoad.inputComment"));
 
-    editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
-    back();
-    loadListPage.getFilterLoadPageFragment().inputLoadId(id);
-    loadListPage.getFilterLoadPageFragment().clickBtnFilter();
-    basePage.waitForPageToLoad();
-    loadListPage.getPickupLocationInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setPickupLocation")));
+        editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        back();
+        loadListPage.getFilterLoadPageFragment().inputLoadId(id)
+                .clickBtnFilter();
+        basePage.waitForPageToLoad();
+        loadListPage.getPickupLocationInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setPickupLocation")));
 
-    Assert.assertEquals(loadListPage.getPickupDateInTable() , "23-Nov-2020");
-    loadListPage.getDeliveryPlaceInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setDeliveryLocation")));
-    Assert.assertEquals(loadListPage.getDeliveryDateInTable(), "30-Nov-2020");
-    loadListPage.getTrailerTypeInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectTrailerType")));
-    loadListPage.getRateInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setRate")));
-    loadListPage.getWeightInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setWeight")));
-    loadListPage.getFPInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectFP")));
-}
+        Assert.assertEquals(loadListPage.getPickupDateInTable(), "23-Nov-2020");
+        loadListPage.getDeliveryPlaceInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setDeliveryLocation")));
+        Assert.assertEquals(loadListPage.getDeliveryDateInTable(), "30-Nov-2020");
+        loadListPage.getTrailerTypeInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectTrailerType")));
+        loadListPage.getRateInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setRate")));
+        loadListPage.getWeightInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setWeight")));
+        loadListPage.getFPInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectFP")));
+    }
 }
 

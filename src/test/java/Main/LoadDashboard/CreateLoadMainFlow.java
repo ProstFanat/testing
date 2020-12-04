@@ -1,5 +1,6 @@
 package Main.LoadDashboard;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -7,8 +8,11 @@ import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -30,12 +34,12 @@ public class CreateLoadMainFlow {
         mainAdminScreenPage = new MainAdminScreenPage();
         editCreateLoadPage = new EditCreateLoadPage();
         loadListPage = new LoadListPage();
-
+        loginPage.login("5", "test");
     }
 
     @Test
     public void createNewLoad() throws Exception {
-        loginPage.login("5", "test");
+        //loginPage.login("5", "test");
 
         mainAdminScreenPage.clickLoadSearchBtn();
 
@@ -53,12 +57,12 @@ public class CreateLoadMainFlow {
 
         loadListPage.getFilterLoadPageFragment().inputLoadId(id);
         loadListPage.getFilterLoadPageFragment().clickBtnFilter();
-
+        loadListPage.tableSize.shouldHave(CollectionCondition.size(1));
     }
 
     @Test
-    public void createNewLoadReqFieldPickupDate()  {
-        loginPage.login("5", "test");
+    public void createNewLoadReqFieldPickupDate() {
+       //loginPage.login("5", "test");
 
         mainAdminScreenPage.clickLoadSearchBtn();
 
@@ -68,62 +72,65 @@ public class CreateLoadMainFlow {
         editCreateLoadPage.getReqAlertsMessage("Please fill Pickup Date").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
+
     @Test
-    public void createNewLoadReqFieldPickLocation()  {
+    public void createNewLoadReqFieldPickLocation() {
         loginPage.login("5", "test");
 
         mainAdminScreenPage.clickLoadSearchBtn();
 
         loadListPage.clickNewLoadBtn();
 
-        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020);
-        editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
+                .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("City in PickUp Location are not determined, can't be saved").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
+
     @Test
-    public void createNewLoadReqFieldDelivDate()  {
+    public void createNewLoadReqFieldDelivDate() {
         loginPage.login("5", "test");
 
         mainAdminScreenPage.clickLoadSearchBtn();
 
         loadListPage.clickNewLoadBtn();
 
-        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020);
-        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Toront");
-        editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
+                .setPickupLocation("Toront")
+                .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Delivery Date").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
 
     }
+
     @Test
-    public void createNewLoadReqFieldDelivLocation()  {
+    public void createNewLoadReqFieldDelivLocation() {
         loginPage.login("5", "test");
 
         mainAdminScreenPage.clickLoadSearchBtn();
 
         loadListPage.clickNewLoadBtn();
 
-        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020);
-        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Toront");
-        editCreateLoadPage.getLoadSettingsFragment().setDeliveryDate(30, "Nov" ,2020 );
-        editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
+                .setPickupLocation("Toront")
+                .setDeliveryDate(30, "Nov", 2020)
+                .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("City in Delivery Location are not determined, can't be saved").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
     @Test
-    public void createNewLoadReqFieldWeight()  {
+    public void createNewLoadReqFieldWeight() {
         loginPage.login("5", "test");
 
         mainAdminScreenPage.clickLoadSearchBtn();
 
         loadListPage.clickNewLoadBtn();
 
-        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020);
-        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Toront");
-        editCreateLoadPage.getLoadSettingsFragment().setDeliveryDate(30, "Nov" ,2020 );
-        editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
+                .setPickupLocation("Toront")
+                .setDeliveryDate(30, "Nov", 2020)
+                .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Weight").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
