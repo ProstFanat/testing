@@ -12,6 +12,7 @@ public class LoginPage {
     public void login(String logIn, String pass) {
         loginField.sendKeys(logIn);
         passwordField.sendKeys(pass);
+        loginBtn.click();
     }
 
     public void login(){
