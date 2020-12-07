@@ -3,6 +3,7 @@ package Main.LoadDashboard;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
+import loadDashboardPages.CustomersPage;
 import loadDashboardPages.DispatchingSettingsPage;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -22,6 +23,7 @@ public class DispatchSettings {
     public static BasePage basePage;
     public static EditCreateLoadPage editCreateLoadPage;
     public static LoadSettingsFragment loadSettingsFragment;
+    public static CustomersPage customersPage;
 
 
     @BeforeClass
@@ -30,6 +32,7 @@ public class DispatchSettings {
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
 
+        customersPage = new CustomersPage();
         dispatchingSettingsPage = new DispatchingSettingsPage();
         basePage = new BasePage();
         loadSettingsFragment = new LoadSettingsFragment();
@@ -155,5 +158,38 @@ public class DispatchSettings {
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
         basePage.waitForPageToLoad();
         Assert.assertEquals(1, editCreateLoadPage.getOffersTableFragment().driversCollectionOnOffers.size());
+    }
+
+    @Test
+    public void checkDriversOnAddOfferWithDeactivatedCheckBoxForOrg(){
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200");
+        int initSize = editCreateLoadPage.getOffersTableFragment().getDriversListSize();
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(false);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200");
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200");
+        int finalSize = editCreateLoadPage.getOffersTableFragment().getDriversListSize();
+
+        Assert.assertNotEquals(initSize, finalSize);
+    }
+
+    @Test
+    public void test(){
+        customersPage.openCustomersPage();
+        customersPage.logAsOrgOfCompany("Test with DM");
+
+
     }
 }

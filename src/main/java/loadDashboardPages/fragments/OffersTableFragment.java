@@ -63,6 +63,11 @@ public class OffersTableFragment extends BasePage {
 
     }
 
+    public int getDriversListSize(){
+        waitToVisibilityOf(driversCollection.first());
+       return driversCollection.size();
+    }
+
     public boolean isAclUserPresent() {
         return aclUserIcon.isDisplayed();
     }
