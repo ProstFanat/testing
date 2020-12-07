@@ -5,8 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 
 import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class LoadSettingsFragment {
 
@@ -27,7 +26,8 @@ public class LoadSettingsFragment {
             itemTypeInput = $x("//input[@id='itemType']"),
             dimensionsInput = $x("//input[@id='dimensions']"),
             commentInput = $x("//textarea[@id='comments']"),
-            btnFilter = $x("//button[text() = ' Filter ']");
+            btnFilter = $x("//button[text() = ' Filter ']"),
+            contacts = $("[id='contacts']");
 
     public  ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']"),
             deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']"),
@@ -134,5 +134,14 @@ public class LoadSettingsFragment {
     public LoadSettingsFragment clickSaveBtn() {
         saveBtnLoad.click();
         return this;
+    }
+
+    public LoadSettingsFragment clearContact(){
+        contacts.clear();
+        return this;
+    }
+
+    public SelenideElement getContactInfo(){
+        return contacts;
     }
 }

@@ -115,6 +115,7 @@ public class CreateLoadMainFlow {
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
                 .setPickupLocation("Toront")
                 .setDeliveryDate(30, "Nov", 2020)
+                .setDeliveryLocation("New")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Weight").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
@@ -129,6 +130,7 @@ public class CreateLoadMainFlow {
                 .setPickupLocation("Toront")
                 .setDeliveryDate(30, "Nov", 2020)
                 .setDeliveryLocation("New")
+                .setWeight("99")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill F/P").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
@@ -138,13 +140,16 @@ public class CreateLoadMainFlow {
         mainAdminScreenPage.clickLoadSearchBtn();
 
         loadListPage.clickNewLoadBtn();
-        editCreateLoadPage.getContactInfo().should(Condition.attribute("ng-reflect-model"), Condition.name("1-279-888-6600"));
+        editCreateLoadPage.getLoadSettingsFragment().getContactInfo().should(Condition.attribute("ng-reflect-model", "1-279-888-6600"));
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
+                .clearContact()
                 .setPickupLocation("Toront")
                 .setDeliveryDate(30, "Nov", 2020)
                 .setDeliveryLocation("New")
+                .setWeight("99")
+                .selectFP("F")
                 .clickSaveBtn();
-        editCreateLoadPage.getReqAlertsMessage("Please fill F/P").shouldBe(Condition.visible);
+        editCreateLoadPage.getReqAlertsMessage("Please fill Contacts").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 

@@ -54,8 +54,8 @@ public class EditCreateLoadPage {
         return $x("//*[@aria-label= " + quoMark + message + quoMark + "]");
     }
 
-    public SelenideElement getContactInfo(){
-        return contacts;
-    }
+
+
+
 
 }

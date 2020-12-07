@@ -17,7 +17,7 @@ public class OffersTableFragment extends BasePage {
             SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']"),
             aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]");
 
-    public  ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
+            public  ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
             driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]");
 
     List<String> drivers = new ArrayList<>();
