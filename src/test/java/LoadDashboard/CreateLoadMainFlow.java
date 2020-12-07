@@ -10,6 +10,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -20,7 +21,7 @@ public class CreateLoadMainFlow {
     public static MainAdminScreenPage mainAdminScreenPage;
     public static EditCreateLoadPage editCreateLoadPage;
     public static LoadListPage loadListPage;
-
+    public static BasePage basePage;
 
     @BeforeClass
     public static void setup() {
@@ -32,6 +33,7 @@ public class CreateLoadMainFlow {
         editCreateLoadPage = new EditCreateLoadPage();
         loadListPage = new LoadListPage();
         loginPage.login("5", "test");
+        basePage = new BasePage();
     }
 
     @Test
@@ -120,6 +122,7 @@ public class CreateLoadMainFlow {
         editCreateLoadPage.getReqAlertsMessage("Please fill Weight").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
+
     @Test
     public void createNewLoadReqFieldFP() {
         mainAdminScreenPage.clickLoadSearchBtn();
@@ -135,6 +138,7 @@ public class CreateLoadMainFlow {
         editCreateLoadPage.getReqAlertsMessage("Please fill F/P").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
+
     @Test
     public void createNewLoadReqFieldContacts() {
         mainAdminScreenPage.clickLoadSearchBtn();
@@ -153,5 +157,28 @@ public class CreateLoadMainFlow {
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
+@Test
+    public void deleteLoad()  {
+    mainAdminScreenPage.clickLoadSearchBtn();
 
+
+    loadListPage.clickNewLoadBtn();
+
+    editCreateLoadPage.setDefaultLoadSettings();
+    editCreateLoadPage.getOffersTableFragment().searchDrivers("7")
+            .selectDrivers()
+            .clickSaveLoadAndSendOffersBtn();
+    basePage.waitToVisibilityOf($x("//button[text() = ' Filter ']"));
+    String id = editCreateLoadPage.getID();
+    System.out.println(id);
+    back();
+    back();
+
+    loadListPage.getFilterLoadPageFragment().inputLoadId(id);
+    loadListPage.getFilterLoadPageFragment().clickBtnFilter();
+    loadListPage.tableSize.shouldHave(CollectionCondition.size(1));
+    loadListPage.getTableFragment().deleteLoad();
+    loadListPage.tableSize.shouldHave(CollectionCondition.size(0));
+
+}
 }
