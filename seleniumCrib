@@ -24,7 +24,7 @@ following-sibling::div // след элемент от родителя
 ...//*[last]
 ...//*[text()='hello'] //найти по тексту
 ...//*[contains(@class, 'hello')]  // contains
-...//*[contains(text(), 'hel']  //найти по части текста
+...//*[contains(text(), 'hel')]  //найти по части текста
 ...//*[starts-with(@title, 'go to')]  //найти по началу чего-то
 
 // основы селениума

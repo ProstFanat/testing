@@ -1,0 +1,898 @@
+[1605713669,457][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 27808
+[1605713669,457][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1605713669,979][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "acceptInsecureCerts": true,
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+            "excludeSwitches": [ "enable-automation", "load-extension" ],
+            "extensions": [  ],
+            "prefs": {
+               "credentials_enable_service": false,
+               "download.default_directory": "/home/user/IdeaProjects/testing/build/downloads/1605713668555_7876_1",
+               "plugins.always_open_pdf_externally": true
+            }
+         },
+         "pageLoadStrategy": "normal"
+      } ]
+   },
+   "desiredCapabilities": {
+      "acceptInsecureCerts": true,
+      "acceptSslCerts": true,
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+         "excludeSwitches": [ "enable-automation", "load-extension" ],
+         "extensions": [  ],
+         "prefs": {
+            "credentials_enable_service": false,
+            "download.default_directory": "/home/user/IdeaProjects/testing/build/downloads/1605713668555_7876_1",
+            "plugins.always_open_pdf_externally": true
+         }
+      },
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "pageLoadStrategy": "normal",
+      "takesScreenshot": true
+   }
+}
+[1605713669,979][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "credentials_enable_service": false,
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "download": {
+      "default_directory": "/home/user/IdeaProjects/testing/build/downloads/1605713668555_7876_1"
+   },
+   "plugins": {
+      "always_open_pdf_externally": true
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1605713669,979][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1605713669,979][INFO]: Launching chrome: /usr/bin/google-chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-blink-features=ShadowDOMV0 --enable-logging --ignore-certificate-errors --log-level=0 --no-first-run --no-sandbox --password-store=basic --proxy-bypass-list=<-loopback> --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/tmp/.com.google.Chrome.FRfApo data:,
+[1605713670,361][INFO]: resolved localhost to ["127.0.0.1"]
+[1605713670,378][INFO]: resolved localhost to ["127.0.0.1"]
+[1605713670,402][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "84.0.4147.105",
+      "chrome": {
+         "chromedriverVersion": "84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310})",
+         "userDataDir": "/tmp/.com.google.Chrome.FRfApo"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:34747"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "linux",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "9512e6cf0d39dbb7c87487887dfa7bf6"
+}
+[1605713670,485][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND MaximizeWindow {
+
+}
+[1605713670,485][INFO]: Waiting for pending navigations...
+[1605713670,490][INFO]: Done waiting for pending navigations. Status: ok
+[1605713670,592][INFO]: Waiting for pending navigations...
+[1605713670,593][INFO]: Done waiting for pending navigations. Status: ok
+[1605713670,593][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE MaximizeWindow {
+   "height": 1050,
+   "width": 1680,
+   "x": 1920,
+   "y": 0
+}
+[1605713670,597][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND SetTimeouts {
+   "pageLoad": 30000
+}
+[1605713670,597][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE SetTimeouts
+[1605713670,605][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND Navigate {
+   "url": "http://localhost:8080/TrackEnsure/login.do"
+}
+[1605713670,605][INFO]: Waiting for pending navigations...
+[1605713670,606][INFO]: Done waiting for pending navigations. Status: ok
+[1605713670,668][INFO]: Waiting for pending navigations...
+[1605713671,124][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,124][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE Navigate
+[1605713671,196][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@id = 'email']"
+}
+[1605713671,196][INFO]: Waiting for pending navigations...
+[1605713671,196][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,208][INFO]: Waiting for pending navigations...
+[1605713671,209][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,209][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "83459b83-7238-49b1-b7a8-f0deae6a1bdd"
+}
+[1605713671,218][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND TypeElement {
+   "id": "83459b83-7238-49b1-b7a8-f0deae6a1bdd",
+   "text": "5",
+   "value": [ "5" ]
+}
+[1605713671,218][INFO]: Waiting for pending navigations...
+[1605713671,220][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,250][INFO]: Waiting for pending navigations...
+[1605713671,253][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,253][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE TypeElement
+[1605713671,261][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@id = 'password']"
+}
+[1605713671,261][INFO]: Waiting for pending navigations...
+[1605713671,262][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,273][INFO]: Waiting for pending navigations...
+[1605713671,273][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,273][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "240bc504-9687-488f-908d-eb936f03194f"
+}
+[1605713671,277][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND TypeElement {
+   "id": "240bc504-9687-488f-908d-eb936f03194f",
+   "text": "test",
+   "value": [ "t", "e", "s", "t" ]
+}
+[1605713671,277][INFO]: Waiting for pending navigations...
+[1605713671,278][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,360][INFO]: Waiting for pending navigations...
+[1605713671,363][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,363][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE TypeElement
+[1605713671,423][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@value='Log In']"
+}
+[1605713671,423][INFO]: Waiting for pending navigations...
+[1605713671,424][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,435][INFO]: Waiting for pending navigations...
+[1605713671,436][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,436][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "ee8eb36a-db56-4e06-a549-b4c035f06605"
+}
+[1605713671,456][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND ExecuteScript {
+   "args": [ {
+      "element-6066-11e4-a52e-4f735466cecf": "ee8eb36a-db56-4e06-a549-b4c035f06605"
+   } ],
+   "script": "return (function(){return function(){var k=this;function l(a){return void 0!==a}function m(a){return\"string\"==typeof a}function aa(a,b){a=a.split(\".\");var c=k;a[0]in c||!c.execScript||c.execScript(..."
+}
+[1605713671,456][INFO]: Waiting for pending navigations...
+[1605713671,457][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,464][INFO]: Waiting for pending navigations...
+[1605713671,465][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,465][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE ExecuteScript true
+[1605713671,468][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND ClickElement {
+   "id": "ee8eb36a-db56-4e06-a549-b4c035f06605"
+}
+[1605713671,468][INFO]: Waiting for pending navigations...
+[1605713671,468][INFO]: Done waiting for pending navigations. Status: ok
+[1605713671,509][INFO]: Waiting for pending navigations...
+[1605713674,974][INFO]: Done waiting for pending navigations. Status: ok
+[1605713674,974][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE ClickElement
+[1605713674,978][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//p[contains(text(), 'Load Search')]"
+}
+[1605713674,978][INFO]: Waiting for pending navigations...
+[1605713674,978][INFO]: Done waiting for pending navigations. Status: ok
+[1605713674,986][INFO]: Waiting for pending navigations...
+[1605713674,986][INFO]: Done waiting for pending navigations. Status: ok
+[1605713674,986][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "f245afc8-243b-4ee6-b31c-92d2e6eec773"
+}
+[1605713675,001][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND ExecuteScript {
+   "args": [ {
+      "element-6066-11e4-a52e-4f735466cecf": "f245afc8-243b-4ee6-b31c-92d2e6eec773"
+   } ],
+   "script": "return (function(){return function(){var k=this;function l(a){return void 0!==a}function m(a){return\"string\"==typeof a}function aa(a,b){a=a.split(\".\");var c=k;a[0]in c||!c.execScript||c.execScript(..."
+}
+[1605713675,001][INFO]: Waiting for pending navigations...
+[1605713675,002][INFO]: Done waiting for pending navigations. Status: ok
+[1605713675,011][INFO]: Waiting for pending navigations...
+[1605713675,012][INFO]: Done waiting for pending navigations. Status: ok
+[1605713675,012][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE ExecuteScript true
+[1605713675,015][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND ClickElement {
+   "id": "f245afc8-243b-4ee6-b31c-92d2e6eec773"
+}
+[1605713675,015][INFO]: Waiting for pending navigations...
+[1605713675,016][INFO]: Done waiting for pending navigations. Status: ok
+[1605713675,049][INFO]: Waiting for pending navigations...
+[1605713675,086][INFO]: Done waiting for pending navigations. Status: ok
+[1605713675,086][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE ClickElement
+[1605713675,094][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605713675,094][INFO]: Waiting for pending navigations...
+[1605713675,095][INFO]: Done waiting for pending navigations. Status: ok
+[1605713675,234][INFO]: Waiting for pending navigations...
+[1605713675,252][INFO]: Done waiting for pending navigations. Status: ok
+[1605713675,252][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder = 'Load ID']"}
+  (Session info: chrome=84.0.4147.105)
+[1605713675,471][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605713675,471][INFO]: Waiting for pending navigations...
+[1605713676,691][INFO]: Done waiting for pending navigations. Status: ok
+[1605713676,711][INFO]: Waiting for pending navigations...
+[1605713676,712][INFO]: Done waiting for pending navigations. Status: ok
+[1605713676,712][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder = 'Load ID']"}
+  (Session info: chrome=84.0.4147.105)
+[1605713676,917][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605713676,917][INFO]: Waiting for pending navigations...
+[1605713677,133][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,148][INFO]: Waiting for pending navigations...
+[1605713677,149][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,149][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder = 'Load ID']"}
+  (Session info: chrome=84.0.4147.105)
+[1605713677,357][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@placeholder = 'Load ID']"
+}
+[1605713677,357][INFO]: Waiting for pending navigations...
+[1605713677,570][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,646][INFO]: Waiting for pending navigations...
+[1605713677,707][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,707][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "d3355cf5-d5be-4973-ad23-4079b8a6c1a4"
+}
+[1605713677,714][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND TypeElement {
+   "id": "d3355cf5-d5be-4973-ad23-4079b8a6c1a4",
+   "text": "624",
+   "value": [ "6", "2", "4" ]
+}
+[1605713677,714][INFO]: Waiting for pending navigations...
+[1605713677,717][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,767][INFO]: Waiting for pending navigations...
+[1605713677,773][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,773][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE TypeElement
+[1605713677,779][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//button[text() = ' Filter ']"
+}
+[1605713677,779][INFO]: Waiting for pending navigations...
+[1605713677,780][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,787][INFO]: Waiting for pending navigations...
+[1605713677,788][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,788][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "29ead6aa-1050-4d83-bb64-554bbbae263f"
+}
+[1605713677,803][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND ExecuteScript {
+   "args": [ {
+      "element-6066-11e4-a52e-4f735466cecf": "29ead6aa-1050-4d83-bb64-554bbbae263f"
+   } ],
+   "script": "return (function(){return function(){var k=this;function l(a){return void 0!==a}function m(a){return\"string\"==typeof a}function aa(a,b){a=a.split(\".\");var c=k;a[0]in c||!c.execScript||c.execScript(..."
+}
+[1605713677,803][INFO]: Waiting for pending navigations...
+[1605713677,804][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,816][INFO]: Waiting for pending navigations...
+[1605713677,816][INFO]: Done waiting for pending navigations. Status: ok
+[1605713677,816][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE ExecuteScript true
+[1605713677,820][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND ClickElement {
+   "id": "29ead6aa-1050-4d83-bb64-554bbbae263f"
+}
+[1605713677,820][INFO]: Waiting for pending navigations...
+[1605713677,820][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,629][INFO]: Waiting for pending navigations...
+[1605713678,641][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,641][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE ClickElement
+[1605713678,646][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElements {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper"
+}
+[1605713678,646][INFO]: Waiting for pending navigations...
+[1605713678,648][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,661][INFO]: Waiting for pending navigations...
+[1605713678,663][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,663][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElements [ {
+   "element-6066-11e4-a52e-4f735466cecf": "6c9c7626-85e3-4707-84cc-3638c2e80a35"
+}, {
+   "element-6066-11e4-a52e-4f735466cecf": "a2ba7853-51e3-4d37-a857-8d625c5647d3"
+} ]
+[1605713678,681][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[1]//datatable-body-cell[1]//span"
+}
+[1605713678,681][INFO]: Waiting for pending navigations...
+[1605713678,682][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,690][INFO]: Waiting for pending navigations...
+[1605713678,694][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,694][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "d0621715-36a3-4e71-a439-481059d20ef0"
+}
+[1605713678,696][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND GetElementTagName {
+   "id": "d0621715-36a3-4e71-a439-481059d20ef0"
+}
+[1605713678,696][INFO]: Waiting for pending navigations...
+[1605713678,697][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,698][INFO]: Waiting for pending navigations...
+[1605713678,699][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,699][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE GetElementTagName "span"
+[1605713678,701][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND GetElementText {
+   "id": "d0621715-36a3-4e71-a439-481059d20ef0"
+}
+[1605713678,701][INFO]: Waiting for pending navigations...
+[1605713678,702][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,715][INFO]: Waiting for pending navigations...
+[1605713678,716][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,716][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE GetElementText "625"
+[1605713678,720][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[1]//datatable-body-cell[1]//span"
+}
+[1605713678,720][INFO]: Waiting for pending navigations...
+[1605713678,721][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,736][INFO]: Waiting for pending navigations...
+[1605713678,749][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,749][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "d0621715-36a3-4e71-a439-481059d20ef0"
+}
+[1605713678,751][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND GetElementTagName {
+   "id": "d0621715-36a3-4e71-a439-481059d20ef0"
+}
+[1605713678,751][INFO]: Waiting for pending navigations...
+[1605713678,755][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,759][INFO]: Waiting for pending navigations...
+[1605713678,762][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,762][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE GetElementTagName "span"
+[1605713678,767][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND GetElementText {
+   "id": "d0621715-36a3-4e71-a439-481059d20ef0"
+}
+[1605713678,767][INFO]: Waiting for pending navigations...
+[1605713678,771][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,778][INFO]: Waiting for pending navigations...
+[1605713678,780][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,780][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE GetElementText "624"
+[1605713678,783][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713678,783][INFO]: Waiting for pending navigations...
+[1605713678,784][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,795][INFO]: Waiting for pending navigations...
+[1605713678,795][INFO]: Done waiting for pending navigations. Status: ok
+[1605713678,795][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713679,001][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713679,001][INFO]: Waiting for pending navigations...
+[1605713679,002][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,014][INFO]: Waiting for pending navigations...
+[1605713679,015][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,015][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713679,224][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713679,224][INFO]: Waiting for pending navigations...
+[1605713679,226][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,247][INFO]: Waiting for pending navigations...
+[1605713679,247][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,247][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713679,454][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713679,454][INFO]: Waiting for pending navigations...
+[1605713679,456][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,474][INFO]: Waiting for pending navigations...
+[1605713679,475][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,475][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713679,683][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713679,683][INFO]: Waiting for pending navigations...
+[1605713679,685][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,703][INFO]: Waiting for pending navigations...
+[1605713679,704][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,704][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713679,912][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713679,912][INFO]: Waiting for pending navigations...
+[1605713679,914][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,933][INFO]: Waiting for pending navigations...
+[1605713679,935][INFO]: Done waiting for pending navigations. Status: ok
+[1605713679,935][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713680,143][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713680,143][INFO]: Waiting for pending navigations...
+[1605713680,145][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,163][INFO]: Waiting for pending navigations...
+[1605713680,165][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,165][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713680,373][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713680,374][INFO]: Waiting for pending navigations...
+[1605713680,375][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,393][INFO]: Waiting for pending navigations...
+[1605713680,395][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,395][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713680,604][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713680,604][INFO]: Waiting for pending navigations...
+[1605713680,606][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,625][INFO]: Waiting for pending navigations...
+[1605713680,627][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,627][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713680,837][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713680,837][INFO]: Waiting for pending navigations...
+[1605713680,839][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,858][INFO]: Waiting for pending navigations...
+[1605713680,859][INFO]: Done waiting for pending navigations. Status: ok
+[1605713680,859][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713681,068][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713681,068][INFO]: Waiting for pending navigations...
+[1605713681,070][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,087][INFO]: Waiting for pending navigations...
+[1605713681,089][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,089][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713681,295][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713681,295][INFO]: Waiting for pending navigations...
+[1605713681,295][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,300][INFO]: Waiting for pending navigations...
+[1605713681,300][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,300][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713681,504][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713681,504][INFO]: Waiting for pending navigations...
+[1605713681,504][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,510][INFO]: Waiting for pending navigations...
+[1605713681,510][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,510][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713681,717][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713681,719][INFO]: Waiting for pending navigations...
+[1605713681,720][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,725][INFO]: Waiting for pending navigations...
+[1605713681,726][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,726][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713681,931][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713681,931][INFO]: Waiting for pending navigations...
+[1605713681,933][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,951][INFO]: Waiting for pending navigations...
+[1605713681,952][INFO]: Done waiting for pending navigations. Status: ok
+[1605713681,953][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713682,161][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713682,161][INFO]: Waiting for pending navigations...
+[1605713682,162][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,180][INFO]: Waiting for pending navigations...
+[1605713682,182][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,182][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713682,389][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713682,390][INFO]: Waiting for pending navigations...
+[1605713682,391][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,409][INFO]: Waiting for pending navigations...
+[1605713682,411][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,411][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713682,621][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713682,621][INFO]: Waiting for pending navigations...
+[1605713682,622][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,641][INFO]: Waiting for pending navigations...
+[1605713682,642][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,642][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713682,850][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713682,850][INFO]: Waiting for pending navigations...
+[1605713682,852][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,870][INFO]: Waiting for pending navigations...
+[1605713682,872][INFO]: Done waiting for pending navigations. Status: ok
+[1605713682,872][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713683,081][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713683,081][INFO]: Waiting for pending navigations...
+[1605713683,083][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,100][INFO]: Waiting for pending navigations...
+[1605713683,102][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,102][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713683,309][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713683,309][INFO]: Waiting for pending navigations...
+[1605713683,311][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,331][INFO]: Waiting for pending navigations...
+[1605713683,333][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,333][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713683,540][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713683,540][INFO]: Waiting for pending navigations...
+[1605713683,542][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,560][INFO]: Waiting for pending navigations...
+[1605713683,562][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,562][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713683,770][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713683,770][INFO]: Waiting for pending navigations...
+[1605713683,772][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,789][INFO]: Waiting for pending navigations...
+[1605713683,791][INFO]: Done waiting for pending navigations. Status: ok
+[1605713683,791][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713683,998][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713683,999][INFO]: Waiting for pending navigations...
+[1605713684,000][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,020][INFO]: Waiting for pending navigations...
+[1605713684,021][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,021][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713684,230][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713684,230][INFO]: Waiting for pending navigations...
+[1605713684,232][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,249][INFO]: Waiting for pending navigations...
+[1605713684,251][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,251][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713684,459][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713684,459][INFO]: Waiting for pending navigations...
+[1605713684,461][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,479][INFO]: Waiting for pending navigations...
+[1605713684,481][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,481][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713684,688][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713684,688][INFO]: Waiting for pending navigations...
+[1605713684,690][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,708][INFO]: Waiting for pending navigations...
+[1605713684,709][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,710][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713684,918][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713684,918][INFO]: Waiting for pending navigations...
+[1605713684,920][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,938][INFO]: Waiting for pending navigations...
+[1605713684,940][INFO]: Done waiting for pending navigations. Status: ok
+[1605713684,940][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713685,147][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713685,147][INFO]: Waiting for pending navigations...
+[1605713685,148][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,166][INFO]: Waiting for pending navigations...
+[1605713685,168][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,168][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713685,375][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713685,376][INFO]: Waiting for pending navigations...
+[1605713685,377][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,395][INFO]: Waiting for pending navigations...
+[1605713685,397][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,397][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713685,604][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713685,604][INFO]: Waiting for pending navigations...
+[1605713685,606][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,625][INFO]: Waiting for pending navigations...
+[1605713685,627][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,627][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713685,834][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713685,834][INFO]: Waiting for pending navigations...
+[1605713685,836][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,854][INFO]: Waiting for pending navigations...
+[1605713685,856][INFO]: Done waiting for pending navigations. Status: ok
+[1605713685,856][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713686,063][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713686,063][INFO]: Waiting for pending navigations...
+[1605713686,065][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,083][INFO]: Waiting for pending navigations...
+[1605713686,085][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,085][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713686,293][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713686,293][INFO]: Waiting for pending navigations...
+[1605713686,294][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,313][INFO]: Waiting for pending navigations...
+[1605713686,315][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,315][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713686,523][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713686,524][INFO]: Waiting for pending navigations...
+[1605713686,525][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,544][INFO]: Waiting for pending navigations...
+[1605713686,545][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,546][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713686,753][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713686,754][INFO]: Waiting for pending navigations...
+[1605713686,755][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,784][INFO]: Waiting for pending navigations...
+[1605713686,786][INFO]: Done waiting for pending navigations. Status: ok
+[1605713686,786][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713686,994][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713686,994][INFO]: Waiting for pending navigations...
+[1605713686,995][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,019][INFO]: Waiting for pending navigations...
+[1605713687,020][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,020][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713687,228][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713687,229][INFO]: Waiting for pending navigations...
+[1605713687,230][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,248][INFO]: Waiting for pending navigations...
+[1605713687,250][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,250][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713687,458][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713687,458][INFO]: Waiting for pending navigations...
+[1605713687,460][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,478][INFO]: Waiting for pending navigations...
+[1605713687,479][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,479][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713687,687][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713687,687][INFO]: Waiting for pending navigations...
+[1605713687,689][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,706][INFO]: Waiting for pending navigations...
+[1605713687,708][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,708][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713687,916][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713687,916][INFO]: Waiting for pending navigations...
+[1605713687,918][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,936][INFO]: Waiting for pending navigations...
+[1605713687,938][INFO]: Done waiting for pending navigations. Status: ok
+[1605713687,938][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713688,145][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713688,145][INFO]: Waiting for pending navigations...
+[1605713688,146][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,164][INFO]: Waiting for pending navigations...
+[1605713688,166][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,166][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713688,373][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713688,373][INFO]: Waiting for pending navigations...
+[1605713688,374][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,392][INFO]: Waiting for pending navigations...
+[1605713688,394][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,394][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713688,601][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713688,601][INFO]: Waiting for pending navigations...
+[1605713688,602][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,612][INFO]: Waiting for pending navigations...
+[1605713688,613][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,613][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713688,820][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713688,820][INFO]: Waiting for pending navigations...
+[1605713688,822][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,841][INFO]: Waiting for pending navigations...
+[1605713688,842][INFO]: Done waiting for pending navigations. Status: ok
+[1605713688,842][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713689,048][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713689,048][INFO]: Waiting for pending navigations...
+[1605713689,050][INFO]: Done waiting for pending navigations. Status: ok
+[1605713689,069][INFO]: Waiting for pending navigations...
+[1605713689,070][INFO]: Done waiting for pending navigations. Status: ok
+[1605713689,070][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713689,278][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713689,278][INFO]: Waiting for pending navigations...
+[1605713689,280][INFO]: Done waiting for pending navigations. Status: ok
+[1605713689,300][INFO]: Waiting for pending navigations...
+[1605713689,302][INFO]: Done waiting for pending navigations. Status: ok
+[1605713689,302][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
+[1605713689,517][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//datatable-row-wrapper[2]//datatable-body-cell[1]//span"
+}
+[1605713689,518][INFO]: Waiting for pending navigations...
+[1605713689,526][INFO]: Done waiting for pending navigations. Status: ok
+[1605713689,545][INFO]: Waiting for pending navigations...
+[1605713689,546][INFO]: Done waiting for pending navigations. Status: ok
+[1605713689,546][INFO]: [9512e6cf0d39dbb7c87487887dfa7bf6] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"//datatable-row-wrapper[2]//datatable-body-cell[1]//span"}
+  (Session info: chrome=84.0.4147.105)
