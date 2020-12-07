@@ -9,15 +9,14 @@ public class LoginPage {
     SelenideElement loginBtn = $x("//input[@value='Log In']");
     SelenideElement passwordField = $x("//*[@id = 'password']");
 
-<<<<<<< HEAD:src/main/java/LoginAndMainPages/LoginPage.java
-    public void login(String logIn, String pass){
+    public void login(String logIn, String pass) {
         loginField.sendKeys(logIn);
         passwordField.sendKeys(pass);
-=======
+    }
+
     public void login(){
         loginField.sendKeys("5");
-        passwdField.sendKeys("test");
->>>>>>> CreateTransactions:src/main/java/Login/Login.java
+        passwordField.sendKeys("test");
         loginBtn.click();
     }
 }

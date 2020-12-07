@@ -1,6 +1,5 @@
-package Main;
 
-import Login.Login;
+import  LoginAndMainPages.LoginPage;
 import CreateTransactions.*;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -11,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class CreateTransactions {
-    public static Login login;
+    public static LoginPage login;
     public static OpenEditor openEditor;
     public static CreateTransaction create;
 
@@ -20,7 +19,7 @@ public class CreateTransactions {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
-        login = new Login();
+        login = new LoginPage();
         openEditor = new OpenEditor();
         create = new CreateTransaction();
         login.login();

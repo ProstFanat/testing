@@ -1,4 +1,4 @@
-package Main.LoadDashboard;
+package LoadDashboard;
 
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
@@ -10,7 +10,6 @@ import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 import org.junit.*;
-import org.testng.annotations.AfterSuite;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;

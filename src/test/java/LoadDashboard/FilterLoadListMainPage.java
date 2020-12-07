@@ -1,4 +1,4 @@
-package Main.LoadDashboard;
+package LoadDashboard;
 
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
