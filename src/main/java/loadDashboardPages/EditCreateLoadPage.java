@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 import loadDashboardPages.fragments.OffersTableFragment;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
@@ -12,7 +13,9 @@ public class EditCreateLoadPage {
     LoadSettingsFragment loadSettingsFragment = new LoadSettingsFragment();
     OffersTableFragment offersTableFragment = new OffersTableFragment();
 
-    public LoadSettingsFragment getLoadSettingsFragment() {
+   public SelenideElement contacts = $("[id='contacts']");
+
+   public LoadSettingsFragment getLoadSettingsFragment() {
         return loadSettingsFragment;
     }
     public OffersTableFragment getOffersTableFragment() {
@@ -49,6 +52,10 @@ public class EditCreateLoadPage {
     char quoMark = '"';
     public SelenideElement getReqAlertsMessage(String message){
         return $x("//*[@aria-label= " + quoMark + message + quoMark + "]");
+    }
+
+    public SelenideElement getContactInfo(){
+        return contacts;
     }
 
 }
