@@ -24,8 +24,7 @@ public class UrlVariables extends BasePage {
             return "https://trackensure.ca/";
         else if (testPlace.equals("TestServer"))
             return "http://64.191.45.114:8081/TrackEnsure/";
-        //return "http://10.10.1.158:8080/TrackEnsure/";
-        return "http://192.168.0.102:8080/TrackEnsure/";
+        return "http://localhost:8080/TrackEnsure/";
     }
 
     public static String dateInMilliseconds (){

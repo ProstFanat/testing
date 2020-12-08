@@ -20,11 +20,11 @@ public class Accounts {
 
     public final static String PROD_HELLEN_LOGIN = "te-adviser-1612@trackensure.com";
     public final static String PROD_HELLEN_PASSWORD = "Te325!vI0rgCOM";
-    public static final long TEST_DRIVER_ID = 36353;
+    public static final long TEST_DRIVER_ID = 59007;
     public static final String DRIVER_TO_TRANSFER_NAME = "John Transfer";
     public static HashMap getLoginValues(){
-        String testPlace = System.getProperty("TestPlace");
-       // String testPlace = "Local";
+        //String testPlace = System.getProperty("TestPlace");
+        String testPlace = "Local";
         String login = "";
         String password = "";
         if(testPlace.equals("Local")){
@@ -43,7 +43,7 @@ public class Accounts {
     }
     public static String getCompanyForLogin(){
         //String testPlace = System.getProperty("LoginAsCompany");
-        String testPlace = "MGK express Corp";
+        String testPlace = "IMOVE TRANS LLC";
         //String testPlace = "Hellen";
         //String testPlace = "HL Motor";
         return testPlace;

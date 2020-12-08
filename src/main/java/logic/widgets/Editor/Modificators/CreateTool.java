@@ -79,7 +79,7 @@ public class CreateTool extends EditorPage {
     private static final Logger log = Logger.getLogger(CreateTool.class);
     private List<Event> createdEvents = new ArrayList<>();
     private final Modificators modificator = Modificators.CREATE;
-    private final String TRUCK = "TestTruck";
+    private final String TRUCK = "146622";
 
     public CreateTool enterTimeOfEvent(int hours, int minutes, int changeDateCoef) {
         eventTimeInput.click();
