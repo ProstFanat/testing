@@ -56,10 +56,10 @@ public class DeleteToolTest {
         adminPage
                 .closeConfirmStartShiftWindow()
                 .goToCustomersPage()
-                .findAndLoginAsCompany("MGK express Corp");
+                .findAndLoginAsCompany(Accounts.getCompanyForLogin());
         navigationBar.goToDriversPage()
                 .goToProfilesTab()
-                .openDriverHosPage("Igors");
+                .openDriverHosPage("Abror");
         ArrayList<String> newTab = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(newTab.get(1));
         hosTab.goToViewer().goToEldEditor();
@@ -70,7 +70,7 @@ public class DeleteToolTest {
     @DataProvider(name = "delete_duty")
     public Object[][] deleteDutyProvider() {
         return new Object[][]{
-                /* {"OFF DUTY", new ArrayList<>(Collections.singletonList(0)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, true},
+                {"OFF DUTY", new ArrayList<>(Collections.singletonList(0)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, true},
                  {"PU WITH CLEARED", new ArrayList<>(Collections.singletonList(2)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
                  {"YM WITH CLEARED", new ArrayList<>(Collections.singletonList(5)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
                  {"ON DUTY", new ArrayList<>(Collections.singletonList(8)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
@@ -79,7 +79,7 @@ public class DeleteToolTest {
                  {"CLEARED AND YM", new ArrayList<>(Arrays.asList(4, 5)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
                  {"OFF AND ON", new ArrayList<>(Arrays.asList(0, 8)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
                  {"DRIVING AND SLEEP", new ArrayList<>(Arrays.asList(1, 2)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
-                 {"CLEARED AND PU", new ArrayList<>(Arrays.asList(1, 8)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},*/
+                 {"CLEARED AND PU", new ArrayList<>(Arrays.asList(1, 8)), eventsData.EVENTS_FOR_TRANSFER_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
                 {"Power Up", new ArrayList<>(Collections.singletonList(11)), eventsData.EVENTS_FOR_SHIFT_GROUP_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, true},
                 {"Power Up on OFF", new ArrayList<>(Arrays.asList(11, 12)), eventsData.EVENTS_FOR_SHIFT_GROUP_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},
                 {"Power Down", new ArrayList<>(Collections.singletonList(9)), eventsData.EVENTS_FOR_SHIFT_GROUP_DUTY_EVENTS(Accounts.TEST_DRIVER_ID), false, false},

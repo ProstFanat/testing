@@ -30,8 +30,8 @@ public class TransferTests {
     private static final Logger log = Logger.getLogger(TransferTests.class);
     private final EventsData eventsData = new EventsData();
     private EditorPage editor = null;
-    private static final long SECOND_DRIVER_ID = 46605;
-    private static final String FIRST_DRIVER_NAME = "Igors Kiselovs";
+    private static final long SECOND_DRIVER_ID = 61320;
+    private static final String FIRST_DRIVER_NAME = "Abror Sharobiddinov";
     private static final String SECOND_DRIVER_NAME = "John Transfer";
 
 
@@ -60,9 +60,9 @@ public class TransferTests {
         adminPage
                 .closeConfirmStartShiftWindow()
                 .goToCustomersPage()
-                .findAndLoginAsCompany("MGK express Corp");
+                .findAndLoginAsCompany(Accounts.getCompanyForLogin());
 
-        navigationBar.goToDriversPage().goToProfilesTab().openDriverHosPage("Igors");
+        navigationBar.goToDriversPage().goToProfilesTab().openDriverHosPage("Abror");
         ArrayList<String> newTab = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(newTab.get(1));
         hosTab.goToViewer().goToEldEditor();

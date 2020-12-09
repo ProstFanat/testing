@@ -24,7 +24,7 @@ public class EventDAO {
     private static final Logger log = Logger.getLogger(EventDAO.class);
     static private final String INSERT_EVENTS = "INSERT INTO eld.eld_event (driver_id_1, truck_id,org_id, record_status, record_origin, " +
             "event_type, event_code, latitude, longitude, location_description, device_uid, event_timestamp) VALUES (";
-    static private final String DELETE_EVENTS_FROM_DRIVER = "DELETE FROM eld.eld_event WHERE org_id=3464 and driver_id_1=";
+    static private final String DELETE_EVENTS_FROM_DRIVER = "DELETE FROM eld.eld_event WHERE org_id=4112 and driver_id_1=";
     static private final String INSERT_BDX = "INSERT INTO eld.eld_border_crossing_event (org_id,crossing_date,driver_id_1,truck_id,event_origin, from_country_code, to_country_code)" +
             "VALUES(";
     static private final String DELETE_BDX_EVENTS_FROM_DRIVER = "DELETE FROM eld.eld_border_crossing_event WHERE driver_id_1=" + Accounts.TEST_DRIVER_ID + " and org_id=3464";
