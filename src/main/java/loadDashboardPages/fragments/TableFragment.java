@@ -2,12 +2,12 @@ package loadDashboardPages.fragments;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import loadDashboardPages.LoadListPage;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TableFragment {
 
@@ -20,7 +20,8 @@ public class TableFragment {
             weight = $x("//datatable-row-wrapper//datatable-body-cell[9]//span"),
             rate = $x("//datatable-row-wrapper//datatable-body-cell[10]//span"),
             fullPart = $x("//datatable-row-wrapper//datatable-body-cell[11]//span"),
-            editBtn = $x("//i[@class='fa fa-pencil mr-2']");
+            editBtn = $x("//i[@class='fa fa-pencil mr-2']"),
+            deleteLoadBtn = $x("");
 
     public  ElementsCollection id = $$x("//datatable-row-wrapper//datatable-body-cell[1]//span");
 
@@ -57,4 +58,14 @@ public class TableFragment {
         editBtn.click();
         return this;
     }
+
+    public TableFragment deleteLoad() {
+        actionBtn.click();
+        deleteLoadBtn.click();
+        switchTo().alert().accept();
+
+        return this;
+    }
+
+
 }
