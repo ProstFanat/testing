@@ -56,10 +56,11 @@ public class DeleteToolTest {
         adminPage
                 .closeConfirmStartShiftWindow()
                 .goToCustomersPage()
-                .findAndLoginAsCompany("MGK express Corp");
-        navigationBar.goToDriversPage()
+                .findAndLoginAsCompany("IMOVE TRANS LLC")
+                .goToNavigationBar()
+                .goToDriversPage()
                 .goToProfilesTab()
-                .openDriverHosPage("Igors");
+                .openDriverHosPage("Abror");
         ArrayList<String> newTab = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(newTab.get(1));
         hosTab.goToViewer().goToEldEditor();

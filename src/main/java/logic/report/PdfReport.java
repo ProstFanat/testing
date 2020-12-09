@@ -55,7 +55,7 @@ public class PdfReport {
     public static void createReportFile(String reportName) {
         try {
             document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream("/home/evgeniy/Desktop/Reports/"
+            PdfWriter.getInstance(document, new FileOutputStream("/home/user/Documents/rep/"
                     +reportName.replaceAll("\\s+","").toLowerCase()+"_"+new SimpleDateFormat("yyyy-MM-dd_hh:mm:ss").format(new Date())+".pdf"));
             bout = new ByteArrayOutputStream();
             PdfWriter.getInstance(document, bout);

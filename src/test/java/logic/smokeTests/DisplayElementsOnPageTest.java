@@ -53,7 +53,7 @@ public class DisplayElementsOnPageTest {
     @DataProvider(name = "default")
     public Object[][] method() {
         return new Object[][]{
-               /* {HELEN_COMPANY,"Assets Map"},
+               {HELEN_COMPANY,"Assets Map"},
                 {HELEN_COMPANY, "Operations Board"},
                 {HELEN_COMPANY, "Client Vantage Point"},
                 {HELEN_COMPANY, "Triggers"},
@@ -75,8 +75,8 @@ public class DisplayElementsOnPageTest {
                 {HELEN_COMPANY, "Departments"},
                 {HELEN_COMPANY, "Wall Management"},
                 {HELEN_COMPANY, "User Management"},
-                {HELEN_COMPANY, "Dispatchers"},*/
-               /* {HL_COMPANY,"Assets Map"},
+                {HELEN_COMPANY, "Dispatchers"},
+                {HL_COMPANY,"Assets Map"},
                 {HL_COMPANY, "Operations Board"},
                 {HL_COMPANY, "Client Vantage Point"},
                 {HL_COMPANY, "Address Book"},
@@ -85,9 +85,9 @@ public class DisplayElementsOnPageTest {
                 {HL_COMPANY, "Invoices"},
                 {HL_COMPANY, "Trip Documents"},
                 {HL_COMPANY, "Reports"},
-                {HL_COMPANY, "Orders Board"},*/
+                {HL_COMPANY, "Orders Board"},
                 {HL_COMPANY, "Dashboard"},
-            /*    {HL_COMPANY, "Price Calculator"},
+               {HL_COMPANY, "Price Calculator"},
                 {HL_COMPANY, "Fuel Control"},
                 {HL_COMPANY, "Fleet Customers"},
                 {HL_COMPANY, "Cash Control"},
@@ -102,7 +102,7 @@ public class DisplayElementsOnPageTest {
                 {HL_COMPANY, "Departments"},
                 {HL_COMPANY, "Wall Management"},
                 {HL_COMPANY, "User Management"},
-                {HL_COMPANY, "Dispatchers"},*/
+                {HL_COMPANY, "Dispatchers"},
         };
     }
 

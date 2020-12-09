@@ -16,8 +16,8 @@ public class EventsData {
     final String LONGITUDE = "'M'";
     final String LOCATION_DESCRIPTION = "'New York, New York, US'";
     final String DEVICE_UID = "'server'";
-    final long TRUCK_ID = 282604;
-    final long ORG_ID = 3464;
+    final long TRUCK_ID = 286809;
+    final long ORG_ID = 4112;
 
     public EventsData() {
     }

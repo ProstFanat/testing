@@ -111,7 +111,7 @@ public class AddAndEditTruckProfileTests {
         };
     }
 
-    /*@Test(dataProvider = "new-truck")
+    @Test(dataProvider = "new-truck")
     public void te_001_truck_profile_new_truck(TruckProfile truckProfile) {
         AddAndEditTruckModal addAndEditTruckModal = new AddAndEditTruckModal(truckProfile);
 
@@ -164,7 +164,7 @@ public class AddAndEditTruckProfileTests {
         }
 
     }
-*/
+
 
     @DataProvider(name = "tags-attach")
     public Object[][] tagsProvider() {

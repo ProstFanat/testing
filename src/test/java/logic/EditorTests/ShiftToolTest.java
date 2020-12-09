@@ -58,11 +58,11 @@ public class ShiftToolTest {
         adminPage
                 .closeConfirmStartShiftWindow()
                 .goToCustomersPage()
-                .findAndLoginAsCompany("MGK express Corp")
+                .findAndLoginAsCompany("IMOVE TRANS LLC")
                 .goToNavigationBar()
                 .goToDriversPage()
                 .goToProfilesTab()
-                .openDriverHosPage("Igors");
+                .openDriverHosPage("Abror");
         ArrayList<String> newTab = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(newTab.get(1));
         new HosTab().goToViewer()
