@@ -140,14 +140,12 @@ public class CreateLoadMainFlow {
         editCreateLoadPage.getLoadSettingsFragment().getContactInfo().should(Condition.attribute("ng-reflect-model", "1-279-888-6600"));
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
                 .clearContactField()
-
                 .setPickupLocation("Toront")
                 .setDeliveryDate(30, "Nov", 2020)
                 .setDeliveryLocation("New")
                 .setWeight("99")
                 .selectFP("F")
                 .clickSaveBtn();
-
         editCreateLoadPage.getReqAlertsMessage("Please fill Contacts").shouldBe(Condition.visible);
         Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }

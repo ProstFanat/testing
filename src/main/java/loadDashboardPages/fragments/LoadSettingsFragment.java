@@ -2,8 +2,7 @@ package loadDashboardPages.fragments;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-
-
+import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -136,9 +135,10 @@ public class LoadSettingsFragment {
         return this;
     }
 
-    public LoadSettingsFragment clearContactField(){
+    public LoadSettingsFragment clearContactField(){     //clear() не работает
         contacts.click();
-        //contacts.pres;
+        contacts.sendKeys(Keys.CONTROL,"a");
+        contacts.sendKeys(Keys.BACK_SPACE);
         return this;
     }
 

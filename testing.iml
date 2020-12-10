@@ -95,5 +95,7 @@
     <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:angular-protractor:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:angularjs:1.2.27" level="project" />
   </component>
 </module>

@@ -137,5 +137,17 @@
             <version>5.1.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-protractor</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars.npm/protractor -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>protractor</artifactId>
+            <version>4.0.11</version>
+        </dependency>
+
     </dependencies>
 </project>

@@ -25,6 +25,7 @@ public class OffersTableFragment extends BasePage {
     public OffersTableFragment searchDrivers(String value) {
         radiusPlaceHolder.setValue(value);
         searchDriversBtn.click();
+        searchDriversBtn.hover();
         return this;
     }
 
