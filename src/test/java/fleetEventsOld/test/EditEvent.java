@@ -164,7 +164,7 @@ public class EditEvent {
     }
 
     @AfterEach
-    void before(){
+    void afterEach(){
 //        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[2]//button[@id = 'button-actions']")).click();
         main.deleteEvent();
         driver.navigate().refresh();

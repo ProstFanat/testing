@@ -194,7 +194,7 @@ public class AdvancedSearchTruck {
     }
 
     @AfterEach
-    void beforeTest(){
+    void afterEach(){
         driver.navigate().refresh();
     }
 

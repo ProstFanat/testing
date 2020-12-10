@@ -61,11 +61,6 @@ public class DispatchSettings {
         basePage.waitForPageToLoad();
     }
 
-    @AfterEach
-    void beforeTest(){
-
-    }
-
     @AfterAll
     static void afterAll(){
         open("http://localhost:8080/TrackEnsure/login.do");
