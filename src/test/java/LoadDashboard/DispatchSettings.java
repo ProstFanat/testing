@@ -33,7 +33,7 @@ public class DispatchSettings {
 
 
     @BeforeAll
-    public static void setup(){
+    static void setup(){
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
@@ -53,7 +53,7 @@ public class DispatchSettings {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         open("http://localhost:8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
         mainAdminScreenPage.clickLoadSearchBtn();
@@ -62,12 +62,12 @@ public class DispatchSettings {
     }
 
     @AfterEach
-    public void afterTest(){
+    void beforeTest(){
 
     }
 
     @AfterAll
-    public static void afterAll(){
+    static void afterAll(){
         open("http://localhost:8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
         mainAdminScreenPage.clickLoadSearchBtn();

@@ -27,7 +27,7 @@ public class A6_DevicesAdvancedSearch {
     public static Actions actions;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -127,7 +127,7 @@ public class A6_DevicesAdvancedSearch {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

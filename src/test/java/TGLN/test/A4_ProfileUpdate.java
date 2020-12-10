@@ -31,7 +31,7 @@ public class A4_ProfileUpdate {
 
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         open("http://localhost:8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenGPSDevices(driver);
@@ -53,7 +53,7 @@ public class A4_ProfileUpdate {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         mainDevices.openProfilesTab();
         main.openCreateNewProfile();
     }
@@ -175,7 +175,7 @@ public class A4_ProfileUpdate {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

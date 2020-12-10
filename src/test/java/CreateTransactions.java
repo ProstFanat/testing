@@ -15,7 +15,7 @@ public class CreateTransactions {
     public static CreateTransaction create;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");

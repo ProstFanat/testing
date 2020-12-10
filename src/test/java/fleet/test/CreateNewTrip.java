@@ -23,7 +23,7 @@ public class CreateNewTrip {
     public static TripBoard tripBoard;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //         System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -48,7 +48,7 @@ public class CreateNewTrip {
     }
 
     @BeforeEach
-    public void before(){
+    void before(){
     }
 
     @Test
@@ -496,7 +496,7 @@ public class CreateNewTrip {
     }
 
     @AfterEach
-    public void afterTest(){
+    void beforeTest(){
        driver.navigate().refresh();
     }
 

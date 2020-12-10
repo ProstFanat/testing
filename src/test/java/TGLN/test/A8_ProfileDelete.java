@@ -30,7 +30,7 @@ public class A8_ProfileDelete {
 
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -56,7 +56,7 @@ public class A8_ProfileDelete {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         mainDevices.openProfilesTab();
     }
 
@@ -92,7 +92,7 @@ public class A8_ProfileDelete {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

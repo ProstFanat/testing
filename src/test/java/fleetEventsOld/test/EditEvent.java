@@ -24,7 +24,7 @@ public class EditEvent {
     public static LogOut logOut;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -54,7 +54,7 @@ public class EditEvent {
     }
 
     @BeforeEach
-    public void before(){
+    void before(){
         main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
@@ -164,7 +164,7 @@ public class EditEvent {
     }
 
     @AfterEach
-    public void after(){
+    void before(){
 //        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[2]//button[@id = 'button-actions']")).click();
         main.deleteEvent();
         driver.navigate().refresh();

@@ -20,7 +20,7 @@ public class Main {
     public static DeleteButton deletebutton;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesELD.getProperty("chromedriver"));
 //        //создание экземпляра драйвера

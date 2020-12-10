@@ -24,7 +24,7 @@ public class TripHistory {
     public static historyTrip action;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -127,7 +127,7 @@ public class TripHistory {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

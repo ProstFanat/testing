@@ -23,7 +23,7 @@ public class Pendings {
     public static TripBoard tripBoard;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -48,7 +48,7 @@ public class Pendings {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
 
     }
 
@@ -124,7 +124,7 @@ public class Pendings {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

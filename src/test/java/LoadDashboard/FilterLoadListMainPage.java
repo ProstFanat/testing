@@ -5,10 +5,7 @@ import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
 import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
-import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -22,7 +19,7 @@ public class FilterLoadListMainPage {
 
 
     @BeforeAll
-    public static void setup(){
+    static void setup(){
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
@@ -38,8 +35,13 @@ public class FilterLoadListMainPage {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         basePage.waitForPageToLoad();
+    }
+
+    @AfterEach
+    void afterTest(){
+        refresh();
     }
 
     @Test
@@ -79,14 +81,14 @@ public class FilterLoadListMainPage {
 
     @Test
     public void filterByPickUpLocation() throws Exception {
-        filterLoadPageFragment.inputPickUpLocation("Vasya")
+        filterLoadPageFragment.inputPickUpLocation("Toronto")
                 .clickBtnFilter();
         filterLoadPageFragment.checkTable("pickUpLocation", "Toronto, ON");
     }
 
     @Test
     public void filterByDeliveryLocation() throws Exception {
-        filterLoadPageFragment.inputDeliveryLocation("sdssd")
+        filterLoadPageFragment.inputDeliveryLocation("New York")
                 .clickBtnFilter();
         filterLoadPageFragment.checkTable("deliveryLocation", "New York");
     }
@@ -159,17 +161,11 @@ public class FilterLoadListMainPage {
         filterLoadPageFragment.inputLoadId("658")
                 .inputStatus("Delivered")
                 .inputPickUpLocation("Toronto")
-                .inputDeliveryLocation("West New York")
+                .inputDeliveryLocation("New Holstein")
                 .inputTrailerType("dry-van")
                 .inputOrganization("Test with TP 2")
                 .inputDriver("VASILII MOUZIKA")
                 .clickBtnFilter();
-        filterLoadPageFragment.checkAll("658", "Delivered", "Toronto", "West New York", "dry-van", "Test with TP 2", "VASILII MOUZIKA");
-    }
-
-
-    @AfterEach
-    public void afterTest(){
-        refresh();
+        filterLoadPageFragment.checkAll("658", "Delivered", "Toronto", "New Holstein", "dry-van", "Test with TP 2", "VASILII MOUZIKA");
     }
 }

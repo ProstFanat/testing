@@ -24,7 +24,7 @@ public class MonitorAdvancedSearch {
     public static dispatcherMonitor main;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -47,7 +47,7 @@ public class MonitorAdvancedSearch {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         mainList.openTabMonitor();
         main.inputDispatcher("Kirk West");
         main.clickAdvancedSearch();
@@ -152,7 +152,7 @@ public class MonitorAdvancedSearch {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

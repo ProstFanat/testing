@@ -33,7 +33,7 @@ public class A1_ProfileCreate {
 
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -59,7 +59,7 @@ public class A1_ProfileCreate {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         mainDevices.openProfilesTab();
         main.openCreateNewProfile();
     }
@@ -842,7 +842,7 @@ public class A1_ProfileCreate {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

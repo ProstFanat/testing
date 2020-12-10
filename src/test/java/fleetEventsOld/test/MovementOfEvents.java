@@ -23,7 +23,7 @@ public class MovementOfEvents {
     public static LogOut logOut;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -50,7 +50,7 @@ public class MovementOfEvents {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         main.clickBtnOpenTransaction();
         main.saveNewTransaction();
     }
@@ -215,7 +215,7 @@ public class MovementOfEvents {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         main.sleep(500);
         main.deleteTransaction();
 //        main.clickBtnDeleteTransaction();
@@ -224,7 +224,7 @@ public class MovementOfEvents {
     }
 
     @AfterAll
-    public static void after(){
+    static void after(){
         driver.quit();
     }
 }

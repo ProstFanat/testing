@@ -28,7 +28,7 @@ public class A5_DevicesEditDeviceTrackEnsure {
     public static CreateNotifications createNotification;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -344,7 +344,7 @@ public class A5_DevicesEditDeviceTrackEnsure {
 
     @AfterEach
 
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

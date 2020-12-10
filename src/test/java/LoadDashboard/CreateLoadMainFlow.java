@@ -27,7 +27,7 @@ public class CreateLoadMainFlow {
 
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
@@ -40,7 +40,7 @@ public class CreateLoadMainFlow {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
     }
 

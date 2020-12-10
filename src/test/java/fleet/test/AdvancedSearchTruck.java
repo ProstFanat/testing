@@ -25,7 +25,7 @@ public class AdvancedSearchTruck {
     public static LogOut logOut;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -51,7 +51,7 @@ public class AdvancedSearchTruck {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         main.inputPerspective("Truck");
         filter.findTruck("1210");
         basePage.sleep(1000);
@@ -195,7 +195,7 @@ public class AdvancedSearchTruck {
     }
 
     @AfterEach
-    public void afterTest(){
+    void beforeTest(){
         driver.navigate().refresh();
 //        filter.clearFilters();
 //        filter.showResults();

@@ -32,7 +32,7 @@ public class MonitorOverdueEvents {
 
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -57,7 +57,7 @@ public class MonitorOverdueEvents {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         main.waitToVisibilityOf(10, createTrip.btnCreateNew);
         main.waitToBeClickable(10, createTrip.btnCreateNew);
@@ -221,7 +221,7 @@ public class MonitorOverdueEvents {
 
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

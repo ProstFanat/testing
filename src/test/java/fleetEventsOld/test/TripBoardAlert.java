@@ -23,7 +23,7 @@ public class TripBoardAlert {
     public static TripBoard main;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -47,7 +47,7 @@ public class TripBoardAlert {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         basePage.waitToVisibilityOf(10, createTrip.btnCreateNew);
         basePage.waitToBeClickable(10, createTrip.btnCreateNew);
@@ -538,7 +538,7 @@ public class TripBoardAlert {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

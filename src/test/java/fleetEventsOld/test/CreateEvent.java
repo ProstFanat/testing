@@ -31,7 +31,7 @@ public class CreateEvent {
      * сделанно это */
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -62,7 +62,7 @@ public class CreateEvent {
     }
 
     @BeforeEach
-    public void before(){
+    void before(){
         main.clickBtnAddNewEvent();
     }
 
@@ -451,7 +451,7 @@ public class CreateEvent {
     }
 
     @AfterEach
-    public void afterTest(){
+    void beforeTest(){
         driver.navigate().refresh();
     }
 

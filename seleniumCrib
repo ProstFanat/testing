@@ -151,17 +151,17 @@ private WebElement test;
 // Введение в Juinit
 
 @BeforeClass // выполняеться перед всеми тестами
-public void before(){
+void before(){
 }
 @Before  // выполняеться перед каждым тестом
-public void before(){}
+void before(){}
 @After // выполняеться после каждого теста
 
 @Test
 
 
 @AfterClass // выполняеться после всего класса
-public void after(){
+void before(){
 }
 
 // Assert методы

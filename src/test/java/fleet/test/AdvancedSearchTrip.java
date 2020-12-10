@@ -24,7 +24,7 @@ public class AdvancedSearchTrip {
     public static LogOut logOut;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -51,7 +51,7 @@ public class AdvancedSearchTrip {
     }
 
     @BeforeEach
-    public void before(){
+    void before(){
         filter.clickBtnAdvancedSearch();
         main.sleep(500);
         //driver.get(ConfPropertiesFleet.getProperty("loginPage"));
@@ -247,7 +247,7 @@ public class AdvancedSearchTrip {
     }
 
     @AfterEach
-    public void afterTest(){
+    void beforeTest(){
         driver.navigate().refresh();
 //        filter.clearFilters();
 //        filter.showResults();

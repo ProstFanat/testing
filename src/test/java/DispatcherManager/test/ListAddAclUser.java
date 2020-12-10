@@ -31,7 +31,7 @@ public class ListAddAclUser {
 
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -56,7 +56,7 @@ public class ListAddAclUser {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
     }
 
     @Test
@@ -156,7 +156,7 @@ public class ListAddAclUser {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

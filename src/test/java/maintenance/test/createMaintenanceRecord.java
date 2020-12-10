@@ -23,7 +23,7 @@ public class createMaintenanceRecord {
     public static addMaintenanceRecordForGroup create;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         open("http://localhost:8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new openMaintenance(driver);

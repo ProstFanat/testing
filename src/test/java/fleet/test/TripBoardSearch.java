@@ -26,7 +26,7 @@ public class TripBoardSearch {
     public static TripBoard main;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -51,7 +51,7 @@ public class TripBoardSearch {
     }
 
     @BeforeEach
-    public void beforeTest(){
+    void beforeTest(){
         main.sleep(1000);
         main.clickAdvancedSearch();
     }
@@ -140,7 +140,7 @@ public class TripBoardSearch {
 
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 

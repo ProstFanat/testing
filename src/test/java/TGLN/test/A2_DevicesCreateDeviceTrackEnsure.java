@@ -27,7 +27,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
     public static Actions actions;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
@@ -49,7 +49,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
     }
 
     @BeforeTest
-    public void before(){
+    void before(){
         main.openNewDeviceForm();
     }
 
@@ -221,7 +221,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
     }
 
     @AfterEach
-    public void afterTests(){
+    void beforeTests(){
         driver.navigate().refresh();
     }
 
