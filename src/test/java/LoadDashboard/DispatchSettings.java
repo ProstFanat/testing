@@ -15,6 +15,8 @@ import org.junit.*;
 import resources.BasePage;
 
 
+import java.lang.annotation.Repeatable;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class DispatchSettings {
@@ -202,6 +204,9 @@ public class DispatchSettings {
 
     @Test
     public void deactivateCheckBoxForCompanyFromOptions(){
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(true);
+
         customersPage.openCustomersPage();
         customersPage.logAsOrgOfCompany("Test with DM");
 
