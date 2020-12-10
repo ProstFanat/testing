@@ -29,7 +29,7 @@ public class OffersTableFragment extends BasePage {
     }
 
     public OffersTableFragment selectDrivers() {
-        sleep(5000);
+        waitToVisibilityOf(driversCollection.first());
         for (int i = 0; i < driversCollection.size(); i++) {
             driversCollection.get(i).click();
             drivers.add(driversCollection.get(i).getText());

@@ -136,8 +136,9 @@ public class LoadSettingsFragment {
         return this;
     }
 
-    public LoadSettingsFragment clearContact(){
-        contacts.clear();
+    public LoadSettingsFragment clearContactField(){
+        contacts.click();
+        //contacts.pres;
         return this;
     }
 

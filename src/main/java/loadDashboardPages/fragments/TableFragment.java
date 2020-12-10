@@ -21,7 +21,8 @@ public class TableFragment {
             rate = $x("//datatable-row-wrapper//datatable-body-cell[10]//span"),
             fullPart = $x("//datatable-row-wrapper//datatable-body-cell[11]//span"),
             editBtn = $x("//i[@class='fa fa-pencil mr-2']"),
-            deleteLoadBtn = $x("");
+            deleteLoadBtn = $x("//div[contains(text(), ' Delete')]"),
+            confirmYesButton = $x("//button[contains(text(), 'Yes')]");
 
     public  ElementsCollection id = $$x("//datatable-row-wrapper//datatable-body-cell[1]//span");
 
@@ -62,7 +63,7 @@ public class TableFragment {
     public TableFragment deleteLoad() {
         actionBtn.click();
         deleteLoadBtn.click();
-        switchTo().alert().accept();
+        confirmYesButton.click();
 
         return this;
     }

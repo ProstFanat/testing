@@ -7,10 +7,9 @@ import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import resources.BasePage;
+
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -22,6 +21,7 @@ public class CreateLoadMainFlow {
     public static EditCreateLoadPage editCreateLoadPage;
     public static LoadListPage loadListPage;
     public static BasePage basePage;
+
 
     @BeforeClass
     public static void setup() {
@@ -36,10 +36,13 @@ public class CreateLoadMainFlow {
         basePage = new BasePage();
     }
 
+    @Before
+    public void beforeTest(){
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+    }
+
     @Test
     public void createNewLoad() throws Exception {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
 
         editCreateLoadPage.setDefaultLoadSettings();
@@ -59,8 +62,6 @@ public class CreateLoadMainFlow {
 
     @Test
     public void createNewLoadReqFieldPickupDate() {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
 
         editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
@@ -70,8 +71,6 @@ public class CreateLoadMainFlow {
 
     @Test
     public void createNewLoadReqFieldPickLocation() {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
 
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
@@ -82,8 +81,6 @@ public class CreateLoadMainFlow {
 
     @Test
     public void createNewLoadReqFieldDelivDate() {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
 
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
@@ -96,8 +93,6 @@ public class CreateLoadMainFlow {
 
     @Test
     public void createNewLoadReqFieldDelivLocation() {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
 
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
@@ -110,8 +105,6 @@ public class CreateLoadMainFlow {
 
     @Test
     public void createNewLoadReqFieldWeight() {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
 
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
@@ -125,8 +118,6 @@ public class CreateLoadMainFlow {
 
     @Test
     public void createNewLoadReqFieldFP() {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
 
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
@@ -139,29 +130,27 @@ public class CreateLoadMainFlow {
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
+
     @Test
     public void createNewLoadReqFieldContacts() {
-        mainAdminScreenPage.clickLoadSearchBtn();
-
         loadListPage.clickNewLoadBtn();
         editCreateLoadPage.getLoadSettingsFragment().getContactInfo().should(Condition.attribute("ng-reflect-model", "1-279-888-6600"));
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
-                .clearContact()
+                .clearContactField()
+
                 .setPickupLocation("Toront")
                 .setDeliveryDate(30, "Nov", 2020)
                 .setDeliveryLocation("New")
                 .setWeight("99")
                 .selectFP("F")
                 .clickSaveBtn();
+
         editCreateLoadPage.getReqAlertsMessage("Please fill Contacts").shouldBe(Condition.visible);
         Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
 @Test
     public void deleteLoad()  {
-    mainAdminScreenPage.clickLoadSearchBtn();
-
-
     loadListPage.clickNewLoadBtn();
 
     editCreateLoadPage.setDefaultLoadSettings();
