@@ -22,6 +22,7 @@ public class DispatchingSettingsPage extends BasePage {
         waitToVisibilityOf(orgNameInput);
         orgNameInput.setValue(org);
         btnFilter.click();
+        waitToVisibilityOf(checkBoxesForOrgList.first());
 
         return this;
     }

@@ -1,4 +1,4 @@
-package loadDashboardPages;
+package Main;
 
 import com.codeborne.selenide.SelenideElement;
 import resources.BasePage;

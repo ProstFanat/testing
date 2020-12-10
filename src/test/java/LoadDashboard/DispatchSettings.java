@@ -2,8 +2,10 @@ package LoadDashboard;
 
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
+import Main.DriversPage;
+import Main.OptionsOfCompanyPage;
 import com.codeborne.selenide.Configuration;
-import loadDashboardPages.CustomersPage;
+import Main.CustomersPage;
 import loadDashboardPages.DispatchingSettingsPage;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -11,6 +13,7 @@ import loadDashboardPages.fragments.FilterLoadPageFragment;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 import org.junit.*;
 import resources.BasePage;
+
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -23,6 +26,10 @@ public class DispatchSettings {
     public static EditCreateLoadPage editCreateLoadPage;
     public static LoadSettingsFragment loadSettingsFragment;
     public static CustomersPage customersPage;
+    public static DriversPage driversPage;
+    public static OptionsOfCompanyPage optionsOfCompanyPage;
+    public static MainAdminScreenPage mainAdminScreenPage;
+    public static LoginPage loginPage;
 
 
     @BeforeClass
@@ -31,33 +38,39 @@ public class DispatchSettings {
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
 
+        optionsOfCompanyPage = new OptionsOfCompanyPage();
+        driversPage = new DriversPage();
         customersPage = new CustomersPage();
         dispatchingSettingsPage = new DispatchingSettingsPage();
         basePage = new BasePage();
         loadSettingsFragment = new LoadSettingsFragment();
         editCreateLoadPage = new EditCreateLoadPage();
-        LoginPage loginPage = new LoginPage();
-        MainAdminScreenPage mainAdminScreenPage = new MainAdminScreenPage();
+        loginPage = new LoginPage();
+        mainAdminScreenPage = new MainAdminScreenPage();
         filterLoadPageFragment = new FilterLoadPageFragment();
         loadListPage = new LoadListPage();
 
-        loginPage.login("5", "test");
-        mainAdminScreenPage.clickLoadSearchBtn();
     }
 
     @Before
     public void beforeTest(){
+        open("http://localhost:8080/TrackEnsure/login.do");
+        loginPage.login("5", "test");
+        mainAdminScreenPage.clickLoadSearchBtn();
         open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
         basePage.waitForPageToLoad();
     }
 
     @After
     public void afterTest(){
-        refresh();
+
     }
 
     @AfterClass
     public static void afterAll(){
+        open("http://localhost:8080/TrackEnsure/login.do");
+        loginPage.login("5", "test");
+        mainAdminScreenPage.clickLoadSearchBtn();
         open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
         basePage.waitForPageToLoad();
         dispatchingSettingsPage.inputOrgName("Test with DM")
@@ -132,7 +145,7 @@ public class DispatchSettings {
                 .setAllDriverCheckBoxes(false);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
         basePage.waitForPageToLoad();
-        Assert.assertTrue(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
+        Assert.assertFalse(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
     }
 
     @Test
@@ -161,6 +174,9 @@ public class DispatchSettings {
 
     @Test
     public void checkDriversOnAddOfferWithDeactivatedCheckBoxForOrg(){
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                .setAllOrgCheckBoxes(true);
+
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
@@ -185,10 +201,47 @@ public class DispatchSettings {
     }
 
     @Test
-    public void test(){
+    public void deactivateCheckBoxForCompanyFromOptions(){
         customersPage.openCustomersPage();
         customersPage.logAsOrgOfCompany("Test with DM");
 
+        optionsOfCompanyPage.openPage()
+                .goToSystemOptionsTab();
+        optionsOfCompanyPage.setDispatchingCheckBox(false)
+                .clickBtnSave();
 
+        open("http://localhost:8080/TrackEnsure/login.do");
+        loginPage.login("5", "test");
+        mainAdminScreenPage.clickLoadSearchBtn();
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        basePage.waitForPageToLoad();
+
+        dispatchingSettingsPage.inputOrgName("Test with DM");
+        Assert.assertFalse(dispatchingSettingsPage.checkBoxesForOrgList.first().isSelected());
+
+    }
+
+    @Test
+    public void deactivateCheckBoxForDriversFromProfile(){
+        customersPage.openCustomersPage();
+        customersPage.logAsOrgOfCompany("Test with DM");
+
+        driversPage.openPage()
+                    .openUpdatePageForDriver("Adrian", "Fanuzzi")
+                    .setLoadBoardCheckBox(false)
+                    .saveDriverProfile();
+
+        open("http://localhost:8080/TrackEnsure/login.do");
+        loginPage.login("5", "test");
+        mainAdminScreenPage.clickLoadSearchBtn();
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        basePage.waitForPageToLoad();
+
+        dispatchingSettingsPage.inputOrgName("Test with DM")
+                                .setAllOrgCheckBoxes(true)
+                                .showDrivers(1)
+                                .inputDriver("Adrian Fanuzzi");
+        Assert.assertFalse(dispatchingSettingsPage.checkBoxesForDriversList.first().isSelected());
+        dispatchingSettingsPage.checkBoxesForDriversList.first().setSelected(true);
     }
 }
