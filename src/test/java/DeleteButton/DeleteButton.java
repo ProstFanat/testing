@@ -8,7 +8,7 @@ import resources.ConfProperties;
 import java.io.IOException;
 
 import static DeleteButton.Main.*;
-import static org.junit.Assertions.assertFalse;
+import org.junit.jupiter.api.*;
 
 public class DeleteButton extends BasePage {
 
@@ -134,7 +134,7 @@ public class DeleteButton extends BasePage {
                 e.printStackTrace();
             }
         }
-        assertFalse(visibleDeleteBtn());
+        Assertions.assertFalse(visibleDeleteBtn());
     }
 
     public void create(int indexCreate){

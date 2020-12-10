@@ -1,14 +1,12 @@
 package fleetEventsOld.test;
 
 import fleetEventsOld.*;
-import fleetEventsOld.resources.ConfPropertiesFleet;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import resources.BasePage;
 
-import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.open;

@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
-import resources.ConfProperties;
 
 public class openMaintenance extends BasePage {
     public WebDriver driver;

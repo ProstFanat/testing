@@ -4,8 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.junit.Assertions.assertFalse;
+import org.junit.jupiter.api.*;
 
 public class BasePage {
 
@@ -37,7 +36,7 @@ public class BasePage {
         } catch (NoSuchElementException e) {
             check = false;
         }
-        assertFalse(check);
+        Assertions.assertFalse(check);
     }
 
     public void sleep(int i) {

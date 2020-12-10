@@ -2,13 +2,9 @@ package fleet.test;
 
 import fleet.*;
 import fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
-import org.openqa.selenium.Keys;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import resources.BasePage;
-
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.open;

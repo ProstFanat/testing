@@ -4,7 +4,7 @@ import DispatcherManager.dispatcherList;
 import DispatcherManager.dispatcherMonitor;
 import DispatcherManager.openDispatcher;
 import fleetEvents.fleet.*;
-import org.junit.*;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import resources.BasePage;
 

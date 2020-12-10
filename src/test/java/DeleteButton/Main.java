@@ -1,10 +1,9 @@
 package DeleteButton;
 
 import DeleteButton.resources.ConfPropertiesELD;
-import org.junit.AfterAll;
-import org.junit.Test;
+
 import org.openqa.selenium.WebDriver;
-import org.junit.BeforeAll;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;

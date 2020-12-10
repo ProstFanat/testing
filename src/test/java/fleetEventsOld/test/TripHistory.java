@@ -2,7 +2,7 @@ package fleetEventsOld.test;
 
 import fleetEventsOld.*;
 import fleetEventsOld.resources.ConfPropertiesFleet;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import resources.BasePage;
 

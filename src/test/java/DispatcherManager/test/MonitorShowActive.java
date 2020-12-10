@@ -6,11 +6,8 @@ import DispatcherManager.openDispatcher;
 import fleetEvents.fleet.OpenFleetPage;
 import fleetEvents.fleet.createNewFleetEvent;
 import fleetEvents.fleet.mainFleet;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
-import org.openqa.selenium.By;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import resources.BasePage;
 
 import java.util.concurrent.TimeUnit;
