@@ -30,7 +30,7 @@ public class CreateEvent {
      * нужно проверить руками
      * сделанно это */
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -61,7 +61,7 @@ public class CreateEvent {
         main.saveNewTransaction();
     }
 
-    @Before
+    @BeforeEach
     public void before(){
         main.clickBtnAddNewEvent();
     }
@@ -69,7 +69,7 @@ public class CreateEvent {
     @Test
     public void emptyAll(){
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select an Event Type')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select an Event Type')]"));
         edit.cancelChanges();
     }
 
@@ -77,7 +77,7 @@ public class CreateEvent {
     public void emptyType(){
         edit.inputPlace("NEW YORK OF STATE");
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select an Event Type')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select an Event Type')]"));
         edit.cancelChanges();
     }
 
@@ -85,7 +85,7 @@ public class CreateEvent {
     public void emptyPlace(){
         edit.inputEventType("pickup");
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Place')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Place')]"));
         edit.cancelChanges();
     }
 
@@ -96,7 +96,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         main.deleteEvent();
@@ -111,7 +111,7 @@ public class CreateEvent {
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[12]//span")).getText()))) {
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
@@ -124,7 +124,7 @@ public class CreateEvent {
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputFinishDate();
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Start Date')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Start Date')]"));
         edit.cancelChanges();
     }
 
@@ -139,7 +139,7 @@ public class CreateEvent {
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[12]//span")).getText()))) {
                     if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[13]//span")).getText()))) {
-                        Assert.assertTrue(true);
+                        Assertions.assertTrue(true);
                     }
                 }
             }
@@ -153,7 +153,7 @@ public class CreateEvent {
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputStartDateLaterThanFinishDate();
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'The Start Date cannot be later than the Finish Date.')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'The Start Date cannot be later than the Finish Date.')]"));
         edit.cancelChanges();
     }
 
@@ -163,7 +163,7 @@ public class CreateEvent {
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputOrder("CO-20-61201");
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Probill')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Probill')]"));
         edit.cancelChanges();
     }
 
@@ -174,7 +174,7 @@ public class CreateEvent {
         edit.inputOrder("CO-20-61201");
         edit.inputProbill("409125");
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Cargo')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Cargo')]"));
         edit.cancelChanges();
     }
 
@@ -189,7 +189,7 @@ public class CreateEvent {
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if("409125 (Order: CO-20-61201)".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[10]//span")).getText())) {
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
@@ -202,7 +202,7 @@ public class CreateEvent {
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputOrder("CO-20-61200");
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Probill')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Probill')]"));
         edit.cancelChanges();
     }
 
@@ -215,7 +215,7 @@ public class CreateEvent {
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if(ConfPropertiesFleet.getProperty("fleet.driver1").equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[7]//span")).getText())) {
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
@@ -231,7 +231,7 @@ public class CreateEvent {
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if(ConfPropertiesFleet.getProperty("fleet.driver2").equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[8]//span")).getText())) {
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
@@ -245,7 +245,7 @@ public class CreateEvent {
         edit.inputDriver1(ConfPropertiesFleet.getProperty("fleet.driver2"));
         edit.inputDriver2(ConfPropertiesFleet.getProperty("fleet.driver2"));
         edit.apllyChanges();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Driver 1 and Driver 2 is the same!')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Driver 1 and Driver 2 is the same!')]"));
         edit.cancelChanges();
     }
 
@@ -258,7 +258,7 @@ public class CreateEvent {
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[11]//span")).getText()))){
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
@@ -274,7 +274,7 @@ public class CreateEvent {
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if(ConfProperties.getProperty("fleet.truck").equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[5]//span")).getText())){
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
@@ -290,7 +290,7 @@ public class CreateEvent {
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
                 if(ConfProperties.getProperty("fleet.trailer").equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[6]//span")).getText())){
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
@@ -322,7 +322,7 @@ public class CreateEvent {
                                     if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[11]//span")).getText()))) {
                                         if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[12]//span")).getText()))) {
                                             if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[13]//span")).getText()))) {
-                                                Assert.assertTrue(true);
+                                                Assertions.assertTrue(true);
                                             }
                                         }
                                     }
@@ -345,7 +345,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         main.deleteEvent();
@@ -358,7 +358,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("delivery".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         main.deleteEvent();
@@ -371,7 +371,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("load".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         main.deleteEvent();
@@ -384,7 +384,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("unload".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         main.deleteEvent();
@@ -397,7 +397,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("hook-trailer".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         main.deleteEvent();
@@ -410,7 +410,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("hook-trailer".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         main.deleteEvent();
@@ -423,7 +423,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("acquire".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[3]//button[@id = 'button-actions']")).click();
@@ -440,7 +440,7 @@ public class CreateEvent {
         edit.apllyChanges();
         if("release".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
             if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             }
         }
         driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[3]//button[@id = 'button-actions']")).click();
@@ -450,12 +450,12 @@ public class CreateEvent {
         main.deleteEvent();
     }
 
-    @After
+    @AfterEach
     public void afterTest(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

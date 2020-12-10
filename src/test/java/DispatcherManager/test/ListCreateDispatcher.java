@@ -30,7 +30,7 @@ public class ListCreateDispatcher {
 
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -55,7 +55,7 @@ public class ListCreateDispatcher {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
     }
 
@@ -64,7 +64,7 @@ public class ListCreateDispatcher {
         int number = (int) (Math.random() * 1000000);
         main.createNewDispatcher("testAdrian" + number);
         main.inputSearchDispatcher("testAdrian" + number);
-        Assert.assertEquals(main.name.getText(), "testAdrian" + number);
+        Assertions.assertEquals(main.name.getText(), "testAdrian" + number);
     }
 
     @Test
@@ -74,23 +74,23 @@ public class ListCreateDispatcher {
         main.createNewDispatcher("testAdrian" + number);
         if(main.isElementDisplayedByPath("//*[text() = 'Dispatcher " + "testAdrian" + number + " already exists']")){
             main.inputSearchDispatcher("testAdrian" + number);
-            Assert.assertEquals(1, main.table.size());
+            Assertions.assertEquals(1, main.table.size());
         }
     }
 
     @Test
     public void testWithEmpty(){
         main.openFormAddNewDispatcher();
-        Assert.assertFalse(main.btnSave.isEnabled());
+        Assertions.assertFalse(main.btnSave.isEnabled());
     }
 
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

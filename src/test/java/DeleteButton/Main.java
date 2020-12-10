@@ -1,16 +1,14 @@
 package DeleteButton;
 
 import DeleteButton.resources.ConfPropertiesELD;
-import org.junit.AfterClass;
+import org.junit.AfterAll;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.junit.BeforeClass;
+import org.junit.BeforeAll;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -22,7 +20,7 @@ public class Main {
     public static WebDriver driver;
     public static DeleteButton deletebutton;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesELD.getProperty("chromedriver"));
@@ -200,7 +198,7 @@ public class Main {
         deletebutton.deleteCheck(5, 5);
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

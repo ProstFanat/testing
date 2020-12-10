@@ -26,7 +26,7 @@ public class AdvancedSearchTrip {
     public static BasePage basePage;
     public static LogOut logOut;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -53,7 +53,7 @@ public class AdvancedSearchTrip {
         //filter.clickBtnAdvancedSearch();
     }
 
-    @Before
+    @BeforeEach
     public void before(){
         filter.clickBtnAdvancedSearch();
         //driver.get(ConfPropertiesFleet.getProperty("loginPage"));
@@ -66,7 +66,7 @@ public class AdvancedSearchTrip {
         int initTable = filter.table.size();
         filter.showResults();
         basePage.sleep(500);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -77,7 +77,7 @@ public class AdvancedSearchTrip {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithDrivers - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -89,13 +89,13 @@ public class AdvancedSearchTrip {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
     public void filterOnlyWithWrongDriver(){
         filter.inputDriver("Adrian Boychuk");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Drivers not found')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Drivers not found')]"));
     }
 
     @Test
@@ -106,7 +106,7 @@ public class AdvancedSearchTrip {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithOrder - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -116,7 +116,7 @@ public class AdvancedSearchTrip {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
@@ -127,7 +127,7 @@ public class AdvancedSearchTrip {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithOrderWithoutProbill - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -136,19 +136,19 @@ public class AdvancedSearchTrip {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
     public void filterOnlyWithWrongOrderThatDoNotHaveProbills(){
         filter.inputOrderWithoutProbill("CO-20-61200");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Probills not found')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Probills not found')]"));
     }
 
     @Test
     public void filterOnlyWithWrongOrder(){
         filter.inputOrderWithoutProbill("test");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Orders not found')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Orders not found')]"));
     }
 
     @Test
@@ -159,7 +159,7 @@ public class AdvancedSearchTrip {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithTruck - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -168,13 +168,13 @@ public class AdvancedSearchTrip {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
     public void filterOnlyWithWrongTruck(){
         filter.inputTruck("ha ha");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Trucks not found')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Trucks not found')]"));
     }
 
     @Test
@@ -185,7 +185,7 @@ public class AdvancedSearchTrip {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithTrailer - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -194,13 +194,13 @@ public class AdvancedSearchTrip {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
     public void filterOnlyWithWrongTrailer(){
         filter.inputTrailer("ha ha");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Trailers not found')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Trailers not found')]"));
     }
 
     @Test
@@ -209,7 +209,7 @@ public class AdvancedSearchTrip {
         filter.inputStartDate();
         filter.showResults();
         basePage.sleep(500);
-        Assert.assertNotEquals(init, filter.table.size());
+        Assertions.assertNotEquals(init, filter.table.size());
     }
 
     @Test
@@ -218,7 +218,7 @@ public class AdvancedSearchTrip {
         filter.inputFinishDate();
         filter.showResults();
         basePage.sleep(500);
-        Assert.assertNotEquals(init, filter.table.size());
+        Assertions.assertNotEquals(init, filter.table.size());
     }
 
     @Test
@@ -233,28 +233,28 @@ public class AdvancedSearchTrip {
 
         if(filter.table.size() == 0){
             System.out.println("filterWithAllFilters - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         if(driver.findElement(By.xpath("//datatable-row-wrapper[1]//datatable-body-cell[7]//span")).getText().equals("Adrian Gherghel")){
             if(driver.findElement(By.xpath("//datatable-row-wrapper[1]//datatable-body-cell[10]//span")).getText().equals("409125 (Order: CO-20-61201)")){
                 if(driver.findElement(By.xpath("//datatable-row-wrapper[1]//datatable-body-cell[5]//div")).getText().equals("1210")){
                     if(driver.findElement(By.xpath("//datatable-row-wrapper[1]//datatable-body-cell[6]//div")).getText().equals("1210T")){
-                        Assert.assertTrue(true);
+                        Assertions.assertTrue(true);
                     }
                 }
             }
         }
     }
 
-    @After
+    @AfterEach
     public void afterTest(){
         driver.navigate().refresh();
 //        filter.clearFilters();
 //        filter.showResults();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

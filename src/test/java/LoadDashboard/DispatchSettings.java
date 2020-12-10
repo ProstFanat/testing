@@ -11,11 +11,9 @@ import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
 import loadDashboardPages.fragments.LoadSettingsFragment;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 import resources.BasePage;
-
-
-import java.lang.annotation.Repeatable;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -34,7 +32,7 @@ public class DispatchSettings {
     public static LoginPage loginPage;
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup(){
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
@@ -54,7 +52,7 @@ public class DispatchSettings {
 
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         open("http://localhost:8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
@@ -63,12 +61,12 @@ public class DispatchSettings {
         basePage.waitForPageToLoad();
     }
 
-    @After
+    @AfterEach
     public void afterTest(){
 
     }
 
-    @AfterClass
+    @AfterAll
     public static void afterAll(){
         open("http://localhost:8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
@@ -83,7 +81,7 @@ public class DispatchSettings {
     public void deactivateCheckBoxForCompany(){
         dispatchingSettingsPage.inputOrgName("EZH");
         dispatchingSettingsPage.checkBoxesForOrgList.first().setSelected(false);
-        Assert.assertFalse(dispatchingSettingsPage.btnShowDriversList.first().isEnabled());
+        Assertions.assertFalse(dispatchingSettingsPage.btnShowDriversList.first().isEnabled());
     }
 
     @Test
@@ -92,7 +90,7 @@ public class DispatchSettings {
             .setAllOrgCheckBoxes(true);
         dispatchingSettingsPage.showDriversForOrg("EZH INC");
         dispatchingSettingsPage.checkBoxesForOrgList.first().setSelected(false);
-        Assert.assertEquals(dispatchingSettingsPage.driversList.size(), 0);
+        Assertions.assertEquals(dispatchingSettingsPage.driversList.size(), 0);
     }
 
     @Test
@@ -103,7 +101,7 @@ public class DispatchSettings {
                 .inputOrgName("Hellen Log LLC")
                 .setAllOrgCheckBoxes(true);
         dispatchingSettingsPage.checkBoxesForOrgList.first().setSelected(false);
-        Assert.assertTrue(dispatchingSettingsPage.driversList.size() > 0);
+        Assertions.assertTrue(dispatchingSettingsPage.driversList.size() > 0);
     }
 
     @Test
@@ -121,7 +119,7 @@ public class DispatchSettings {
                 .clickSaveLoadAndSendOffersBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         basePage.waitForPageToLoad();
-        Assert.assertTrue(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
+        Assertions.assertTrue(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
     }
 
     @Test
@@ -147,7 +145,7 @@ public class DispatchSettings {
                 .setAllDriverCheckBoxes(false);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
         basePage.waitForPageToLoad();
-        Assert.assertFalse(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
+        Assertions.assertFalse(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
     }
 
     @Test
@@ -171,7 +169,7 @@ public class DispatchSettings {
                 .setAllOrgCheckBoxes(false);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
         basePage.waitForPageToLoad();
-        Assert.assertEquals(1, editCreateLoadPage.getOffersTableFragment().driversCollectionOnOffers.size());
+        Assertions.assertEquals(1, editCreateLoadPage.getOffersTableFragment().driversCollectionOnOffers.size());
     }
 
     @Test
@@ -199,7 +197,7 @@ public class DispatchSettings {
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200");
         int finalSize = editCreateLoadPage.getOffersTableFragment().getDriversListSize();
 
-        Assert.assertNotEquals(initSize, finalSize);
+        Assertions.assertNotEquals(initSize, finalSize);
     }
 
     @Test
@@ -222,7 +220,7 @@ public class DispatchSettings {
         basePage.waitForPageToLoad();
 
         dispatchingSettingsPage.inputOrgName("Test with DM");
-        Assert.assertFalse(dispatchingSettingsPage.checkBoxesForOrgList.first().isSelected());
+        Assertions.assertFalse(dispatchingSettingsPage.checkBoxesForOrgList.first().isSelected());
 
     }
 
@@ -246,7 +244,7 @@ public class DispatchSettings {
                                 .setAllOrgCheckBoxes(true)
                                 .showDrivers(1)
                                 .inputDriver("Adrian Fanuzzi");
-        Assert.assertFalse(dispatchingSettingsPage.checkBoxesForDriversList.first().isSelected());
+        Assertions.assertFalse(dispatchingSettingsPage.checkBoxesForDriversList.first().isSelected());
         dispatchingSettingsPage.checkBoxesForDriversList.first().setSelected(true);
     }
 }

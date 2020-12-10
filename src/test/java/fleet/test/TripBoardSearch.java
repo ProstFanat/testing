@@ -26,7 +26,7 @@ public class TripBoardSearch {
     public static LogOut logOut;
     public static TripBoard main;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -51,7 +51,7 @@ public class TripBoardSearch {
         driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         main.sleep(1000);
         main.clickAdvancedSearch();
@@ -62,7 +62,7 @@ public class TripBoardSearch {
         main.inputTripNumber("716525");
         main.applyFilters();
         basePage.sleep(500);
-        Assert.assertTrue(main.filterBy("716525", "tripNumber"));
+        Assertions.assertTrue(main.filterBy("716525", "tripNumber"));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class TripBoardSearch {
         main.inputTripStatus("new");
         main.applyFilters();
         basePage.sleep(500);
-        Assert.assertTrue(main.filterBy("new", "status"));
+        Assertions.assertTrue(main.filterBy("new", "status"));
     }
 
     @Test
@@ -78,7 +78,7 @@ public class TripBoardSearch {
         main.inputTripType("Local");
         main.applyFilters();
         basePage.sleep(500);
-        Assert.assertTrue(main.filterBy("Local", "type"));
+        Assertions.assertTrue(main.filterBy("Local", "type"));
     }
 
     @Test
@@ -86,7 +86,7 @@ public class TripBoardSearch {
         main.inputDriver("Adrian Gherghel");
         main.applyFilters();
         basePage.sleep(500);
-        Assert.assertTrue(main.filterBy("Adrian Gherghel", "driver1"));
+        Assertions.assertTrue(main.filterBy("Adrian Gherghel", "driver1"));
     }
 
     @Test
@@ -94,7 +94,7 @@ public class TripBoardSearch {
         main.inputTruck("1210");
         main.applyFilters();
         basePage.sleep(500);
-        Assert.assertTrue(main.filterBy("1210", "truck"));
+        Assertions.assertTrue(main.filterBy("1210", "truck"));
     }
 
     @Test
@@ -102,7 +102,7 @@ public class TripBoardSearch {
         main.inputTrailer("1210T");
         main.applyFilters();
         basePage.sleep(500);
-        Assert.assertTrue(main.filterBy("1210T", "trailer"));
+        Assertions.assertTrue(main.filterBy("1210T", "trailer"));
     }
 
     @Test
@@ -120,32 +120,32 @@ public class TripBoardSearch {
                 if(main.filterBy("Local", "type")){
                     if(main.filterBy("Adrian Gherghel", "driver1")){
                         if(main.filterBy("1210", "truck")){
-                            Assert.assertTrue(main.filterBy("1210T", "trailer"));
+                            Assertions.assertTrue(main.filterBy("1210T", "trailer"));
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
     }
 
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

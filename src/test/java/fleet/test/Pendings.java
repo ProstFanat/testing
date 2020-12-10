@@ -26,7 +26,7 @@ public class Pendings {
     public static historyTrip action;
     public static TripBoard tripBoard;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -51,7 +51,7 @@ public class Pendings {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
 
     }
@@ -64,7 +64,7 @@ public class Pendings {
         main.openTransaction();
         main.sleep(1000);
 
-        Assert.assertTrue(main.btnCommitTransaction.isEnabled());
+        Assertions.assertTrue(main.btnCommitTransaction.isEnabled());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class Pendings {
         action.useVersionLeft();
         main.sleep(1000);
 
-        Assert.assertFalse(action.inputVersionRight.isEnabled());
+        Assertions.assertFalse(action.inputVersionRight.isEnabled());
     }
 
     @Test
@@ -90,7 +90,7 @@ public class Pendings {
 
         main.deleteTransaction();
         main.sleep(1000);
-        Assert.assertTrue(main.btnOpenTransaction.isDisplayed());
+        Assertions.assertTrue(main.btnOpenTransaction.isDisplayed());
     }
 
     @Test
@@ -102,7 +102,7 @@ public class Pendings {
 
         main.commitTransaction();
         main.sleep(1000);
-        Assert.assertTrue(main.btnOpenTransaction.isEnabled());
+        Assertions.assertTrue(main.btnOpenTransaction.isEnabled());
     }
 
     @Test
@@ -124,15 +124,15 @@ public class Pendings {
         createTrip.clickBtnSave();
         main.sleep(1000);
 
-        Assert.assertTrue(main.btnUpdateTrip.isDisplayed());
+        Assertions.assertTrue(main.btnUpdateTrip.isDisplayed());
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

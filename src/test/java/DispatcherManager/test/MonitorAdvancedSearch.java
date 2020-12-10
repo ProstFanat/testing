@@ -23,7 +23,7 @@ public class MonitorAdvancedSearch {
     public static dispatcherList mainList;
     public static dispatcherMonitor main;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -46,7 +46,7 @@ public class MonitorAdvancedSearch {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         mainList.openTabMonitor();
         main.inputDispatcher("Kirk West");
@@ -57,42 +57,42 @@ public class MonitorAdvancedSearch {
     public void testFilterByTripNumber(){
         main.inputTrip("715685");
         main.applyFilters();
-        Assert.assertTrue(main.filterBy("715685", "tripNumber"));
+        Assertions.assertTrue(main.filterBy("715685", "tripNumber"));
     }
 
     @Test
     public void testFilterByTripStatus(){
         main.inputStatus("booked");
         main.applyFilters();
-        Assert.assertTrue(main.filterBy("booked", "status"));
+        Assertions.assertTrue(main.filterBy("booked", "status"));
     }
 
     @Test
     public void testFilterByTripType(){
         main.inputType("Highway/Local");
         main.applyFilters();
-        Assert.assertTrue(main.filterBy("Highway/Local", "type"));
+        Assertions.assertTrue(main.filterBy("Highway/Local", "type"));
     }
 
     @Test
     public void testFilterByTripDriver(){
         main.inputDriver("Valeri Belioutsa");
         main.applyFilters();
-        Assert.assertTrue(main.filterBy("Valeri Belioutsa", "driver1"));
+        Assertions.assertTrue(main.filterBy("Valeri Belioutsa", "driver1"));
     }
 
     @Test
     public void testFilterByTripTruck(){
         main.inputTruck("0108632412");
         main.applyFilters();
-        Assert.assertTrue(main.filterBy("0108632412", "truck"));
+        Assertions.assertTrue(main.filterBy("0108632412", "truck"));
     }
 
     @Test
     public void testFilterByTripTrailer(){
         main.inputTrailer("1210T");
         main.applyFilters();
-        Assert.assertTrue(main.filterBy("1210T", "trailer"));
+        Assertions.assertTrue(main.filterBy("1210T", "trailer"));
     }
 
     @Test
@@ -110,31 +110,31 @@ public class MonitorAdvancedSearch {
                     if(main.filterBy("Valeri Belioutsa", "driver1")){
                         if(main.filterBy("0108632412", "truck")){
                             if(main.filterBy("1210T", "trailer")){
-                                Assert.assertTrue(true);
+                                Assertions.assertTrue(true);
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
     @Test
     public void testValidationTripNumberSearch(){
         main.inputTrip("1234567890123456");
-        Assert.assertEquals("123456789012345", main.getInputValue(main.tripInput));
+        Assertions.assertEquals("123456789012345", main.getInputValue(main.tripInput));
     }
 
     @Test
@@ -145,18 +145,18 @@ public class MonitorAdvancedSearch {
         main.inputDispatcher("TestAdrian716981");
 
         if("715685".equals(main.getInputValue(main.tripInput))){
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

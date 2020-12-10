@@ -3,7 +3,8 @@ package TGLN.test;
 import TGLN.*;
 import fleetEvents.fleet.LogOut;
 import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,7 +32,7 @@ public class A1_ProfileCreate {
     public static CreateProfile create;
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -57,7 +58,7 @@ public class A1_ProfileCreate {
         open.openGPSDevices();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         mainDevices.openProfilesTab();
         main.openCreateNewProfile();
@@ -66,9 +67,9 @@ public class A1_ProfileCreate {
     @Test
     public void testEmpty(){
         if(!(create.btnSave.isEnabled())){
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -77,9 +78,9 @@ public class A1_ProfileCreate {
         int number = (int) (Math.random() * 1000000);
         create.inputName("test" + number);
         if(!(create.btnSave.isEnabled())){
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -89,9 +90,9 @@ public class A1_ProfileCreate {
         create.inputName("test" + number);
         create.inputServerTimeout("" + number);
         if(!(create.btnSave.isEnabled())){
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -106,15 +107,15 @@ public class A1_ProfileCreate {
         if(("test" + number).equals(main.getValueProfileName())){
             if(("" + number).equals(main.getValueServerTimeout())){
                 if(("" + number).equals(main.getValueLteTimeout())){
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
         main.deleteProfile("test" + number);
         main.confirmDelete();
@@ -123,7 +124,7 @@ public class A1_ProfileCreate {
     @Test
     public void testLockSleepSeconds(){
         create.clickAlwaysAwakeModeCheckbox();
-        Assert.assertFalse(create.sleepSecondsInput.isEnabled());
+        Assertions.assertFalse(create.sleepSecondsInput.isEnabled());
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -133,12 +134,12 @@ public class A1_ProfileCreate {
         create.inputServerTimeout("9");
         if(basePage.isElementDisplayed(create.validationServerTimeout)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -147,12 +148,12 @@ public class A1_ProfileCreate {
         create.inputServerTimeout("10");
         if(!(basePage.isElementDisplayed(create.validationServerTimeout))){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -161,12 +162,12 @@ public class A1_ProfileCreate {
         create.inputServerTimeout("15.1");
         if(basePage.isElementDisplayed(create.validationServerTimeout)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -177,12 +178,12 @@ public class A1_ProfileCreate {
         create.inputLteTimeout("19");
         if(basePage.isElementDisplayed(create.validationLTETimeout)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -191,12 +192,12 @@ public class A1_ProfileCreate {
         create.inputLteTimeout("20");
         if(!(basePage.isElementDisplayed(create.validationLTETimeout))){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -205,12 +206,12 @@ public class A1_ProfileCreate {
         create.inputLteTimeout("30.1");
         if(basePage.isElementDisplayed(create.validationLTETimeout)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -221,12 +222,12 @@ public class A1_ProfileCreate {
         create.inputSleepSeconds("-19");
         if(basePage.isElementDisplayed(create.validationSleepSeconds)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -238,12 +239,12 @@ public class A1_ProfileCreate {
         create.inputReadSensorsInterval("-19");
         if(basePage.isElementDisplayed(create.validationReadSensors)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -253,12 +254,12 @@ public class A1_ProfileCreate {
         create.inputReadSensorsInterval("19");
         if(!(basePage.isElementDisplayed(create.validationReadSensors))){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -268,12 +269,12 @@ public class A1_ProfileCreate {
         create.inputReadSensorsInterval("19.1");
         if(basePage.isElementDisplayed(create.validationReadSensors)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -283,12 +284,12 @@ public class A1_ProfileCreate {
         create.inputReadSensorsInterval("0");
         if(basePage.isElementDisplayed(create.validationReadSensors)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -300,12 +301,12 @@ public class A1_ProfileCreate {
         create.inputReadGPSPositionInterval("-19");
         if(basePage.isElementDisplayed(create.validationReadGps)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -315,12 +316,12 @@ public class A1_ProfileCreate {
         create.inputReadGPSPositionInterval("19");
         if(!(basePage.isElementDisplayed(create.validationReadGps))){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -330,12 +331,12 @@ public class A1_ProfileCreate {
         create.inputReadGPSPositionInterval("19.1");
         if(basePage.isElementDisplayed(create.validationReadGps)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -345,12 +346,12 @@ public class A1_ProfileCreate {
         create.inputReadGPSPositionInterval("0");
         if(basePage.isElementDisplayed(create.validationReadGps)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -362,12 +363,12 @@ public class A1_ProfileCreate {
         create.inputServerHeartbeatInterval("-19");
         if(basePage.isElementDisplayed(create.validationServerHeartbeat)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -377,12 +378,12 @@ public class A1_ProfileCreate {
         create.inputServerHeartbeatInterval("19");
         if(!(basePage.isElementDisplayed(create.validationServerHeartbeat))){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -392,12 +393,12 @@ public class A1_ProfileCreate {
         create.inputServerHeartbeatInterval("19.1");
         if(basePage.isElementDisplayed(create.validationServerHeartbeat)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -407,12 +408,12 @@ public class A1_ProfileCreate {
         create.inputServerHeartbeatInterval("0");
         if(basePage.isElementDisplayed(create.validationServerHeartbeat)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -424,12 +425,12 @@ public class A1_ProfileCreate {
         create.inputThreshold("62");
         if(basePage.isElementDisplayed(create.validationThresholdLower)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -441,18 +442,18 @@ public class A1_ProfileCreate {
             if(!(basePage.isElementDisplayed(create.validationThresholdUpper))) {
                 if (!(basePage.isElementDisplayed(create.validationThresholdUFractional))){
                     if (!(create.btnSave.isEnabled())) {
-                        Assert.assertTrue(true);
+                        Assertions.assertTrue(true);
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -464,18 +465,18 @@ public class A1_ProfileCreate {
             if(!(basePage.isElementDisplayed(create.validationThresholdUpper))) {
                 if (!(basePage.isElementDisplayed(create.validationThresholdUFractional))){
                     if (!(create.btnSave.isEnabled())) {
-                        Assert.assertTrue(true);
+                        Assertions.assertTrue(true);
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -485,12 +486,12 @@ public class A1_ProfileCreate {
         create.inputThreshold("8001");
         if(basePage.isElementDisplayed(create.validationThresholdUpper)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -500,12 +501,12 @@ public class A1_ProfileCreate {
         create.inputThreshold("400.1");
         //if(basePage.isElementDisplayed(create.validationThresholdUFractional)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
 //        } else {
-//            Assert.assertTrue(false);
+//            Assertions.assertTrue(false);
 //        }
     }
 
@@ -517,12 +518,12 @@ public class A1_ProfileCreate {
         create.inputDuration("159");
         if(basePage.isElementDisplayed(create.validationDurationLower)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -534,18 +535,18 @@ public class A1_ProfileCreate {
             if(!(basePage.isElementDisplayed(create.validationDurationUpper))) {
                 if (!(basePage.isElementDisplayed(create.validationDurationFractional))){
                     if (!(create.btnSave.isEnabled())) {
-                        Assert.assertTrue(true);
+                        Assertions.assertTrue(true);
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -557,18 +558,18 @@ public class A1_ProfileCreate {
             if(!(basePage.isElementDisplayed(create.validationDurationUpper))) {
                 if (!(basePage.isElementDisplayed(create.validationDurationFractional))){
                     if (!(create.btnSave.isEnabled())) {
-                        Assert.assertTrue(true);
+                        Assertions.assertTrue(true);
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -578,12 +579,12 @@ public class A1_ProfileCreate {
         create.inputDuration("40801");
         if(basePage.isElementDisplayed(create.validationDurationUpper)){
             if(!(create.btnSave.isEnabled())){
-                Assert.assertTrue(true);
+                Assertions.assertTrue(true);
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -593,12 +594,12 @@ public class A1_ProfileCreate {
         create.inputDuration("400.1");
         //if(basePage.isElementDisplayed(create.validationDurationFractional)){
         if(!(create.btnSave.isEnabled())){
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 //        } else {
-//            Assert.assertTrue(false);
+//            Assertions.assertTrue(false);
 //        }
     }
 
@@ -608,14 +609,14 @@ public class A1_ProfileCreate {
     public void testChargedDefaultValueOfSleepSecond(){
         String initValue = create.getValueIfFullyCharged();
         create.inputSleepSeconds("30");
-        Assert.assertEquals(initValue, create.getValueIfFullyCharged());
+        Assertions.assertEquals(initValue, create.getValueIfFullyCharged());
     }
 
     @Test
     public void testChargedWithGPSSleep(){
         String initValue = create.getValueIfFullyCharged();
         create.clickGpsSleepCheckbox();
-        Assert.assertNotEquals(initValue, create.getValueIfFullyCharged());
+        Assertions.assertNotEquals(initValue, create.getValueIfFullyCharged());
     }
 
     @Test
@@ -623,14 +624,14 @@ public class A1_ProfileCreate {
         String initValue = create.getValueIfFullyCharged();
         create.clickGpsSleepCheckbox();
         create.inputSleepSeconds("100");
-        Assert.assertNotEquals(initValue, create.getValueIfFullyCharged());
+        Assertions.assertNotEquals(initValue, create.getValueIfFullyCharged());
     }
 
     @Test
     public void testChargedWithAlwaysAwakeMode(){
         String initValue = create.getValueIfFullyCharged();
         create.clickAlwaysAwakeModeCheckbox();
-        Assert.assertNotEquals(initValue, create.getValueIfFullyCharged());
+        Assertions.assertNotEquals(initValue, create.getValueIfFullyCharged());
     }
 
     @Test
@@ -638,7 +639,7 @@ public class A1_ProfileCreate {
         create.inputSleepSeconds("100");
         String initValue = create.getValueIfFullyCharged();
         create.clickAlwaysAwakeModeCheckbox();
-        Assert.assertNotEquals(initValue, create.getValueIfFullyCharged());
+        Assertions.assertNotEquals(initValue, create.getValueIfFullyCharged());
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -650,7 +651,7 @@ public class A1_ProfileCreate {
         String initValue = create.getEquivalentFalling();
         create.inputThreshold("200");
         create.inputDuration("300");
-        Assert.assertEquals(initValue, create.getEquivalentFalling());
+        Assertions.assertEquals(initValue, create.getEquivalentFalling());
     }
 
     @Test
@@ -659,7 +660,7 @@ public class A1_ProfileCreate {
         basePage.sleep(500);
         String initValue = create.getEquivalentFalling();
         create.inputThreshold("250");
-        Assert.assertNotEquals(initValue, create.getEquivalentFalling());
+        Assertions.assertNotEquals(initValue, create.getEquivalentFalling());
     }
 
     @Test
@@ -668,7 +669,7 @@ public class A1_ProfileCreate {
         basePage.sleep(500);
         String initValue = create.getEquivalentFalling();
         create.inputDuration("1000");
-        Assert.assertNotEquals(initValue, create.getEquivalentFalling());
+        Assertions.assertNotEquals(initValue, create.getEquivalentFalling());
     }
 
     @Test
@@ -678,7 +679,7 @@ public class A1_ProfileCreate {
         String initValue = create.getEquivalentFalling();
         create.inputThreshold("2000");
         create.inputDuration("3000");
-        Assert.assertNotEquals(initValue, create.getEquivalentFalling());
+        Assertions.assertNotEquals(initValue, create.getEquivalentFalling());
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -705,33 +706,33 @@ public class A1_ProfileCreate {
                                 if(("Y").equals(main.getValueAccAlertEnabled())){
                                     if(("3000").equals(main.getValueAccAlertThreshold())){
                                         if(("4000").equals(main.getValueAccAlertDuration())){
-                                            Assert.assertTrue(true);
+                                            Assertions.assertTrue(true);
                                         } else {
-                                            Assert.assertTrue(false);
+                                            Assertions.assertTrue(false);
                                         }
                                     } else {
-                                        Assert.assertTrue(false);
+                                        Assertions.assertTrue(false);
                                     }
                                 } else {
-                                    Assert.assertTrue(false);
+                                    Assertions.assertTrue(false);
                                 }
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
         main.deleteProfile("test" + number);
         main.confirmDelete();
@@ -756,27 +757,27 @@ public class A1_ProfileCreate {
                         if(("N").equals(main.getValueAccAlertEnabled())){
                             if(("").equals(main.getValueAccAlertThreshold())){
                                 if(("").equals(main.getValueAccAlertDuration())){
-                                            Assert.assertTrue(true);
+                                            Assertions.assertTrue(true);
                                         } else {
-                                    Assert.assertTrue(false);
+                                    Assertions.assertTrue(false);
                                 }
                             } else {
-                                        Assert.assertTrue(false);
+                                        Assertions.assertTrue(false);
                                     }
                         } else {
-                                    Assert.assertTrue(false);
+                                    Assertions.assertTrue(false);
                                 }
                     } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                 } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
             } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         main.deleteProfile("test" + number);
@@ -813,39 +814,39 @@ public class A1_ProfileCreate {
                         if(("N").equals(main.getValueAccAlertEnabled())){
                             if(("").equals(main.getValueAccAlertThreshold())){
                                 if(("").equals(main.getValueAccAlertDuration())){
-                                    Assert.assertTrue(true);
+                                    Assertions.assertTrue(true);
                                 } else {
-                                    Assert.assertTrue(false);
+                                    Assertions.assertTrue(false);
                                 }
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         main.deleteProfile("test" + number);
         main.confirmDelete();
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

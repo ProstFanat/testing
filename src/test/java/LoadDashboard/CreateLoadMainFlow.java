@@ -7,7 +7,10 @@ import loadDashboardPages.LoadListPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
-import org.junit.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import resources.BasePage;
 
 
@@ -23,7 +26,7 @@ public class CreateLoadMainFlow {
     public static BasePage basePage;
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
@@ -36,7 +39,7 @@ public class CreateLoadMainFlow {
         basePage = new BasePage();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
     }
@@ -66,7 +69,7 @@ public class CreateLoadMainFlow {
 
         editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Pickup Date").shouldBe(Condition.visible);
-        Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
     @Test
@@ -76,7 +79,7 @@ public class CreateLoadMainFlow {
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("City in PickUp Location are not determined, can't be saved").shouldBe(Condition.visible);
-        Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
     @Test
@@ -87,7 +90,7 @@ public class CreateLoadMainFlow {
                 .setPickupLocation("Toront")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Delivery Date").shouldBe(Condition.visible);
-        Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
 
     }
 
@@ -100,7 +103,7 @@ public class CreateLoadMainFlow {
                 .setDeliveryDate(30, "Nov", 2020)
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("City in Delivery Location are not determined, can't be saved").shouldBe(Condition.visible);
-        Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
     @Test
@@ -113,7 +116,7 @@ public class CreateLoadMainFlow {
                 .setDeliveryLocation("New")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Weight").shouldBe(Condition.visible);
-        Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
     @Test
@@ -127,7 +130,7 @@ public class CreateLoadMainFlow {
                 .setWeight("99")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill F/P").shouldBe(Condition.visible);
-        Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
 
@@ -146,7 +149,7 @@ public class CreateLoadMainFlow {
                 .clickSaveBtn();
 
         editCreateLoadPage.getReqAlertsMessage("Please fill Contacts").shouldBe(Condition.visible);
-        Assert.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
     }
 
 @Test

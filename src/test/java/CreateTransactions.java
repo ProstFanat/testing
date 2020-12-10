@@ -2,19 +2,19 @@
 import  LoginAndMainPages.LoginPage;
 import CreateTransactions.*;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.url;
+
 
 public class CreateTransactions {
     public static LoginPage login;
     public static OpenEditor openEditor;
     public static CreateTransaction create;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;

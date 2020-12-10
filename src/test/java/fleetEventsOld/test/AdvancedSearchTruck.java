@@ -25,7 +25,7 @@ public class AdvancedSearchTruck {
     public static BasePage basePage;
     public static LogOut logOut;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -51,7 +51,7 @@ public class AdvancedSearchTruck {
 
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         main.inputPerspective("Truck");
         filter.findTruck("1210");
@@ -68,7 +68,7 @@ public class AdvancedSearchTruck {
         int initTable = filter.table.size();
         filter.showResults();
         basePage.sleep(500);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class AdvancedSearchTruck {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithDrivers - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -90,7 +90,7 @@ public class AdvancedSearchTruck {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
@@ -101,7 +101,7 @@ public class AdvancedSearchTruck {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithOrder - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -110,7 +110,7 @@ public class AdvancedSearchTruck {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
@@ -121,7 +121,7 @@ public class AdvancedSearchTruck {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithOrderWithoutProbill - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -132,7 +132,7 @@ public class AdvancedSearchTruck {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
@@ -143,7 +143,7 @@ public class AdvancedSearchTruck {
 
         if(filter.table.size() == 0){
             System.out.println("filterOnlyWithTrailer - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         for(int i = 1; i <= filter.table.size(); i++){
@@ -152,7 +152,7 @@ public class AdvancedSearchTruck {
             }
         }
         basePage.sleep(500);
-        Assert.assertEquals(counter, filter.table.size());
+        Assertions.assertEquals(counter, filter.table.size());
     }
 
     @Test
@@ -161,7 +161,7 @@ public class AdvancedSearchTruck {
         filter.inputStartDate();
         filter.showResults();
         basePage.sleep(500);
-        Assert.assertNotEquals(init, filter.table.size());
+        Assertions.assertNotEquals(init, filter.table.size());
     }
 
     @Test
@@ -170,7 +170,7 @@ public class AdvancedSearchTruck {
         filter.inputFinishDate();
         filter.showResults();
         basePage.sleep(500);
-        Assert.assertNotEquals(init, filter.table.size());
+        Assertions.assertNotEquals(init, filter.table.size());
     }
     @Test
     public void filterWithAllFilters(){
@@ -183,25 +183,25 @@ public class AdvancedSearchTruck {
 
         if(filter.table.size() == 0){
             System.out.println("filterWithAllFilters - empty table");
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         if(driver.findElement(By.xpath("//datatable-row-wrapper[1]//datatable-body-cell[5]//span")).getText().equals("Adrian Gherghel")){
             if(driver.findElement(By.xpath("//datatable-row-wrapper[1]//datatable-body-cell[8]//span")).getText().equals("409125 (Order: CO-20-61201)")){
                 if(driver.findElement(By.xpath("//datatable-row-wrapper[1]//datatable-body-cell[4]//div")).getText().equals("1210T")){
-                    Assert.assertTrue(true);
+                    Assertions.assertTrue(true);
                 }
             }
         }
     }
 
-    @After
+    @AfterEach
     public void afterTest(){
         driver.navigate().refresh();
     }
 
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

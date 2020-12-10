@@ -4,11 +4,11 @@ import TGLN.AddGPSDevice;
 import TGLN.TabDevices;
 import TGLN.OpenGPSDevices;
 import fleetEvents.fleet.*;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeTest;
 import resources.BasePage;
 
 import java.util.concurrent.TimeUnit;
@@ -26,7 +26,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
     private static int numberForUID;
     public static Actions actions;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -48,7 +48,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         open.openGPSDevices();
     }
 
-    @Before
+    @BeforeTest
     public void before(){
         main.openNewDeviceForm();
     }
@@ -59,7 +59,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         createDevice.serverInput.clear();
         createDevice.portInput.clear();
         createDevice.apnInput.clear();
-        Assert.assertFalse(createDevice.btnSave.isEnabled());
+        Assertions.assertFalse(createDevice.btnSave.isEnabled());
         createDevice.cancelDevice();
     }
 
@@ -70,7 +70,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         createDevice.serverInput.clear();
         createDevice.portInput.clear();
         createDevice.apnInput.clear();
-        Assert.assertFalse(createDevice.btnSave.isEnabled());
+        Assertions.assertFalse(createDevice.btnSave.isEnabled());
         createDevice.cancelDevice();
     }
 
@@ -80,7 +80,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         createDevice.inputDeviceUID("autoTest" + temp);
         createDevice.portInput.clear();
         createDevice.apnInput.clear();
-        Assert.assertFalse(createDevice.btnSave.isEnabled());
+        Assertions.assertFalse(createDevice.btnSave.isEnabled());
         createDevice.cancelDevice();
     }
 
@@ -89,7 +89,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         int temp = (int) (Math.random() * 1000000);
         createDevice.inputDeviceUID("autoTest" + temp);
         createDevice.apnInput.clear();
-        Assert.assertFalse(createDevice.btnSave.isEnabled());
+        Assertions.assertFalse(createDevice.btnSave.isEnabled());
         createDevice.cancelDevice();
     }
 
@@ -99,7 +99,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         createDevice.saveDevice();
         main.filterTable("autoTest" + numberForUID);
         if(main.getTableDevicesSize() == 1) {
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTest" + numberForUID + "']"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTest" + numberForUID + "']"));
         }
     }
 
@@ -107,7 +107,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
     public void testWithAlreadyExistsDeviceUID() {
         createDevice.inputDeviceUID("Test111");
         createDevice.saveDevice();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'GPS Device with the same Device UID already exist' )]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'GPS Device with the same Device UID already exist' )]"));
         createDevice.cancelDevice();
     }
 
@@ -116,7 +116,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         createDevice.inputDeviceUID("autoTest" + numberForUID);
         createDevice.portInput.clear();
         createDevice.inputPort("hello123");
-        Assert.assertFalse(createDevice.btnSave.isEnabled());
+        Assertions.assertFalse(createDevice.btnSave.isEnabled());
         createDevice.cancelDevice();
     }
 
@@ -124,7 +124,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
     public void testFullyChargedWithDiffProfiles(){
         String init = createDevice.getIfFullyCharged();
         createDevice.input2Profile();
-        Assert.assertFalse(init.equals(createDevice.getIfFullyCharged()));
+        Assertions.assertFalse(init.equals(createDevice.getIfFullyCharged()));
         createDevice.cancelDevice();
     }
 
@@ -136,7 +136,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
 //                if("1 second".equals(createDevice.getDeviceSleepSeconds())){
 //                    if("ON".equals(createDevice.getGpsSleep())){
 //                        if("150/600".equals(createDevice.getMotionDetection())){
-//                            Assert.assertTrue(true);
+//                            Assertions.assertTrue(true);
 //                        }
 //                    }
 //                }
@@ -152,7 +152,7 @@ public class A2_DevicesCreateDeviceTrackEnsure {
             createDevice.deleteNotification(1);
         }
         if(!(basePage.isElementDisplayedByPath("//*[contains(@ng-repeat, 'notification in')][1]//button"))){
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         }
         createDevice.cancelDevice();
     }
@@ -165,9 +165,9 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         createDevice.saveDevice();
         main.filterTable("autoTest" + temp);
         if(basePage.isElementDisplayed(main.iconTemperature)){
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -189,24 +189,24 @@ public class A2_DevicesCreateDeviceTrackEnsure {
                     if(basePage.isElementDisplayed(main.iconPosition)){
                         if(basePage.isElementDisplayed(main.iconDeviceError)){
                             if(basePage.isElementDisplayed(main.iconDeviceConnectivity)){
-                                Assert.assertTrue(true);
+                                Assertions.assertTrue(true);
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -216,16 +216,16 @@ public class A2_DevicesCreateDeviceTrackEnsure {
         createDevice.inputDeviceUID("autoTest" + temp);
         createDevice.selectTemperature1Notification();
         createDevice.selectTemperature2Notification();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Sorry. You already have TEMPERATURE NOTIFICATIONS for this device.']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Sorry. You already have TEMPERATURE NOTIFICATIONS for this device.']"));
         createDevice.cancelDevice();
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

@@ -26,7 +26,7 @@ public class CreateNewTrip {
     public static LogOut logOut;
     public static TripBoard tripBoard;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //         System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -51,7 +51,7 @@ public class CreateNewTrip {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void before(){
     }
 
@@ -69,8 +69,8 @@ public class CreateNewTrip {
         createTrip.inputTrailer(ConfPropertiesFleet.getProperty("fleet.trailer"));
         createTrip.inputPlace();
         createTrip.btnCancel.click();
-        Assert.assertNotEquals(main.getTripNumber(), lastTripNumber);
-//        Assert.assertFalse(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
+        Assertions.assertNotEquals(main.getTripNumber(), lastTripNumber);
+//        Assertions.assertFalse(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
@@ -91,8 +91,8 @@ public class CreateNewTrip {
         createTrip.clickBtnSave();
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
-        //Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+        //Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class CreateNewTrip {
         createTrip.inputOrder("CO-20-61201");
         createTrip.deleteOrder();
         createTrip.clickBtnCancel();
-        Assert.assertFalse(basePage.isElementDisplayedByPath("//*[contains(text(), 'Order # CO-20-61201')"));
+        Assertions.assertFalse(basePage.isElementDisplayedByPath("//*[contains(text(), 'Order # CO-20-61201')"));
 //        createTrip.clickBtnCancel();
     }
 
@@ -114,7 +114,7 @@ public class CreateNewTrip {
         basePage.waitToBeClickable(10, createTrip.btnConfirmDeleteOrder);
         basePage.waitToVisibilityOf(10, createTrip.btnConfirmDeleteOrder);
         createTrip.btnConfirmDeleteOrder.click();
-        Assert.assertFalse(createTrip.radioOrder.isSelected());
+        Assertions.assertFalse(createTrip.radioOrder.isSelected());
 //        createTrip.clickBtnCancel();
     }
 
@@ -122,7 +122,7 @@ public class CreateNewTrip {
     public void testOrderWithoutProbill(){
         createTrip.openFormCreate();
         createTrip.inputOrder("CO-20-61200");
-        Assert.assertFalse(createTrip.isOrderDoesNotHaveProbills("CO-20-61200"));
+        Assertions.assertFalse(createTrip.isOrderDoesNotHaveProbills("CO-20-61200"));
 //        createTrip.clickBtnCancel();
     }
 
@@ -134,7 +134,7 @@ public class CreateNewTrip {
         createTrip.inputOrder("CO-20-61202");
         createTrip.clickBtnSave();
         main.sleep(500);
-        Assert.assertTrue(main.isOrderInTable("CO-20-61202"));
+        Assertions.assertTrue(main.isOrderInTable("CO-20-61202"));
     }
 
     @Test
@@ -144,7 +144,7 @@ public class CreateNewTrip {
         createTrip.inputType(ConfPropertiesFleet.getProperty("fleet.tripType"));
         createTrip.inputPlace();
         createTrip.clickBtnSave();
-        Assert.assertTrue(main.isPlaceInTable());
+        Assertions.assertTrue(main.isPlaceInTable());
     }
 
     @Test
@@ -163,7 +163,7 @@ public class CreateNewTrip {
         createTrip.inputPlace();
         createTrip.setNotificationTime();
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//div[contains(text(), 'Notification Email is a required field!')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//div[contains(text(), 'Notification Email is a required field!')]"));
 ;;        createTrip.clickBtnCancel();
     }
 
@@ -188,8 +188,8 @@ public class CreateNewTrip {
         createTrip.clickBtnSave();
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
-        //Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+        //Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
@@ -198,7 +198,7 @@ public class CreateNewTrip {
         createTrip.inputType(ConfPropertiesFleet.getProperty("fleet.tripType"));
         createTrip.inputPlace();
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Status is a required field!']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Status is a required field!']"));
  //       createTrip.clickBtnCancel();
     }
 
@@ -208,7 +208,7 @@ public class CreateNewTrip {
         createTrip.inputTripStatus(ConfPropertiesFleet.getProperty("fleet.tripStatus"));
         createTrip.inputPlace();
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Type is a required field!']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Type is a required field!']"));
  //       createTrip.clickBtnCancel();
     }
 
@@ -225,8 +225,8 @@ public class CreateNewTrip {
         createTrip.clickBtnSave();
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
-        //Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+        //Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
@@ -237,7 +237,7 @@ public class CreateNewTrip {
         createTrip.inputFinishDate();
         createTrip.inputPlace();
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Please select a Start Date']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Please select a Start Date']"));
  //       createTrip.clickBtnCancel();
     }
 
@@ -249,7 +249,7 @@ public class CreateNewTrip {
         createTrip.inputStartDateLessThenFinishDate();
         createTrip.inputPlace();
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[@id ='toast-container']//div[contains(@aria-label, 'The Start Date')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@id ='toast-container']//div[contains(@aria-label, 'The Start Date')]"));
 //        createTrip.clickBtnCancel();
     }
 
@@ -265,7 +265,7 @@ public class CreateNewTrip {
         createTrip.clickBtnSave();
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
     }
 
     @Test
@@ -274,7 +274,7 @@ public class CreateNewTrip {
         createTrip.inputTripStatus(ConfPropertiesFleet.getProperty("fleet.tripStatus"));
         createTrip.inputType(ConfPropertiesFleet.getProperty("fleet.tripType"));
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[@id ='toast-container']//div[contains(@aria-label, 'Please select one')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@id ='toast-container']//div[contains(@aria-label, 'Please select one')]"));
 //        createTrip.clickBtnCancel();
     }
 
@@ -282,7 +282,7 @@ public class CreateNewTrip {
     public void testBasedOnPlaceWithoutAll(){
         createTrip.openFormCreate();
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Status is a required field!']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Status is a required field!']"));
 //        createTrip.clickBtnCancel();
     }
 
@@ -294,7 +294,7 @@ public class CreateNewTrip {
         createTrip.inputDriver1SameDriver2(ConfPropertiesFleet.getProperty("fleet.driver1"));
         createTrip.inputPlace();
         createTrip.clickBtnSave();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Driver 1 and Driver 2 is the same!']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Driver 1 and Driver 2 is the same!']"));
 //        createTrip.clickBtnCancel();
     }
 
@@ -308,7 +308,7 @@ public class CreateNewTrip {
         createTrip.createTrip("new", "Highway");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -321,7 +321,7 @@ public class CreateNewTrip {
         createTrip.createTrip("dispatched", "Highway");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 
 //        createTrip.clickBtnCancel();
     }
@@ -335,7 +335,7 @@ public class CreateNewTrip {
         createTrip.createTrip("cancelled", "Highway");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 
 //        createTrip.clickBtnCancel();
     }
@@ -349,7 +349,7 @@ public class CreateNewTrip {
         createTrip.createTrip("done", "Highway");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -362,7 +362,7 @@ public class CreateNewTrip {
         createTrip.createTrip("booked", "Highway");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -377,7 +377,7 @@ public class CreateNewTrip {
         createTrip.createTrip("new", "Highway/Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -390,7 +390,7 @@ public class CreateNewTrip {
         createTrip.createTrip("dispatched", "Highway/Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -403,7 +403,7 @@ public class CreateNewTrip {
         createTrip.createTrip("cancelled", "Highway/Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -416,7 +416,7 @@ public class CreateNewTrip {
         createTrip.createTrip("done", "Highway/Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -429,7 +429,7 @@ public class CreateNewTrip {
         createTrip.createTrip("booked", "Highway/Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -443,7 +443,7 @@ public class CreateNewTrip {
         createTrip.createTrip("new", "Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -456,7 +456,7 @@ public class CreateNewTrip {
         createTrip.createTrip("dispatched", "Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -469,7 +469,7 @@ public class CreateNewTrip {
         createTrip.createTrip("cancelled", "Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -482,7 +482,7 @@ public class CreateNewTrip {
         createTrip.createTrip("done", "Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
@@ -495,17 +495,17 @@ public class CreateNewTrip {
         createTrip.createTrip("booked", "Local");
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 //        createTrip.clickBtnCancel();
     }
 
-    @After
+    @AfterEach
     public void afterTest(){
        driver.navigate().refresh();
     }
 
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
        driver.quit();
     }

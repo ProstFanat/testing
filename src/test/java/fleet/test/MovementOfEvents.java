@@ -25,7 +25,7 @@ public class MovementOfEvents {
     public static BasePage basePage;
     public static LogOut logOut;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
         //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -50,7 +50,7 @@ public class MovementOfEvents {
         open.findTrip("716252");
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         main.clickBtnOpenTransaction();
         main.saveNewTransaction();
@@ -62,7 +62,7 @@ public class MovementOfEvents {
         String initType = move.getType5();
         move.moveDown5();
         basePage.sleep(500);
-        Assert.assertEquals(initType, move.getType6());
+        Assertions.assertEquals(initType, move.getType6());
     }
 
     @Test
@@ -70,7 +70,7 @@ public class MovementOfEvents {
         String initType = move.getType6();
         move.moveUp6();
         basePage.sleep(500);
-        Assert.assertEquals(initType, move.getType5());
+        Assertions.assertEquals(initType, move.getType5());
     }
 
     //////////////////////////////////////////////////////////////
@@ -78,7 +78,7 @@ public class MovementOfEvents {
     public void testSecondEventMoveUpMessage(){
         move.moveUp2();
         basePage.sleep(500);
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Acquire event should be the first in the trip. Are you sure that you would like to change the event position?')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Acquire event should be the first in the trip. Are you sure that you would like to change the event position?')]"));
         move.cancelMove();
     }
 
@@ -87,7 +87,7 @@ public class MovementOfEvents {
         String initType = move.getType2();
         move.moveUp2();
         move.applyMove();
-        Assert.assertEquals(initType,move.getType1());
+        Assertions.assertEquals(initType,move.getType1());
 //        move.moveDown1();
     }
 
@@ -96,7 +96,7 @@ public class MovementOfEvents {
         String initType = move.getType2();
         move.moveUp2();
         move.cancelMove();
-        Assert.assertEquals(initType, move.getType2());
+        Assertions.assertEquals(initType, move.getType2());
     }
 
     ///////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@ public class MovementOfEvents {
     public void testAcquireMoveDownMessage(){
         move.moveDown1();
         basePage.sleep(500);
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Acquire event should be the first in the trip. Are you sure that you would like to change the event position?')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Acquire event should be the first in the trip. Are you sure that you would like to change the event position?')]"));
         move.cancelMove();
     }
 
@@ -114,7 +114,7 @@ public class MovementOfEvents {
         move.moveDown1();
         move.applyMove();
         basePage.sleep(500);
-        Assert.assertEquals(initType, move.getType2());
+        Assertions.assertEquals(initType, move.getType2());
 //        move.moveUp2();
     }
 
@@ -123,7 +123,7 @@ public class MovementOfEvents {
         String initType = move.getType1();
         move.moveDown1();
         move.cancelMove();
-        Assert.assertEquals(initType, move.getType1());
+        Assertions.assertEquals(initType, move.getType1());
     }
 
     /////////////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ public class MovementOfEvents {
     public void testPreLastEventMoveDownMessage(){
         move.moveDown6();
         basePage.sleep(500);
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Release event should be the last in the trip. Are you sure that you would like to change the event position?\n')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Release event should be the last in the trip. Are you sure that you would like to change the event position?\n')]"));
         move.cancelMove();
     }
 
@@ -141,7 +141,7 @@ public class MovementOfEvents {
         move.moveDown6();
         move.applyMove();
         main.sleep(500);
-        Assert.assertEquals(initType, move.getType7());
+        Assertions.assertEquals(initType, move.getType7());
 //        move.moveUp7();
     }
 
@@ -150,7 +150,7 @@ public class MovementOfEvents {
         String initType = move.getType6();
         move.moveDown6();
         move.cancelMove();
-        Assert.assertEquals(initType, move.getType6());
+        Assertions.assertEquals(initType, move.getType6());
     }
 
     ///////////////////////////////////////////////////////////////////
@@ -158,7 +158,7 @@ public class MovementOfEvents {
     public void testReleaseMoveUpMessage(){
         move.moveUp7();
         basePage.sleep(500);
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Release event should be the last in the trip. Are you sure that you would like to change the event position?\n')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' The Release event should be the last in the trip. Are you sure that you would like to change the event position?\n')]"));
         move.cancelMove();
     }
 
@@ -168,7 +168,7 @@ public class MovementOfEvents {
         move.moveUp7();
         move.applyMove();
         basePage.sleep(500);
-        Assert.assertEquals(initType, move.getType6());
+        Assertions.assertEquals(initType, move.getType6());
 //        move.moveDown6();
     }
 
@@ -177,7 +177,7 @@ public class MovementOfEvents {
         String initType = move.getType7();
         move.moveUp7();
         move.cancelMove();
-        Assert.assertEquals(initType, move.getType7());
+        Assertions.assertEquals(initType, move.getType7());
     }
 
     //////////////////////////////////////////////////////////
@@ -185,7 +185,7 @@ public class MovementOfEvents {
     public void testFinishedMoveDownMessage(){
         move.moveDown4();
         basePage.sleep(500);
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' You are trying to move a completed event')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), ' You are trying to move a completed event')]"));
         move.cancelMove();
     }
 
@@ -195,7 +195,7 @@ public class MovementOfEvents {
         move.moveDown4();
         move.applyMove();
         basePage.sleep(500);
-        Assert.assertEquals(initType, move.getType5());
+        Assertions.assertEquals(initType, move.getType5());
 //        move.moveUp5();
     }
 
@@ -204,19 +204,19 @@ public class MovementOfEvents {
         String initType = move.getType4();
         move.moveDown4();
         move.cancelMove();
-        Assert.assertEquals(initType, move.getType4());
+        Assertions.assertEquals(initType, move.getType4());
     }
 
     @Test
     public void testFinishedMoveUp() {
         String initType = move.getType4();
         move.moveUp4();
-        Assert.assertEquals(initType, move.getType3());
+        Assertions.assertEquals(initType, move.getType3());
 //        move.moveDown3();
 //        move.applyMove();
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         main.sleep(500);
         main.deleteTransaction();
@@ -225,7 +225,7 @@ public class MovementOfEvents {
 //        driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void after(){
         driver.quit();
     }

@@ -23,7 +23,7 @@ public class TripBoardAlert {
     public static LogOut logOut;
     public static TripBoard main;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -47,7 +47,7 @@ public class TripBoardAlert {
         open.openFleetEvents();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         basePage.waitToVisibilityOf(10, createTrip.btnCreateNew);
@@ -71,12 +71,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -99,15 +99,15 @@ public class TripBoardAlert {
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
                 if(("Adrian Gherghel").equals(main.getDriver1())){
-                    Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                    Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -130,15 +130,15 @@ public class TripBoardAlert {
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
                 if(("Adrian Gherghel").equals(main.getDriver2())){
-                    Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                    Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -161,15 +161,15 @@ public class TripBoardAlert {
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
                 if(("1210").equals(main.getTruck())){
-                    Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                    Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -192,15 +192,15 @@ public class TripBoardAlert {
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
                 if(("1210T").equals(main.getTrailer())){
-                    Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                    Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -225,18 +225,18 @@ public class TripBoardAlert {
             if(("Local").equals(main.getTripType())){
                 if(("1210T").equals(main.getTrailer())){
                     if(("1210").equals(main.getTruck())){
-                        Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                        Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -261,18 +261,18 @@ public class TripBoardAlert {
             if(("Local").equals(main.getTripType())){
                 if(("Adrian Gherghel").equals(main.getDriver1())){
                     if(("1210").equals(main.getTruck())){
-                        Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                        Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -297,18 +297,18 @@ public class TripBoardAlert {
             if(("Local").equals(main.getTripType())){
                 if(("Adrian Gherghel").equals(main.getDriver1())){
                     if(("1210T").equals(main.getTrailer())){
-                        Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                        Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -336,21 +336,21 @@ public class TripBoardAlert {
                     if(("1210T").equals(main.getTrailer())){
                         if(("1210").equals(main.getTruck())){
                             //main.tableAlert.click();
-                            Assert.assertTrue(basePage.isVisible(main.tableAlert));
+                            Assertions.assertTrue(basePage.isVisible(main.tableAlert));
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -373,12 +373,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("new").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -396,12 +396,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("dispatched").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -419,12 +419,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("cancelled").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -442,12 +442,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("done").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -465,12 +465,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("booked").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -489,12 +489,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("new").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -512,12 +512,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("dispatched").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -535,12 +535,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("cancelled").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -558,12 +558,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("done").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -581,12 +581,12 @@ public class TripBoardAlert {
         main.applyFilters();;
         if(("booked").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -605,12 +605,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -628,12 +628,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("dispatched").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -651,12 +651,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("cancelled").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -673,12 +673,12 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("done").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -696,22 +696,22 @@ public class TripBoardAlert {
         main.applyFilters();
         if(("booked").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
-                Assert.assertTrue(basePage.isElementDisplayed(main.tableAlert));
+                Assertions.assertTrue(basePage.isElementDisplayed(main.tableAlert));
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

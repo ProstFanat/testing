@@ -2,10 +2,9 @@ package TGLN.test;
 
 import TGLN.*;
 import fleetEvents.fleet.LogOut;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import resources.BasePage;
 
@@ -31,7 +30,7 @@ public class A4_ProfileUpdate {
     public static CreateProfile create;
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
         open("http://localhost:8080/TrackEnsure/login.do");
         driver = getWebDriver();
@@ -53,7 +52,7 @@ public class A4_ProfileUpdate {
         open.openGPSDevices();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         mainDevices.openProfilesTab();
         main.openCreateNewProfile();
@@ -90,27 +89,27 @@ public class A4_ProfileUpdate {
                         if(("Y").equals(main.getValueAccAlertEnabled())){
                             if(("200").equals(main.getValueAccAlertThreshold())){
                                 if(("300").equals(main.getValueAccAlertDuration())){
-                                    Assert.assertTrue(true);
+                                    Assertions.assertTrue(true);
                                 } else {
-                                    Assert.assertTrue(false);
+                                    Assertions.assertTrue(false);
                                 }
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         main.deleteProfile("test" + number + 1);
@@ -148,39 +147,39 @@ public class A4_ProfileUpdate {
                         if(("N").equals(main.getValueAccAlertEnabled())){
                             if(("").equals(main.getValueAccAlertThreshold())){
                                 if(("").equals(main.getValueAccAlertDuration())){
-                                    Assert.assertTrue(true);
+                                    Assertions.assertTrue(true);
                                 } else {
-                                    Assert.assertTrue(false);
+                                    Assertions.assertTrue(false);
                                 }
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         main.deleteProfile("test" + number);
         main.confirmDelete();
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

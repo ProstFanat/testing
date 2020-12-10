@@ -2,12 +2,9 @@ package TGLN.test;
 
 import TGLN.*;
 import fleetEvents.fleet.LogOut;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.By;;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import resources.BasePage;
 
@@ -29,7 +26,7 @@ public class A3_NotificationsCreateNotification {
     public static TabNotification main;
     public static CreateNotifications create;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -53,7 +50,7 @@ public class A3_NotificationsCreateNotification {
         open.openGPSDevices();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         mainDevices.openNotificationsTab();
         main.createNotification();
@@ -62,7 +59,7 @@ public class A3_NotificationsCreateNotification {
     @Test
     public void testEmpty(){
         create.saveNotification();
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -70,7 +67,7 @@ public class A3_NotificationsCreateNotification {
     public void testWithType(){
         create.selectTemperature();
         create.saveNotification();
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -82,9 +79,9 @@ public class A3_NotificationsCreateNotification {
         create.selectTemperature();
         create.inputValueTemp1("testtesttest");
         if(driver.findElement(By.xpath("//*[contains(text(), 'Value is not valid')]")).isDisplayed()){
-            Assert.assertFalse(create.btnSaveNotification.isEnabled());
+            Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
         create.cancelSavingNotification();
     }
@@ -100,7 +97,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test" + number + "@mail.com");
         create.saveNotification();
         main.filterTableNotification("TEMPERATURE");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Temp. > 12 C')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Temp. > 12 C')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -110,7 +107,7 @@ public class A3_NotificationsCreateNotification {
         create.selectBiggerForTemp1();
         create.addCondition();
         create.selectBiggerForTemp2();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'This operator is already in use']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'This operator is already in use']"));
         create.cancelSavingNotification();
     }
 
@@ -119,7 +116,7 @@ public class A3_NotificationsCreateNotification {
         create.selectTemperature();
         create.addCondition();
         create.deleteSecondCondition();
-        Assert.assertFalse(basePage.isElementDisplayed(create.valueTemp2));
+        Assertions.assertFalse(basePage.isElementDisplayed(create.valueTemp2));
         create.cancelSavingNotification();
     }
 
@@ -131,7 +128,7 @@ public class A3_NotificationsCreateNotification {
         create.selectCelsiusForTemp1();
         create.selectKelvinForTemp2();
         create.selectFahrenheitForTemp3();
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -142,7 +139,7 @@ public class A3_NotificationsCreateNotification {
         create.inputValueTemp1("12");
         create.selectCelsiusForTemp1();
         create.saveNotification();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Please, pick at least one method of notification']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Please, pick at least one method of notification']"));
         create.cancelSavingNotification();
     }
 
@@ -154,7 +151,7 @@ public class A3_NotificationsCreateNotification {
         create.selectMotion();
         create.selectEmailNotification();
         create.deleteEmail();
-        Assert.assertFalse(basePage.isElementDisplayed(create.emailBtnDelete));
+        Assertions.assertFalse(basePage.isElementDisplayed(create.emailBtnDelete));
         create.cancelSavingNotification();
     }
 
@@ -167,7 +164,7 @@ public class A3_NotificationsCreateNotification {
         create.saveNotification();
         main.filterTableNotification("MOTION");
         main.btnAdvancedSearch.click();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com, test" + (number + 1) + "@mail.com; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com, test" + (number + 1) + "@mail.com; ']"));
         main.changeStatus("Email: test" + number + "@mail.com, test" + (number + 1) + "@mail.com;");
     }
 
@@ -179,7 +176,7 @@ public class A3_NotificationsCreateNotification {
         create.inputSMS(number + ", " + (number + 1));
         create.saveNotification();
         main.filterTableNotification("MOTION");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'SMS: " + number + ", " + (number + 1) + "; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'SMS: " + number + ", " + (number + 1) + "; ']"));
         main.changeStatus("SMS: " + number + ", " + (number + 1) + ";");
     }
 
@@ -191,7 +188,7 @@ public class A3_NotificationsCreateNotification {
         create.inputVoice(number + ", " + (number + 1));
         create.saveNotification();
         main.filterTableNotification("MOTION");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Voice Message: " + number + ", " + (number + 1) + "; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Voice Message: " + number + ", " + (number + 1) + "; ']"));
         main.changeStatus("Voice Message: " + number + ", " + (number + 1) + ";");
     }
 
@@ -202,7 +199,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test@mail.com");
         create.emailDoNotRepeatFor.clear();
         create.inputEmailDoNotRepeatFor("0");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -213,7 +210,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test@mail.com");
         create.emailDoNotRepeatFor.clear();
         create.inputEmailDoNotRepeatFor("-1");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -224,7 +221,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test@mail.com");
         create.emailDoNotRepeatFor.clear();
         create.inputEmailDoNotRepeatFor("30.1");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -240,7 +237,7 @@ public class A3_NotificationsCreateNotification {
         create.inputVoice(number + "");
         create.saveNotification();
         main.filterTableNotification("MOTION");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'SMS: " + number + "; Email: test" + number + "@mail.com; Voice Message: " + number + "; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'SMS: " + number + "; Email: test" + number + "@mail.com; Voice Message: " + number + "; ']"));
         main.changeStatus("SMS: " + number + "; Email: test" + number + "@mail.com; Voice Message: " + number + ";");
     }
 
@@ -249,7 +246,7 @@ public class A3_NotificationsCreateNotification {
         create.selectMotion();
         create.selectEmailNotification();
         create.selectEmailNotification();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Notify Type is already in use!']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Notify Type is already in use!']"));
         create.cancelSavingNotification();
     }
 
@@ -259,7 +256,7 @@ public class A3_NotificationsCreateNotification {
         create.selectEmailNotification();
         int number = (int) (Math.random() * 100000000);
         create.inputEmail("test" + number + "@mail.com;");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -269,7 +266,7 @@ public class A3_NotificationsCreateNotification {
         create.selectVoiceNotification();
         int number = (int) (Math.random() * 100000000);
         create.inputVoice(number + ";");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -279,7 +276,7 @@ public class A3_NotificationsCreateNotification {
         create.selectSmsNotification();
         int number = (int) (Math.random() * 100000000);
         create.inputSMS(number + ";");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -289,7 +286,7 @@ public class A3_NotificationsCreateNotification {
         create.selectVoiceNotification();
         int number = (int) (Math.random() * 100000000);
         create.inputVoice(number + ".");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -299,7 +296,7 @@ public class A3_NotificationsCreateNotification {
         create.selectSmsNotification();
         int number = (int) (Math.random() * 100000000);
         create.inputSMS(number + ".");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -310,7 +307,7 @@ public class A3_NotificationsCreateNotification {
     public void testVoltageWithZero(){
         create.selectVoltage();
         create.inputVolts("0");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -318,7 +315,7 @@ public class A3_NotificationsCreateNotification {
     public void testVoltageWithNegative(){
         create.selectVoltage();
         create.inputVolts("-1");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -331,7 +328,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test" + number + "@mail.com");
         create.saveNotification();
         main.filterTableNotification("VOLTAGE");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Voltage < 30.1V')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Voltage < 30.1V')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -344,7 +341,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test" + number + "@mail.com");
         create.saveNotification();
         main.filterTableNotification("VOLTAGE");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Voltage < 30V')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Voltage < 30V')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -355,7 +352,7 @@ public class A3_NotificationsCreateNotification {
     public void testPositionWithZero(){
         create.selectPosition();
         create.inputPosition("0");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -363,7 +360,7 @@ public class A3_NotificationsCreateNotification {
     public void testPositionWithNegative(){
         create.selectPosition();
         create.inputPosition("-1");
-        Assert.assertFalse(create.btnSaveNotification.isEnabled());
+        Assertions.assertFalse(create.btnSaveNotification.isEnabled());
         create.cancelSavingNotification();
     }
 
@@ -376,7 +373,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test" + number + "@mail.com");
         create.saveNotification();
         main.filterTableNotification("POSITION");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), '> 30.1m')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), '> 30.1m')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -389,7 +386,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test" + number + "@mail.com");
         create.saveNotification();
         main.filterTableNotification("POSITION");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), '> 30m')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), '> 30m')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -402,7 +399,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test" + number + "@mail.com");
         create.saveNotification();
         main.filterTableNotification("DEVICE ERROR");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -414,7 +411,7 @@ public class A3_NotificationsCreateNotification {
         create.inputEmail("test" + number + "@mail.com");
         create.saveNotification();
         main.filterTableNotification("DEVICE CONNECTIVITY");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -437,7 +434,7 @@ public class A3_NotificationsCreateNotification {
         createDevice.cancelDevice();
         mainDevices.openNotificationsTab();
         main.filterTableNotification("DEVICE CONNECTIVITY");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -457,7 +454,7 @@ public class A3_NotificationsCreateNotification {
         createDevice.cancelDevice();
         mainDevices.openNotificationsTab();
         main.filterTableNotification("DEVICE ERROR");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -477,7 +474,7 @@ public class A3_NotificationsCreateNotification {
         createDevice.cancelDevice();
         mainDevices.openNotificationsTab();
         main.filterTableNotification("MOTION");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -498,7 +495,7 @@ public class A3_NotificationsCreateNotification {
         createDevice.cancelDevice();
         mainDevices.openNotificationsTab();
         main.filterTableNotification("POSITION");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), '> 30m')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), '> 30m')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -519,7 +516,7 @@ public class A3_NotificationsCreateNotification {
         createDevice.cancelDevice();
         mainDevices.openNotificationsTab();
         main.filterTableNotification("VOLTAGE");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Voltage < 30V')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Voltage < 30V')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -542,7 +539,7 @@ public class A3_NotificationsCreateNotification {
         createDevice.cancelDevice();
         mainDevices.openNotificationsTab();
         main.filterTableNotification("TEMPERATURE");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Temp. = 12 C')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Email: test" + number + "@mail.com; ']//..//..//..//*[@role = 'gridcell'][2]//div[contains(text(), 'Temp. = 12 C')]"));
         main.changeStatus("Email: test" + number + "@mail.com;");
     }
 
@@ -553,12 +550,12 @@ public class A3_NotificationsCreateNotification {
 //        main.changeStatus("Email: testAuto@mail.com;");
 //    }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

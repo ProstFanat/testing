@@ -2,10 +2,9 @@ package TGLN.test;
 
 import TGLN.*;
 import fleetEvents.fleet.LogOut;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import resources.BasePage;
 
@@ -28,7 +27,7 @@ public class A5_DevicesEditDeviceTrackEnsure {
     public static CreateProfile createProfile;
     public static CreateNotifications createNotification;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -92,13 +91,13 @@ public class A5_DevicesEditDeviceTrackEnsure {
                     if (basePage.isElementDisplayedByPath("//*[text() = 'zamenaAPN']")) {
                         if (basePage.isElementDisplayedByPath("//*[text() = '11']")) {
                             if (basePage.isElementDisplayed(main.iconPosition)) {
-                                Assert.assertTrue(true);
-                            } else {Assert.assertTrue(false);}
-                        } else {Assert.assertTrue(false);}
-                    } else {Assert.assertTrue(false);}
-                } else {Assert.assertTrue(false);}
-            } else { Assert.assertTrue(false);}
-        } else { Assert.assertTrue(false); }
+                                Assertions.assertTrue(true);
+                            } else {Assertions.assertTrue(false);}
+                        } else {Assertions.assertTrue(false);}
+                    } else {Assertions.assertTrue(false);}
+                } else {Assertions.assertTrue(false);}
+            } else { Assertions.assertTrue(false);}
+        } else { Assertions.assertTrue(false); }
 
         main.filterTable("autoTest" + tempNumberForUID);
         main.deleteDevice(1);
@@ -146,14 +145,14 @@ public class A5_DevicesEditDeviceTrackEnsure {
                         if (basePage.isElementDisplayedByPath("//*[text() = 'nezamenaAPN']")) {
                             if (basePage.isElementDisplayedByPath("//*[text() = 'testTemp']")) {
                                 if (!(basePage.isElementDisplayed(main.iconPosition))) {
-                                    Assert.assertTrue(true);
-                                } else {Assert.assertTrue(false);}
-                            } else {Assert.assertTrue(false);}
-                        } else {Assert.assertTrue(false);}
-                    } else {Assert.assertTrue(false);}
-                } else { Assert.assertTrue(false);}
-            } else { Assert.assertTrue(false); }
-        } else { Assert.assertTrue(false); }
+                                    Assertions.assertTrue(true);
+                                } else {Assertions.assertTrue(false);}
+                            } else {Assertions.assertTrue(false);}
+                        } else {Assertions.assertTrue(false);}
+                    } else {Assertions.assertTrue(false);}
+                } else { Assertions.assertTrue(false);}
+            } else { Assertions.assertTrue(false); }
+        } else { Assertions.assertTrue(false); }
 
         main.filterTable("autoTest" + numberForUID);
         main.deleteDevice(1);
@@ -180,7 +179,7 @@ public class A5_DevicesEditDeviceTrackEnsure {
         addTruck.connectDeviceWithTruck("autoTests", "autoTest" + numberForUID);
 
         main.filterTable("autoTest" + numberForUID);
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTests']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTests']"));
 
         main.filterTable("autoTest" + numberForUID);
         main.deleteDevice(1);
@@ -211,7 +210,7 @@ public class A5_DevicesEditDeviceTrackEnsure {
         createDevice.deviceUIDInput.clear();
         createDevice.inputDeviceUID("autoTest");
         createDevice.saveDevice();
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'You cannot edit Device UID because this device assigned to truck (previous value: autoTest" + numberForUID + ")')]"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'You cannot edit Device UID because this device assigned to truck (previous value: autoTest" + numberForUID + ")')]"));
         createDevice.cancelDevice();
 
         main.filterTable("autoTest" + numberForUID);
@@ -262,27 +261,27 @@ public class A5_DevicesEditDeviceTrackEnsure {
                         if (basePage.isElementDisplayedByPath("//*[text() = 'zamenaAPN']")) {
                             if (basePage.isElementDisplayedByPath("//*[text() = '11']")) {
                                 if (basePage.isElementDisplayed(main.iconPosition)) {
-                                    Assert.assertTrue(true);
+                                    Assertions.assertTrue(true);
                                 } else {
-                                    Assert.assertTrue(false);
+                                    Assertions.assertTrue(false);
                                 }
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -315,24 +314,24 @@ public class A5_DevicesEditDeviceTrackEnsure {
                     if(basePage.isElementDisplayed(main.iconPosition)){
                         if(basePage.isElementDisplayed(main.iconDeviceError)){
                             if(basePage.isElementDisplayed(main.iconDeviceConnectivity)){
-                                Assert.assertTrue(true);
+                                Assertions.assertTrue(true);
                             } else {
-                                Assert.assertTrue(false);
+                                Assertions.assertTrue(false);
                             }
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
 
         main.filterTable("autoTest" + temp);
@@ -343,12 +342,13 @@ public class A5_DevicesEditDeviceTrackEnsure {
 
 
 
-    @After
+    @AfterEach
+
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

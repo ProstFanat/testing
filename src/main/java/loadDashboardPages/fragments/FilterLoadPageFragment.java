@@ -2,10 +2,10 @@ package loadDashboardPages.fragments;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import resources.BasePage;
-
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$$x;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class FilterLoadPageFragment extends BasePage {
 
@@ -115,7 +115,8 @@ public class FilterLoadPageFragment extends BasePage {
             j = 13;
         } else {
             System.out.println("INPUT CORRECT FILTER BY");
-            Assert.assertTrue(false);
+
+            Assertions.assertTrue(false);
         }
 
         sleep(500);
@@ -133,7 +134,7 @@ public class FilterLoadPageFragment extends BasePage {
             }
         }
 
-        Assert.assertEquals(startSize, finishSize);
+        Assertions.assertEquals(startSize, finishSize);
 
         return this;
     }
@@ -154,10 +155,10 @@ public class FilterLoadPageFragment extends BasePage {
             ) {
                 finishSize++;
             } else {
-                Assert.assertFalse(true);
+                Assertions.assertFalse(true);
             }
         }
 
-        Assert.assertEquals(startSize, finishSize);
+        Assertions.assertEquals(startSize, finishSize);
     }
 }

@@ -24,7 +24,7 @@ public class EditEvent {
     public static BasePage basePage;
     public static LogOut logOut;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -54,7 +54,7 @@ public class EditEvent {
         main.saveNewTransaction();
     }
 
-    @Before
+    @BeforeEach
     public void before(){
         main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
@@ -99,7 +99,7 @@ public class EditEvent {
                                     if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[11]//span")).getText()))) {
                                         if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[12]//span")).getText()))) {
                                             if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[13]//span")).getText()))) {
-                                                Assert.assertTrue(true);
+                                                Assertions.assertTrue(true);
                                             }
                                         }
                                     }
@@ -139,7 +139,7 @@ public class EditEvent {
                                     if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[11]//span")).getText()))) {
                                         if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[12]//span")).getText()))) {
                                             if(!(" ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[13]//span")).getText()))) {
-                                                Assert.assertTrue(true);
+                                                Assertions.assertTrue(true);
                                             }
                                         }
                                     }
@@ -160,18 +160,18 @@ public class EditEvent {
             edit.inputStartDate2();
             edit.inputFinishDate2();
             edit.apllyChanges();
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//datatable-scroller/datatable-row-wrapper[2]//datatable-body-cell[14]//*[contains(@class, 'text-success')]"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//datatable-scroller/datatable-row-wrapper[2]//datatable-body-cell[14]//*[contains(@class, 'text-success')]"));
         }
     }
 
-    @After
+    @AfterEach
     public void after(){
 //        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[2]//button[@id = 'button-actions']")).click();
         main.deleteEvent();
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

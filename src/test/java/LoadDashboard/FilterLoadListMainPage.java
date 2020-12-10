@@ -5,10 +5,10 @@ import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Configuration;
 import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -21,7 +21,7 @@ public class FilterLoadListMainPage {
     public static BasePage basePage;
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup(){
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
@@ -37,7 +37,7 @@ public class FilterLoadListMainPage {
         mainAdminScreenPage.clickLoadSearchBtn();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         basePage.waitForPageToLoad();
     }
@@ -168,7 +168,7 @@ public class FilterLoadListMainPage {
     }
 
 
-    @After
+    @AfterEach
     public void afterTest(){
         refresh();
     }

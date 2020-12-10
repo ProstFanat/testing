@@ -8,7 +8,7 @@ import resources.ConfProperties;
 import java.io.IOException;
 
 import static DeleteButton.Main.*;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assertions.assertFalse;
 
 public class DeleteButton extends BasePage {
 

@@ -32,7 +32,7 @@ public class MonitorOverdueEvents {
 
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -57,7 +57,7 @@ public class MonitorOverdueEvents {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         main.waitToVisibilityOf(10, createTrip.btnCreateNew);
@@ -96,7 +96,7 @@ public class MonitorOverdueEvents {
         main.inputTrip(tripNumber);
         main.applyFilters();
 
-        Assert.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'N']"));
+        Assertions.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'N']"));
     }
 
 
@@ -126,7 +126,7 @@ public class MonitorOverdueEvents {
         main.inputTrip(tripNumber);
         main.applyFilters();
 
-        Assert.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'N']"));
+        Assertions.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'N']"));
     }
 
     @Test
@@ -156,7 +156,7 @@ public class MonitorOverdueEvents {
         main.inputTrip(tripNumber);
         main.applyFilters();
 
-        Assert.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'N']"));
+        Assertions.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'N']"));
     }
 
     @Test
@@ -187,7 +187,7 @@ public class MonitorOverdueEvents {
         main.inputTrip(tripNumber);
         main.applyFilters();
 
-        Assert.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'Y']"));
+        Assertions.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'Y']"));
     }
 
     @Test
@@ -217,16 +217,16 @@ public class MonitorOverdueEvents {
         main.inputTrip(tripNumber);
         main.applyFilters();
 
-        Assert.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'Y']"));
+        Assertions.assertTrue(main.isElementDisplayedByPath("//*[@data-overdue-events = 'Y']"));
     }
 
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

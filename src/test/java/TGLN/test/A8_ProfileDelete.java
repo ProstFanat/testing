@@ -2,11 +2,8 @@ package TGLN.test;
 
 import TGLN.*;
 import fleetEvents.fleet.LogOut;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
-import org.openqa.selenium.By;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import resources.BasePage;
 
@@ -32,7 +29,7 @@ public class A8_ProfileDelete {
     public static CreateProfile create;
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -58,7 +55,7 @@ public class A8_ProfileDelete {
         open.openGPSDevices();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         mainDevices.openProfilesTab();
     }
@@ -74,7 +71,7 @@ public class A8_ProfileDelete {
         main.deleteProfile("test" + number);
         main.cancelDelete();
         main.filterTable("test" + number);
-        Assert.assertTrue(("test" + number).equals(main.getValueProfileName()));
+        Assertions.assertTrue(("test" + number).equals(main.getValueProfileName()));
         main.deleteProfile("test" + number);
         main.confirmDelete();
     }
@@ -91,15 +88,15 @@ public class A8_ProfileDelete {
         main.deleteProfile("test" + number);
         main.confirmDelete();
         main.filterTable("test" + number);
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Please search another one.']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Please search another one.']"));
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

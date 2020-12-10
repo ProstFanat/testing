@@ -4,10 +4,10 @@ import TGLN.AddGPSDevice;
 import TGLN.TabDevices;
 import TGLN.OpenGPSDevices;
 import fleetEvents.fleet.LogOut;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.interactions.Actions;
 import resources.BasePage;
 
@@ -26,7 +26,7 @@ public class A6_DevicesAdvancedSearch {
     public static AddGPSDevice createDevice;
     public static Actions actions;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -52,9 +52,9 @@ public class A6_DevicesAdvancedSearch {
         main.selectTrackEnsureGPSDevices();
         main.filterTable("testEmulator3");
         if(main.getTableDevicesSize() == 1) {
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'testEmulator3']"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'testEmulator3']"));
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -63,9 +63,9 @@ public class A6_DevicesAdvancedSearch {
         main.selectAllGPSDevices();
         main.filterTable("testEmulator3");
         if(main.getTableDevicesSize() == 1) {
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'testEmulator3']"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'testEmulator3']"));
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -74,9 +74,9 @@ public class A6_DevicesAdvancedSearch {
         main.selectTelitekGPSDevices();
         main.filterTable("regregtest");
         if(main.getTableDevicesSize() == 1) {
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'regregtest']"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'regregtest']"));
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -85,9 +85,9 @@ public class A6_DevicesAdvancedSearch {
         main.selectAllGPSDevices();
         main.filterTable("regregtest");
         if(main.getTableDevicesSize() == 1) {
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'regregtest']"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'regregtest']"));
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -95,43 +95,43 @@ public class A6_DevicesAdvancedSearch {
     public void testSearchTelitekAtTrackEnsure(){
         main.selectTrackEnsureGPSDevices();
         main.filterTable("regregtest");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
     }
 
     @Test
     public void testSearchTrackEnsureAtTelitek(){
         main.selectTelitekGPSDevices();
         main.filterTable("testEmulator3");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
     }
 
     @Test
     public void testSearchNonexistentDeviceAtTrackEnsure(){
         main.selectTrackEnsureGPSDevices();
         main.filterTable("search");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
     }
 
     @Test
     public void testSearchNonexistentDeviceAtTelitek(){
         main.selectTelitekGPSDevices();
         main.filterTable("search");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
     }
 
     @Test
     public void testSearchNonexistentDeviceAtAll(){
         main.selectAllGPSDevices();
         main.filterTable("search");
-        Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
+        Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']"));
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

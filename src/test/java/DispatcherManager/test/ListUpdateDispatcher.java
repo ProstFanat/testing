@@ -30,7 +30,7 @@ public class ListUpdateDispatcher {
 
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -55,7 +55,7 @@ public class ListUpdateDispatcher {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
     }
 
@@ -68,7 +68,7 @@ public class ListUpdateDispatcher {
         main.inputSearchDispatcher("testAdrian" + number);
         if(!( main.table.size() == 0)) {
             main.inputSearchDispatcher("testAdrian" + number + 1);
-            Assert.assertEquals(main.name.getText(), "testAdrian" + number + 1);
+            Assertions.assertEquals(main.name.getText(), "testAdrian" + number + 1);
         }
     }
 
@@ -87,7 +87,7 @@ public class ListUpdateDispatcher {
         main.inputSearchDispatcher("testAdrian" + number + 1);
         if(!( main.table.size() == 0)) {
             main.inputSearchDispatcher("testAdrian" + number);
-            Assert.assertEquals(main.name.getText(), "testAdrian" + number);
+            Assertions.assertEquals(main.name.getText(), "testAdrian" + number);
         }
     }
 
@@ -100,15 +100,15 @@ public class ListUpdateDispatcher {
         main.waitToVisibilityOf(10, main.inputDispatcherName);
         main.inputDispatcherName.clear();
 
-        Assert.assertFalse(main.btnSave.isEnabled());
+        Assertions.assertFalse(main.btnSave.isEnabled());
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

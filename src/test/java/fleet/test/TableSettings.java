@@ -25,7 +25,7 @@ public class TableSettings {
     public static BasePage basePage;
     public static LogOut logOut;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -50,7 +50,7 @@ public class TableSettings {
         open.findTrip("716252");
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
         main.sleep(500);
         main.clickBtnShowColumns();
@@ -71,7 +71,7 @@ public class TableSettings {
                                         if(main.radioStartDate.isSelected()){
                                             if(main.radioFinishDate.isSelected()){
                                                 if(main.radioStatus.isSelected()){
-                                                    Assert.assertTrue(false);
+                                                    Assertions.assertTrue(false);
                                                 }
                                             }
                                         }
@@ -83,7 +83,7 @@ public class TableSettings {
                 }
             }
         }
-    Assert.assertTrue(true);
+    Assertions.assertTrue(true);
     main.clickRadioAll();
     main.clickBtnShowColumns();
     }
@@ -100,7 +100,7 @@ public class TableSettings {
         main.clickRadioStartDate();
         main.clickRadioFinishDate();
         main.clickRadioStatus();
-        Assert.assertFalse(main.radioAll.isSelected());
+        Assertions.assertFalse(main.radioAll.isSelected());
         main.clickRadioAll();
         main.clickBtnShowColumns();
     }
@@ -118,7 +118,7 @@ public class TableSettings {
         main.clickRadioStartDate();
         main.clickRadioFinishDate();
         main.clickRadioStatus();
-        Assert.assertTrue(main.radioAll.isSelected());
+        Assertions.assertTrue(main.radioAll.isSelected());
         main.clickBtnShowColumns();
     }
 
@@ -127,7 +127,7 @@ public class TableSettings {
     public void testInTableSEQ(){
         main.clickRadioSEQ();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnSEQ));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnSEQ));
         main.clickBtnShowColumns();
         main.clickRadioSEQ();
         main.clickBtnShowColumns();
@@ -137,7 +137,7 @@ public class TableSettings {
     public void testInTableTruck() {
         main.clickRadioTruck();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnTRUCK));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnTRUCK));
         main.clickBtnShowColumns();
         main.clickRadioTruck();
         main.clickBtnShowColumns();
@@ -147,7 +147,7 @@ public class TableSettings {
     public void testInTableTrailer() {
         main.clickRadioTrailer();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnTrailer));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnTrailer));
         main.clickBtnShowColumns();
         main.clickRadioTrailer();
         main.clickBtnShowColumns();
@@ -157,7 +157,7 @@ public class TableSettings {
     public void testInTableDriver1() {
         main.clickRadioDriver1();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnDriver1));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnDriver1));
         main.clickBtnShowColumns();
         main.clickRadioDriver1();
         main.clickBtnShowColumns();
@@ -167,7 +167,7 @@ public class TableSettings {
     public void testInTableDriver2() {
         main.clickRadioDriver2();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnDriver2));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnDriver2));
         main.clickBtnShowColumns();
         main.clickRadioDriver2();
         main.clickBtnShowColumns();
@@ -177,7 +177,7 @@ public class TableSettings {
     public void testInTableProbill() {
         main.clickRadioProbill();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnProbill));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnProbill));
         main.clickBtnShowColumns();
         main.clickRadioProbill();
         main.clickBtnShowColumns();
@@ -187,7 +187,7 @@ public class TableSettings {
     public void testInTableETA() {
         main.clickRadioETA();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnETA));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnETA));
         main.clickBtnShowColumns();
         main.clickRadioETA();
         main.clickBtnShowColumns();
@@ -197,7 +197,7 @@ public class TableSettings {
     public void testInTableStartDate() {
         main.clickRadioStartDate();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnStartDate));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnStartDate));
         main.clickBtnShowColumns();
         main.clickRadioStartDate();
         main.clickBtnShowColumns();
@@ -207,7 +207,7 @@ public class TableSettings {
     public void testInTableFinishDate() {
         main.clickRadioFinishDate();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnFinishDate));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnFinishDate));
         main.clickBtnShowColumns();
         main.clickRadioFinishDate();
         main.clickBtnShowColumns();
@@ -217,7 +217,7 @@ public class TableSettings {
     public void testInTableStatus() {
         main.clickRadioStatus();
         main.clickBtnShowColumns();
-        Assert.assertFalse(basePage.isElementDisplayed(main.columnStatus));
+        Assertions.assertFalse(basePage.isElementDisplayed(main.columnStatus));
         main.clickBtnShowColumns();
         main.clickRadioStatus();
         main.clickBtnShowColumns();
@@ -232,7 +232,7 @@ public class TableSettings {
             open.openFleetEvents();
             basePage.sleep(1000);
             open.findTrip("714947");
-            Assert.assertTrue(basePage.isElementDisplayed(main.columnDriver1));
+            Assertions.assertTrue(basePage.isElementDisplayed(main.columnDriver1));
         } else {
             main.clickRadioAll();
             main.clickRadioDriver1();
@@ -241,7 +241,7 @@ public class TableSettings {
             open.openFleetEvents();
             basePage.sleep(1000);
             open.findTrip("714947");
-            Assert.assertTrue(basePage.isElementDisplayed(main.columnDriver1));
+            Assertions.assertTrue(basePage.isElementDisplayed(main.columnDriver1));
         }
     }
 
@@ -255,7 +255,7 @@ public class TableSettings {
             open.openFleetEvents();
             basePage.sleep(1000);
             open.findTrip("714947");
-            Assert.assertFalse(basePage.isElementDisplayed(main.columnDriver1));
+            Assertions.assertFalse(basePage.isElementDisplayed(main.columnDriver1));
             main.clickBtnShowColumns();
             main.clickRadioDriver1();
         } else {
@@ -267,18 +267,18 @@ public class TableSettings {
             open.openFleetEvents();
             basePage.sleep(1000);
             open.findTrip("714947");
-            Assert.assertFalse(basePage.isElementDisplayed(main.columnDriver1));
+            Assertions.assertFalse(basePage.isElementDisplayed(main.columnDriver1));
             main.clickBtnShowColumns();
             main.clickRadioDriver1();
         }
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

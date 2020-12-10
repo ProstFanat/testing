@@ -6,9 +6,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import resources.BasePage;
 import resources.*;
 
@@ -23,7 +23,7 @@ public class EditLoad {
     public static MainAdminScreenPage mainAdminScreenPage;
     public static ConfProperties confProperties;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
@@ -75,9 +75,9 @@ public class EditLoad {
         basePage.waitForPageToLoad();
         loadListPage.getPickupLocationInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setPickupLocation")));
 
-        Assert.assertEquals(loadListPage.getPickupDateInTable(), "23-Nov-2020");
+        Assertions.assertEquals(loadListPage.getPickupDateInTable(), "23-Nov-2020");
         loadListPage.getDeliveryPlaceInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setDeliveryLocation")));
-        Assert.assertEquals(loadListPage.getDeliveryDateInTable(), "30-Nov-2020");
+        Assertions.assertEquals(loadListPage.getDeliveryDateInTable(), "30-Nov-2020");
         loadListPage.getTrailerTypeInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectTrailerType")));
         loadListPage.getRateInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setRate")));
         loadListPage.getWeightInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setWeight")));

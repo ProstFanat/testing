@@ -31,7 +31,7 @@ public class ListAddAclUser {
 
 
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -56,7 +56,7 @@ public class ListAddAclUser {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
     }
 
@@ -66,7 +66,7 @@ public class ListAddAclUser {
         main.createNewDispatcher("testAdrian" + number);
         main.openFormBtnACLUser("testAdrian" + number);
 
-        Assert.assertFalse(main.btnSave.isEnabled());
+        Assertions.assertFalse(main.btnSave.isEnabled());
     }
 
     @Test
@@ -76,7 +76,7 @@ public class ListAddAclUser {
         main.openFormBtnACLUser("testAdrian" + number);
         main.inputAclFirstname("testAdrian");
 
-        Assert.assertFalse(main.btnSave.isEnabled());
+        Assertions.assertFalse(main.btnSave.isEnabled());
     }
 
     @Test
@@ -87,7 +87,7 @@ public class ListAddAclUser {
         main.inputAclFirstname("testAdrian");
         main.inputAclLastName("" + number);
 
-        Assert.assertFalse(main.btnSave.isEnabled());
+        Assertions.assertFalse(main.btnSave.isEnabled());
     }
 
     @Test
@@ -99,7 +99,7 @@ public class ListAddAclUser {
         main.inputAclLastName("" + number);
         main.inputAclEmail("testAdrian" + number +"@mail.com");
 
-        Assert.assertFalse(main.btnSave.isEnabled());
+        Assertions.assertFalse(main.btnSave.isEnabled());
     }
 
     @Test
@@ -116,7 +116,7 @@ public class ListAddAclUser {
 
         main.inputSearchDispatcher("testAdrian" + number);
         main.sleep(1000);
-        Assert.assertFalse(main.isElementPresent("//*[@uib-tooltip = 'Add ACL user']"));
+        Assertions.assertFalse(main.isElementPresent("//*[@uib-tooltip = 'Add ACL user']"));
     }
 
     @Test
@@ -138,30 +138,30 @@ public class ListAddAclUser {
                         main.aclEmail.sendKeys("t");
                         if(!(main.btnSave.isEnabled())){
                             main.aclEmail.sendKeys("e");
-                            Assert.assertTrue(main.btnSave.isEnabled());
+                            Assertions.assertTrue(main.btnSave.isEnabled());
                         } else {
-                            Assert.assertTrue(false);
+                            Assertions.assertTrue(false);
                         }
                     } else {
-                        Assert.assertTrue(false);
+                        Assertions.assertTrue(false);
                     }
                 } else {
-                    Assert.assertTrue(false);
+                    Assertions.assertTrue(false);
                 }
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

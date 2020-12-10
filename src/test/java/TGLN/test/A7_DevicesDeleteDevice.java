@@ -4,10 +4,8 @@ import TGLN.AddGPSDevice;
 import TGLN.TabDevices;
 import TGLN.OpenGPSDevices;
 import fleetEvents.fleet.LogOut;
-import fleetEvents.fleet.resources.ConfPropertiesFleet;
-import org.junit.*;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import resources.BasePage;
 
@@ -25,7 +23,7 @@ public class A7_DevicesDeleteDevice {
     public static AddGPSDevice createDevice;
     public static Actions actions;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -60,9 +58,9 @@ public class A7_DevicesDeleteDevice {
         main.filterTable("autoTest" + numberForUID);
         if(basePage.isElementDisplayedByPath("//*[text() ='There is no GPS Device available for the specified search.']")){
             main.selectInactiveDevices();
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTest" + numberForUID + "']"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTest" + numberForUID + "']"));
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -79,9 +77,9 @@ public class A7_DevicesDeleteDevice {
         main.selectActiveDevices();
         main.filterTable("autoTest" + numberForUID);
         if(main.getTableDevicesSize() == 1) {
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTest" + numberForUID + "']"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'autoTest" + numberForUID + "']"));
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -100,18 +98,18 @@ public class A7_DevicesDeleteDevice {
             main.openNewDeviceForm();
             createDevice.inputDeviceUID("autoTest" + numberForUID);
             createDevice.saveDevice();
-            Assert.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'GPS Device with the same Device UID already exists')]"));
+            Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'GPS Device with the same Device UID already exists')]"));
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
          driver.quit();
     }

@@ -25,7 +25,7 @@ public class TripNotifications {
     public static historyTrip action;
     public static TripBoard tripBoard;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -72,15 +72,15 @@ public class TripNotifications {
         createTrip.clickBtnSave();
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assert.assertEquals(currentTripNumber, tripNumber + 1);
+        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

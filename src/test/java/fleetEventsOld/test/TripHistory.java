@@ -2,9 +2,8 @@ package fleetEventsOld.test;
 
 import fleetEventsOld.*;
 import fleetEventsOld.resources.ConfPropertiesFleet;
-import org.junit.*;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import resources.BasePage;
 
 import java.util.concurrent.TimeUnit;
@@ -24,7 +23,7 @@ public class TripHistory {
     public static LogOut logOut;
     public static historyTrip action;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -59,7 +58,7 @@ public class TripHistory {
         int initTable = action.tableLeft.size();
         action.useVersionLeft();
         basePage.sleep(3000);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -70,7 +69,7 @@ public class TripHistory {
         int initTable = action.tableLeft.size();
         action.useVersionLeft();
         basePage.sleep(3000);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -80,7 +79,7 @@ public class TripHistory {
         int initTable = action.tableRight.size();
         action.useVersionRight();
         basePage.sleep(3000);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -91,7 +90,7 @@ public class TripHistory {
         int initTable = action.tableRight.size();
         action.useVersionRight();
         basePage.sleep(3000);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -102,7 +101,7 @@ public class TripHistory {
         int initTable = action.tableLeft.size();
         action.useVersionRight();
         basePage.sleep(3000);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -113,7 +112,7 @@ public class TripHistory {
         int initTable = action.tableRight.size();
         action.useVersionRight();
         basePage.sleep(3000);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
     @Test
@@ -124,15 +123,15 @@ public class TripHistory {
         action.selectRightVersion1();
         action.closeHistory();
         basePage.sleep(3000);
-        Assert.assertEquals(initTable, filter.table.size());
+        Assertions.assertEquals(initTable, filter.table.size());
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }

@@ -29,7 +29,7 @@ public class MonitorShowActive {
     public static dispatcherMonitor main;
     public static OpenFleetPage openFleet;
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
 //        //определение пути до драйвера и его настройка
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
@@ -53,7 +53,7 @@ public class MonitorShowActive {
         basePage.sleep(1000);
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest(){
     }
 
@@ -74,7 +74,7 @@ public class MonitorShowActive {
         main.applyFilters();
 
         if(main.showActiveCheckbox.isSelected()){
-            Assert.assertEquals(1, main.table.size());
+            Assertions.assertEquals(1, main.table.size());
         }
     }
 
@@ -94,7 +94,7 @@ public class MonitorShowActive {
         main.applyFilters();
 
         if(main.showActiveCheckbox.isSelected()){
-            Assert.assertEquals(1, main.table.size());
+            Assertions.assertEquals(1, main.table.size());
         }
     }
 
@@ -114,7 +114,7 @@ public class MonitorShowActive {
         main.applyFilters();
 
         if(main.showActiveCheckbox.isSelected()){
-            Assert.assertEquals(1, main.table.size());
+            Assertions.assertEquals(1, main.table.size());
         }
     }
 
@@ -136,12 +136,12 @@ public class MonitorShowActive {
         if(main.showActiveCheckbox.isSelected()){
             if(main.table.size() == 0){
                 main.showActiveCheckbox.click();
-                Assert.assertEquals(1, main.table.size());
+                Assertions.assertEquals(1, main.table.size());
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
@@ -163,21 +163,21 @@ public class MonitorShowActive {
         if(main.showActiveCheckbox.isSelected()){
             if(main.table.size() == 0){
                 main.showActiveCheckbox.click();
-                Assert.assertEquals(1, main.table.size());
+                Assertions.assertEquals(1, main.table.size());
             } else {
-                Assert.assertTrue(false);
+                Assertions.assertTrue(false);
             }
         } else {
-            Assert.assertTrue(false);
+            Assertions.assertTrue(false);
         }
     }
 
-    @After
+    @AfterEach
     public void afterTests(){
         driver.navigate().refresh();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }
