@@ -31,7 +31,7 @@ public class FilterLoadPageFragment extends BasePage {
     public FilterLoadPageFragment inputStatus(String status) {
         statusInput.click();
         waitToVisibilityOf(statusElements.first());
-        for (int i = 1; i < statusElements.size(); i++) {
+        for (int i = 0; i < statusElements.size(); i++) {
             if (statusElements.get(i).getText().startsWith(status)) {
                 statusElements.get(i).click();
             }
@@ -67,7 +67,7 @@ public class FilterLoadPageFragment extends BasePage {
                 }
             }
         } else {
-            throw new Exception("Hello");
+            throw new Exception("failed");
         }
         return this;
     }
@@ -82,7 +82,7 @@ public class FilterLoadPageFragment extends BasePage {
                 }
             }
         } else {
-            throw new Exception("Hello");
+            throw new Exception("failed");
         }
         return this;
     }

@@ -4,7 +4,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.example</groupId>
     <artifactId>testing</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -138,16 +137,10 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>angular-protractor</artifactId>
-            <version>1.6.1</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.webjars.npm/protractor -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>protractor</artifactId>
-            <version>4.0.11</version>
-        </dependency>
-
     </dependencies>
 </project>
