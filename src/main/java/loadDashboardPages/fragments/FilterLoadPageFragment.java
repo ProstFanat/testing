@@ -29,7 +29,7 @@ public class FilterLoadPageFragment extends BasePage {
     }
 
     public FilterLoadPageFragment inputStatus(String status) {
-        statusInput.sendKeys(status);
+        statusInput.click();
         waitToVisibilityOf(statusElements.first());
         for (int i = 1; i < statusElements.size(); i++) {
             if (statusElements.get(i).getText().startsWith(status)) {
