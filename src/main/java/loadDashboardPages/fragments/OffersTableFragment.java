@@ -15,10 +15,13 @@ public class OffersTableFragment extends BasePage {
     public SelenideElement radiusPlaceHolder = $x("//input[@placeholder='Radius']"),
             searchDriversBtn = $x("//button[contains(text(), 'Search ')]"),
             SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']"),
-            aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]");
+            aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]"),
+            withoutDrivingStatusCheckBox = $x("//input[@id='withoutDrivingStatus']");
 
             public  ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
-            driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]");
+            driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]"),
+            driversDHOCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[11]//span"),
+            driversStatusCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[12]//span");
 
     List<String> drivers = new ArrayList<>();
 
@@ -26,6 +29,7 @@ public class OffersTableFragment extends BasePage {
         radiusPlaceHolder.setValue(value);
         searchDriversBtn.click();
         searchDriversBtn.hover();
+        driversCollection.first().waitUntil(Condition.visible, 15000);
         return this;
     }
 
@@ -67,6 +71,11 @@ public class OffersTableFragment extends BasePage {
     public int getDriversListSize(){
         waitToVisibilityOf(driversCollection.first());
        return driversCollection.size();
+    }
+
+    public OffersTableFragment setCheckBoxWithoutDrivingStatus(boolean value){
+        withoutDrivingStatusCheckBox.setSelected(value);
+        return this;
     }
 
     public boolean isAclUserPresent() {

@@ -52,11 +52,11 @@ public class LoadStatus {
         String id = loadListPage.getTableFragment().getFirstLoadId();
         loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
         loadListPage.getTableFragment().getActionsFromActionBtn().shouldHaveSize(2);
-       // loadListPage.getTableFragment().getActionsFromActionBtn().shouldHave().shouldHave();
-String test1 = loadListPage.getTableFragment().getActionsFromActionBtn().
-        String test2 = loadListPage.getTableFragment().getActionsFromActionBtn().get(1).toString();
-        System.out.println(test1);
-        System.out.println(test2);
+//        loadListPage.getTableFragment().getActionsFromActionBtn().shouldHave().shouldHave();
+//String test1 = loadListPage.getTableFragment().getActionsFromActionBtn().
+//        String test2 = loadListPage.getTableFragment().getActionsFromActionBtn().get(1).toString();
+//        System.out.println(test1);
+//        System.out.println(test2);
     }
 
 

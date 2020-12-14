@@ -69,7 +69,7 @@ public class BasePage {
     public WebDriver driver;
 
     public void waitToVisibilityOf (SelenideElement element){
-        element.should(exist);
+        element.waitUntil(exist, 15000);
     }
 
     public BasePage(WebDriver driver) {

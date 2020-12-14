@@ -7,7 +7,6 @@ import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
 import org.junit.jupiter.api.*;
 import resources.BasePage;
-
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
 
