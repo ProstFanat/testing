@@ -14,6 +14,9 @@ import org.junit.jupiter.api.Test;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static java.awt.event.PaintEvent.UPDATE;
+import static jdk.nashorn.internal.runtime.PropertyDescriptor.SET;
+import static sun.management.Agent.error;
 
 
 public class LoadStatus {
@@ -50,10 +53,12 @@ public class LoadStatus {
         editCreateLoadPage.getLoadSettingsFragment().waitClickbleSaveBtn();
         String id = editCreateLoadPage.getID();
         editCreateLoadPage.backToLoadBoard();
+
         loadListPage.getFilterLoadPageFragment().inputStatus("Prebooked").clickBtnFilter();
         loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
         loadListPage.getTableFragment().loadActionBtnClick();
         loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
+
         Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
@@ -69,14 +74,48 @@ public class LoadStatus {
                 .clearFilterBtn.waitUntil(Condition.visible, 5000);
         String id = editCreateLoadPage.getID();
         editCreateLoadPage.backToLoadBoard();
+
         loadListPage.getFilterLoadPageFragment().inputStatus("Booked").clickBtnFilter();
         loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
         loadListPage.getTableFragment().loadActionBtnClick();
         loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
+
         Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
+    @Test()
+    public void loadStatusBookedWithBookedOffer(){ //throws SQLException{
+        loadListPage.clickNewLoadBtn();
+        editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment();
+        editCreateLoadPage.getOffersTableFragment()
+                .searchDrivers("7")
+                .selectDrivers()
+                .clickSaveLoadAndSendOffersBtn()
+                .clearFilterBtn.waitUntil(Condition.visible, 5000);
+        String id = editCreateLoadPage.getID();
+        editCreateLoadPage.backToLoadBoard();
+        //changeOfferStatus("booked");
 
+        loadListPage.getFilterLoadPageFragment().inputStatus("Booked").clickBtnFilter();
+        loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
+        loadListPage.getTableFragment().loadActionBtnClick();
+        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
 
-
-}
+        Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
+        Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
+    }
+    }
+//
+//    public static void changeOfferStatus (String status){
+//        Statement st = null;
+//        try {
+//            st = DBConnection.getConnection().createStatement();
+//                st.executeUpdate();
+//            }
+//         catch (SQLException e) {
+//            error("Insert event is not successful: " + e);
+//        } finally {
+//            if (st != null) st.close();
+//        }
+//    }
+//    }
