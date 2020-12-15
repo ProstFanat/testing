@@ -148,5 +148,7 @@ public class BasePage {
     public String getInputValue(WebElement input){
         return input.getAttribute("value");
     }
+
+
 }
 

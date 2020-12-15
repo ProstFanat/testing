@@ -13,18 +13,20 @@ public class EditCreateLoadPage {
     LoadSettingsFragment loadSettingsFragment = new LoadSettingsFragment();
     OffersTableFragment offersTableFragment = new OffersTableFragment();
 
-   public SelenideElement contacts = $("[id='contacts']");
+    public SelenideElement contacts = $("[id='contacts']"),
+            loadBoardLink = $x("//*[contains(text(), 'Load List')]");
 
-   public LoadSettingsFragment getLoadSettingsFragment() {
+    public LoadSettingsFragment getLoadSettingsFragment() {
         return loadSettingsFragment;
     }
+
     public OffersTableFragment getOffersTableFragment() {
         return offersTableFragment;
     }
 
-    public EditCreateLoadPage setDefaultLoadSettings(){
-        getLoadSettingsFragment().setPickupDate(22,"Nov", 2020)
-                .setDeliveryDate(26,"Nov",2020)
+    public EditCreateLoadPage setDefaultLoadSettings() {
+        getLoadSettingsFragment().setPickupDate(22, "Nov", 2020)
+                .setDeliveryDate(26, "Nov", 2020)
                 .setPickupLocation("Toront")
                 .setDeliveryLocation("New Glaru")
                 .setPickupZipCode("123NY")
@@ -37,12 +39,12 @@ public class EditCreateLoadPage {
                 .selectFP("F")
                 .inputDimension("testDimension")
                 .inputComment("testComment");
-    return this;
+        return this;
     }
 
     public EditCreateLoadPage checkLoadIdInUrl() {
         url().contains("edit-load;loadId=");
-        return  this;
+        return this;
     }
 
     public String getID() {
@@ -50,12 +52,14 @@ public class EditCreateLoadPage {
     }
 
     char quoMark = '"';
-    public SelenideElement getReqAlertsMessage(String message){
+
+    public SelenideElement getReqAlertsMessage(String message) {
         return $x("//*[@aria-label= " + quoMark + message + quoMark + "]");
     }
 
 
-
-
-
+    public EditCreateLoadPage backToLoadBoard() {
+        loadBoardLink.click();
+        return this;
+    }
 }

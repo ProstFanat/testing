@@ -16,12 +16,13 @@ public class OffersTableFragment extends BasePage {
             searchDriversBtn = $x("//button[contains(text(), 'Search ')]"),
             SaveLoadAndSendOffersBtn = $x("//button[@class='btn btn-sm btn-success mt-2 pull-right']"),
             aclUserIcon = $x("//datatable-body-cell//*[contains(@class, 'fa-user')]"),
-            withoutDrivingStatusCheckBox = $x("//input[@id='withoutDrivingStatus']");
-
-            public  ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
+            withoutDrivingStatusCheckBox = $x("//input[@id='withoutDrivingStatus']"),
+            clearFilterBtn = $x("//button[contains(text(), 'Clear')]");
+    public  ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
             driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]"),
             driversDHOCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[11]//span"),
             driversStatusCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[12]//span");
+
 
     List<String> drivers = new ArrayList<>();
 

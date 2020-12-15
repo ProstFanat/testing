@@ -1,11 +1,13 @@
 package loadDashboardPages.fragments;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.Keys;
+
+import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.*;
-
+import org.openqa.selenium.Keys;
 public class LoadSettingsFragment {
 
     public  SelenideElement pickupDatePickerField = $x("//input[@id='pickupDate']"),
@@ -27,6 +29,7 @@ public class LoadSettingsFragment {
             commentInput = $x("//textarea[@id='comments']"),
             btnFilter = $x("//button[text() = ' Filter ']"),
             contacts = $("[id='contacts']");
+
 
     public  ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']"),
             deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']"),
@@ -144,5 +147,10 @@ public class LoadSettingsFragment {
 
     public SelenideElement getContactInfo(){
         return contacts;
+    }
+
+    public LoadSettingsFragment waitClickbleSaveBtn(){
+        saveBtnLoad.shouldBe(enabled);
+        return this;
     }
 }

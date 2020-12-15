@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -45,25 +46,38 @@ public class LoadStatus {
 
 
     @Test
-    public void filterByLoadId(){
-
+    public void loadStatusPrebooked() {
+        loadListPage.clickNewLoadBtn();
+        editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment().clickSaveBtn();
+        editCreateLoadPage.getLoadSettingsFragment().waitClickbleSaveBtn();
+        String id = editCreateLoadPage.getID();
+        editCreateLoadPage.backToLoadBoard();
         loadListPage.getFilterLoadPageFragment().inputStatus("Prebooked").clickBtnFilter();
-        loadListPage.getTableFragment().loadActionBtnClick();
-        String id = loadListPage.getTableFragment().getFirstLoadId();
         loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
-        loadListPage.getTableFragment().getActionsFromActionBtn().shouldHaveSize(2);
-//        loadListPage.getTableFragment().getActionsFromActionBtn().shouldHave().shouldHave();
-//String test1 = loadListPage.getTableFragment().getActionsFromActionBtn().
-//        String test2 = loadListPage.getTableFragment().getActionsFromActionBtn().get(1).toString();
-//        System.out.println(test1);
-//        System.out.println(test2);
+        loadListPage.getTableFragment().loadActionBtnClick();
+        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
+        Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
+        Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
 
-
-
-
-
-
+    @Test
+    public void loadStatusBooked() {
+        loadListPage.clickNewLoadBtn();
+        editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment();
+        editCreateLoadPage.getOffersTableFragment()
+                .searchDrivers("7")
+                .selectDrivers()
+                .clickSaveLoadAndSendOffersBtn()
+                .clearFilterBtn.waitUntil(Condition.visible, 5000);
+        String id = editCreateLoadPage.getID();
+        editCreateLoadPage.backToLoadBoard();
+        loadListPage.getFilterLoadPageFragment().inputStatus("Booked").clickBtnFilter();
+        loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
+        loadListPage.getTableFragment().loadActionBtnClick();
+        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
+        Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
+        Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
+    }
 
 
 

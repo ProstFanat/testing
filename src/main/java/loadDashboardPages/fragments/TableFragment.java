@@ -3,7 +3,9 @@ package loadDashboardPages.fragments;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -24,7 +26,7 @@ public class TableFragment {
             confirmYesButton = $x("//button[contains(text(), 'Yes')]");
 
     public  ElementsCollection id = $$x("//datatable-row-wrapper//datatable-body-cell[1]//span"),
-    actionsFromActionBtn = $$x("//div[@class = 'dropdown show open']//text()");
+                        actionsFromActionBtn = $$x("//div[@class = 'dropdown show open']//div");
 
     public Map<String, String> saveLoadData() {
         Map<String, String> rawData = new HashMap<>();
@@ -67,8 +69,16 @@ public class TableFragment {
         return this;
     }
 
-
-    public ElementsCollection getActionsFromActionBtn() {
+    public ElementsCollection actionsFromActionBtnSize() {
         return actionsFromActionBtn;
     }
+
+    public List<String> getActionsFromActionBtn() {
+List <String> actionsList = new ArrayList<>();
+        for (int i = 0; i < actionsFromActionBtn.size(); i++) {
+            actionsList.add(actionsFromActionBtn.get(i).getText());
+        }
+    return actionsList;
+    }
+
 }

@@ -74,11 +74,11 @@ public class FilterTabAddOffers {
     public void searchWithNormalRadius(){
         editCreateLoadPage.getOffersTableFragment().searchDrivers("5");
 
-        int initSize = editCreateLoadPage.getOffersTableFragment().driversCollection.size();
-        int finalSize = 0;
-        for (int i = 0; i < initSize; i++){
-            int qwe = editCreateLoadPage.getOffersTableFragment().driversDHOCollection.get(i).getText().parse;
-        }
+//        int initSize = editCreateLoadPage.getOffersTableFragment().driversCollection.size();
+//        int finalSize = 0;
+//        for (int i = 0; i < initSize; i++){
+//            int qwe = editCreateLoadPage.getOffersTableFragment().driversDHOCollection.get(i).getText().parse;
+//        }
 
         System.out.println(editCreateLoadPage.getOffersTableFragment().driversCollection.size());
     }
