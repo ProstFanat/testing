@@ -1,6 +1,5 @@
 package LoadDashboard;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -15,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.url;
+
 
 public class LoadStatus {
 
@@ -44,8 +43,7 @@ public class LoadStatus {
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
     }
 
-
-    @Test
+    @Test()
     public void loadStatusPrebooked() {
         loadListPage.clickNewLoadBtn();
         editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment().clickSaveBtn();
@@ -60,7 +58,7 @@ public class LoadStatus {
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
 
-    @Test
+    @Test()
     public void loadStatusBooked() {
         loadListPage.clickNewLoadBtn();
         editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment();

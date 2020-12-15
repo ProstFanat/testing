@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Functional Tests (full pack)" parallel="false" configfailurepolicy="continue">
+    <test name="2" preserve-order="true">
+        <parameter name="tms.test.code" value="2"/>
+        <classes>
+            <class name="LoadDashboard.LoadStatus"/>
+            <class name="LoadDashboard.CreateLoadMainFlow"/>
+        </classes>
+    </test>
+</suite>
