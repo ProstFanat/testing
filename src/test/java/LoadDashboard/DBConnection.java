@@ -1,3 +1,5 @@
+package LoadDashboard;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,10 +10,12 @@ import static sun.security.ssl.SSLLogger.info;
 public class DBConnection {
 
     static Connection con = null;
+
     public static Connection getConnection(){
         if(con!=null) return con;
         return getConnection(DBConstant.DB_URL, DBConstant.USER_DB, DBConstant.PASS_DB);
     }
+
     private static Connection getConnection(String db_url, String user, String password){
         try {
             Class.forName("org.postgresql.Driver");
