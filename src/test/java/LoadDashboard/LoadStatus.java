@@ -10,8 +10,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import resources.BasePage;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import static com.codeborne.selenide.Selenide.*;
 import static java.awt.event.PaintEvent.UPDATE;
@@ -83,8 +86,9 @@ public class LoadStatus {
         Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
+
     @Test()
-    public void loadStatusBookedWithBookedOffer(){ //throws SQLException{
+    public void loadStatusBookedWithBookedOffer() { //throws SQLException{
         loadListPage.clickNewLoadBtn();
         editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment();
         editCreateLoadPage.getOffersTableFragment()
@@ -104,18 +108,15 @@ public class LoadStatus {
         Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
+
+    public void changeOfferStatus(String status) {
+        //Statement st = null;
+        String sql = "UPDATE loads.offer SET status = ?::loads.offer_status, update_date = NOW() WHERE offer_id = ?";
+        try (PreparedStatement ps = DBConnection.getConnection().prepareStatement(sql)) {
+            ps.setString(1, status);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            error("Insert event is not successful: " + e);
+        }
     }
-//
-//    public static void changeOfferStatus (String status){
-//        Statement st = null;
-//        try {
-//            st = DBConnection.getConnection().createStatement();
-//                st.executeUpdate();
-//            }
-//         catch (SQLException e) {
-//            error("Insert event is not successful: " + e);
-//        } finally {
-//            if (st != null) st.close();
-//        }
-//    }
-//    }
+}
