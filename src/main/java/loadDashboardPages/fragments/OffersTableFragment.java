@@ -79,6 +79,18 @@ public class OffersTableFragment extends BasePage {
         return this;
     }
 
+    public boolean checkDHOAddOffer(int ml){
+        int initSize = driversCollection.size();
+        int finalSize = 0;
+        for (int i = 0; i < initSize; i++){
+            double currentML = Double.parseDouble(driversDHOCollection.get(i).getText());
+            if(currentML <= ml){
+                finalSize++;
+            }
+        }
+        return finalSize == initSize;
+    }
+
     public boolean isAclUserPresent() {
         return aclUserIcon.isDisplayed();
     }
