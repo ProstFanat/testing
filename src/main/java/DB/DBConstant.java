@@ -1,4 +1,4 @@
-package LoadDashboard;
+package DB;
 
 public class DBConstant {
         static final String DB_URL = "jdbc:postgresql://10.10.1.10:5434/trackensure";

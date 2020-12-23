@@ -1,5 +1,6 @@
 package LoadDashboard;
 
+import DB.DBConnection;
 import com.codeborne.selenide.Condition;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -14,11 +15,8 @@ import resources.BasePage;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import static com.codeborne.selenide.Selenide.*;
-import static java.awt.event.PaintEvent.UPDATE;
-import static jdk.nashorn.internal.runtime.PropertyDescriptor.SET;
 import static sun.management.Agent.error;
 
 
@@ -98,6 +96,8 @@ public class LoadStatus {
                 .clearFilterBtn.waitUntil(Condition.visible, 5000);
         String id = editCreateLoadPage.getID();
         editCreateLoadPage.backToLoadBoard();
+
+
         //changeOfferStatus("booked");
 
         loadListPage.getFilterLoadPageFragment().inputStatus("Booked").clickBtnFilter();
