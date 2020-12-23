@@ -1,7 +1,7 @@
 package Main;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.WebElement;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.$x;

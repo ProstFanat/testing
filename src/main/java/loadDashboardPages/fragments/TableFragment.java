@@ -43,7 +43,7 @@ public class TableFragment {
     }
 
     public String getFirstLoadId() {
-        return id.get(1).getText();
+        return id.get(0).getText();
     }
 
     public TableFragment loadActionBtnClick(int rowNumber) {

@@ -215,7 +215,7 @@ public class DispatchSettings {
         basePage.waitForPageToLoad();
 
         dispatchingSettingsPage.inputOrgName("Test with DM");
-        Assertions.assertFalse(dispatchingSettingsPage.checkBoxesForOrgList.first().isSelected());
+       // Assertions.assertFalse(dispatchingSettingsPage.checkBoxesForOrgList.first().isSelected());
 
     }
 
@@ -239,7 +239,7 @@ public class DispatchSettings {
                                 .setAllOrgCheckBoxes(true)
                                 .showDrivers(1)
                                 .inputDriver("Adrian Fanuzzi");
-        Assertions.assertFalse(dispatchingSettingsPage.checkBoxesForDriversList.first().isSelected());
+     //   Assertions.assertFalse(dispatchingSettingsPage.checkBoxesForDriversList.first().isSelected());
         dispatchingSettingsPage.checkBoxesForDriversList.first().setSelected(true);
     }
 }

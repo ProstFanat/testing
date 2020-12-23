@@ -78,7 +78,7 @@ public class CreateLoadMainFlow {
         editCreateLoadPage.getLoadSettingsFragment().setPickupDate(23, "Nov", 2020)
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("City in PickUp Location are not determined, can't be saved").shouldBe(Condition.visible);
-        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load", url());
     }
 
     @Test
@@ -89,7 +89,7 @@ public class CreateLoadMainFlow {
                 .setPickupLocation("Toront")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Delivery Date").shouldBe(Condition.visible);
-        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load",url());
 
     }
 
@@ -102,7 +102,7 @@ public class CreateLoadMainFlow {
                 .setDeliveryDate(30, "Nov", 2020)
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("City in Delivery Location are not determined, can't be saved").shouldBe(Condition.visible);
-        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load",url());
     }
 
     @Test
@@ -115,7 +115,7 @@ public class CreateLoadMainFlow {
                 .setDeliveryLocation("New")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Weight").shouldBe(Condition.visible);
-        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load", url());
     }
 
     @Test
@@ -129,7 +129,7 @@ public class CreateLoadMainFlow {
                 .setWeight("99")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill F/P").shouldBe(Condition.visible);
-        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load", url());
     }
 
 
@@ -146,7 +146,7 @@ public class CreateLoadMainFlow {
                 .selectFP("F")
                 .clickSaveBtn();
         editCreateLoadPage.getReqAlertsMessage("Please fill Contacts").shouldBe(Condition.visible);
-        Assertions.assertEquals(url(), "http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        Assertions.assertEquals("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load",url());
     }
 
 @Test

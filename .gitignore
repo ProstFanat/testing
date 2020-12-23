@@ -1,3 +1,16 @@
+
+/.idea/
+/target/
+/build/
+/allure-results/
+
+/build/
+/allure-results/
+/.idea/
+/.idea/
+/allure-results/
+/build/
+
 # Compiled class file
 #*.class
 
@@ -29,3 +42,6 @@ hs_err_pid*
 /build/
 /allure-results/
 /.idea/
+/.idea/
+/allure-results/
+/build/

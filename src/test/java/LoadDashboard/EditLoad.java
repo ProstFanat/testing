@@ -69,15 +69,16 @@ public class EditLoad {
                 .inputComment(ConfProperties.getProperty("editLoad.inputComment"));
 
         editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        editCreateLoadPage.getReqAlertsMessage("Load successfully updated").shouldBe(Condition.visible);
         back();
         loadListPage.getFilterLoadPageFragment().inputLoadId(id)
                 .clickBtnFilter();
         basePage.waitForPageToLoad();
         loadListPage.getPickupLocationInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setPickupLocation")));
 
-        Assertions.assertEquals(loadListPage.getPickupDateInTable(), "23-Nov-2020");
+        Assertions.assertEquals("23-Nov-2020", loadListPage.getPickupDateInTable());
         loadListPage.getDeliveryPlaceInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setDeliveryLocation")));
-        Assertions.assertEquals(loadListPage.getDeliveryDateInTable(), "30-Nov-2020");
+        Assertions.assertEquals("30-Nov-2020", loadListPage.getDeliveryDateInTable());
         loadListPage.getTrailerTypeInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.selectTrailerType")));
         loadListPage.getRateInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setRate")));
         loadListPage.getWeightInTable().shouldHave(Condition.text(ConfProperties.getProperty("editLoad.setWeight")));
