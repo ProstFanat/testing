@@ -19,8 +19,8 @@ public class OffersTableFragment extends BasePage {
             withoutDrivingStatusCheckBox = $x("//input[@id='withoutDrivingStatus']"),
             clearFilterBtn = $x("//button[contains(text(), 'Clear')]");
     public  ElementsCollection driversCollectionOnOffers = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
-            driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]"),
-            driversDHOCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[11]//span"),
+            driversCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[4]"),
+            driversDHOCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[3]//span"),
             driversStatusCollection = $$x("//*[@class = 'datatable-body']//datatable-row-wrapper//datatable-body-cell[12]//span");
 
 
@@ -30,7 +30,7 @@ public class OffersTableFragment extends BasePage {
         radiusPlaceHolder.setValue(value);
         searchDriversBtn.click();
         searchDriversBtn.hover();
-        driversCollection.first().waitUntil(Condition.visible, 15000);
+        driversCollection.first().waitUntil(Condition.visible, 30000);
         return this;
     }
 

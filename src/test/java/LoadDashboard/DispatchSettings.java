@@ -104,13 +104,13 @@ public class DispatchSettings {
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .setAllOrgCheckBoxes(true)
                 .showDrivers(1)
-                .inputDriver("Rouzi Yalikun")
+                .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(false);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
-                .selectDriverByName("Rouzi Yalikun")
+                .selectDriverByName("Mao Ntwari")
                 .clickSaveLoadAndSendOffersBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         basePage.waitForPageToLoad();
@@ -122,13 +122,13 @@ public class DispatchSettings {
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .setAllOrgCheckBoxes(true)
                 .showDrivers(1)
-                .inputDriver("Rouzi Yalikun")
+                .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(true);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
-                .selectDriverByName("Rouzi Yalikun")
+                .selectDriverByName("Mao Ntwari")
                 .clickSaveLoadAndSendOffersBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         basePage.waitForPageToLoad();
@@ -136,7 +136,7 @@ public class DispatchSettings {
         open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .showDrivers(1)
-                .inputDriver("Rouzi Yalikun")
+                .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(false);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
         basePage.waitForPageToLoad();
@@ -148,13 +148,13 @@ public class DispatchSettings {
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .setAllOrgCheckBoxes(true)
                 .showDrivers(1)
-                .inputDriver("Rouzi Yalikun")
+                .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(true);
         open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
-                .selectDriverByName("Rouzi Yalikun")
+                .selectDriverByName("Mao Ntwari")
                 .clickSaveLoadAndSendOffersBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         basePage.waitForPageToLoad();
