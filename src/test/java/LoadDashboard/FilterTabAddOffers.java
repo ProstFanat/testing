@@ -77,4 +77,26 @@ public class FilterTabAddOffers {
 
         Assertions.assertTrue(editCreateLoadPage.getOffersTableFragment().checkDHOAddOffer(5));
     }
+
+    @Test
+    public void testWithEmptyRadius(){
+        editCreateLoadPage.getOffersTableFragment().clickClearButton()
+                .clickSearchButton();
+        editCreateLoadPage.getOffersTableFragment().messageRadiusMustBePositiveAndIntegerNumber.shouldBe(Condition.visible);
+
+    }
+
+    @Test
+    public void checkBoxWithoutDrivingStatusOff(){
+        editCreateLoadPage.getOffersTableFragment().setCheckBoxWithoutDrivingStatus(false)
+                .searchDrivers("8")
+                .checkDriversStatus(false);
+    }
+
+    @Test
+    public void checkBoxWithoutDrivingStatusOn(){
+        editCreateLoadPage.getOffersTableFragment().setCheckBoxWithoutDrivingStatus(true)
+                .searchDrivers("8")
+                .checkDriversStatus(true);
+    }
 }
