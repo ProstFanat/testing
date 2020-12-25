@@ -24,7 +24,7 @@ public class FilterLoadPageFragment extends BasePage {
             tableSize = $$x("//datatable-row-wrapper");
 
     public FilterLoadPageFragment inputLoadId(String id) {
-        loadIdInput.sendKeys(id);
+        loadIdInput.setValue(id);
         return this;
     }
 
@@ -36,29 +36,29 @@ public class FilterLoadPageFragment extends BasePage {
                 statusElements.get(i).click();
             }
         }
-        return this;
+        return this;//button[text()= 'Reject']
     }
 
     public FilterLoadPageFragment inputTrailerType(String trailerType) {
-        trailerTypeInput.sendKeys(trailerType);
+        trailerTypeInput.setValue(trailerType);
         trailerTypeInput.pressEnter();
         return this;
     }
 
     public FilterLoadPageFragment inputOrganization(String org) {
-        organizationInput.sendKeys(org);
+        organizationInput.setValue(org);
         organizationInput.pressEnter();
         return this;
     }
 
     public FilterLoadPageFragment inputDriver(String driver) {
-        driverInput.sendKeys(driver);
+        driverInput.setValue(driver);
         driverInput.pressEnter();
         return this;
     }
 
     public FilterLoadPageFragment inputPickUpLocation(String city) throws Exception {
-        pickUpLocationInput.sendKeys(city);
+        pickUpLocationInput.setValue(city);
 
         if (isVisible($x("//div[contains(@class, 'locations-popup')]//div//div"))) {
             for (int i = 1; i < pickUpLocationElements.size(); i++) {
@@ -73,7 +73,7 @@ public class FilterLoadPageFragment extends BasePage {
     }
 
     public FilterLoadPageFragment inputDeliveryLocation(String city) throws Exception {
-        deliveryLocationInput.sendKeys(city);
+        deliveryLocationInput.setValue(city);
 
         if (isVisible($x("//div[contains(@class, 'locations-popup')]//div//div"))) {
             for (int i = 1; i < deliveryLocationElements.size(); i++) {
