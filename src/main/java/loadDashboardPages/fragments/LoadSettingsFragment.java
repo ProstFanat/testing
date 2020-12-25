@@ -33,7 +33,8 @@ public class LoadSettingsFragment {
             tabOffers = $x("//div[text() = 'Offers ']"),
             btnEditTrailerForOffer = $x("//bs-dropdown-container//div[text() = ' Edit Trailer ']"),
             btnDeleteOffer = $x("//bs-dropdown-container//div[text() = ' Delete ']"),
-            btnDispatchOffer = $x("");
+            btnConfirmOffer = $x("//bs-dropdown-container//div[text() = ' Confirm ']"),
+            btnRejectOffer = $x("//bs-dropdown-container//div[text() = ' Reject ']");
 
 
     public  ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']"),
@@ -172,8 +173,23 @@ public class LoadSettingsFragment {
     }
 
     public LoadSettingsFragment deleteOffer(int number){
+        System.out.println("Delete...");
         buttonsActionsOffers.get(number - 1).click();
         btnDeleteOffer.click();
+        return this;
+    }
+
+    public LoadSettingsFragment confirmOffer(int number){
+        System.out.println("Confirm...");
+        buttonsActionsOffers.get(number - 1).click();
+        btnConfirmOffer.click();
+        buttonsActionsOffers.first().waitUntil(Condition.enabled, 30000);
+        return this;
+    }
+    public LoadSettingsFragment rejectOffer(int number){
+        System.out.println("Reject...");
+        buttonsActionsOffers.get(number - 1).click();
+        btnRejectOffer.click();
         return this;
     }
 }

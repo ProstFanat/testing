@@ -191,8 +191,179 @@ public class LoadStatus {
         loadListPage.getTableFragment().loadActionBtnClick()
                 .loadActionEditBtnClick();
         editCreateLoadPage.getLoadSettingsFragment()
-                .deleteOffer(1);
+                .deleteOffer(1)
+                .buttonsActionsOffers.shouldHaveSize(0);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Prebooked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
     }
+
+    @Test
+    public void deleteOffersFromLoadWithStatusDispatched() throws SQLException, ClassNotFoundException {
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+        dbLoads.updateOfferStatusByLoadId(load_id, "booked");
+        editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
+        editCreateLoadPage.getLoadSettingsFragment().confirmOffer(1);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Dispatched")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+        editCreateLoadPage.getLoadSettingsFragment()
+                .deleteOffer(1)
+                .buttonsActionsOffers.shouldHaveSize(0);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Prebooked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+    }
+
+    @Test
+    public void deleteOneOfferFromLoadWithStatusDispatched() throws SQLException, ClassNotFoundException {
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+        dbLoads.updateOfferStatusByLoadId(load_id, "booked");
+        editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
+        editCreateLoadPage.getLoadSettingsFragment().confirmOffer(1);
+
+        editCreateLoadPage.getLoadSettingsFragment().goToAddOfferTab();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Oleksandr Vengren")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Dispatched")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+        editCreateLoadPage.getLoadSettingsFragment()
+                .deleteOffer(1)
+                .buttonsActionsOffers.shouldHaveSize(1);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+    }
+
+    @Test
+    public void addBookedOfferToLoadWithStatusBooked() throws SQLException, ClassNotFoundException {
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+
+        dbLoads.updateOfferStatusByLoadId(load_id, "booked");
+        editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+    }
+
+    @Test
+    public void rejectOfferFromLoadWithStatusDispatched() throws SQLException, ClassNotFoundException {
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+        dbLoads.updateOfferStatusByLoadId(load_id, "booked");
+        editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
+        editCreateLoadPage.getLoadSettingsFragment().confirmOffer(1);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Dispatched")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+        editCreateLoadPage.getLoadSettingsFragment()
+                .rejectOffer(1)
+                .buttonsActionsOffers.shouldHaveSize(1);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+    }
+
+    @Test
+    public void rejectOffersFromLoadWithStatusBooked() throws SQLException, ClassNotFoundException {
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+        dbLoads.updateOfferStatusByLoadId(load_id, "booked");
+        editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+        editCreateLoadPage.getLoadSettingsFragment()
+                .rejectOffer(1)
+                .buttonsActionsOffers.shouldHaveSize(1);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+    }
+
+
+
 //
 //    @Test()
 //    public void loadStatusBookedWithBookedOffer() { //throws SQLException{
