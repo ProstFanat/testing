@@ -28,12 +28,19 @@ public class LoadSettingsFragment {
             dimensionsInput = $x("//input[@id='dimensions']"),
             commentInput = $x("//textarea[@id='comments']"),
             btnFilter = $x("//button[text() = ' Filter ']"),
-            contacts = $("[id='contacts']");
+            contacts = $("[id='contacts']"),
+            tabAddOffer = $x("//div[text() = 'Add Offer ']"),
+            tabOffers = $x("//div[text() = 'Offers ']"),
+            btnEditTrailerForOffer = $x("//bs-dropdown-container//div[text() = ' Edit Trailer ']"),
+            btnDeleteOffer = $x("//bs-dropdown-container//div[text() = ' Delete ']"),
+            btnDispatchOffer = $x("");
 
 
     public  ElementsCollection pickUpLocationElements = $$x("//input[@placeholder = 'PickUp Location']//..//*[@class = 'ng-star-inserted']"),
             deliveryLocationElements = $$x("//input[@placeholder = 'Delivery Location']//..//*[@class = 'ng-star-inserted']"),
-            trailerTypesCollection = $$x("//span[@class='ng-option-label ng-star-inserted']");
+            trailerTypesCollection = $$x("//span[@class='ng-option-label ng-star-inserted']"),
+            buttonsActionsOffers = $$x("//button[text() = ' Actions ']");
+
 
 
 
@@ -151,6 +158,22 @@ public class LoadSettingsFragment {
 
     public LoadSettingsFragment waitClickbleSaveBtn(){
         saveBtnLoad.shouldBe(enabled);
+        return this;
+    }
+
+    public LoadSettingsFragment goToAddOfferTab(){
+        tabAddOffer.click();
+        return this;
+    }
+
+    public LoadSettingsFragment goToOffersTab(){
+        tabOffers.click();
+        return this;
+    }
+
+    public LoadSettingsFragment deleteOffer(int number){
+        buttonsActionsOffers.get(number - 1).click();
+        btnDeleteOffer.click();
         return this;
     }
 }

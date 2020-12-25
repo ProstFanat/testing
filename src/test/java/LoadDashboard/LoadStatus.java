@@ -2,6 +2,7 @@ package LoadDashboard;
 
 import DB.DBConnection;
 import DB.DBLoads;
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -88,28 +89,133 @@ public class LoadStatus {
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
 
-    @Test()
-    public void loadStatusBookedWithBookedOffer() { //throws SQLException{
-        loadListPage.clickNewLoadBtn();
-        editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment();
-        editCreateLoadPage.getOffersTableFragment()
-                .searchDrivers("7")
-                .selectDrivers()
-                .clickSaveLoadAndSendOffersBtn()
-                .clearFilterBtn.waitUntil(Condition.visible, 5000);
-        String id = editCreateLoadPage.getID();
-        editCreateLoadPage.backToLoadBoard();
+    @Test
+    public void loadStatusDispatched() throws SQLException, ClassNotFoundException {
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
 
-
-        //changeOfferStatus("booked");
-
-        loadListPage.getFilterLoadPageFragment().inputStatus("Booked").clickBtnFilter();
-        loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        dbLoads.updateLoadStatusByLoadId(load_id, "Dispatched");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id).clickBtnFilter();
         loadListPage.getTableFragment().loadActionBtnClick();
-        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
+        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(3);
 
         Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
+        Assertions.assertEquals("Delivered", loadListPage.getTableFragment().getActionsFromActionBtn().get(2));
     }
+
+    @Test
+    public void loadStatusDelivered() throws SQLException, ClassNotFoundException {
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        dbLoads.updateLoadStatusByLoadId(load_id, "Delivered");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id).clickBtnFilter();
+        loadListPage.getTableFragment().loadActionBtnClick();
+        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(1);
+
+        Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
+    }
+
+    @Test
+    public void loadStatusWithOneOffer(){
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Prebooked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+        editCreateLoadPage.getLoadSettingsFragment().goToAddOfferTab();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+    }
+
+    @Test
+    public void deleteOffersFromLoadWithStatusBooked(){
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        editCreateLoadPage.setDefaultLoadSettings();
+        editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        String load_id = editCreateLoadPage.getID();
+
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Prebooked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+        editCreateLoadPage.getLoadSettingsFragment().goToAddOfferTab();
+        editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
+        editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
+                .selectDriverByName("Mao Ntwari")
+                .clickSaveLoadAndSendOffersBtn();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
+                .inputStatus("Booked")
+                .clickBtnFilter()
+                .tableSize.shouldHaveSize(1);
+
+        loadListPage.getTableFragment().loadActionBtnClick()
+                .loadActionEditBtnClick();
+        editCreateLoadPage.getLoadSettingsFragment()
+                .deleteOffer(1);
+    }
+//
+//    @Test()
+//    public void loadStatusBookedWithBookedOffer() { //throws SQLException{
+//        loadListPage.clickNewLoadBtn();
+//        editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment();
+//        editCreateLoadPage.getOffersTableFragment()
+//                .searchDrivers("7")
+//                .selectDrivers()
+//                .clickSaveLoadAndSendOffersBtn()
+//                .clearFilterBtn.waitUntil(Condition.visible, 5000);
+//        String id = editCreateLoadPage.getID();
+//        editCreateLoadPage.backToLoadBoard();
+//
+//
+//        //changeOfferStatus("booked");
+//
+//        loadListPage.getFilterLoadPageFragment().inputStatus("Booked").clickBtnFilter();
+//        loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
+//        loadListPage.getTableFragment().loadActionBtnClick();
+//        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
+//
+//        Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
+//        Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
+//    }
 
 }
