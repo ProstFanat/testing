@@ -1,6 +1,7 @@
 package LoadDashboard;
 
 import DB.DBConnection;
+import DB.DBLoads;
 import com.codeborne.selenide.Condition;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -27,6 +28,7 @@ public class LoadStatus {
     public static EditCreateLoadPage editCreateLoadPage;
     public static LoadListPage loadListPage;
     public static BasePage basePage;
+    public static DBLoads dbLoads;
 
 
     @BeforeAll
@@ -37,6 +39,7 @@ public class LoadStatus {
         loginPage = new LoginPage();
         mainAdminScreenPage = new MainAdminScreenPage();
         editCreateLoadPage = new EditCreateLoadPage();
+        dbLoads = new DBLoads();
         loadListPage = new LoadListPage();
         loginPage.login("5", "test");
         basePage = new BasePage();
@@ -109,14 +112,4 @@ public class LoadStatus {
         Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
     }
 
-    public void changeOfferStatus(String status) {
-        //Statement st = null;
-        String sql = "UPDATE loads.offer SET status = ?::loads.offer_status, update_date = NOW() WHERE offer_id = ?";
-        try (PreparedStatement ps = DBConnection.getConnection().prepareStatement(sql)) {
-            ps.setString(1, status);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            error("Insert event is not successful: " + e);
-        }
-    }
 }

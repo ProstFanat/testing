@@ -1,45 +1,71 @@
 package DB;
 
-import org.junit.jupiter.api.Test;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import static sun.management.Agent.error;
+import java.sql.*;
 
 public class DBLoads extends DBConnection {
 
-    public void updateLoadStatusByLoadId(String id,String status) throws SQLException {
-        String sql = "UPDATE loads.load SET status = ?::loads.load_status, WHERE offer_id = " + id;
-        //getConnection().prepareStatement(sql);
-        try (PreparedStatement ps = DBConnection.getConnection().prepareStatement(sql)) {
-            System.out.println(ps.getResultSet().getString("load_id"));
-//            ps.setString(1, status);
-//            ps.executeUpdate();
-        } catch (SQLException e) {
-            error("Insert event is not successful: " + e);
+    public void updateLoadStatusByLoadId(String id,String status) throws SQLException, ClassNotFoundException {
+
+        Connection connection = null;
+        Statement statement = null;
+
+      //  System.out.println("Registering JDBC driver...");
+
+        Class.forName("org.postgresql.Driver");
+
+      //  System.out.println("Creating database connection...");
+        connection = DriverManager.getConnection(DBConstant.DB_URL, DBConstant.USER_DB, DBConstant.PASS_DB);
+
+      //  System.out.println("Executing statement...");
+        statement = connection.createStatement();
+
+        String sql;
+        sql = "UPDATE loads.load SET status = '" + status + "' WHERE load_id = " + id;
+
+        int resultSet = statement.executeUpdate(sql);
+
+
+      //  System.out.println("Closing connection and releasing resources...");
+        statement.close();
+        connection.close();
+
+
+    }
+
+    public void updateOfferStatusByLoadId(String load_id,String status) throws SQLException, ClassNotFoundException {
+        int offer_id = 0;
+        Connection connection = null;
+        Statement statement = null;
+
+       // System.out.println("Registering JDBC driver...");
+
+        Class.forName("org.postgresql.Driver");
+
+       // System.out.println("Creating database connection...");
+        connection = DriverManager.getConnection(DBConstant.DB_URL, DBConstant.USER_DB, DBConstant.PASS_DB);
+
+      //  System.out.println("Executing statement...");
+        statement = connection.createStatement();
+
+        String updateOfferStatus, getOfferId;
+        getOfferId = "SELECT offer_id FROM loads.offer WHERE load_id = " + load_id;
+
+        ResultSet getOffer = statement.executeQuery(getOfferId);
+
+        while (getOffer.next()) {
+            offer_id = getOffer.getInt("offer_id");
         }
-    }
 
-    public void test(String id,String status) throws SQLException {
-        int maxPrice = 50000;
-        getConnection().prepareStatement("UPDATE loads.load SET status = ?::loads.load_status, WHERE offer_id = " + id);
-//        preparedStatement.setInt(1, maxPrice);
-//        ResultSet resultSet = preparedStatement.executeQuery();
-//        while(resultSet.next()){
-//
-//            int id1 = resultSet.getInt("Id");
-//            String name = resultSet.getString("ProductName");
-//            int price = resultSet.getInt("Price");
-//
-//            System.out.printf("%d. %s - %d \n", id, name, price);
-//        }
-    }
+      //  System.out.println("Offer ID - " + offer_id);
 
-    @Test
-    public void test() throws SQLException {
-        test("113", "Dispatched");
-    }
+        updateOfferStatus = "UPDATE loads.offer SET status = '" + status + "', update_date = NOW() WHERE offer_id = " + offer_id;
+        int resultSet = statement.executeUpdate(updateOfferStatus);
 
+       // System.out.println("Closing connection and releasing resources...");
+        getOffer.close();
+        statement.close();
+        connection.close();
+
+
+    }
 }

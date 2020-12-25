@@ -326,6 +326,55 @@ public class javaCrib {
 
 
 
+        //////////////////////
+// DATABASE
+
+        @Test
+        public void test() throws SQLException, ClassNotFoundException {
+            //test("113", "Dispatched");
+
+            Connection connection = null;
+            Statement statement = null;
+
+            System.out.println("Registering JDBC driver...");
+
+            Class.forName("org.postgresql.Driver");
+
+            System.out.println("Creating database connection...");
+            connection = DriverManager.getConnection(DBConstant.DB_URL, DBConstant.USER_DB, DBConstant.PASS_DB);
+
+            System.out.println("Executing statement...");
+            statement = connection.createStatement();
+
+            String sql1, sql2;
+            //sql1 = "SELECT * FROM loads.load WHERE load_id = 113";
+            sql2 = "UPDATE loads.load SET status = 'Prebooked' WHERE load_id = 113";
+
+            //ResultSet resultSet = statement.executeQuery(sql1);
+            ResultSet resultSet1 = statement.executeQuery(sql2);
+
+//
+//        System.out.println("Retrieving data from database...");
+//        System.out.println("\nLoads:");
+//        while (resultSet.next()) {
+//            int id = resultSet.getInt("load_id");
+//            String name = resultSet.getString("status");
+//            String specialty = resultSet.getString("comments");
+//
+//            System.out.println("\n================\n");
+//            System.out.println("id: " + id);
+//            System.out.println("Name: " + name);
+//            System.out.println("Specialty: " + specialty);
+//        }
+
+
+
+            System.out.println("Closing connection and releasing resources...");
+            //resultSet.close();
+            resultSet1.close();
+            statement.close();
+            connection.close();
+        }
 
     }
 }
