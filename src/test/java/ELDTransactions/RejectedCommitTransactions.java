@@ -38,46 +38,25 @@ public static EldTransactionPage eldMainPage;
     }
 
 
-@Test
-    void rejectTransactionTest(){
-        mainAdminScreenPage.clickSideMenuELDTransactionBtb();
-
-        eldMainPage.getMainEldTableFragment().clickFirstActionBtn()
-                .clickActionView();
-        eldMonitorPage.clictTakeTransactionBtn()
-                .clickRejectBtn();
-    eldMonitorPage.getModalWindowFragment().clickCancelBrtn();
-    eldMonitorPage.getMainMonitorTableFragment().clickRejectBtn();
-
-    eldMonitorPage.getModalWindowFragment().rejectBtn.   // not clicsble
-    eldMonitorPage.getModalWindowFragment().typeComment(randomComment);
-    String comment =  randomComment;
-            .clickRejectBtn();
-
-    eldMainPage.checkMessage("ELD Transaction was rejected successfully!").shouldBe(Visible);
-    eldMainPage.getFilterFragment().changeStatusFilter("Rejected")
-            .clickFilterBtn();
-    eldMainPage.getMainEldTableFragment().getTransactionByComment(comment).shouldBe(exist);
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
+//@Test
+//    void rejectTransactionTest(){
+//        mainAdminScreenPage.clickSideMenuELDTransactionBtb();
+//
+//        eldMainPage.getMainEldTableFragment().clickFirstActionBtn()
+//                .clickActionView();
+//        eldMonitorPage.clictTakeTransactionBtn()
+//                .clickRejectBtn();
+//    eldMonitorPage.getModalWindowFragment().clickCancelBrtn();
+//    eldMonitorPage.getMainMonitorTableFragment().clickRejectBtn();
+//
+//    eldMonitorPage.getModalWindowFragment().rejectBtn.   // not clicsble
+//    eldMonitorPage.getModalWindowFragment().typeComment(randomComment);
+//    String comment =  randomComment;
+//            .clickRejectBtn();
+//
+//    eldMainPage.checkMessage("ELD Transaction was rejected successfully!").shouldBe(Visible);
+//    eldMainPage.getFilterFragment().changeStatusFilter("Rejected")
+//            .clickFilterBtn();
+//    eldMainPage.getMainEldTableFragment().getTransactionByComment(comment).shouldBe(exist);
+//    }
 }
