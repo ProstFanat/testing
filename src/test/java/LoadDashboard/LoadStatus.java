@@ -361,32 +361,4 @@ public class LoadStatus {
                 .clickBtnFilter()
                 .tableSize.shouldHaveSize(1);
     }
-
-
-
-//
-//    @Test()
-//    public void loadStatusBookedWithBookedOffer() { //throws SQLException{
-//        loadListPage.clickNewLoadBtn();
-//        editCreateLoadPage.setDefaultLoadSettings().getLoadSettingsFragment();
-//        editCreateLoadPage.getOffersTableFragment()
-//                .searchDrivers("7")
-//                .selectDrivers()
-//                .clickSaveLoadAndSendOffersBtn()
-//                .clearFilterBtn.waitUntil(Condition.visible, 5000);
-//        String id = editCreateLoadPage.getID();
-//        editCreateLoadPage.backToLoadBoard();
-//
-//
-//        //changeOfferStatus("booked");
-//
-//        loadListPage.getFilterLoadPageFragment().inputStatus("Booked").clickBtnFilter();
-//        loadListPage.getFilterLoadPageFragment().inputLoadId(id).clickBtnFilter();
-//        loadListPage.getTableFragment().loadActionBtnClick();
-//        loadListPage.getTableFragment().actionsFromActionBtnSize().shouldHaveSize(2);
-//
-//        Assertions.assertEquals("Edit", loadListPage.getTableFragment().getActionsFromActionBtn().get(0));
-//        Assertions.assertEquals("Delete", loadListPage.getTableFragment().getActionsFromActionBtn().get(1));
-//    }
-
 }
