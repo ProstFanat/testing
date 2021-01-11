@@ -53,10 +53,9 @@ public class CreateLoadMainFlow {
                 .clickSaveLoadAndSendOffersBtn();
         editCreateLoadPage.getOffersTableFragment().checkDriversName();
         editCreateLoadPage.checkLoadIdInUrl();
+        basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         String id = editCreateLoadPage.getID();
-        back();
-        back();
-
+        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(id);
         loadListPage.getFilterLoadPageFragment().clickBtnFilter();
         loadListPage.tableSize.shouldHave(CollectionCondition.size(1));
