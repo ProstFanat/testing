@@ -91,7 +91,7 @@ public class CreateToolTest {
         EventDAO.deleteEvents(Accounts.TEST_DRIVER_ID);
         driver.close();
     }
-/*
+
         @Description("Создать все Duty статусы и PC/YM на продолжительном ивенте")
         @Severity(SeverityLevel.CRITICAL)
         @Test(priority = 0, description = "TE_CREATE_001: DUTY EVENTS AND PC/YM")
@@ -897,7 +897,7 @@ public class CreateToolTest {
             createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
 
         }
-*/
+
         @Description("Создать все ивенты в Gap с помощью Split and Specify")
         @Severity(SeverityLevel.NORMAL)
         @Test(priority = 0, description = "TE_CREATE_017: GAP SPLIT/SPECIFY")
