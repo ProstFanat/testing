@@ -3,6 +3,8 @@ package ELDTransactionPages.Fragments;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.Collection;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
@@ -14,8 +16,8 @@ public class MainEldTableFragment {
             deleteBtn = $x("//span[text()=' Delete Transaction']"),
             switchTablePages = $x("//i[@class='datatable-icon-right']");
     ElementsCollection actionsBtn = $$x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]"),
-            rowsData = $$x("//datatable-row-wrapper//datatable-body-cell[4]");
-
+            rowsData = $$x("//datatable-row-wrapper//datatable-body-cell[4]"),
+            actions = $$x("//ul[@id='dropdown-basic']");
 
     public MainEldTableFragment clickFirstActionBtn() {
         actionsBtn.first().click();
@@ -52,5 +54,9 @@ public class MainEldTableFragment {
         } else {
             return false;
         }
+    }
+
+    public ElementsCollection getActions() {
+    return actions;
     }
 }
