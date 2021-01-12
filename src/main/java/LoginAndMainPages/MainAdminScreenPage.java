@@ -8,7 +8,8 @@ import static com.codeborne.selenide.Selenide.$x;
 public class MainAdminScreenPage {
 
     SelenideElement loadSearchBtn = $x("//p[contains(text(), 'Load Search')]"),
-    eldTransactionBtn = $x("//a[contains(@is-permitted-for, 'read.ELD-TRANSACTIONS')]");
+    eldTransactionBtn = $x("//a[contains(@is-permitted-for, 'read.ELD-TRANSACTIONS')]"),
+    customersBtn = $x("//*[text() = 'Customers']");
 
 
     public void clickLoadSearchBtn() {
@@ -17,5 +18,9 @@ public class MainAdminScreenPage {
 
     public void clickSideMenuELDTransactionBtb() {
         eldTransactionBtn.click();
+    }
+
+    public void clickCustomers(){
+        customersBtn.click();
     }
 }
