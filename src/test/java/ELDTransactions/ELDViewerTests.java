@@ -1,27 +1,28 @@
 package ELDTransactions;
 
-
 import ELDTransactionPages.ELDMonitorPage;
 import ELDTransactionPages.EldTransactionPage;
+import ELDTransactionPages.ELDViewerPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class RejectedCommitTransactions {
+public class ELDViewerTests {
 
     public static LoginPage loginPage;
     public static EldTransactionPage eldMainPage;
     public static MainAdminScreenPage mainAdminScreenPage;
     public static ELDMonitorPage eldMonitorPage;
     public static Random random;
-
+    public static ELDViewerPage eldViewerPage;
     @BeforeAll
     static void setup() {
         Configuration.timeout = 10000;
@@ -31,34 +32,51 @@ public class RejectedCommitTransactions {
         eldMainPage = new EldTransactionPage();
         mainAdminScreenPage = new MainAdminScreenPage();
         eldMonitorPage = new ELDMonitorPage();
+        eldViewerPage = new ELDViewerPage();
         loginPage.login("5", "test");
         random = new Random();
     }
 
+    @BeforeEach
+    void beforeTest() {
+        open("http://localhost:8080/TrackEnsure/app-admin/hos/#/eldTransactions/transactions");
+    }
+
     @Test
-    void rejectTransactionTest() {
-        mainAdminScreenPage.clickSideMenuELDTransactionBtb();
+    void dateFilterTest() {
+        mainAdminScreenPage.clickSideMenuELDTransactionBtn();
 
         eldMainPage.getMainEldTableFragment().clickFirstActionBtn()
                 .clickActionView();
 
-        eldMonitorPage.getEldMonitorHeaderFragment().clickRejectBtn();
-        eldMonitorPage.getEldMonitorModalWindowFragment().clickCancelBtn();
-        eldMonitorPage.getEldMonitorHeaderFragment().rejectBtn.shouldBe(Condition.visible).click();
+        eldMonitorPage.getEldMonitorTabsFragment().eldViewerTabClick();
 
-        eldMonitorPage.getEldMonitorModalWindowFragment().modalRejectBtn.shouldNotBe(Condition.visible, Condition.enabled);
-
-        String comment = String.valueOf(Math.random());
-        eldMonitorPage.getEldMonitorModalWindowFragment().typeComment(comment);
-        eldMonitorPage.getEldMonitorModalWindowFragment().clickRejectBtn();
-
-        eldMainPage.checkMessage("ELD Transaction was rejected successfully!").shouldBe(Condition.visible);
-        eldMainPage.getMainEldFilterFragment().changeStatusFilter("Rejected")
-                    .clickFilterBtn();
-        eldMainPage.getMainEldTableFragment().getTransactionByComment(comment).shouldHaveSize(1);
-
-
+        int firstDay = 1;    // set calendar days
+        int lastDay = 30;    // to Filter
+        eldViewerPage.selectDateRangeDays(firstDay,lastDay);
+        eldViewerPage.getGraphsDays().shouldHaveSize((firstDay - lastDay)+1);
     }
+
+    @Test
+    void dateLegendTest() {
+        mainAdminScreenPage.clickSideMenuELDTransactionBtn();
+
+        eldMainPage.getMainEldTableFragment().clickFirstActionBtn()
+                .clickActionView();
+
+        eldMonitorPage.getEldMonitorTabsFragment().eldViewerTabClick();
+
+        eldViewerPage.getLegendBtn().shouldBe(Condition.visible, Condition.enabled);
+        eldViewerPage.legendBtnClick()
+                .getLegends().shouldHaveSize(15);
+    }
+
+
+
+
+
+
+
 
 
 }

@@ -11,8 +11,8 @@ public class ELDMonitorHeaderFragment {
 
 SelenideElement takeTransactionBtn = $x("//button[text()= ' Take Transaction ']");
     public SelenideElement rejectBtn = $x("//button[text()= ' Reject ']"),
-    btnShowLegend = $x("//button[text()= ' Show Legend ']");
-
+    btnShowLegend = $x("//button[text()= ' Show Legend ']"),
+    commiteBtn = $x("//button[text()= ' Commit ']");
 
     public ELDMonitorHeaderFragment clickTakeTransactionBtn() {
         takeTransactionBtn.click();
@@ -26,6 +26,12 @@ SelenideElement takeTransactionBtn = $x("//button[text()= ' Take Transaction ']"
         }
         rejectBtn.click();
     }
-
+    public void clickCommiteBtn() {
+        sleep(5000);
+        if (takeTransactionBtn.is(Condition.visible)) {
+            takeTransactionBtn.click();
+        }
+        commiteBtn.click();
+    }
 
 }

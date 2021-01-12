@@ -18,14 +18,14 @@ public class MainEldFilterFragment {
     public MainEldFilterFragment changeStatusFilter(String status){
 
         sleep(5000);
-        //transactionsStatusFilter.click();
-        transactionsStatusFilter.selectOptionContainingText(status);
+        transactionsStatusFilter.click();
+       // transactionsStatusFilter.selectOptionContainingText(status);
 
-//        for (int i = 0; i < transactionsStatuses.size(); i++) {
-//            if (transactionsStatuses.get(i).getText().startsWith(status)) {
-//                transactionsStatuses.get(i).click();
-//            }
-//        }
+        for (int i = 0; i < transactionsStatuses.size(); i++) {
+            if (transactionsStatuses.get(i).getText().startsWith(status)) {
+                transactionsStatuses.get(i).click();
+            }
+        }
         return this;
     }
 

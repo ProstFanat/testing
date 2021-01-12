@@ -16,7 +16,7 @@ public class MainAdminScreenPage {
         loadSearchBtn.click();
     }
 
-    public void clickSideMenuELDTransactionBtb() {
+    public void clickSideMenuELDTransactionBtn() {
         eldTransactionBtn.click();
     }
 

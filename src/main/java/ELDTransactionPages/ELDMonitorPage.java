@@ -2,14 +2,14 @@ package ELDTransactionPages;
 
 import ELDTransactionPages.Fragments.ELDMonitorHeaderFragment;
 import ELDTransactionPages.Fragments.ELDMonitorModalWindowFragment;
-import ELDTransactionPages.Fragments.MainEldFilterFragment;
+import ELDTransactionPages.Fragments.ELDMonitorTabsFragment;
+
 
 public class ELDMonitorPage {
 
     ELDMonitorHeaderFragment eldMonitorHeaderFragment = new ELDMonitorHeaderFragment();
-ELDMonitorModalWindowFragment eldMonitorModalWindowFragment = new ELDMonitorModalWindowFragment();
-
-
+    ELDMonitorModalWindowFragment eldMonitorModalWindowFragment = new ELDMonitorModalWindowFragment();
+    ELDMonitorTabsFragment eldMonitorTabsFragment = new ELDMonitorTabsFragment();
 
     public ELDMonitorHeaderFragment getEldMonitorHeaderFragment() {
         return eldMonitorHeaderFragment;
@@ -19,4 +19,8 @@ ELDMonitorModalWindowFragment eldMonitorModalWindowFragment = new ELDMonitorModa
         return eldMonitorModalWindowFragment;
     }
 
+
+    public ELDMonitorTabsFragment getEldMonitorTabsFragment() {
+        return eldMonitorTabsFragment;
+    }
 }

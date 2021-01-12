@@ -1,5 +1,6 @@
 package ELDTransactionPages;
 
+import ELDTransactionPages.Fragments.ConfirmModalWindowFragment;
 import ELDTransactionPages.Fragments.MainEldFilterFragment;
 import ELDTransactionPages.Fragments.MainEldTableFragment;
 import com.codeborne.selenide.SelenideElement;
@@ -10,7 +11,7 @@ public class EldTransactionPage {
 
     MainEldTableFragment mainEldTableFragment = new MainEldTableFragment();
     MainEldFilterFragment mainEldFilterFragment = new MainEldFilterFragment();
-
+    ConfirmModalWindowFragment confirmModalWindowFragment = new ConfirmModalWindowFragment();
 
     public MainEldTableFragment getMainEldTableFragment() {
         return mainEldTableFragment;
@@ -25,5 +26,7 @@ public class EldTransactionPage {
         return mainEldFilterFragment;
     }
 
-
+    public ConfirmModalWindowFragment getConfirmModalWindowFragment() {
+        return confirmModalWindowFragment;
+    }
 }

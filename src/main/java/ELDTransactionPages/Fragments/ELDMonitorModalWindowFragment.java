@@ -9,9 +9,8 @@ public class ELDMonitorModalWindowFragment {
 
 public SelenideElement modalCancelBtn = $x("//button[text() = 'Cancel']"),
         modalRejectBtn = $x("//button[text()= 'Reject']"),
-modalCommentField = $("[placeholder='Comment']");
-
-
+        modalCommentField = $("[placeholder='Comment']"),
+        modalCommitBtn = $x("//button[text()= 'Commit']");
 
 
 public ELDMonitorModalWindowFragment clickCancelBtn() {
@@ -27,7 +26,9 @@ public ELDMonitorModalWindowFragment clickCancelBtn() {
     public ELDMonitorModalWindowFragment typeComment(String comment) {
         modalCommentField.setValue(comment);
        return this;
-
-
 }
+    public ELDMonitorModalWindowFragment clickCommiteBtn() {
+        modalCommitBtn.click();
+        return this;
+    }
 }
