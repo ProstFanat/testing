@@ -167,25 +167,25 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 11, 20, -1, logic.variables.ModificationStep.SAVE);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.PERSONAL_USE_AND_YARD_MOVE, EventsCode.PC_YM_CLEARED, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
@@ -227,25 +227,25 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 11, 20, -1, logic.variables.ModificationStep.SAVE);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.PERSONAL_USE_AND_YARD_MOVE, EventsCode.PC_YM_CLEARED, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
@@ -287,36 +287,36 @@ public class CreateToolTest {
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitError(createdEvent, 11, 20, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.PERSONAL_USE_AND_YARD_MOVE, EventsCode.PC_YM_CLEARED, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitError(createdEvent, 11, 50, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, -1, -1, 0, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, -1, -1, 0, logic.variables.ModificationStep.SAVE);
         }
 
         @Description("Создать все вертикальные события на Sleep")
@@ -348,35 +348,35 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 11, 20, -1, logic.variables.ModificationStep.SAVE);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.PERSONAL_USE_AND_YARD_MOVE, EventsCode.PC_YM_CLEARED, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitError(createdEvent, 11, 50, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, -1, -1, 0, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, -1, -1, 0, logic.variables.ModificationStep.SAVE);
         }
 
         @Description("Создать все вертикальные события на PU without Cleared")
@@ -407,26 +407,26 @@ public class CreateToolTest {
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 11, 20, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.DRIVER_DUTY_STATUS_CHANGED, EventsCode.OFF_DUTY, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
@@ -464,25 +464,25 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 11, 20, -1, logic.variables.ModificationStep.SAVE);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.DRIVER_DUTY_STATUS_CHANGED, EventsCode.ON_DUTY, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
@@ -524,25 +524,25 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 11, 20, -1, logic.variables.ModificationStep.SAVE);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.PERSONAL_USE_AND_YARD_MOVE, EventsCode.PC_YM_CLEARED, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
@@ -589,25 +589,25 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 11, 20, -1, logic.variables.ModificationStep.SAVE);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 25, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 30, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 35, -1, logic.variables.ModificationStep.SAVE);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 11, 40, -1, logic.variables.ModificationStep.SAVE);
 
             createdEvent = new Event(EventsType.PERSONAL_USE_AND_YARD_MOVE, EventsCode.PC_YM_CLEARED, "100", "100");
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
@@ -798,26 +798,26 @@ public class CreateToolTest {
             log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitCorrectResult(createdEvent, 19, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 13, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 19, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 13, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitCorrectResult(createdEvent, 19, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 13, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 19, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 13, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitCorrectResult(createdEvent, 19, 0, -1, logic.variables.ModificationStep.SAVE, SPLIT_MODE, -1);
 
         }
 
@@ -876,25 +876,25 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, -1, 0, -9);
 
         }
 
@@ -1019,25 +1019,25 @@ public class CreateToolTest {
             LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
             createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
 
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
-
-            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
-            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
+//
+//            createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_CLEARED, "100", "100");
+//            log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//            LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//            createTool.createEventAndWaitError(createdEvent, 1, 0, -1);
 
         }
 
@@ -1248,15 +1248,15 @@ public class CreateToolTest {
         LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
         createTool.createEventAndWaitCorrectResult(createdEvent, 13, 0, -1, ModificationStep.PREVIEW);
 
-        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-        createTool.createEventAndWaitCorrectResult(createdEvent, 14, 0, -1, ModificationStep.PREVIEW);
-
-        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-        createTool.createEventAndWaitCorrectResult(createdEvent, 15, 0, -1, ModificationStep.PREVIEW);
+//        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//        createTool.createEventAndWaitCorrectResult(createdEvent, 14, 0, -1, ModificationStep.PREVIEW);
+//
+//        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//        createTool.createEventAndWaitCorrectResult(createdEvent, 15, 0, -1, ModificationStep.PREVIEW);
 
         createTool.resetCreatedEventsInPreview();
     }
@@ -1352,15 +1352,15 @@ public class CreateToolTest {
         LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
         createTool.createEventAndWaitCorrectResult(createdEvent, 13, 0, -1, ModificationStep.PREVIEW);
 
-        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
-        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-        createTool.createEventAndWaitCorrectResult(createdEvent, 14, 0, -1, ModificationStep.PREVIEW);
-
-        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-        createTool.createEventAndWaitCorrectResult(createdEvent, 15, 0, -1, logic.variables.ModificationStep.SAVE);
+//        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.ELD_MULFUNCTION_LOGGED, "100", "100");
+//        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//        createTool.createEventAndWaitCorrectResult(createdEvent, 14, 0, -1, ModificationStep.PREVIEW);
+//
+//        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//        createTool.createEventAndWaitCorrectResult(createdEvent, 15, 0, -1, logic.variables.ModificationStep.SAVE);
 
     }
 
@@ -1513,10 +1513,10 @@ public class CreateToolTest {
         LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
         createTool.createEventAndWaitCorrectResult(createdEvent, 14, 0, -1, ModificationStep.CANCEL);
 
-        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
-        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
-        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
-        createTool.createEventAndWaitCorrectResult(createdEvent, 15, 0, -1, ModificationStep.CANCEL);
+//        createdEvent = new Event(EventsType.MALFUNCTION_OR_DATE_DIAGNOSTIC, EventsCode.DATA_DIAGNOSTIC_EVENT_LOGGED, "100", "100");
+//        log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");
+//        LogToAllure.logToAllure("To create " + createdEvent.getEventName() + "event", createdEvent.toString());
+//        createTool.createEventAndWaitCorrectResult(createdEvent, 15, 0, -1, ModificationStep.CANCEL);
 
         createdEvent = new Event(EventsType.DRIVER_DUTY_STATUS_CHANGED, EventsCode.ON_DUTY, "100", "100");
         log.info("***CREATE NEW EVENT*** " + createdEvent.getEventName() + " event");

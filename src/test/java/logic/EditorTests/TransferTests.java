@@ -30,7 +30,7 @@ public class TransferTests {
     private static final Logger log = Logger.getLogger(TransferTests.class);
     private final EventsData eventsData = new EventsData();
     private EditorPage editor = null;
-    private static final long SECOND_DRIVER_ID = 61320;
+    private static final long SECOND_DRIVER_ID = 63647;
     private static final String FIRST_DRIVER_NAME = "Abror Sharobiddinov";
     private static final String SECOND_DRIVER_NAME = "John Transfer";
 

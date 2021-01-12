@@ -162,7 +162,7 @@ public class EventsData {
     public List<EventEntity> FIRST_EVENT(long driverId) {
         List<EventEntity> events = new ArrayList<>();
         events.add(new EventEntity(driverId, TRUCK_ID, ORG_ID, RECORD_STATUS, 2, 1, 1, LATTITUDE, LONGITUDE,
-                LOCATION_DESCRIPTION, DEVICE_UID, "'" + dateChange(-14) + " 07:00:00'"));
+                LOCATION_DESCRIPTION, DEVICE_UID, "'" + dateChange(-9) + " 07:00:00'"));
         return events;
     }
 
