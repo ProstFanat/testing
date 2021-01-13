@@ -1,10 +1,11 @@
 package Main;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import resources.BasePage;
 
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class DriversPage extends BasePage {
 
@@ -14,25 +15,30 @@ public class DriversPage extends BasePage {
                             checkBoxActivateLoadBoard = $x("//*[@ng-if = 'vm.sendLoadOffers']//input"),
                             btnSave = $x("//button[contains(text(), 'Save')]");
     SelenideElement addNewDriverBtn = $x("//a[contains(text(), 'Add New Driver')]"),
-            hosProviderInput = $x("//*[@aria-label = 'Select box activate']"),
-            firstNameInput = $x(""),
-            lastNameInput = $x(""),
-            emailInput = $x(""),
-            statusInput = $x(""),
-            loginNameInput = $x(""),
-            passInput = $x(""),
-            confirmPassInput = $x(""),
-            driverLicenseNumber = $x(""),
-            licenseStateInput = $x(""),
-            usaMultidayBasisInput = $x(""),
-            CanadianMultidayBasisInput = $x(""),
-            homeTerminalTimezoneInput = $x(""),
-            eLogAppModeInput = $x(""),
-            yardMoveCheckBox = $x(""),
-            personalUseCheckBox = $x(""),
-            regainHoursAtMidnightCheckBox = $x(""),
-            saveBtn = $x(""),
-            cancelBtn = $x("");
+            hosProviderInput = $x("//*[@placeholder = 'HOS Provider']"),
+            firstNameInput = $x("//input[@placeholder = 'John']"),
+            lastNameInput = $x("//input[@placeholder = 'Smith']"),
+            emailInput = $x("//input[@name = 'email'][@placeholder = 'johnsmith@example.com']"),
+            loginNameInput = $x("//input[@name = 'loginName'][@placeholder = 'johnsmith@example.com']"),
+            passInput = $x("//input[@id = 'button-password']"),
+            confirmPassInput = $x("//input[@id = 'button-confirm-password']"),
+            driverLicenseNumber = $x("//input[@name = 'licenseNumber']"),
+            licenseStateInput = $x("//div[@placeholder = 'Select State']"),
+            usaMultidayBasisInput = $x("//div[@name = 'eldMultidayBasisUsed']"),
+            canadianMultidayBasisInput = $x("//label[text() = 'Canadian Multiday Basis: ']//..//div[@placeholder = 'Select']"),
+            homeTerminalTimezoneInput = $x("//div[@placeholder = 'Select Timezone']"),
+            eLogAppModeInput = $x("//label[text() = 'eLog App Mode: ']//..//div[@placeholder = 'Select']"),
+            yardMoveCheckBox = $x("//input[@ng-model = 'vm.driver.eldIsYardMoveAllowed']"),
+            personalUseCheckBox = $x("//input[@ng-model = 'vm.driver.eldIsPersonalUseAllowed']"),
+            regainHoursAtMidnightCheckBox = $x("//input[@ng-model = 'vm.driver.regainHoursAtMidnight']"),
+            saveBtn = $x("//button[@ng-click = 'vm.ok(addDriverForm)']"),
+            cancelBtn = $x("//*[@class = 'modal-footer']//button[@ng-click = 'vm.cancel()']");
+    ElementsCollection hosProviders = $$x("//*[@placeholder = 'HOS Provider']//..//li"),
+    licenseStatusList = $$x("//div[@placeholder = 'Select State']//..//*[@role = 'option']"),
+    usaMultidayList = $$x("//div[@name = 'eldMultidayBasisUsed']//..//*[@role = 'option']"),
+    canadianMultidayList = $$x("//label[text() = 'Canadian Multiday Basis: ']//..//*[@role = 'option']"),
+    homeTerminalZoneList = $$x("//div[@placeholder = 'Select Timezone']//..//*[@role = 'option']"),
+    eLogAppList = $$x("//label[text() = 'eLog App Mode: ']//..//*[@role = 'option']");
 
     public DriversPage openPage(){
         open("http://localhost:8080/TrackEnsure/fleet/manager/cpDrivers/#/");
@@ -61,7 +67,7 @@ public class DriversPage extends BasePage {
 
     public DriversPage inputHOSProvider(){
         hosProviderInput.click();
-        hosProviderInput.setValue("TrackEnsure eLog").pressEnter();
+        hosProviders.first().click();
         return this;
     }
 
@@ -76,7 +82,7 @@ public class DriversPage extends BasePage {
     }
 
     public DriversPage inputEmail(Integer num){
-        lastNameInput.setValue("email" + num + "@mail.com");
+        emailInput.setValue("email" + num + "@mail.com");
         return this;
     }
 
@@ -102,7 +108,56 @@ public class DriversPage extends BasePage {
 
     public DriversPage inputLicenseState(){
         licenseStateInput.click();
-        licenseStateInput.setValue("Alabama").pressEnter();
+        licenseStatusList.first().click();
+        return this;
+    }
+
+    public DriversPage inputUSAMultidayBasis(){
+        usaMultidayBasisInput.click();
+        usaMultidayList.get(1).click();
+        return this;
+    }
+
+    public DriversPage inputCanadianMultidayBasis(){
+        canadianMultidayBasisInput.click();
+        canadianMultidayList.get(1).click();
+        return this;
+    }
+
+    public DriversPage inputHomeTerminalTimezone(){
+        homeTerminalTimezoneInput.click();
+        homeTerminalZoneList.first().click();
+        return this;
+    }
+
+    public DriversPage inputElogAppMode(){
+        eLogAppModeInput.click();
+        eLogAppList.first().click();
+        return this;
+    }
+
+    public DriversPage setTrueCheckBoxYardMove(){
+        yardMoveCheckBox.setSelected(true);
+        return this;
+    }
+
+    public DriversPage setTrueCheckBoxPersonalUse(){
+        personalUseCheckBox.setSelected(true);
+        return this;
+    }
+
+    public DriversPage setTrueCheckBoxRegainHoursAtMidnightCheckBox(){
+        regainHoursAtMidnightCheckBox.setSelected(true);
+        return this;
+    }
+
+    public DriversPage saveDriver(){
+        saveBtn.click();
+        return this;
+    }
+
+    public DriversPage cancelDriver(){
+        cancelBtn.click();
         return this;
     }
 
@@ -110,6 +165,25 @@ public class DriversPage extends BasePage {
         addNewDriverBtn.click();
         inputHOSProvider();
 
+        int num = (int) (Math.random() * 100000);
+        inputFirstName(num);
+        inputLastName(num);
+        inputEmail(num);
+        inputLoginName(num);
+        inputPass();
+        inputConfirmPass();
+        inputDriverLicenseNumber(num);
+        inputLicenseState();
+        inputUSAMultidayBasis();
+        inputCanadianMultidayBasis();
+        inputHomeTerminalTimezone();
+        inputElogAppMode();
+        setTrueCheckBoxYardMove();
+        setTrueCheckBoxPersonalUse();
+        setTrueCheckBoxRegainHoursAtMidnightCheckBox();
+
+        saveDriver();
+        addNewDriverBtn.waitUntil(Condition.exist, 10000);
         return this;
     }
 

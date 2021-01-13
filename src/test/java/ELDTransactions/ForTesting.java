@@ -1,8 +1,10 @@
 package ELDTransactions;
 
+import CreateTransactions.CreateTransaction;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import Main.CustomersPage;
+import Main.DriversPage;
 import com.codeborne.selenide.Configuration;
 import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
@@ -21,6 +23,8 @@ public class ForTesting {
     public static LoadListPage loadListPage;
     public static BasePage basePage;
     public static CustomersPage customersPage;
+    public static DriversPage driversPage;
+    public static CreateTransaction createTransaction;
 
     @BeforeAll
     static void setup() {
@@ -28,15 +32,19 @@ public class ForTesting {
         Configuration.startMaximized = true;
         open("http://localhost:8080/TrackEnsure/login.do");
         loginPage = new LoginPage();
+        createTransaction = new CreateTransaction();
         customersPage = new CustomersPage();
+        driversPage = new DriversPage();
         mainAdminScreenPage = new MainAdminScreenPage();
         loginPage.login("adrian@mail.com", "test");
         mainAdminScreenPage.clickCustomers();
         customersPage.logAsOrgOfCompany("Company For Autotesting");
+        driversPage.openPage();
     }
 
     @Test
     public void test(){
-
+        createTransaction.createTransaction(10);
+        sleep(5000);
     }
 }

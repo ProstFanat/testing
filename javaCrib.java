@@ -193,7 +193,7 @@ public class javaCrib {
         // set  - множество уникальных элементов. почти также как и list
         Set<Integer> set = new HashSet<>();
         set.add(1);
-        set.remove(1);
+        set.remove(1); Map<Integer, String> map = new HashMap();
         set.size();
         set.clear();
         set.contains(1);

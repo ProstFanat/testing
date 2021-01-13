@@ -18,6 +18,8 @@ public class CreateTransaction extends BasePage {
     SelenideElement modalWindow = $x("//div[@class = 'modal-header']");
     SelenideElement btnModalWindowOk = $x("//button[text() = 'OK']");
     SelenideElement errorMessage = $x("//*[@role='alertdialog']");
+    SelenideElement btnSkip = $x("//button[text() = 'Skip']"),
+    transactionStatusProcessed = $x("//*[text() = ' Processed']");
 
     public CreateTransaction checkModalWindow(){
         if(modalWindow.isDisplayed()){
@@ -31,35 +33,65 @@ public class CreateTransaction extends BasePage {
         return this;
     }
 
-    public void create(int from, int to){
-        for(int i = from; i <= to; i++ ){
-            refresh();
+    public CreateTransaction createTransaction(Integer quantity){
+        System.out.println("Creating transaction from company 'Company For Autotesting'");
+        open("http://localhost:8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
+        int i = 0, j = 1;
+        while(i < quantity){
+            System.out.println("j = " + j + "  i = " + i);
             driverSelect.click();
-            driversList.get(i).click();
-            waitForPageToLoad();
-            checkModalWindow();
-            if(isHidden(btnOpenTransaction)){
+            driversList.get(j).click();
+            if(btnOpenTransaction.exists()){
                 btnOpenTransaction.click();
-                if(isVisible(errorMessage)){
-                    continue;
-                } else {
-                    descriptionInput.setValue("test");
-                    btnSave.click();
-                    if(isVisible(errorMessage)){
-                        continue;
-                    } else {
-                        btnProcessed.click();
-                        if(isVisible(errorMessage)){
-                            continue;
-                        }
-                    }
-                }
-
-            } else if (isHidden(btnProcessed)){
+                descriptionInput.setValue("tesssst");
+                btnSave.click();
+                waitForPageToLoad();
                 btnProcessed.click();
+                btnSkip.click();
+                waitForPageToLoad();
+                i++;
+            } else if (btnProcessed.exists()){
+                btnProcessed.click();
+                btnSkip.click();
+                waitForPageToLoad();
+                i++;
             } else {
                 continue;
             }
+            j++;
         }
+        return this;
     }
+
+//    public void HARD_create(int from, int to){
+//        for(int i = from; i <= to; i++ ){
+//            refresh();
+//            driverSelect.click();
+//            driversList.get(i).click();
+//            waitForPageToLoad();
+//            checkModalWindow();
+//            if(isHidden(btnOpenTransaction)){
+//                btnOpenTransaction.click();
+//                if(isVisible(errorMessage)){
+//                    continue;
+//                } else {
+//                    descriptionInput.setValue("test");
+//                    btnSave.click();
+//                    if(isVisible(errorMessage)){
+//                        continue;
+//                    } else {
+//                        btnProcessed.click();
+//                        if(isVisible(errorMessage)){
+//                            continue;
+//                        }
+//                    }
+//                }
+//
+//            } else if (isHidden(btnProcessed)){
+//                btnProcessed.click();
+//            } else {
+//                continue;
+//            }
+//        }
+//    }
 }

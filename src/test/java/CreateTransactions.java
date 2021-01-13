@@ -29,7 +29,7 @@ public class CreateTransactions {
 
     @Test
     public void test(){
-        create.create(10, 20);
+        create.createTransaction(10);
     }
 
 }
