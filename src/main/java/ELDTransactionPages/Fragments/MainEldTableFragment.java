@@ -17,7 +17,7 @@ public class MainEldTableFragment {
             switchTablePages = $x("//i[@class='datatable-icon-right']");
     ElementsCollection actionsBtn = $$x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]"),
             rowsData = $$x("//datatable-row-wrapper//datatable-body-cell[4]"),
-            actions = $$x("//ul[@id='dropdown-basic']");
+            actions = $$x("//ul[@id='dropdown-basic']//li//span");
 
     public MainEldTableFragment clickFirstActionBtn() {
         actionsBtn.first().click();

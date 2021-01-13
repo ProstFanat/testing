@@ -68,7 +68,8 @@ public class ELDViewerTests {
 
         eldViewerPage.getLegendBtn().shouldBe(Condition.visible, Condition.enabled);
         eldViewerPage.legendBtnClick()
-                .getLegends().shouldHaveSize(15);
+                .getLegends()
+                .shouldHaveSize(15);
     }
 
 

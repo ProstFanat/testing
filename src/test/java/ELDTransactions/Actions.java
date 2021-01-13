@@ -5,15 +5,16 @@ import ELDTransactionPages.ELDMonitorPage;
 import ELDTransactionPages.EldTransactionPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
+import java.util.*;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class Actions {
 
@@ -21,7 +22,6 @@ public class Actions {
     public static EldTransactionPage eldMainPage;
     public static MainAdminScreenPage mainAdminScreenPage;
     public static ELDMonitorPage eldMonitorPage;
-    public static Random random;
 
     @BeforeAll
     static void setup() {
@@ -35,29 +35,52 @@ public class Actions {
         loginPage.login("5", "test");
     }
 
-
     @Test
     void processedActionsTest() {
         mainAdminScreenPage.clickSideMenuELDTransactionBtn();
 
         eldMainPage.getMainEldFilterFragment().changeStatusFilter("Processed")
                 .clickFilterBtn();
+        String[] expectedActions = {"View","Take", "Delete Transaction"};
+        String actualActions = eldMainPage.getMainEldTableFragment().clickFirstActionBtn().getActions().texts().toString();
 
-        eldMainPage.getMainEldTableFragment().clickFirstActionBtn().getActions();
-
-//       .shouldHaveSize(3);
-       // eldMainPage.getMainEldTableFragment().getActions().shouldHave(CollectionCondition.texts(" View"),CollectionCondition.texts(" Take"),CollectionCondition.texts(" Delete Transaction"));
-
+        Assertions.assertEquals(Arrays.toString(expectedActions), actualActions);
 
     }
 
+    @Test
+    void committedActionsTest() {
+        mainAdminScreenPage.clickSideMenuELDTransactionBtn();
+
+        eldMainPage.getMainEldFilterFragment().changeStatusFilter("Committed")
+                .clickFilterBtn();
+        sleep(500);
+        String[] expectedActions = {"Roll Back Transaction Changes", "Delete Transaction"};
+        String actualActions = eldMainPage.getMainEldTableFragment().clickFirstActionBtn().getActions().texts().toString();
+
+        Assertions.assertEquals(Arrays.toString(expectedActions), actualActions);
+
+    }
+    @Test
+    void rejectedActionsTest() {
+        mainAdminScreenPage.clickSideMenuELDTransactionBtn();
+        eldMainPage.getMainEldTableFragment().clickFirstActionBtn()
+                .clickActionView();
+        eldMonitorPage.getEldMonitorHeaderFragment().clickRejectBtn();
+
+        String comment = String.valueOf((int) (Math.random() * 10000));
+        eldMonitorPage.getEldMonitorModalWindowFragment().typeComment(comment);
+        eldMonitorPage.getEldMonitorModalWindowFragment().clickRejectBtn();
+        eldMainPage.getMainEldFilterFragment().changeStatusFilter("Rejected")
+                .clickFilterBtn();
+        sleep(500);
+        String[] expectedActions = { "Delete Transaction"};
+        eldMainPage.getMainEldTableFragment().getTransactionByComment(comment);
+
+        String actualActions = eldMainPage.getMainEldTableFragment().clickFirstActionBtn().getActions().texts().toString();
 
 
+        Assertions.assertEquals(Arrays.toString(expectedActions), actualActions);
 
-
-
-
-
-
-
+    }
 }
