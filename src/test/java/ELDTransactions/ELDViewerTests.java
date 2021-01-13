@@ -23,6 +23,7 @@ public class ELDViewerTests {
     public static ELDMonitorPage eldMonitorPage;
     public static Random random;
     public static ELDViewerPage eldViewerPage;
+
     @BeforeAll
     static void setup() {
         Configuration.timeout = 10000;
@@ -34,7 +35,6 @@ public class ELDViewerTests {
         eldMonitorPage = new ELDMonitorPage();
         eldViewerPage = new ELDViewerPage();
         loginPage.login("5", "test");
-        random = new Random();
     }
 
     @BeforeEach
@@ -58,7 +58,7 @@ public class ELDViewerTests {
     }
 
     @Test
-    void dateLegendTest() {
+    void legendTest() {
         mainAdminScreenPage.clickSideMenuELDTransactionBtn();
 
         eldMainPage.getMainEldTableFragment().clickFirstActionBtn()
