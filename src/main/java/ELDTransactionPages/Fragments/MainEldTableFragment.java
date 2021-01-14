@@ -3,20 +3,18 @@ package ELDTransactionPages.Fragments;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import java.util.Collection;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MainEldTableFragment {
 
     SelenideElement viewBtn = $x("//span[contains(text(), ' View')]"),
-            rowData = $x("//datatable-row-wrapper[1]//datatable-body-cell[4]"),
+            rowDriverList = $x("//datatable-row-wrapper[1]//datatable-body-cell[6]"),
             deleteBtn = $x("//span[text()=' Delete Transaction']"),
-            switchTablePages = $x("//i[@class='datatable-icon-right']");
+            switchTablePagesBtn = $x("//i[@class='datatable-icon-right']"),
+    switchNextBtn = $x("//a[@aria-label='go to last page']/ancestor::li");
     ElementsCollection actionsBtn = $$x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]"),
-            rowsData = $$x("//datatable-row-wrapper//datatable-body-cell[4]"),
+            rowsDriverLists = $$x("//datatable-row-wrapper//datatable-body-cell[6]"),
             actions = $$x("//ul[@id='dropdown-basic']//li//span");
 
     public MainEldTableFragment clickFirstActionBtn() {
@@ -29,12 +27,18 @@ public class MainEldTableFragment {
         return this;
     }
 
-    public ElementsCollection getTransactionByComment(String comment) {
-        return $$x("//p[text() = '" + comment + "']");
+    public Boolean getTransactionByComment(String comment) {
+        while (!(switchNextBtn.getAttribute("class")=="disabled")){
+            if (!($x("//p[text() = '" + comment + "']").isDisplayed())) {
+                switchTablePagesBtn.click();
+            }}
+            return ($x("//p[text() = '" + comment + "']").isDisplayed());
     }
 
-    public SelenideElement getFirstTransactionDate() {
-        return rowData;
+
+
+    public SelenideElement getFirstTransactionDriver() {
+        return rowDriverList;
     }
 
     public MainEldTableFragment clickDeleteBtn() {
@@ -43,13 +47,13 @@ public class MainEldTableFragment {
     }
 
     public ElementsCollection getAllTransactionsDate() {
-        return rowsData;
+        return rowsDriverLists;
     }
 
     public boolean findTransaction(String Date) {
-        if (!(rowsData.findBy(text(Date)).isEnabled())){
-            switchTablePages.click();
-        } if (rowsData.findBy(text(Date)).isEnabled()) {
+        if (!(rowsDriverLists.findBy(text(Date)).isEnabled())){
+            switchTablePagesBtn.click();
+        } if (rowsDriverLists.findBy(text(Date)).isEnabled()) {
             return true;
         } else {
             return false;
