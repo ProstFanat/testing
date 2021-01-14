@@ -44,7 +44,7 @@ public class ForTesting {
 
     @Test
     public void test(){
-        createTransaction.createTransaction(10);
+        createTransaction.createTransaction(10, "comment");
         sleep(5000);
     }
 }

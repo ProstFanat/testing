@@ -39,7 +39,7 @@ public class CancelledRejectedCommitTransactions {
         createTransaction = new CreateTransaction();
         loginPage.login("adrian@mail.com", "test");
         random = new Random();
-        createTransaction.createTransaction(10);
+        createTransaction.createTransaction(10, "comment");
        // loginPage.login("adrian@mail.com", "test");
 }
 

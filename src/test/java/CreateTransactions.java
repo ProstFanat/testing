@@ -29,7 +29,7 @@ public class CreateTransactions {
 
     @Test
     public void test(){
-        create.createTransaction(10);
+        create.createTransaction(10, "comment");
     }
 
 }

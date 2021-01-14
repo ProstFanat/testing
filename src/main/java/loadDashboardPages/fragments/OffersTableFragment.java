@@ -93,6 +93,18 @@ public class OffersTableFragment extends BasePage {
         return this;
     }
 
+//    public void checkDriversStatus(boolean checkbox) {
+//        boolean result = false;
+//        if (checkbox) {
+//            do {
+//                for (int i = 0; i < driversCollection.size(); i++) {
+//                    driversStatusCollection.get(i).shouldNotHave(Condition.text("Driving"));
+//                }
+//                btnNextPage.click();
+//            } while (isBtnNextEnabled());
+//        }
+//    }
+
     public boolean checkDHOAddOffer(int ml){
         int initSize = driversCollection.size();
         int finalSize = 0;

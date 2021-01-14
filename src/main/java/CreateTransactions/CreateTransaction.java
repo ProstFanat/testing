@@ -9,7 +9,11 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import resources.BasePage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class CreateTransaction extends BasePage {
     SelenideElement driverSelect = $x("//ng-select[@placeholder = 'Driver Name']//input");
@@ -22,8 +26,11 @@ public class CreateTransaction extends BasePage {
     SelenideElement btnModalWindowOk = $x("//button[text() = 'OK']");
     SelenideElement errorMessage = $x("//*[@role='alertdialog']");
     SelenideElement btnSkip = $x("//button[text() = 'Skip']"),
-    transactionStatusProcessed = $x("//*[text() = ' Processed']"),
-    btnTake = $x("//button[text() = 'Take']");
+                    transactionStatusProcessed = $x("//*[text() = ' Processed']"),
+                    btnTake = $x("//button[text() = 'Take ']"),
+                    textareaInProcess = $x("//*[@role = 'document']//textarea"),
+                    btnSaveProcess = $x("//*[@role = 'document']//button[text() = 'Save']"),
+                    driverInfo = $x("//ng-select[@placeholder = 'Driver Name']//div//div//div[contains(@class, 'ng-value')]//span[contains(@class, 'ng-value-label')]");
 
     public static CustomersPage customersPage;
     public static DriversPage driversPage;
@@ -41,7 +48,18 @@ public class CreateTransaction extends BasePage {
         return this;
     }
 
-    public CreateTransaction createTransaction(Integer quantity){
+    public void processTransaction(String comment){
+        if(btnTake.exists()){
+            btnTake.click();
+        }
+        btnProcessed.click();
+        textareaInProcess.setValue(comment);
+        btnSaveProcess.click();
+        waitForPageToLoad();
+        System.out.println("Transaction has been processed!");
+    }
+
+    public CreateTransaction createTransaction(Integer quantity, String commentTransaction){
         System.out.println("Creating transaction from company 'Company For Autotesting'");
         customersPage = new CustomersPage();
         driversPage = new DriversPage();
@@ -61,19 +79,14 @@ public class CreateTransaction extends BasePage {
                 descriptionInput.setValue("tesssst");
                 btnSave.click();
                 waitForPageToLoad();
-                btnProcessed.click();
-                btnSkip.click();
-                waitForPageToLoad();
+                processTransaction(commentTransaction);
                 createdTransactions++;
             } else if (btnProcessed.exists()){
-                btnProcessed.click();
-                btnSkip.click();
+                processTransaction(commentTransaction);
                 waitForPageToLoad();
                 createdTransactions++;
             } else if (btnTake.exists()){
-                btnTake.click();
-                btnProcessed.click();
-                btnSkip.click();
+                processTransaction(commentTransaction);
                 waitForPageToLoad();
                 createdTransactions++;
             }
@@ -82,35 +95,58 @@ public class CreateTransaction extends BasePage {
         return this;
     }
 
-//    public void HARD_create(int from, int to){
-//        for(int i = from; i <= to; i++ ){
-//            refresh();
-//            driverSelect.click();
-//            driversList.get(i).click();
-//            waitForPageToLoad();
-//            checkModalWindow();
-//            if(isHidden(btnOpenTransaction)){
-//                btnOpenTransaction.click();
-//                if(isVisible(errorMessage)){
-//                    continue;
-//                } else {
-//                    descriptionInput.setValue("test");
-//                    btnSave.click();
-//                    if(isVisible(errorMessage)){
-//                        continue;
-//                    } else {
-//                        btnProcessed.click();
-//                        if(isVisible(errorMessage)){
-//                            continue;
-//                        }
-//                    }
-//                }
-//
-//            } else if (isHidden(btnProcessed)){
-//                btnProcessed.click();
-//            } else {
+    public Map<String, String> createWithReturningUrlAndDriverName(String commentTransaction){
+        System.out.println("Creating transaction from company 'Company For Autotesting'");
+        customersPage = new CustomersPage();
+        driversPage = new DriversPage();
+        mainAdminScreenPage = new MainAdminScreenPage();
+
+        Map<String, String> result = new HashMap<String, String>();
+
+        customersPage.openCustomersPage();
+        customersPage.logAsOrgOfCompany("Company For Autotesting");
+        driversPage.openPage();
+        open("http://localhost:8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
+        int createdTransactions = 0, counter = 1;
+        while(createdTransactions < 1){
+            System.out.println("counter = " + counter + "  createdTransactions = " + createdTransactions);
+            driverSelect.click();
+            driversList.get(counter).click();
+            if(btnOpenTransaction.exists()){
+                btnOpenTransaction.click();
+                descriptionInput.setValue("tesssst");
+                btnSave.click();
+                waitForPageToLoad();
+                processTransaction(commentTransaction);
+                createdTransactions++;
+
+                result.put("url", url());
+                result.put("name", driverInfo.getText());
+                System.out.println(result.get("url"));
+                System.out.println(result.get("name"));
+            } else if (btnProcessed.exists()) {
+                processTransaction(commentTransaction);
+                waitForPageToLoad();
+                createdTransactions++;
+
+                result.put("url", url());
+                result.put("name", driverInfo.getText());
+                System.out.println(result.get("url"));
+                System.out.println(result.get("name"));
+            }
+//            } else if (btnTake.exists()){
+////                processTransaction(commentTransaction);
+////                waitForPageToLoad();
+////                createdTransactions++;
+////
+////                result.put("url", url());
+////                result.put("name", driverInfo.getText());
+////                System.out.println(result.get("url"));
+////                System.out.println(result.get("name"));
 //                continue;
 //            }
-//        }
-//    }
+            counter++;
+        }
+        return result;
+    }
 }

@@ -12,13 +12,19 @@ public class MainEldTableFragment {
             rowDriverList = $x("//datatable-row-wrapper[1]//datatable-body-cell[6]"),
             deleteBtn = $x("//span[text()=' Delete Transaction']"),
             switchTablePagesBtn = $x("//i[@class='datatable-icon-right']"),
-    switchNextBtn = $x("//a[@aria-label='go to last page']/ancestor::li");
+    switchNextBtn = $x("//a[@aria-label='go to last page']/ancestor::li"),
+    actionBtn = $x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]//button");
     ElementsCollection actionsBtn = $$x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]"),
             rowsDriverLists = $$x("//datatable-row-wrapper//datatable-body-cell[6]"),
             actions = $$x("//ul[@id='dropdown-basic']//li//span");
 
     public MainEldTableFragment clickFirstActionBtn() {
         actionsBtn.first().click();
+        return this;
+    }
+
+    public MainEldTableFragment clickActionBtn() {
+        actionBtn.click();
         return this;
     }
 

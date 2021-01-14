@@ -10,11 +10,16 @@ public class CustomersPage extends BasePage {
 
     SelenideElement orgInput = $x("//input[@placeholder='Organization']"),
             btnSearch = $x("//input[@placeholder='Organization']//..//..//..//button"),
-            btnLogAsOrg = $x("//*[contains(@class, 'fa-sign-in')]");
+            btnLogAsOrg = $x("//*[contains(@class, 'fa-sign-in')]"),
+            btnIconOnSideBar = $x("//*[@tooltip = 'Customers']");
 
     public void openCustomersPage(){
         open("http://localhost:8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
         waitForPageToLoad();
+    }
+
+    public void openCustomersPageFromSideBar(){
+        btnIconOnSideBar.click();
     }
 
     public void logAsOrgOfCompany(String company){
