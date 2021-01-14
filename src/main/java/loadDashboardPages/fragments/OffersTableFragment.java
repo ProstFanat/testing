@@ -80,7 +80,6 @@ public class OffersTableFragment extends BasePage {
         } catch (Exception e) {
             throw new Exception("Test Failed");
         }
-
     }
 
     public int getDriversListSize(){

@@ -12,14 +12,14 @@ public class MainEldTableFragment {
             rowDriverList = $x("//datatable-row-wrapper[1]//datatable-body-cell[6]"),
             deleteBtn = $x("//span[text()=' Delete Transaction']"),
             switchTablePagesBtn = $x("//i[@class='datatable-icon-right']"),
-    switchNextBtn = $x("//a[@aria-label='go to last page']/ancestor::li"),
+            switchNextBtn = $x("//a[@aria-label='go to last page']/ancestor::li"),
     actionBtn = $x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]//button");
-    ElementsCollection actionsBtn = $$x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]"),
+    ElementsCollection actionsBtns = $$x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]"),
             rowsDriverLists = $$x("//datatable-row-wrapper//datatable-body-cell[6]"),
             actions = $$x("//ul[@id='dropdown-basic']//li//span");
 
     public MainEldTableFragment clickFirstActionBtn() {
-        actionsBtn.first().click();
+        actionsBtns.first().click();
         return this;
     }
 
@@ -33,14 +33,22 @@ public class MainEldTableFragment {
         return this;
     }
 
-    public Boolean getTransactionByComment(String comment) {
-        while (!(switchNextBtn.getAttribute("class")=="disabled")){
-            if (!($x("//p[text() = '" + comment + "']").isDisplayed())) {
-                switchTablePagesBtn.click();
-            }}
-            return ($x("//p[text() = '" + comment + "']").isDisplayed());
+    public boolean findTransactionByComment(String comment) {
+        if (!($x("//p[text() = '" + comment + "']").isDisplayed()))
+        {
+          do {
+                  switchTablePagesBtn.click();
+          } while (($x("//p[text() = '" + comment + "']").isDisplayed())||((switchNextBtn.getAttribute("class").equals("disabled")) && switchNextBtn.is(not(enabled))));
+        }
+        return ($x("//p[text() = '" + comment + "']").isDisplayed());
     }
 
+
+//        if (($x("//p[text() = '" + comment + "']").isDisplayed())) {
+//            return true;
+//        } else {
+//            return false;
+//        }
 
 
     public SelenideElement getFirstTransactionDriver() {
@@ -57,9 +65,10 @@ public class MainEldTableFragment {
     }
 
     public boolean findTransaction(String Date) {
-        if (!(rowsDriverLists.findBy(text(Date)).isEnabled())){
+        if (!(rowsDriverLists.findBy(text(Date)).isEnabled())) {
             switchTablePagesBtn.click();
-        } if (rowsDriverLists.findBy(text(Date)).isEnabled()) {
+        }
+        if (rowsDriverLists.findBy(text(Date)).isEnabled()) {
             return true;
         } else {
             return false;
@@ -67,6 +76,6 @@ public class MainEldTableFragment {
     }
 
     public ElementsCollection getActions() {
-    return actions;
+        return actions;
     }
 }

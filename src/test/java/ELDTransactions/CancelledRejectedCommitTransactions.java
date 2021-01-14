@@ -17,6 +17,7 @@ import java.util.Random;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class CancelledRejectedCommitTransactions {
 
@@ -39,7 +40,7 @@ public class CancelledRejectedCommitTransactions {
         createTransaction = new CreateTransaction();
         loginPage.login("adrian@mail.com", "test");
         random = new Random();
-        createTransaction.createTransaction(10, "comment");
+       // createTransaction.createTransaction(10, "comment");
        // loginPage.login("adrian@mail.com", "test");
 }
 
@@ -67,7 +68,7 @@ public class CancelledRejectedCommitTransactions {
         eldMainPage.checkMessage("ELD Transaction was rejected successfully!").shouldBe(Condition.visible);
         eldMainPage.getMainEldFilterFragment().changeStatusFilter("Rejected")
                 .clickFilterBtn();
-        Assertions.assertTrue(eldMainPage.getMainEldTableFragment().getTransactionByComment(comment));
+      //  Assertions.assertTrue(eldMainPage.getMainEldTableFragment().findTransactionByComment(comment));
     }
 
     @Test
@@ -85,12 +86,14 @@ public class CancelledRejectedCommitTransactions {
         String comment = String.valueOf((int) (Math.random() * 10000));
         eldMonitorPage.getEldMonitorModalWindowFragment().typeComment(comment);
         eldMonitorPage.getEldMonitorModalWindowFragment().clickCommiteBtn();
-
+        System.out.println(comment);
         eldMainPage.checkMessage("ELD Transaction was committed successfully!").shouldBe(Condition.visible);
         eldMainPage.getMainEldFilterFragment().changeStatusFilter("Committed")
                 .clickFilterBtn();
-        Assertions.assertTrue(eldMainPage.getMainEldTableFragment().getTransactionByComment(comment));
-    }
+        sleep(500);
+        Assertions.assertTrue(eldMainPage.getMainEldTableFragment().findTransactionByComment(comment));
+
+}
 
     @Test
     void cancelTransactionTest() {

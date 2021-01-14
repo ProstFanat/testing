@@ -5,7 +5,6 @@ import ELDTransactionPages.ELDMonitorPage;
 import ELDTransactionPages.EldTransactionPage;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -75,7 +74,7 @@ public class Actions {
                 .clickFilterBtn();
         sleep(500);
         String[] expectedActions = { "Delete Transaction"};
-        eldMainPage.getMainEldTableFragment().getTransactionByComment(comment);
+        eldMainPage.getMainEldTableFragment().findTransactionByComment(comment);
 
         String actualActions = eldMainPage.getMainEldTableFragment().clickFirstActionBtn().getActions().texts().toString();
 
