@@ -7,16 +7,6 @@ import java.util.Date;
 import java.util.Set;
 
 public class Organization extends RecordMapperValueObject {
-    private static final long serialVersionUID = 5428940623845186282L;
-
-    public static final String BUSINESS_TYPE_GENERIC = "generic";
-    public static final String BUSINESS_TYPE_GPS_TRACKING = "gps-tracking";
-    public static final String BUSINESS_TYPE_PROJECT_MANAGEMENT = "project-management";
-    public static final String BUSINESS_TYPE_APPOINTMENT_MANAGEMENT = "appointment-management";
-    public static final String BUSINESS_TYPE_MEETINGS_AND_RALLIES = "meetings-and-rallies";
-    public static final String BUSINESS_TYPE_STEP_OR_TWO = "step-or-two";
-    public static final String BUSINESS_TYPE_ADVERTISEMENT = "advertisement";
-    public static final String BUSINESS_TYPE_FLEET_MANAGEMENT = "fleet-management";
 
     private Long organizationId;
     private String organizationName;
@@ -26,14 +16,10 @@ public class Organization extends RecordMapperValueObject {
     private String homeTerminalTimezone;
     private String usdotNumber;
     private String mcNumber;
-//    private Contact contact;
-//    private Address address;
     private Date createDate;
 
-    // join public.account
     private String accountPin;
     private Character ourSafetyService;
-//    private Account account;
 
 
     public Organization(final ResultSet rs, Set<String> rsColumns) throws Exception {
@@ -139,7 +125,6 @@ public class Organization extends RecordMapperValueObject {
     public void setOurSafetyService(Character ourSafetyService) {
         this.ourSafetyService = ourSafetyService;
     }
-
 
     @Override
     public String toString() {

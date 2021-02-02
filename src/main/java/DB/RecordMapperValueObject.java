@@ -269,21 +269,21 @@ public abstract class RecordMapperValueObject {
         }
     }
 
-//    protected Boolean getBooleanFromCharacter(ResultSet rs, String databaseFieldName, Set<String> allColumns) throws Exception {
-//        return getBooleanFromCharacter(rs, databaseFieldName, allColumns, null);
-//    }
+    protected Boolean getBooleanFromCharacter(ResultSet rs, String databaseFieldName, Set<String> allColumns) throws Exception {
+        return getBooleanFromCharacter(rs, databaseFieldName, allColumns, null);
+    }
 
-//    protected Boolean getBooleanFromCharacter(ResultSet rs, String databaseFieldName, Set<String> allColumns, Boolean defaultValue) throws Exception {
-//        if (allColumns == null || !allColumns.contains(databaseFieldName.toLowerCase())) {
-//            return defaultValue;
-//        }
-//        Character characterValue = getCharacter(rs, databaseFieldName, allColumns);
-//        if (characterValue != null) {
-//            return AppConstants.BOOLEAN_CHARACTER_YES.equals(characterValue) ? new Boolean(true) : new Boolean(false);
-//        } else {
-//            return defaultValue;
-//        }
-//    }
+    protected Boolean getBooleanFromCharacter(ResultSet rs, String databaseFieldName, Set<String> allColumns, Boolean defaultValue) throws Exception {
+        if (allColumns == null || !allColumns.contains(databaseFieldName.toLowerCase())) {
+            return defaultValue;
+        }
+        Character characterValue = getCharacter(rs, databaseFieldName, allColumns);
+        if (characterValue != null) {
+            return new Character('Y').equals(characterValue) ? new Boolean(true) : new Boolean(false);
+        } else {
+            return defaultValue;
+        }
+    }
 
 //    protected Boolean getBooleanFromBit(ResultSet rs, String databaseFieldName, Set<String> allColumns) {
 //        return getBooleanFromBit(rs, databaseFieldName, allColumns, null);
