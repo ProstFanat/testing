@@ -1130,7 +1130,6 @@ public class DriverProfile extends RecordMapperValueObject {
         this.organizationName = getString(rs, "organization_name", rsColumns);
         this.sendLoadOffers = getCharacter(rs, "send_load_offers", rsColumns);
         this.mobileAppOptions = getString(rs, "mobile_app_options", rsColumns);
-        //this.eldType = getString(rs, "eld_type", rsColumns);
     }
 
 

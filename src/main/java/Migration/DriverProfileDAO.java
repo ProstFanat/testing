@@ -39,22 +39,4 @@ public class DriverProfileDAO {
 
 
     }
-
-//    public DriverProfile getDriverByIdNew (Long driverId) throws SQLException {
-//        DriverProfile driverProfile = null;
-//
-//        Connection connection = DBConnection.getConnection(DB_URL2, USER_DB2, PASS_DB2);
-//        String sql = "SELECT * from fleet.driver_profile WHERE driver_id=" + driverId;
-//        try (PreparedStatement ps = connection.prepareStatement(sql)){
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()){
-//                driverProfile =  new DriverProfile(rs, null);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        connection.close();
-//        return driverProfile;
-//
-//    }
 }
