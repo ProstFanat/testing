@@ -1,9 +1,6 @@
 package Migration.Fragments;
 
-import Migration.DriverProfile;
-import Migration.DriverProfileDAO;
-import Migration.EldEvent;
-import Migration.EldEventDao;
+import Migration.*;
 import org.junit.jupiter.api.Assertions;
 
 import java.sql.SQLException;
@@ -19,8 +16,10 @@ public class EldEvents {
         EldEventDao profileDAOOld = new EldEventDao(DB_URL, USER_DB, PASS_DB);
         EldEventDao profileDAONew = new EldEventDao(DB_URL2, USER_DB2, PASS_DB2);
 
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
         List<String> eldEventOld = profileDAOOld.getEldEventsForDriver(id);
-        List<String> eldEventNew = profileDAONew.getEldEventsForDriver(id);
+        List<String> eldEventNew = profileDAONew.getEldEventsForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(eldEventNew, eldEventOld);
     }

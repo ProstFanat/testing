@@ -1,7 +1,7 @@
 package Migration;
 
-import Migration.Fragments.DriversProfiles;
 import Migration.Fragments.EldEvents;
+import Migration.Fragments.EldEventsOriginal;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -9,18 +9,17 @@ import java.sql.SQLException;
 
 import static DB.DBConstant.*;
 
-public class TestEldEvents {
-    public static EldEvents eldEvents;
+public class TestEldEventsOriginal {
+    public static EldEventsOriginal eldEventsOriginal;
 
     @BeforeAll
     static void setup() {
-        eldEvents = new EldEvents();
+        eldEventsOriginal = new EldEventsOriginal();
     }
-
 
     @Test
     public void test() throws SQLException {
-        eldEvents.compareEldEventsById("63608");
+        eldEventsOriginal.compareEldOriginalEventsById("63599");
 
     }
 }

@@ -818,5 +818,71 @@ public class EldEvent extends RecordMapperValueObject {
         this.fleetManagerCommentUnnasign = getString(rs, "fleet_manager_comment_unnasign", rsColumns);
     }
 
-
+    public EldEvent(Long eventId, Long orgId, Date createDate, Long driverId1, Long driverId2, Long truckId, String truckNumber, String trailerNumber,
+                    String truckVin, String deviceUid, Integer eventSequence, Integer recordStatus, Integer recordOrigin, Integer eventType,
+                    Integer eventCode, String eventDate, String eventTime, String timeZoneOffset, Date eventTimestamp, Long eventTimestampMs,
+                    String accumulatedVehicleMiles, String totalVehicleMiles, String elapsedEngineHours, String totalEngineHours, String latitude,
+                    String longitude, String latitudeSecondary, String longitudeSecondary, String locationDescription, String distanceSinceLastValidCoords,
+                    String malfunctionIndicatorStatus, String dataDiagnosticEventIdicatorStatus, String malfunctionDiagnosticCode, String comment,
+                    String dataCheckValue, Date driverCertified, String shippingNumber, String certifiedDate, Date borderCrossingDate,
+                    Integer deviceSequence, Date deleteTime, Long eldSequence, String elogAppMode, String deviceType, String appVersion,
+                    String country, String provState, String city, Integer eventVersion, Long fuelPurchaseReceiptId, Long remoteEventId,
+                    Character isPersonalConveyanceOrYardMove, String totalVehicleMilesEnd, String eldSerialNumber, String platform, Character dataGap) {
+        this.eventId = eventId;
+        this.orgId = orgId;
+        this.createDate = createDate;
+        this.driverId1 = driverId1;
+        this.driverId2 = driverId2;
+        this.truckId = truckId;
+        this.truckNumber = truckNumber;
+        this.trailerNumber = trailerNumber;
+        this.truckVin = truckVin;
+        this.deviceUid = deviceUid;
+        this.eventSequence = eventSequence;
+        this.recordStatus = recordStatus;
+        this.recordOrigin = recordOrigin;
+        this.eventType = eventType;
+        this.eventCode = eventCode;
+        this.eventDate = eventDate;
+        this.eventTime = eventTime;
+        this.timeZoneOffset = timeZoneOffset;
+        this.eventTimestamp = eventTimestamp;
+        this.eventTimestampMs = eventTimestampMs;
+        this.accumulatedVehicleMiles = accumulatedVehicleMiles;
+        this.totalVehicleMiles = totalVehicleMiles;
+        this.elapsedEngineHours = elapsedEngineHours;
+        this.totalEngineHours = totalEngineHours;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.latitudeSecondary = latitudeSecondary;
+        this.longitudeSecondary = longitudeSecondary;
+        this.locationDescription = locationDescription;
+        this.distanceSinceLastValidCoords = distanceSinceLastValidCoords;
+        this.malfunctionIndicatorStatus = malfunctionIndicatorStatus;
+        this.dataDiagnosticEventIdicatorStatus = dataDiagnosticEventIdicatorStatus;
+        this.malfunctionDiagnosticCode = malfunctionDiagnosticCode;
+        this.comment = comment;
+        this.dataCheckValue = dataCheckValue;
+        this.driverCertified = driverCertified;
+        this.shippingNumber = shippingNumber;
+        this.certifiedDate = certifiedDate;
+        this.borderCrossingDate = borderCrossingDate;
+        this.deviceSequence = deviceSequence;
+        this.deleteTime = deleteTime;
+        this.eldSequence = eldSequence;
+        this.elogAppMode = elogAppMode;
+        this.deviceType = deviceType;
+        this.appVersion = appVersion;
+        this.country = country;
+        this.provState = provState;
+        this.city = city;
+        this.eventVersion = eventVersion;
+        this.fuelPurchaseReceiptId = fuelPurchaseReceiptId;
+        this.remoteEventId = remoteEventId;
+        this.isPersonalConveyanceOrYardMove = isPersonalConveyanceOrYardMove;
+        this.totalVehicleMilesEnd = totalVehicleMilesEnd;
+        this.eldSerialNumber = eldSerialNumber;
+        this.platform = platform;
+        this.dataGap = dataGap;
+    }
 }

@@ -2,6 +2,7 @@ package Migration.Fragments;
 
 import Migration.DriverProfile;
 import Migration.DriverProfileDAO;
+import Migration.GetNewId;
 import org.junit.jupiter.api.Assertions;
 
 import java.sql.SQLException;
@@ -15,8 +16,11 @@ public class DriversProfiles {
         DriverProfileDAO profileDAOOld = new DriverProfileDAO(DB_URL, USER_DB, PASS_DB);
         DriverProfileDAO profileDAONew = new DriverProfileDAO(DB_URL2, USER_DB2, PASS_DB2);
 
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+
         DriverProfile DriverProfileOld = profileDAOOld.getDriverById(id);
-        DriverProfile DriverProfileNew = profileDAONew.getDriverById(id);
+        DriverProfile DriverProfileNew = profileDAONew.getDriverById(getNewId.getNewDriverId(id));
 
         System.out.println(DriverProfileOld.toString());
         System.out.println(DriverProfileNew.toString());
