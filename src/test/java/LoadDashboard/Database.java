@@ -1,5 +1,10 @@
 package LoadDashboard;
 
+import DB.DBConstant;
+import Migration.DriverProfile;
+import Migration.DriverProfileDAO;
+import org.junit.jupiter.api.Test;
+
 import  java.sql.Connection;
 import  java.sql.Statement;
 import  java.sql.ResultSet;
@@ -32,12 +37,19 @@ public class Database {
         while (rs.next()){
             String offer_id = rs.getString(1);
             String myAge = rs.getString(2);
-            System. out.println();
+            System.out.println();
         }
         // closing DB Connection
         con.close();
     }
 
+
+    @Test
+    public void test(){
+        //DriverProfileDAO profileDAO = new DriverProfileDAO(DBConstant.DB_URL, DBConstant.USER_DB, DBConstant.PASS_DB2);
+        //DriverProfile driverProfile = profileDAO.getDriverByIdOld(17951L);
+        //System.out.println(driverProfile.toString());
+    }
 
 
 }

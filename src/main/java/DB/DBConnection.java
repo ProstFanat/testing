@@ -13,10 +13,12 @@ public class DBConnection {
 
     public static Connection getConnection(){
         if(con!=null) return con;
-        return getConnection(DBConstant.DB_URL, DBConstant.USER_DB, DBConstant.PASS_DB);
+        return createConnection(DBConstant.DB_URL, DBConstant.USER_DB, DBConstant.PASS_DB);
     }
-
-    private static Connection getConnection(String db_url, String user, String password){
+    public static Connection getConnection(String dbUrl, String user, String pass){
+        return createConnection(dbUrl, user, pass);
+    }
+    private static Connection createConnection(String db_url, String user, String password){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -27,7 +29,7 @@ public class DBConnection {
         } catch (SQLException e) {
             error("Connection Failed: " + e);
         }
-        info("Connection is successful");
+        //info("Connection is successful");
         return con;
     }
 
