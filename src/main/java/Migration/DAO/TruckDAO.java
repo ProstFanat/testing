@@ -2,40 +2,37 @@ package Migration.DAO;
 
 import DB.DBConnection;
 import Migration.DriverProfile;
+import Migration.Truck;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Set;
 
-import static DB.DBConstant.*;
-import static DB.RecordMapperValueObject.getRSColumns;
-
-public class DriverProfileDAO {
+public class TruckDAO {
     private String db;
     private String user;
     private String pass;
 
-    public DriverProfileDAO(String db, String user, String pass) {
+    public TruckDAO(String db, String user, String pass) {
         this.db = db;
         this.user = user;
         this.pass = pass;
     }
 
-    public DriverProfile getDriverById(String driverId) throws SQLException {
-        DriverProfile driverProfile = null;
+    public Truck getTruckById(String truckId) throws SQLException {
+        Truck truck = null;
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.driver_profile WHERE driver_id=" + driverId;
+        String sql = "SELECT * from public.truck WHERE truck_id=" + truckId;
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                driverProfile =  new DriverProfile(rs, null);
+                truck =  new Truck(rs, null);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return driverProfile;
+        return truck;
     }
 }
