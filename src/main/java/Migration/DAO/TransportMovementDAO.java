@@ -27,8 +27,12 @@ public class TransportMovementDAO {
         ArrayList<String> transportMovements = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from public.transport_movement WHERE truck_id = " + truckId
-                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY create_date";
+        String sql =
+//                "SELECT * from public.transport_movement WHERE truck_id = " + truckId
+//                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY create_date";
+        "SELECT history.*, truck.truck_id" +
+                " FROM transport_movement_history history " +
+                " LEFT JOIN truck truck ON truck.truck_id = history.truck_id WHERE truck.truck_id = " + truckId + " ORDER BY create_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
