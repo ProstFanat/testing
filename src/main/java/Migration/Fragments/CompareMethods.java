@@ -279,14 +279,14 @@ public class CompareMethods {
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
     }
 
-    public static void compareTruckByTuckId(String id) throws SQLException {
+    public static void compareTruckByTruckId(String id) throws SQLException {
         TruckDAO daoOld = new TruckDAO(DB_URL, USER_DB, PASS_DB);
         TruckDAO daoNew = new TruckDAO(DB_URL2, USER_DB2, PASS_DB2);
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         Truck oldValue = daoOld.getTruckById(id);
-        Truck newValue = daoNew.getTruckById(getNewId.getNewDriverId(id));
+        Truck newValue = daoNew.getTruckById(getNewId.getNewTruckId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
     }
