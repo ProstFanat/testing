@@ -57,7 +57,7 @@ public class TestingMigration extends CompareMethods{
         //compareACLUserMatricesByOrgId("1370");
         // Узнать кто именно переходит
 
-        //compareACLUserInGroupByOrgId("1370");
+        compareACLUserInGroupByOrgId("1370");
         compareGpsSignalProviderByOrgId("1370");
         compareHosProviderByOrgId("1370");
         compareMessagingProviderByOrgId("1370");
@@ -65,6 +65,6 @@ public class TestingMigration extends CompareMethods{
         compareGpsSignalConsumerByOrgId("1370");
         compareEdiDataConsumerByOrgId("1370");
 
-        compareACLUsersByDriverId("25364");
+        compareACLUsersByDriverId("17344");
     }
 }

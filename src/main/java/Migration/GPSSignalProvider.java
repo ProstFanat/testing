@@ -33,9 +33,9 @@ public class GPSSignalProvider extends RecordMapperValueObject implements Serial
 //        this.spireonAccountId = getLong(rs, "spireon_account_id", rsColumns);
         this.appMode = getString(rs, "app_mode", rsColumns);
 //        this.lastTimeDataReceived = getDate(rs, "last_time_data_received", rsColumns);
-//        this.orgId = getLong(rs, "org_id", rsColumns);
+        this.orgId = getLong(rs, "org_id", rsColumns);
 //        this.createDate = getDate(rs, "create_date", rsColumns);
-        this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
+  //      this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
     }
 
     @Override
