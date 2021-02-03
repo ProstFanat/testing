@@ -29,7 +29,7 @@ public class GetNewId {
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                driverProfile =  new DriverProfile(rs, null);
+                driverProfile =  new DriverProfile(rs, null, "new");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,7 +46,7 @@ public class GetNewId {
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                truck =  new Truck(rs, null);
+                truck =  new Truck(rs, null, "a");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +63,7 @@ public class GetNewId {
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                trailer =  new Trailer(rs, null);
+                trailer =  new Trailer(rs, null, "a");
             }
         } catch (Exception e) {
             e.printStackTrace();

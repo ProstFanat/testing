@@ -25,7 +25,8 @@ public class ConsumerDAO {
         ArrayList<String> list = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from api.consumer WHERE org_id=" + orgId + " ORDER BY consumer_name, comment";
+        String sql = "SELECT * from api.consumer WHERE org_id=" + orgId + " ORDER BY consumer_name";
+        //, comment
 //                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();

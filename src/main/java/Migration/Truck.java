@@ -112,6 +112,52 @@ public class Truck extends RecordMapperValueObject {
         this.currentDriverProfileId1        = getLong(rs, "current_driver_profile_id_1", rsColumns);
         this.currentDriverProfileId2        = getLong(rs, "current_driver_profile_id_2", rsColumns);
         this.eldSequence 					= getLong(rs, "eld_sequence", rsColumns);
+        //this.updateDate 					= getDate(rs, "update_date", rsColumns);
+        this.pt30SerialNumber               = getString(rs, "pt30_serial_number", rsColumns);
+        this.pt30SerialVersion              = getString(rs, "pt30_serial_version", rsColumns);
+        this.personalUseAllow 				= getCharacter(rs, "personal_use_allow", rsColumns, 'N');
+        this.personalUseLimit 				= getInteger(rs, "personal_use_limit", rsColumns);
+        this.yardMoveAllow				    = getCharacter(rs, "yard_move_allow", rsColumns, 'N');
+        this.yardMoveLimit             		= getInteger(rs, "yard_move_limit", rsColumns);
+        //this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
+        this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
+    }
+
+    public Truck(final ResultSet rs, Set<String> rsColumns, String aaa) throws Exception {
+        if (rsColumns == null) {
+            rsColumns = getRSColumns(rs);
+        }
+        this.truckId                        = getLong(rs, "truck_id", rsColumns);
+        this.refTruckId                     = getString(rs, "ref_truck_id", rsColumns);
+        this.truckNumber                    = getString(rs, "truck_number", rsColumns);
+        this.organizationId                 = getLong(rs, "organization_id", rsColumns);
+        this.vin                            = getString(rs, "vin", rsColumns);
+        this.licensePlate                   = getString(rs, "license_plate", rsColumns);
+        this.licenseStateProvince           = getString(rs, "license_state_province", rsColumns);
+        this.make                           = getString(rs, "make", rsColumns);
+        this.model                          = getString(rs, "model", rsColumns);
+        this.modelYear                      = getString(rs, "model_year", rsColumns);
+        this.tare                           = getString(rs, "tare", rsColumns);
+        this.fifthWheel                     = getCharacter(rs, "fifth_wheel", rsColumns);
+        this.gpsProvider                    = getString(rs, "gps_provider", rsColumns);
+        this.gpsUnitId                      = getString(rs, "gps_unit_id", rsColumns);
+        this.eldSerialNumber                = getString(rs, "eld_serial_number", rsColumns);
+        this.maxSpeedForStop                = getInteger(rs, "max_speed_for_stop", rsColumns);
+        this.minStopDuration                = getInteger(rs, "min_stop_duration", rsColumns);
+        this.minStopDeltaDistanceMeters     = getInteger(rs, "min_stop_delta_distance_meters", rsColumns, 200);
+        this.positionTime                   = getDate(rs, "ref_pos_ts", rsColumns);
+        this.fuelType                       = getString(rs, "fuel_type", rsColumns);
+        this.onTrip                         = getCharacter(rs, "on_trip", rsColumns, 'N');
+        this.status                         = getString(rs, "status", rsColumns);
+        this.borderConnectTruckTypeId       = getLong(rs, "border_connect_truck_type_id", rsColumns);
+        this.odometerOffset                 = getInteger(rs, "odometer_offset", rsColumns);
+        this.borderConnectTruckType         = getString(rs, "border_connect_truck_type", rsColumns);
+        this.readTruckFaultCode				= getCharacter(rs, "read_truck_fault_code", rsColumns, 'N');
+        this.requestTruckFaultCode			= getDate(rs, "request_truck_fault_code", rsColumns);
+        this.constantlyProcessFaultCodes	= getCharacter(rs, "constantly_process_fault_codes", rsColumns, 'N');
+        this.currentDriverProfileId1        = getLong(rs, "current_driver_profile_id_1", rsColumns);
+        this.currentDriverProfileId2        = getLong(rs, "current_driver_profile_id_2", rsColumns);
+        this.eldSequence 					= getLong(rs, "eld_sequence", rsColumns);
         this.updateDate 					= getDate(rs, "update_date", rsColumns);
         this.pt30SerialNumber               = getString(rs, "pt30_serial_number", rsColumns);
         this.pt30SerialVersion              = getString(rs, "pt30_serial_version", rsColumns);

@@ -73,6 +73,36 @@ public class Trailer extends RecordMapperValueObject implements Serializable {
         this.positionTime = getDate(rs, "ref_event_date_time", rsColumns);                              //addVOField("ref_event_date_time", Types.TIMESTAMP, "setPositionTime", Date.class, "getPositionTime");
         this.battery = getString(rs, "battery", rsColumns);                                             //addVOField("battery", Types.VARCHAR, "setBattery", String.class, "getBattery");
 
+       // this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
+        this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
+    }
+
+    public Trailer(ResultSet rs, Set<String> rsColumns, String a) throws Exception {
+        if (rsColumns == null) {
+            rsColumns = getRSColumns(rs);
+        }
+        this.trailerId = getLong(rs, "trailer_id", rsColumns);                                          //addVOField("trailer_id", Types.BIGINT, "setTrailerId", Long.class, "getTrailerId");// 		addVOField("ref_trailer_id", Types.VARCHAR, "setRefTrailerId", String.class, "getRefTrailerId");
+        this.picture = getString(rs, "picture", rsColumns);                                             //addVOField("picture", Types.VARCHAR, "setPicture", String.class, "getPicture");
+        this.owner = getString(rs, "owner", rsColumns);                                                 //addVOField("owner", Types.VARCHAR, "setOwner", String.class, "getOwner");
+        this.trailerLength = getString(rs, "trailer_length", rsColumns);                                //addVOField("trailer_length", Types.VARCHAR, "setTrailerLength", String.class, "getTrailerLength");
+        this.orgId = getLong(rs, "org_id", rsColumns);                                                  //addVOField("org_id", Types.BIGINT, "setOrgId", Long.class, "getOrgId");
+        this.trailerNumber = getString(rs, "trailer_number", rsColumns);                                //addVOField("trailer_number", Types.VARCHAR, "setTrailerNumber", String.class, "getTrailerNumber");
+        this.gpsProvider = getString(rs, "gps_provider", rsColumns);                                    //addVOField("gps_provider", Types.VARCHAR, "setGpsProvider", String.class, "getGpsProvider");
+        this.gpsUnitId = getString(rs, "gps_unit_id", rsColumns);                                       //addVOField("gps_unit_id", Types.VARCHAR, "setGpsUnitId", String.class, "getGpsUnitId");
+        this.vin = getString(rs, "vin", rsColumns);                                                     //addVOField("vin", Types.VARCHAR, "setVin", String.class, "getVin");
+        this.make = getString(rs, "make", rsColumns);                                                   //addVOField("make", Types.VARCHAR, "setMake", String.class, "getMake");
+        this.year = getString(rs, "year", rsColumns);                                                   //addVOField("year", Types.VARCHAR, "setYear", String.class, "getYear");
+        this.trailerType = getString(rs, "trailer_type", rsColumns);                                    //addVOField("trailer_type", Types.VARCHAR, "setTrailerType", String.class, "getTrailerType");
+        this.licensePlate = getString(rs, "license_plate", rsColumns);                                  //addVOField("license_plate", Types.VARCHAR, "setLicensePlate", String.class, "getLicensePlate");
+        this.licenseStateProvince = getString(rs, "license_state_province", rsColumns);                 //addVOField("license_state_province", Types.VARCHAR, "setLicenseStateProvince", String.class, "getLicenseStateProvince");
+        this.status = getString(rs, "status", rsColumns);                                               //addVOField("status", Types.VARCHAR, "setStatus", String.class, "getStatus");
+        this.borderConnectTrailerTypeId = getLong(rs, "border_connect_trailer_type_id", rsColumns);     //addVOField("border_connect_trailer_type_id", Types.BIGINT, "setBorderConnectTrailerTypeId", Long.class, "getBorderConnectTrailerTypeId");
+        this.borderConnectTrailerType = getString(rs, "border_connect_trailer_type", rsColumns);        //addVOField("border_connect_trailer_type", Types.VARCHAR, "setBorderConnectTrailerType", String.class, "getBorderConnectTrailerType");
+
+        //JOINS
+        this.positionTime = getDate(rs, "ref_event_date_time", rsColumns);                              //addVOField("ref_event_date_time", Types.TIMESTAMP, "setPositionTime", Date.class, "getPositionTime");
+        this.battery = getString(rs, "battery", rsColumns);                                             //addVOField("battery", Types.VARCHAR, "setBattery", String.class, "getBattery");
+
         this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
         this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
     }

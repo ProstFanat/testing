@@ -12,6 +12,7 @@ public class Consumer extends RecordMapperValueObject implements Serializable {
     private String consumerName;
     private Long orgId;
     private String token;
+    private String comment;
 
     public Consumer(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {
@@ -19,7 +20,8 @@ public class Consumer extends RecordMapperValueObject implements Serializable {
         }
 //        this.consumerId = getLong(rs, "consumer_id", rsColumns);
         this.consumerName = getString(rs, "consumer_name", rsColumns);
-//        this.orgId = getLong(rs, "org_id", rsColumns);
+        this.orgId = getLong(rs, "org_id", rsColumns);
+        this.comment = getString(rs, "comment", rsColumns);
     }
 
     @Override
@@ -29,6 +31,7 @@ public class Consumer extends RecordMapperValueObject implements Serializable {
                 ", consumerName='" + consumerName + '\'' +
                 ", orgId=" + orgId +
                 ", token='" + token + '\'' +
+                ", comment='" + comment + '\'' +
                 '}';
     }
 
@@ -63,4 +66,15 @@ public class Consumer extends RecordMapperValueObject implements Serializable {
     public void setToken(String token) {
         this.token = token;
     }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+
+
 }

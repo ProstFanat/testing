@@ -24,7 +24,7 @@ public class TrailerDAO {
         Trailer trailer = null;
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from public.truck WHERE truck_id=" + truckId;
+        String sql = "SELECT * from public.trailer WHERE trailer_id=" + truckId;
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){

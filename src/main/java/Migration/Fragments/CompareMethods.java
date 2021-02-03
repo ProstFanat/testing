@@ -11,23 +11,19 @@ import static DB.DBConstant.*;
 
 public class CompareMethods {
 
-    public static void compareDriverById(String id) throws SQLException {
+    public static void compareDriverByDriverId(String id) throws SQLException {
         DriverProfileDAO profileDAOOld = new DriverProfileDAO(DB_URL, USER_DB, PASS_DB);
         DriverProfileDAO profileDAONew = new DriverProfileDAO(DB_URL2, USER_DB2, PASS_DB2);
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
-
         DriverProfile DriverProfileOld = profileDAOOld.getDriverById(id);
         DriverProfile DriverProfileNew = profileDAONew.getDriverById(getNewId.getNewDriverId(id));
-
-        System.out.println(DriverProfileOld.toString());
-        System.out.println(DriverProfileNew.toString());
 
         Assertions.assertEquals(DriverProfileOld.toString(), DriverProfileNew.toString());
     }
 
-    public static void compareEldEventsById(String id) throws SQLException {
+    public static void compareEldEventsByDriverId(String id) throws SQLException {
         EldEventDao profileDAOOld = new EldEventDao(DB_URL, USER_DB, PASS_DB);
         EldEventDao profileDAONew = new EldEventDao(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -37,7 +33,7 @@ public class CompareMethods {
         List<String> eldEventOld = profileDAOOld.getEldEventsForDriver(id);
         List<String> eldEventNew = profileDAONew.getEldEventsForDriver(getNewId.getNewDriverId(id));
 
-        Assertions.assertEquals(eldEventNew, eldEventOld);
+        Assertions.assertEquals(eldEventNew.toString(), eldEventOld.toString());
     }
 
     public static void compareEldOriginalEventsById(String id) throws SQLException {
@@ -48,7 +44,7 @@ public class CompareMethods {
         List<String> eldEventOld = eldEventsOriginalOld.getEldEventsOriginalForDriver(id);
         List<String> eldEventNew = eldEventsOriginalNew.getEldEventsOriginalForDriver(getNewId.getNewDriverId(id));
 
-        Assertions.assertEquals(eldEventNew, eldEventOld);
+        Assertions.assertEquals(eldEventNew.toString(), eldEventOld.toString());
     }
 
     public static void compareAccountsByOrgId(String id) throws SQLException {
