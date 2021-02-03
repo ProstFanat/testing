@@ -21,12 +21,12 @@ public class AclUserInGroupDAO {
         this.pass = pass;
     }
 
-    public ArrayList<String> getAclUserGroupTruckId(String orgId) throws SQLException {
+    public ArrayList<String> getAclUserInGroupList(String orgId) throws SQLException {
         ACLUserInGroup aclUserInGroup = null;
         ArrayList<String> aclUsersInGroup = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from public.acl_user_matrix WHERE user_id IN (SELECT user_id from public.acl_user WHERE organization_id = " + orgId + ") ORDER BY resource_name, allow_read, allow_insert, allow_delete";
+        String sql = "SELECT * from public.acl_user_in_group WHERE user_id IN (SELECT user_id from public.acl_user WHERE organization_id = " + orgId + ") ORDER BY group_id";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

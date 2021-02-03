@@ -75,6 +75,150 @@ public class CompareMethods {
         Assertions.assertEquals(newValue, oldValue);
     }
 
+    public static void compareAddressesByOrgId(String id) throws SQLException {
+        AddressDAO daoOld = new AddressDAO(DB_URL, USER_DB, PASS_DB);
+        AddressDAO daoNew = new AddressDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        Address oldValue = daoOld.getAddressByOrgId(id);
+        Address newValue = daoNew.getAddressByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareOptionsByOrgId(String id) throws SQLException {
+        OptionDAO daoOld = new OptionDAO(DB_URL, USER_DB, PASS_DB);
+        OptionDAO daoNew = new OptionDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfOptionsByOrgId(id);
+        List<String> newValue = daoNew.getListOfOptionsByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareACLUserGroupsByOrgId(String id) throws SQLException {
+        ACLUserGroupDAO daoOld = new ACLUserGroupDAO(DB_URL, USER_DB, PASS_DB);
+        ACLUserGroupDAO daoNew = new ACLUserGroupDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfACLUserGroupsByOrgId(id);
+        List<String> newValue = daoNew.getListOfACLUserGroupsByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareACLMatricesByOrgId(String id) throws SQLException {
+        ACLMatrixDAO daoOld = new ACLMatrixDAO(DB_URL, USER_DB, PASS_DB);
+        ACLMatrixDAO daoNew = new ACLMatrixDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfACLMatrixByOrgId(id);
+        List<String> newValue = daoNew.getListOfACLMatrixByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareACLResourcesByOrgId(String id) throws SQLException {
+        ACLResourceDAO daoOld = new ACLResourceDAO(DB_URL, USER_DB, PASS_DB);
+        ACLResourceDAO daoNew = new ACLResourceDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfACLResourcesByOrgId(id);
+        List<String> newValue = daoNew.getListOfACLResourcesByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareDepartmentsByOrgId(String id) throws SQLException {
+        DepartmentDAO daoOld = new DepartmentDAO(DB_URL, USER_DB, PASS_DB);
+        DepartmentDAO daoNew = new DepartmentDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfDepartmentsByOrgId(id);
+        List<String> newValue = daoNew.getListOfDepartmentsByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareConsumersByOrgId(String id) throws SQLException {
+        ConsumerDAO daoOld = new ConsumerDAO(DB_URL, USER_DB, PASS_DB);
+        ConsumerDAO daoNew = new ConsumerDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfConsumersByOrgId(id);
+        List<String> newValue = daoNew.getListOfConsumersByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareContactsByOrgId(String id) throws SQLException {
+        ContactDAO daoOld = new ContactDAO(DB_URL, USER_DB, PASS_DB);
+        ContactDAO daoNew = new ContactDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        Contact oldValue = daoOld.getContactByOrgId(id);
+        Contact newValue = daoNew.getContactByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareAddressBooksByOrgId(String id) throws SQLException {
+        AddressBookRecordDAO daoOld = new AddressBookRecordDAO(DB_URL, USER_DB, PASS_DB);
+        AddressBookRecordDAO daoNew = new AddressBookRecordDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfAddressBookRecordsByOrgId(id);
+        List<String> newValue = daoNew.getListOfAddressBookRecordsByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareACLUsersByDriverId(String id) throws SQLException {
+        ACLUserDAO daoOld = new ACLUserDAO(DB_URL, USER_DB, PASS_DB);
+        ACLUserDAO daoNew = new ACLUserDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        ACLUser oldValue = daoOld.getACLUserByDriverId(id);
+        ACLUser newValue = daoNew.getACLUserByDriverId(getNewId.getNewDriverId(id));
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareACLUserMatricesByOrgId(String id) throws SQLException {
+        ACLUserMatrixDAO daoOld = new ACLUserMatrixDAO(DB_URL, USER_DB, PASS_DB);
+        ACLUserMatrixDAO daoNew = new ACLUserMatrixDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfACLUserMatrixByOrgId(id);
+        List<String> newValue = daoNew.getListOfACLUserMatrixByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareACLUserInGroupByOrgId(String id) throws SQLException {
+        AclUserInGroupDAO daoOld = new AclUserInGroupDAO(DB_URL, USER_DB, PASS_DB);
+        AclUserInGroupDAO daoNew = new AclUserInGroupDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getAclUserInGroupList(id);
+        List<String> newValue = daoNew.getAclUserInGroupList(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
     public static void compareInspectionReportDriverId(String id) throws SQLException {
         InspectionReportDao daoOld = new InspectionReportDao(DB_URL, USER_DB, PASS_DB);
         InspectionReportDao daoNew = new InspectionReportDao(DB_URL2, USER_DB2, PASS_DB2);

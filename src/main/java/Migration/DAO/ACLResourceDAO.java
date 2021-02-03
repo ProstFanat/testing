@@ -20,7 +20,7 @@ public class ACLResourceDAO {
         this.pass = pass;
     }
 
-    public List<String> getListOfACLResources(String orgId) {
+    public List<String> getListOfACLResourcesByOrgId(String orgId) {
         ArrayList<String> list = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
