@@ -21,7 +21,7 @@ public class TrailerDeviceSignalHistoryDAO {
         this.pass = pass;
     }
 
-    public List<String> getTrailerDeviceSignalsByTruckId(String trailerId) throws SQLException {
+    public List<String> getTrailerDeviceSignalsByTrailerId(String trailerId) throws SQLException {
         TrailerDeviceSignalHistory trailerDeviceSignalHistory = null;
         List<String> trailerDeviceSignalsHistory = new ArrayList<>();
 
