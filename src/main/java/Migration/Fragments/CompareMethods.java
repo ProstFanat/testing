@@ -1,10 +1,9 @@
 package Migration.Fragments;
 
-import Migration.DAO.AddressDAO;
-import Migration.DAO.DriverProfileDAO;
-import Migration.DAO.EldEventDao;
-import Migration.DAO.EldEventOriginalDao;
+import Migration.Account;
+import Migration.DAO.*;
 import Migration.DriverProfile;
+import Migration.Organization;
 import org.junit.jupiter.api.Assertions;
 
 import java.sql.SQLException;
@@ -52,5 +51,29 @@ public class CompareMethods {
         List<String> eldEventNew = eldEventsOriginalNew.getEldEventsOriginalForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(eldEventNew, eldEventOld);
+    }
+
+    public static void compareAccountsByOrgId(String id) throws SQLException {
+        AccountDAO daoOld = new AccountDAO(DB_URL, USER_DB, PASS_DB);
+        AccountDAO daoNew = new AccountDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        Account oldValue = daoOld.getAccountByOrgId(id);
+        Account newValue = daoNew.getAccountByOrgId(id);
+
+        Assertions.assertEquals(newValue, oldValue);
+    }
+
+    public static void compareOrganizationsByOrgId(String id) throws SQLException {
+        OrganizationDAO daoOld = new OrganizationDAO(DB_URL, USER_DB, PASS_DB);
+        OrganizationDAO daoNew = new OrganizationDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        Organization oldValue = daoOld.getOrganizationById(id);
+        Organization newValue = daoNew.getOrganizationById(id);
+
+        Assertions.assertEquals(newValue, oldValue);
     }
 }
