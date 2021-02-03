@@ -28,15 +28,15 @@ public class Account extends RecordMapperValueObject implements Serializable {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.accountId = getLong(rs, "account_id", rsColumns);
-        this.primaryUserId = getLong(rs, "primary_user_id", rsColumns);
-        this.organizationId = getLong(rs, "organization_id", rsColumns);
+//        this.accountId = getLong(rs, "account_id", rsColumns);
+//        this.primaryUserId = getLong(rs, "primary_user_id", rsColumns);
+//        this.organizationId = getLong(rs, "organization_id", rsColumns);
         this.accountPin = getString(rs, "account_pin", rsColumns);
         this.referralCode = getString(rs, "referral_code", rsColumns);
         this.active = getCharacter(rs, "active", rsColumns);
-        this.billingAddressId = getLong(rs, "billing_address_id", rsColumns);
-        this.contactId = getLong(rs, "contact_id", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
+//        this.billingAddressId = getLong(rs, "billing_address_id", rsColumns);
+//        this.contactId = getLong(rs, "contact_id", rsColumns);
+//        this.createDate = getDate(rs, "create_date", rsColumns);
         this.isPersonal = getCharacter(rs, "is_personal", rsColumns);
         this.note = getString(rs, "note", rsColumns);
         this.salesNote = getString(rs, "sales_note", rsColumns);

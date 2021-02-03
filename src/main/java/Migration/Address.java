@@ -35,7 +35,7 @@ public class Address extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.addressId = getLong(rs, "address_id", rsColumns);
+//        this.addressId = getLong(rs, "address_id", rsColumns);
         this.country = getString(rs, "country", rsColumns);
         this.region = getString(rs, "region", rsColumns);
         this.city = getString(rs, "city", rsColumns);

@@ -27,7 +27,7 @@ public class GPSSignalConsumerDAO {
         List<String> gpsSignalsConsumer = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.gps_signal_consumer WHERE org_id=" + orgId;
+        String sql = "SELECT * from fleet.gps_signal_consumer WHERE org_id=" + orgId + " ORDER BY email";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

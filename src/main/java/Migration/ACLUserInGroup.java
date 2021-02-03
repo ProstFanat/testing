@@ -19,8 +19,8 @@ public class ACLUserInGroup extends RecordMapperValueObject implements Serializa
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.groupId = getLong(rs, "group_id", rsColumns);
-        this.userId = getLong(rs, "user_id", rsColumns);
+//        this.groupId = getLong(rs, "group_id", rsColumns);
+//        this.userId = getLong(rs, "user_id", rsColumns);
         this.groupName = getString(rs, "group_name", rsColumns);
     }
 

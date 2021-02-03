@@ -27,7 +27,7 @@ public class GeocodeProviderDAO {
         List<String> geocodeProviders = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.geocode_provider WHERE org_id=" + orgId;
+        String sql = "SELECT * from fleet.geocode_provider WHERE org_id=" + orgId + " ORDER BY api_key, provider_type, status";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

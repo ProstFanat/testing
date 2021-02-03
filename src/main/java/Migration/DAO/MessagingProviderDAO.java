@@ -27,7 +27,7 @@ public class MessagingProviderDAO {
         List<String> messagingProviders = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.messaging_provider WHERE org_id=" + orgId;
+        String sql = "SELECT * from fleet.messaging_provider WHERE org_id=" + orgId + " ORDER BY login";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

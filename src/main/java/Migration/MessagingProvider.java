@@ -21,14 +21,14 @@ public class MessagingProvider extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.providerId = getLong(rs, "provider_id", rsColumns);
+//        this.providerId = getLong(rs, "provider_id", rsColumns);
         this.type = getString(rs, "provider_type", rsColumns);
         this.login = getString(rs, "login", rsColumns);
         this.password = getString(rs, "password", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+//        this.orgId = getLong(rs, "org_id", rsColumns);
         this.status = getCharacter(rs, "status", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
-        this.parameter1 = getString(rs, "parameter_1", rsColumns);
+//        this.createDate = getDate(rs, "create_date", rsColumns);
+//        this.parameter1 = getString(rs, "parameter_1", rsColumns);
     }
 
     @Override

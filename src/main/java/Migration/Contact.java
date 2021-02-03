@@ -18,7 +18,7 @@ public class Contact extends RecordMapperValueObject implements Serializable {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.contactId = getLong(rs, "contact_id",rsColumns);
+//        this.contactId = getLong(rs, "contact_id",rsColumns);
         this.contactName = getString(rs, "contact_name", rsColumns);
         this.contactPhone = getString(rs, "contact_phone", rsColumns);
         this.contactEmail = getString(rs, "contact_email", rsColumns);

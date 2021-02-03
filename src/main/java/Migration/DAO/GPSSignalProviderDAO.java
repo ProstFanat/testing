@@ -28,7 +28,7 @@ public class GPSSignalProviderDAO {
         List<String> gpsSignalsProvider = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.gps_signal_provider WHERE org_id=" + orgId;
+        String sql = "SELECT * from fleet.gps_signal_provider WHERE org_id=" + orgId + " ORDER BY login";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

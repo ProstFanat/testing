@@ -17,9 +17,9 @@ public class Consumer extends RecordMapperValueObject implements Serializable {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.consumerId = getLong(rs, "consumer_id", rsColumns);
+//        this.consumerId = getLong(rs, "consumer_id", rsColumns);
         this.consumerName = getString(rs, "consumer_name", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+//        this.orgId = getLong(rs, "org_id", rsColumns);
     }
 
     @Override

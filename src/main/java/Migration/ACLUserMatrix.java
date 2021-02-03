@@ -19,7 +19,7 @@ public class ACLUserMatrix extends RecordMapperValueObject implements Serializab
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.userId = getLong(rs, "user_id", rsColumns);
+//        this.userId = getLong(rs, "user_id", rsColumns);
         this.resourceName = getString(rs, "resource_name", rsColumns);
         this.allowRead = getCharacter(rs, "allow_read", rsColumns);
         this.allowInsert = getCharacter(rs, "allow_insert", rsColumns);

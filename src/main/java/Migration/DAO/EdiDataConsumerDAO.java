@@ -28,7 +28,8 @@ public class EdiDataConsumerDAO {
         List<String> ediDataConsumers = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.edi_data_consumer WHERE org_id=" + orgId;
+        String sql = "SELECT * from fleet.edi_data_consumer WHERE org_id=" + orgId + " ORDER BY auth_info, active, ftp_information, security_info";
+        // нет поля по которому можно нормально сортировать
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

@@ -21,11 +21,11 @@ public class EdiDataConsumer extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.consumerId = getLong(rs, "consumer_id", rsColumns);
-        this.customerId = getLong(rs, "customer_id", rsColumns);
-        this.orgId = getLong(rs,"org_id", rsColumns);
-        this.receiverId = getString(rs, "receiver_id", rsColumns);
-        this.senderId = getString(rs, "sender_id", rsColumns);
+//        this.consumerId = getLong(rs, "consumer_id", rsColumns);
+//        this.customerId = getLong(rs, "customer_id", rsColumns);
+//        this.orgId = getLong(rs,"org_id", rsColumns);
+//        this.receiverId = getString(rs, "receiver_id", rsColumns);
+//        this.senderId = getString(rs, "sender_id", rsColumns);
         this.authInfo = getString(rs, "auth_info", rsColumns);
         this.securityInfo = getString(rs, "security_info", rsColumns);
         this.ftpInformation = getString(rs, "ftp_information", rsColumns);

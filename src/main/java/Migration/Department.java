@@ -25,17 +25,17 @@ public class Department extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.departmentId = getLong(rs, "department_id", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+//        this.departmentId = getLong(rs, "department_id", rsColumns);
+//        this.orgId = getLong(rs, "org_id", rsColumns);
         this.name = getString(rs, "name", rsColumns);
         this.hasOutbound = getBooleanFromCharacter(rs, "has_outbound", rsColumns, true);
         this.hasInbound = getBooleanFromCharacter(rs, "has_inbound", rsColumns, true);
         this.isLocal = getBooleanFromCharacter(rs, "is_local", rsColumns, false);
         this.collectRevenuePerMile = getBooleanFromCharacter(rs, "collect_revenue_per_mile", rsColumns, true);
         this.colour = getString(rs, "colour", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
+//        this.createDate = getDate(rs, "create_date", rsColumns);
         this.refDepartmentCode = getString(rs, "ref_department_code", rsColumns);
-        this.refDepartmentId = getString(rs, "ref_department_id", rsColumns);
+//        this.refDepartmentId = getString(rs, "ref_department_id", rsColumns);
         this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
     }
 

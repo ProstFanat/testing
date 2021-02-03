@@ -23,13 +23,13 @@ public class HOSProvider extends RecordMapperValueObject {
             rsColumns = getRSColumns(rs);
         }
 
-        this.providerId = getLong(rs, "provider_id", rsColumns);
+//        this.providerId = getLong(rs, "provider_id", rsColumns);
         this.type = getString(rs, "type", rsColumns);
         this.login = getString(rs, "login", rsColumns);
         this.password = getString(rs, "password", rsColumns);
-        this.lastTimeDataReceived = getDate(rs, "last_time_data_received", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
+//        this.lastTimeDataReceived = getDate(rs, "last_time_data_received", rsColumns);
+//        this.orgId = getLong(rs, "org_id", rsColumns);
+//        this.createDate = getDate(rs, "create_date", rsColumns);
         this.status = getCharacter(rs, "status", rsColumns);
         this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
     }

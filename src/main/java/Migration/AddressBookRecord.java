@@ -25,14 +25,14 @@ public class AddressBookRecord extends RecordMapperValueObject implements Serial
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.recordId = getLong(rs, "record_id", rsColumns);
-        this.organizationId = getLong(rs, "org_id", rsColumns);
+//        this.recordId = getLong(rs, "record_id", rsColumns);
+//        this.organizationId = getLong(rs, "org_id", rsColumns);
         this.name = getString(rs, "name", rsColumns);
         this.email = getString(rs, "email", rsColumns);
-        this.aclUser = getLong(rs, "acl_user", rsColumns);
+//        this.aclUser = getLong(rs, "acl_user", rsColumns);
         this.userType = getString(rs, "user_type", rsColumns);
         this.isPrimary = getCharacter(rs, "is_primary", rsColumns);
-        this.vpCustomerId = getLong(rs, "vp_customer_id", rsColumns);
+//        this.vpCustomerId = getLong(rs, "vp_customer_id", rsColumns);
         this.vpCustomerSendEmail = getCharacter(rs, "vp_customer_send_email", rsColumns);
     }
 

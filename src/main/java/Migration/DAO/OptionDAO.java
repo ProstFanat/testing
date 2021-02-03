@@ -24,7 +24,7 @@ public class OptionDAO {
         ArrayList<String> list = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * FROM fleet.option_value value LEFT JOIN fleet.option option ON option.option_id = value.option_id WHERE  value.org_id = " + orgId;
+        String sql = "SELECT * FROM fleet.option_value value LEFT JOIN fleet.option option ON option.option_id = value.option_id WHERE value.org_id = " + orgId + " ORDER BY option_name, option_type";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

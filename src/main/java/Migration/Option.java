@@ -21,13 +21,13 @@ public class Option extends RecordMapperValueObject {
             rsColumns = getRSColumns(rs);
         }
 
-        this.optionId                       = getLong(rs, "option_id", rsColumns);
+//        this.optionId                       = getLong(rs, "option_id", rsColumns);
         this.optionName                     = getString(rs, "option_name", rsColumns);
         this.optionType                     = getString(rs, "option_type", rsColumns);
         this.editable                       = getCharacter(rs, "editable", rsColumns);
         this.visibleToClient                = getCharacter(rs, "visible_to_client", rsColumns);
-        this.valueId                        = getLong(rs, "value_id", rsColumns);
-        this.orgId                          = getLong(rs, "org_id", rsColumns);
+//        this.valueId                        = getLong(rs, "value_id", rsColumns);
+//        this.orgId                          = getLong(rs, "org_id", rsColumns);
         this.value                          = getString(rs, "value", rsColumns);
         this.visibleToClientValue           = getCharacter(rs, "visible_to_client_value", rsColumns);
     }

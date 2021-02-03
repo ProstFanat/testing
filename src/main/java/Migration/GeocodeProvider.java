@@ -24,15 +24,15 @@ public class GeocodeProvider extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.providerId = getLong(rs, "provider_id", rsColumns);
+//        this.providerId = getLong(rs, "provider_id", rsColumns);
         this.providerType = getString(rs, "provider_type", rsColumns);
         this.priority = getInteger(rs,"priority", rsColumns);
         this.apiKey = getString(rs, "api_key", rsColumns);
         this.appCode = getString(rs, "app_code", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+//        this.orgId = getLong(rs, "org_id", rsColumns);
         this.status = getCharacter(rs, "status", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
-        this.parameter1 = getString(rs, "parameter_1", rsColumns);
+//        this.createDate = getDate(rs, "create_date", rsColumns);
+//        this.parameter1 = getString(rs, "parameter_1", rsColumns);
     }
 
     @Override

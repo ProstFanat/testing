@@ -24,7 +24,7 @@ public class ACLMatrixDAO {
         ArrayList<String> list = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from public.acl_matrix WHERE group_id IN (SELECT group_id from public.acl_user_group WHERE org_id = " + orgId + ")";
+        String sql = "SELECT * from public.acl_matrix WHERE group_id IN (SELECT group_id from public.acl_user_group WHERE org_id = " + orgId + ") ORDER BY resource_name, allow_read, allow_update";
 //                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();

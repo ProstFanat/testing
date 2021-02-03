@@ -24,7 +24,7 @@ public class DepartmentDAO {
         ArrayList<String> list = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.department WHERE org_id=" + orgId;
+        String sql = "SELECT * from fleet.department WHERE org_id=" + orgId + " ORDER BY name, colour";
 //                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();

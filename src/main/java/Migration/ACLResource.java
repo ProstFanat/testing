@@ -17,7 +17,7 @@ public class ACLResource extends RecordMapperValueObject implements Serializable
         }
         this.resourceName = getString(rs, "resource_name", rsColumns);
         this.description = getString(rs, "description", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+//        this.orgId = getLong(rs, "org_id", rsColumns);
     }
 
     public String getResourceName() {

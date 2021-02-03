@@ -26,16 +26,16 @@ public class Organization extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.organizationId = getLong(rs, "organization_id", rsColumns);
+//        this.organizationId = getLong(rs, "organization_id", rsColumns);
         this.organizationName = getString(rs, "organization_name", rsColumns);
-        this.addressId = getLong(rs, "address_id", rsColumns);
+//        this.addressId = getLong(rs, "address_id", rsColumns);
         this.businessType = getString(rs, "business_type", rsColumns);
         this.bannerUrl = getString(rs, "banner_url", rsColumns);
         this.homeTerminalTimezone = getString(rs, "home_terminal_timezone", rsColumns);
         this.usdotNumber = getString(rs, "usdot_number", rsColumns);
         this.mcNumber = getString(rs, "mc_number", rsColumns);
         this.accountPin = getString(rs, "account_pin", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
+//        this.createDate = getDate(rs, "create_date", rsColumns);
     }
 
     public Long getOrganizationId() {

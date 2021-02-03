@@ -24,7 +24,7 @@ public class AddressBookRecordDAO {
         ArrayList<String> list = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from public.address_book WHERE org_id=" + orgId;
+        String sql = "SELECT * from public.address_book WHERE org_id=" + orgId + " ORDER BY name, email";
 //                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
