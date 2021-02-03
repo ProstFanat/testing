@@ -238,14 +238,14 @@ public class EldBorderCrossingEvent extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.id = getLong(rs, "id", rsColumns);
+        //this.id = getLong(rs, "id", rsColumns);
         this.orgId = getLong(rs, "org_id", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
         this.updateDate = getDate(rs, "update_date", rsColumns);
         this.crossingDate = getDate(rs, "crossing_date", rsColumns);
-        this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
-        this.driverId2 = getLong(rs, "driver_id_2", rsColumns);
-        this.truckId = getLong(rs, "truck_id", rsColumns);
+      //  this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
+      //  this.driverId2 = getLong(rs, "driver_id_2", rsColumns);
+     //   this.truckId = getLong(rs, "truck_id", rsColumns);
         this.truckNumber = getString(rs, "truck_number", rsColumns);
         this.eventOrigin = getString(rs, "event_origin", rsColumns);
         this.timeZoneOffset = getString(rs, "time_zone_offset", rsColumns);

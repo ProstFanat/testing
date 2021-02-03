@@ -27,7 +27,7 @@ public class FMCSAELDExportDAO {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.fmcsa_eld_export WHERE driver_id=" + driverId +
-                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
+                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY start_sequence";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

@@ -41,9 +41,9 @@ public class TrailerDeviceSignalHistory extends RecordMapperValueObject implemen
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.signalHistoryId = getLong(rs, "signal_history_id", rsColumns);
-        this.previousHistoryId = getLong(rs, "previous_history_id", rsColumns);
-        this.trailerId = getLong(rs, "trailer_id", rsColumns);
+        //this.signalHistoryId = getLong(rs, "signal_history_id", rsColumns);
+       // this.previousHistoryId = getLong(rs, "previous_history_id", rsColumns);
+       // this.trailerId = getLong(rs, "trailer_id", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
         this.signalTime = getDate(rs, "signal_time", rsColumns);
         this.lat = getString(rs, "lat", rsColumns);
@@ -60,7 +60,7 @@ public class TrailerDeviceSignalHistory extends RecordMapperValueObject implemen
         this.movingStartTime = getDate(rs, "moving_start_time", rsColumns);
         this.movingStopTime = getDate(rs, "moving_stop_time", rsColumns);
         this.deltaDistance = getInteger(rs, "delta_distance", rsColumns);
-        this.triggerZoneGeomIdList = getString(rs, "trigger_zone_geom_id_list", rsColumns);
+       // this.triggerZoneGeomIdList = getString(rs, "trigger_zone_geom_id_list", rsColumns);
         this.city = getString(rs, "city", rsColumns);
         this.provState = getString(rs, "prov_state", rsColumns);
         this.signalEvent = getString(rs, "signal_event", rsColumns);

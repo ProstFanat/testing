@@ -27,7 +27,7 @@ public class EldEventOriginalDao {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.eld_event_original WHERE driver_id_1=" + driverId +
-                " AND event_timestamp BETWEEN now() - '8 days'::INTERVAL and now()";
+                " AND event_timestamp BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY event_timestamp";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

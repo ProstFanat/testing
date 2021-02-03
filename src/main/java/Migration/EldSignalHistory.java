@@ -40,13 +40,13 @@ public class EldSignalHistory extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.historyId = getLong(rs, "history_id", rsColumns);
-        this.previousHistoryId = getLong(rs, "previous_history_id", rsColumns);
+        //this.historyId = getLong(rs, "history_id", rsColumns);
+       // this.previousHistoryId = getLong(rs, "previous_history_id", rsColumns);
         this.orgId = getLong(rs, "org_id", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
-        this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
-        this.driverId2 = getLong(rs, "driver_id_2", rsColumns);
-        this.truckId = getLong(rs, "truck_id", rsColumns);
+       // this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
+      //  this.driverId2 = getLong(rs, "driver_id_2", rsColumns);
+      //  this.truckId = getLong(rs, "truck_id", rsColumns);
         this.latitude = getString(rs, "latitude", rsColumns);
         this.longitude = getString(rs, "longitude", rsColumns);
         this.latitudeSecondary = getString(rs, "latitude_secondary", rsColumns);

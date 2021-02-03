@@ -30,7 +30,7 @@ public class Tag extends RecordMapperValueObject implements Serializable {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.tagId = getLong(rs, "tag_id", rsColumns);
+       // this.tagId = getLong(rs, "tag_id", rsColumns);
         this.tagName = getString(rs, "tag_name", rsColumns);
         this.tagType = getString(rs, "type", rsColumns, "address-book");
         this.organizationId = getLong(rs, "organization_id", rsColumns);
@@ -38,11 +38,11 @@ public class Tag extends RecordMapperValueObject implements Serializable {
         this.truckNumber = getString(rs, "truck_number", rsColumns);
         this.trailerNumber = getString(rs, "trailer_number", rsColumns);
         this.driverNumber = getString(rs, "driver_number", rsColumns);
-        this.tagTruckId = getLong(rs, "tag_truck_id", rsColumns);
-        this.tagTrailerId = getLong(rs, "tag_trailer_id", rsColumns);
-        this.tagTransportId = getLong(rs, "tag_transport_id", rsColumns);
+      //  this.tagTruckId = getLong(rs, "tag_truck_id", rsColumns);
+      //  this.tagTrailerId = getLong(rs, "tag_trailer_id", rsColumns);
+     //   this.tagTransportId = getLong(rs, "tag_transport_id", rsColumns);
         this.tagAccessType = getString(rs, "access_type", rsColumns);
-        this.userId = getLong(rs, "user_id", rsColumns);
+      //  this.userId = getLong(rs, "user_id", rsColumns);
         this.userFullName = getString(rs, "user_full_name",rsColumns);
         this.masterDBRefId = getLong(rs, "master_db_ref_id",rsColumns);
 

@@ -28,7 +28,7 @@ public class TransportMovementDAO {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from public.transport_movement WHERE truck_id = " + truckId
-                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
+                + " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY create_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

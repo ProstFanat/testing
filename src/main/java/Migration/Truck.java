@@ -81,8 +81,8 @@ public class Truck extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.truckId                        = getLong(rs, "truck_id", rsColumns);
-        this.refTruckId                     = getString(rs, "ref_truck_id", rsColumns);
+        //this.truckId                        = getLong(rs, "truck_id", rsColumns);
+       // this.refTruckId                     = getString(rs, "ref_truck_id", rsColumns);
         this.truckNumber                    = getString(rs, "truck_number", rsColumns);
         this.organizationId                 = getLong(rs, "organization_id", rsColumns);
         this.vin                            = getString(rs, "vin", rsColumns);
@@ -94,7 +94,7 @@ public class Truck extends RecordMapperValueObject {
         this.tare                           = getString(rs, "tare", rsColumns);
         this.fifthWheel                     = getCharacter(rs, "fifth_wheel", rsColumns);
         this.gpsProvider                    = getString(rs, "gps_provider", rsColumns);
-        this.gpsUnitId                      = getString(rs, "gps_unit_id", rsColumns);
+       // this.gpsUnitId                      = getString(rs, "gps_unit_id", rsColumns);
         this.eldSerialNumber                = getString(rs, "eld_serial_number", rsColumns);
         this.maxSpeedForStop                = getInteger(rs, "max_speed_for_stop", rsColumns);
         this.minStopDuration                = getInteger(rs, "min_stop_duration", rsColumns);

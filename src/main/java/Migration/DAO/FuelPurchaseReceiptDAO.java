@@ -26,8 +26,8 @@ public class FuelPurchaseReceiptDAO {
         List<String> fuelPurchaseReceipts = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from eld.fmcsa_eld_export WHERE driver_id=" + driverId +
-                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
+        String sql = "SELECT * from eld.fuel_purchase_receipt WHERE driver_id=" + driverId +
+                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY create_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

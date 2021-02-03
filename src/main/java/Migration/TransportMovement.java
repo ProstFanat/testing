@@ -49,13 +49,13 @@ public class TransportMovement extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.transportId = getLong(rs, "transport_id", rsColumns);
+      //  this.transportId = getLong(rs, "transport_id", rsColumns);
         this.orgId = getLong(rs, "org_id", rsColumns);
-        this.tractorRefId = getLong(rs, "tractor_ref_id", rsColumns);
+     //   this.tractorRefId = getLong(rs, "tractor_ref_id", rsColumns);
         this.tractorLat = getString(rs, "tractor_lat", rsColumns);
         this.tractorLng = getString(rs, "tractor_lng", rsColumns);
         this.tractorPositionTime = getDate(rs, "tractor_position_time", rsColumns);
-        this.trailerRefId = getLong(rs, "trailer_ref_id", rsColumns);
+       // this.trailerRefId = getLong(rs, "trailer_ref_id", rsColumns);
         this.trailerLat = getString(rs, "trailer_lat", rsColumns);
         this.trailerLng = getString(rs, "trailer_lng", rsColumns);
         this.trailerPositionTime = getDate(rs, "trailer_position_time", rsColumns);
@@ -63,12 +63,12 @@ public class TransportMovement extends RecordMapperValueObject {
         this.activeStatus = getCharacter(rs, "active_status", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
         this.updateDate = getDate(rs, "update_date", rsColumns);
-        this.truckId = getLong(rs, "truck_id", rsColumns);
-        this.truckDeviceSignalId = getLong(rs, "truck_device_signal_id", rsColumns);
-        this.trailerDeviceSignalId = getLong(rs, "trailer_device_signal_id", rsColumns);
+     //   this.truckId = getLong(rs, "truck_id", rsColumns);
+      //  this.truckDeviceSignalId = getLong(rs, "truck_device_signal_id", rsColumns);
+     //   this.trailerDeviceSignalId = getLong(rs, "trailer_device_signal_id", rsColumns);
         this.trailerNumber = getString(rs, "trailer_number", rsColumns);
         this.positionTime = getDate(rs, "ref_pos_ts", rsColumns);
-        this.driverId = getLong(rs, "driver_id", rsColumns);
+     //   this.driverId = getLong(rs, "driver_id", rsColumns);
         this.driverName = getString(rs, "driver_name", rsColumns);
         this.deactivateDate = getDate(rs, "deactivate_date", rsColumns);
         this.deactivateTractorLat = getString(rs, "deactivate_tractor_lat", rsColumns);

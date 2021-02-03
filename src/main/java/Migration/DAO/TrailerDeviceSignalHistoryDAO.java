@@ -27,7 +27,7 @@ public class TrailerDeviceSignalHistoryDAO {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from public.trailer_device_signal_history WHERE truck_id=" + trailerId +
-                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
+                " AND signal_time BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY signal_time";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

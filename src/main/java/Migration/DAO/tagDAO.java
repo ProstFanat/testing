@@ -27,7 +27,7 @@ public class tagDAO {
         List<String> tags = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from public.tag WHERE organization_id=" + orgId;
+        String sql = "SELECT * from public.tag WHERE organization_id=" + orgId + " ORDER BY tag_name";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

@@ -40,9 +40,9 @@ public class FMCSAELDExport extends RecordMapperValueObject {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.fmcsaEldExportId = getLong(rs, "fmcsa_eld_export_id", rsColumns);
+     //   this.fmcsaEldExportId = getLong(rs, "fmcsa_eld_export_id", rsColumns);
         this.orgId = getLong(rs, "org_id", rsColumns);
-        this.driverId = getLong(rs, "driver_id", rsColumns);
+     //   this.driverId = getLong(rs, "driver_id", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
         this.fromDate = getDate(rs, "from_date", rsColumns);
         this.toDate = getDate(rs, "to_date", rsColumns);

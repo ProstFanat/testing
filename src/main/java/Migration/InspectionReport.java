@@ -211,14 +211,14 @@ public class InspectionReport extends RecordMapperValueObject {
             rsColumns = getRSColumns(rs);
         }
 
-        this.reportId = getLong(rs, "report_id", rsColumns);
+       // this.reportId = getLong(rs, "report_id", rsColumns);
         this.orgId = getLong(rs, "org_id", rsColumns);
-        this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
-        this.driverId2 = getLong(rs, "driver_id_2", rsColumns);
+       // this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
+       // this.driverId2 = getLong(rs, "driver_id_2", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
         this.updateDate = getDate(rs, "update_date", rsColumns);
         this.reportDate = getDate(rs, "report_date", rsColumns);
-        this.truckId = getLong(rs, "truck_id", rsColumns);
+     //   this.truckId = getLong(rs, "truck_id", rsColumns);
         this.odometer = getString(rs, "odometer", rsColumns);
         this.odometerUnit = getString(rs, "odometer_unit",  rsColumns);
         this.trailerNumber = getString(rs, "trailer_number", rsColumns);

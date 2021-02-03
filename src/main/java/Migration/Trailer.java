@@ -51,14 +51,14 @@ public class Trailer extends RecordMapperValueObject implements Serializable {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-        this.trailerId = getLong(rs, "trailer_id", rsColumns);                                          //addVOField("trailer_id", Types.BIGINT, "setTrailerId", Long.class, "getTrailerId");// 		addVOField("ref_trailer_id", Types.VARCHAR, "setRefTrailerId", String.class, "getRefTrailerId");
+        //this.trailerId = getLong(rs, "trailer_id", rsColumns);                                          //addVOField("trailer_id", Types.BIGINT, "setTrailerId", Long.class, "getTrailerId");// 		addVOField("ref_trailer_id", Types.VARCHAR, "setRefTrailerId", String.class, "getRefTrailerId");
         this.picture = getString(rs, "picture", rsColumns);                                             //addVOField("picture", Types.VARCHAR, "setPicture", String.class, "getPicture");
         this.owner = getString(rs, "owner", rsColumns);                                                 //addVOField("owner", Types.VARCHAR, "setOwner", String.class, "getOwner");
         this.trailerLength = getString(rs, "trailer_length", rsColumns);                                //addVOField("trailer_length", Types.VARCHAR, "setTrailerLength", String.class, "getTrailerLength");
         this.orgId = getLong(rs, "org_id", rsColumns);                                                  //addVOField("org_id", Types.BIGINT, "setOrgId", Long.class, "getOrgId");
         this.trailerNumber = getString(rs, "trailer_number", rsColumns);                                //addVOField("trailer_number", Types.VARCHAR, "setTrailerNumber", String.class, "getTrailerNumber");
         this.gpsProvider = getString(rs, "gps_provider", rsColumns);                                    //addVOField("gps_provider", Types.VARCHAR, "setGpsProvider", String.class, "getGpsProvider");
-        this.gpsUnitId = getString(rs, "gps_unit_id", rsColumns);                                       //addVOField("gps_unit_id", Types.VARCHAR, "setGpsUnitId", String.class, "getGpsUnitId");
+       // this.gpsUnitId = getString(rs, "gps_unit_id", rsColumns);                                       //addVOField("gps_unit_id", Types.VARCHAR, "setGpsUnitId", String.class, "getGpsUnitId");
         this.vin = getString(rs, "vin", rsColumns);                                                     //addVOField("vin", Types.VARCHAR, "setVin", String.class, "getVin");
         this.make = getString(rs, "make", rsColumns);                                                   //addVOField("make", Types.VARCHAR, "setMake", String.class, "getMake");
         this.year = getString(rs, "year", rsColumns);                                                   //addVOField("year", Types.VARCHAR, "setYear", String.class, "getYear");
