@@ -1,6 +1,7 @@
 package Migration.Fragments;
 
 import Migration.*;
+import Migration.DAO.EldEventDao;
 import org.junit.jupiter.api.Assertions;
 
 import java.sql.SQLException;

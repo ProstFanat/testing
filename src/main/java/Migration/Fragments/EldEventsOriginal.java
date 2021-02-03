@@ -1,7 +1,6 @@
 package Migration.Fragments;
 
-import Migration.EldEventDao;
-import Migration.EldEventOriginalDao;
+import Migration.DAO.EldEventOriginalDao;
 import Migration.GetNewId;
 import org.junit.jupiter.api.Assertions;
 

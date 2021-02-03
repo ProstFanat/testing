@@ -1,46 +1,42 @@
-package Migration;
+package Migration.DAO;
 
 import DB.DBConnection;
+import Migration.FuelPurchaseReceipt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class EldSignalHistoryDao {
-
+public class FuelPurchaseReceiptDAO {
     private String db;
     private String user;
     private String pass;
 
-    public EldSignalHistoryDao(String db, String user, String pass) {
+    public FuelPurchaseReceiptDAO(String db, String user, String pass) {
         this.db = db;
         this.user = user;
         this.pass = pass;
     }
 
-    public List<String> getEldSignalsHistoryByDriver(String driverId) throws SQLException {
-        EldSignalHistory eldSignalHistory = null;
-        List<String> eldSignalsHistory = new ArrayList<>();
+    public List<String> getFuelPurchaseReceiptForDriver(String driverId) throws SQLException {
+        FuelPurchaseReceipt fuelPurchaseReceipt= null;
+        List<String> fuelPurchaseReceipts = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from eld.eld_signal_hist WHERE driver_id_1=" + driverId +
+        String sql = "SELECT * from eld.fmcsa_eld_export WHERE driver_id=" + driverId +
                 " AND create_date BETWEEN now() - '8 days'::INTERVAL and now()";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                eldSignalHistory =  new EldSignalHistory(rs, null);
-                eldSignalsHistory.add(eldSignalHistory.toString());
+                fuelPurchaseReceipt =  new FuelPurchaseReceipt(rs, null);
+                fuelPurchaseReceipts.add(fuelPurchaseReceipt.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return eldSignalsHistory;
-
-
+        return fuelPurchaseReceipts;
     }
-
 }

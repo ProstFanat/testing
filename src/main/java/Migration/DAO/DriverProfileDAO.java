@@ -1,6 +1,7 @@
-package Migration;
+package Migration.DAO;
 
 import DB.DBConnection;
+import Migration.DriverProfile;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

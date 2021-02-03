@@ -1,8 +1,5 @@
 package LoadDashboard;
 
-import DB.DBConstant;
-import Migration.DriverProfile;
-import Migration.DriverProfileDAO;
 import org.junit.jupiter.api.Test;
 
 import  java.sql.Connection;

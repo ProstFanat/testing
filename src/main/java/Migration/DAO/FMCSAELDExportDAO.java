@@ -1,6 +1,7 @@
-package Migration;
+package Migration.DAO;
 
 import DB.DBConnection;
+import Migration.FMCSAELDExport;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,20 +10,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FuelPurchaseReceiptDAO {
+public class FMCSAELDExportDAO {
     private String db;
     private String user;
     private String pass;
 
-    public FuelPurchaseReceiptDAO(String db, String user, String pass) {
+    public FMCSAELDExportDAO(String db, String user, String pass) {
         this.db = db;
         this.user = user;
         this.pass = pass;
     }
 
-    public List<String> getFuelPurchaseReceiptForDriver(String driverId) throws SQLException {
-        FuelPurchaseReceipt  fuelPurchaseReceipt= null;
-        List<String> fuelPurchaseReceipts = new ArrayList<>();
+    public List<String> getFMCSAELDExportForDriver(String driverId) throws SQLException {
+        FMCSAELDExport fmcsaEldExport= null;
+        List<String> fmcsaEldExports = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.fmcsa_eld_export WHERE driver_id=" + driverId +
@@ -30,12 +31,12 @@ public class FuelPurchaseReceiptDAO {
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                fuelPurchaseReceipt =  new FuelPurchaseReceipt(rs, null);
-                fuelPurchaseReceipts.add(fuelPurchaseReceipt.toString());
+                fmcsaEldExport =  new FMCSAELDExport(rs, null);
+                fmcsaEldExports.add(fmcsaEldExport.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return fuelPurchaseReceipts;
+        return fmcsaEldExports;
     }
 }
