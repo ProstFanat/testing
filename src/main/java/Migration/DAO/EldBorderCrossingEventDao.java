@@ -1,6 +1,7 @@
 package Migration.DAO;
 
 import DB.DBConnection;
+import Migration.EldBorderCrossingEvent;
 import Migration.EldEvent;
 
 import java.sql.Connection;

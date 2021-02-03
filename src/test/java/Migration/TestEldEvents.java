@@ -20,7 +20,6 @@ public class TestEldEvents {
 
     @Test
     public void test() throws SQLException {
-        eldEvents.compareEldEventsById("63608");
-
+        eldEvents.compareEldEventsById("289039");
     }
 }

@@ -2,7 +2,6 @@ package Migration.Fragments;
 
 import Migration.DriverProfile;
 import Migration.DAO.DriverProfileDAO;
-import Migration.GetNewId;
 import org.junit.jupiter.api.Assertions;
 
 import java.sql.SQLException;
