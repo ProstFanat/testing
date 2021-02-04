@@ -38,7 +38,7 @@ public class Account extends RecordMapperValueObject implements Serializable {
 //        this.contactId = getLong(rs, "contact_id", rsColumns);
 //        this.createDate = getDate(rs, "create_date", rsColumns);
         this.isPersonal = getCharacter(rs, "is_personal", rsColumns);
-        //this.note = getString(rs, "note", rsColumns);
+        this.note = getString(rs, "note", rsColumns);
         this.salesNote = getString(rs, "sales_note", rsColumns);
         this.sendLoadOffers = getCharacter(rs, "send_load_offers", rsColumns);
     }

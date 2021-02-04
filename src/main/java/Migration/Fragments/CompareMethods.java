@@ -21,6 +21,9 @@ public class CompareMethods {
         DriverProfile DriverProfileNew = profileDAONew.getDriverById(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(DriverProfileOld.toString(), DriverProfileNew.toString());
+        if(DriverProfileOld.toString().equals(DriverProfileNew.toString())){
+            System.out.println("compareDriverByDriverId " + id + " Done");
+        }
     }
 
     public static void compareEldEventsByDriverId(String id) throws SQLException {
@@ -34,6 +37,9 @@ public class CompareMethods {
         List<String> eldEventNew = profileDAONew.getEldEventsForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(eldEventNew.toString(), eldEventOld.toString());
+        if(eldEventOld.toString().equals(eldEventNew.toString())){
+            System.out.println("compareEldEventsByDriverId " + id + " Done");
+        }
     }
 
     public static void compareEldOriginalEventsById(String id) throws SQLException {
@@ -45,6 +51,9 @@ public class CompareMethods {
         List<String> eldEventNew = eldEventsOriginalNew.getEldEventsOriginalForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(eldEventNew.toString(), eldEventOld.toString());
+        if(eldEventOld.toString().equals(eldEventNew.toString())){
+            System.out.println("compareEldOriginalEventsById " + id + " Done");
+        }
     }
 
     public static void compareAccountsByOrgId(String id) throws SQLException {
@@ -57,6 +66,10 @@ public class CompareMethods {
         Account newValue = daoNew.getAccountByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareAccountsByOrgId " + id + " Done");
+        }
     }
 
     public static void compareOrganizationsByOrgId(String id) throws SQLException {
@@ -69,6 +82,10 @@ public class CompareMethods {
         Organization newValue = daoNew.getOrganizationById(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareOrganizationsByOrgId " + id + " Done");
+        }
     }
 
     public static void compareAddressesByOrgId(String id) throws SQLException {
@@ -81,6 +98,10 @@ public class CompareMethods {
         Address newValue = daoNew.getAddressByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareAddressesByOrgId " + id + " Done");
+        }
     }
 
     public static void compareOptionsByOrgId(String id) throws SQLException {
@@ -93,6 +114,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getListOfOptionsByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareOptionsByOrgId " + id + " Done");
+        }
     }
 
     public static void compareACLUserGroupsByOrgId(String id) throws SQLException {
@@ -105,6 +130,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getListOfACLUserGroupsByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLUserGroupsByOrgId " + id + " Done");
+        }
     }
 
     public static void compareACLMatricesByOrgId(String id) throws SQLException {
@@ -117,6 +146,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getListOfACLMatrixByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLMatricesByOrgId " + id + " Done");
+        }
     }
 
     public static void compareACLResourcesByOrgId(String id) throws SQLException {
@@ -129,6 +162,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getListOfACLResourcesByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLResourcesByOrgId " + id + " Done");
+        }
     }
 
     public static void compareDepartmentsByOrgId(String id) throws SQLException {
@@ -141,6 +178,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getListOfDepartmentsByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareDepartmentsByOrgId " + id + " Done");
+        }
     }
 
     public static void compareConsumersByOrgId(String id) throws SQLException {
@@ -153,6 +194,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getListOfConsumersByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareConsumersByOrgId " + id + " Done");
+        }
     }
 
     public static void compareContactsByOrgId(String id) throws SQLException {
@@ -165,6 +210,10 @@ public class CompareMethods {
         Contact newValue = daoNew.getContactByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareContactsByOrgId " + id + " Done");
+        }
     }
 
     public static void compareAddressBooksByOrgId(String id) throws SQLException {
@@ -177,6 +226,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getListOfAddressBookRecordsByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareAddressBooksByOrgId " + id + " Done");
+        }
     }
 
     public static void compareACLUsersByDriverId(String id) throws SQLException {
@@ -189,30 +242,75 @@ public class CompareMethods {
         ACLUser newValue = daoNew.getACLUserByDriverId(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLUsersByDriverId " + id + " Done");
+        }
     }
 
-    public static void compareACLUserMatricesByOrgId(String id) throws SQLException {
+
+    public static void compareACLUsersByUserId(String id) throws SQLException {
+        ACLUserDAO daoOld = new ACLUserDAO(DB_URL, USER_DB, PASS_DB);
+        ACLUserDAO daoNew = new ACLUserDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        ACLUser oldValue = daoOld.getACLUserByUserId(id);
+        ACLUser newValue = daoNew.getACLUserByUserId(getNewId.getNewAclUserId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLUsersByUserId " + id + " Done");
+        }
+    }
+
+    public static void compareACLUserMatricesByUserId(String id) throws SQLException {
         ACLUserMatrixDAO daoOld = new ACLUserMatrixDAO(DB_URL, USER_DB, PASS_DB);
         ACLUserMatrixDAO daoNew = new ACLUserMatrixDAO(DB_URL2, USER_DB2, PASS_DB2);
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
-        List<String> oldValue = daoOld.getListOfACLUserMatrixByOrgId(id);
-        List<String> newValue = daoNew.getListOfACLUserMatrixByOrgId(id);
+        List<String> oldValue = daoOld.getListOfACLUserMatrixByUserId(id);
+        List<String> newValue = daoNew.getListOfACLUserMatrixByUserId(getNewId.getNewAclUserId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLUserMatricesByUserId " + id + " Done");
+        }
     }
 
-    public static void compareACLUserInGroupByOrgId(String id) throws SQLException {
+    public static void compareACLUserInGroupByDriverId(String id) throws SQLException {
         AclUserInGroupDAO daoOld = new AclUserInGroupDAO(DB_URL, USER_DB, PASS_DB);
         AclUserInGroupDAO daoNew = new AclUserInGroupDAO(DB_URL2, USER_DB2, PASS_DB2);
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getAclUserInGroupList(id);
-        List<String> newValue = daoNew.getAclUserInGroupList(id);
+        List<String> newValue = daoNew.getAclUserInGroupList(getNewId.getNewAclUserId(id));
 
-        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        Assertions.assertEquals(newValue.size(), oldValue.size());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLUserInGroupByDriverId " + id + " Done");
+        }
+    }
+
+    public static void compareACLUserInGroupByUserId(String id) throws SQLException {
+        AclUserInGroupDAO daoOld = new AclUserInGroupDAO(DB_URL, USER_DB, PASS_DB);
+        AclUserInGroupDAO daoNew = new AclUserInGroupDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getAclUserInGroupList(id);
+        List<String> newValue = daoNew.getAclUserInGroupList(getNewId.getNewAclUserId(id));
+
+        Assertions.assertEquals(newValue.size(), oldValue.size());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLUserInGroupByUserId " + id + " Done");
+        }
     }
 
     public static void compareInspectionReportDriverId(String id) throws SQLException {
@@ -225,6 +323,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getInspectionReportsByDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareInspectionReportDriverId " + id + " Done");
+        }
     }
 
     public static void compareEldBorderCrossingEventsDriverId(String id) throws SQLException {
@@ -237,6 +339,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getEldBorderCrossingEventForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareEldBorderCrossingEventsDriverId " + id + " Done");
+        }
     }
 
     public static void compareEldSignalsHistoryDriverId(String id) throws SQLException {
@@ -249,6 +355,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getEldSignalsHistoryByDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareEldSignalsHistoryDriverId " + id + " Done");
+        }
     }
 
     public static void compareFmcsaEldExportDriverId(String id) throws SQLException {
@@ -261,6 +371,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getFMCSAELDExportForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareFmcsaEldExportDriverId " + id + " Done");
+        }
     }
 
     public static void compareFuelPurchaseReceiptDriverId(String id) throws SQLException {
@@ -273,6 +387,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getFuelPurchaseReceiptForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareFuelPurchaseReceiptDriverId " + id + " Done");
+        }
     }
 
     public static void compareTruckByTruckId(String id) throws SQLException {
@@ -285,6 +403,10 @@ public class CompareMethods {
         Truck newValue = daoNew.getTruckById(getNewId.getNewTruckId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareTruckByTruckId " + id + " Done");
+        }
     }
 
     public static void compareTruckDeviceSignalHistoryByTruckId(String id) throws SQLException {
@@ -297,6 +419,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getTruckDeviceSignalsByTruckId(getNewId.getNewTruckId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareTruckDeviceSignalHistoryByTruckId " + id + " Done");
+        }
     }
 
     public static void compareTagsByOrgId(String id) throws SQLException {
@@ -309,6 +435,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getTagsByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareTagsByOrgId " + id + " Done");
+        }
     }
 
     public static void compareTransportMovementByTruckId(String id) throws SQLException {
@@ -321,6 +451,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getTransportMovementsByTruckId(getNewId.getNewTruckId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareTransportMovementByTruckId " + id + " Done");
+        }
     }
 
     public static void compareTransportMovementHistoryByTruckId(String id) throws SQLException {
@@ -333,6 +467,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getTransportMovementsHistoryByTruckId(getNewId.getNewTruckId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareTransportMovementHistoryByTruckId " + id + " Done");
+        }
     }
 
     public static void compareTrailerByTrailerId(String id) throws SQLException {
@@ -345,6 +483,10 @@ public class CompareMethods {
         Trailer newValue = daoNew.getTrailerById(getNewId.getNewTrailerId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareTrailerByTrailerId " + id + " Done");
+        }
     }
 
     public static void compareTrailerDeviceSignalHistoryByTrailerId(String id) throws SQLException {
@@ -357,6 +499,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getTrailerDeviceSignalsByTrailerId(getNewId.getNewTrailerId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareTrailerDeviceSignalHistoryByTrailerId " + id + " Done");
+        }
     }
 
     public static void compareEdiDataConsumerByOrgId(String id) throws SQLException {
@@ -369,6 +515,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getEdiDataConsumerByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareEdiDataConsumerByOrgId " + id + " Done");
+        }
     }
 
     public static void compareGpsSignalConsumerByOrgId(String id) throws SQLException {
@@ -381,6 +531,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getGpsSignalConsumerByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareGpsSignalConsumerByOrgId " + id + " Done");
+        }
     }
 
     public static void compareGeocodeProviderByOrgId(String id) throws SQLException {
@@ -393,6 +547,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getGeocodeProvideByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareGeocodeProviderByOrgId " + id + " Done");
+        }
     }
 
     public static void compareMessagingProviderByOrgId(String id) throws SQLException {
@@ -405,6 +563,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getMessagingProvideByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareMessagingProviderByOrgId " + id + " Done");
+        }
     }
 
     public static void compareHosProviderByOrgId(String id) throws SQLException {
@@ -417,6 +579,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getHOSProvideByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareHosProviderByOrgId " + id + " Done");
+        }
     }
 
     public static void compareGpsSignalProviderByOrgId(String id) throws SQLException {
@@ -429,5 +595,9 @@ public class CompareMethods {
         List<String> newValue = daoNew.getGpsSignalsProvideByOrgId(id);
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareGpsSignalProviderByOrgId " + id + " Done");
+        }
     }
 }

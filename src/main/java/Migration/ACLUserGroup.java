@@ -33,6 +33,17 @@ public class ACLUserGroup extends RecordMapperValueObject implements Serializabl
        // this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
     }
 
+    public ACLUserGroup(final ResultSet rs, Set<String> rsColumns, String a) throws Exception {
+        if (rsColumns == null) {
+            rsColumns = getRSColumns(rs);
+        }
+        this.groupId = getLong(rs, "group_id", rsColumns);
+        this.userGroup = getString(rs, "user_group", rsColumns);
+        this.description = getString(rs, "description", rsColumns);
+        this.orgId = getLong(rs, "org_id", rsColumns);
+        this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
+    }
+
     @Override
     public String toString() {
         return "ACLUserGroup{" +

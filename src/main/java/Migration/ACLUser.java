@@ -61,6 +61,28 @@ public class ACLUser extends RecordMapperValueObject implements Serializable {
 //        this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
     }
 
+    public ACLUser(ResultSet rs, Set<String> rsColumns, String a) throws Exception {
+        if (rsColumns == null) {
+            rsColumns = getRSColumns(rs);
+        }
+        this.userId = getLong(rs, "user_id", rsColumns);
+        this.firstName = getString(rs, "first_name", rsColumns);
+        this.lastName = getString(rs, "last_name", rsColumns);
+        this.loginName = getString(rs, "login_name", rsColumns);
+        this.activeInd = getCharacter(rs, "active_ind", rsColumns, 'Y');
+        this.accessToAllOrg = getCharacter(rs, "access_to_all_org", rsColumns, 'N');
+        this.userType = getString(rs, "user_type", rsColumns);
+        this.organizationId = getLong(rs, "organization_id", rsColumns);
+        this.salt = getString(rs, "salt", rsColumns);
+        this.userLanguage = getString(rs, "user_language", rsColumns);
+        this.status = getString(rs, "status", rsColumns);
+        this.lastLoginDateTime = getDate(rs, "last_login_date_time", rsColumns);
+        this.driverId = getLong(rs, "driver_id", rsColumns);
+        this.password = getString(rs, "password", rsColumns);
+        this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
+        this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
+    }
+
     @Override
     public String toString() {
         return "ACLUser{" +

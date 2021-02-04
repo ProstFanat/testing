@@ -29,7 +29,7 @@ public class GetNewId {
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                driverProfile =  new DriverProfile(rs, null, "new");
+                driverProfile =  new DriverProfile(rs, null, "a");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class GetNewId {
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                aclUser =  new ACLUser(rs, null);
+                aclUser =  new ACLUser(rs, null, "a");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -151,19 +151,19 @@ public class GetNewId {
         return department.getDepartmentId().toString();
     }
 
-//    public String getNewAclUserGroupId(String id){
-//        ACLUserGroup aclUserGroup = null;
-//
-//        Connection connection = DBConnection.getConnection(db, user, pass);
-//        String sql = "SELECT * from public.acl_user_group WHERE master_db_ref_id=" + id;
-//        try (PreparedStatement ps = connection.prepareStatement(sql)){
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()){
-//                aclUserGroup =  new Department(rs, null);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return aclUserGroup.getDepartmentId().toString();
-//    }
+    public String getNewAclUserGroupId(String id){
+        ACLUserGroup aclUserGroup = null;
+
+        Connection connection = DBConnection.getConnection(db, user, pass);
+        String sql = "SELECT * from public.acl_user_group WHERE master_db_ref_id=" + id;
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                aclUserGroup =  new ACLUserGroup(rs, null, "a");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return aclUserGroup.getGroupId().toString();
+    }
 }

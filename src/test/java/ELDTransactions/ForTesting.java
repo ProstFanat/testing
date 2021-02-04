@@ -36,7 +36,7 @@ public class ForTesting {
         customersPage = new CustomersPage();
         driversPage = new DriversPage();
         mainAdminScreenPage = new MainAdminScreenPage();
-        loginPage.login("adrian@mail.com", "test");
+        loginPage.login("5", "test");
         mainAdminScreenPage.clickCustomers();
         customersPage.logAsOrgOfCompany("Company For Autotesting");
         driversPage.openPage();
@@ -44,7 +44,7 @@ public class ForTesting {
 
     @Test
     public void test(){
-        createTransaction.createTransaction(10, "comment");
+        createTransaction.createTransaction(40, "comment");
         sleep(5000);
     }
 }

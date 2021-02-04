@@ -35,4 +35,20 @@ public class ACLUserDAO {
         }
         return vo;
     }
+
+    public ACLUser getACLUserByUserId(String userId) throws SQLException {
+        ACLUser vo = null;
+
+        Connection connection = DBConnection.getConnection(db, user, pass);
+        String sql = "SELECT * FROM acl_user WHERE user_id = " + userId;
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                vo = new ACLUser(rs, null);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vo;
+    }
 }

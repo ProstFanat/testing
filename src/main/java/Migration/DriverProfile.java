@@ -1130,7 +1130,7 @@ public class DriverProfile extends RecordMapperValueObject {
         this.mobileAppOptions = getString(rs, "mobile_app_options", rsColumns);
     }
 
-    public DriverProfile(final ResultSet rs, Set<String> rsColumns, String aaaa) throws Exception {
+    public DriverProfile(final ResultSet rs, Set<String> rsColumns, String a) throws Exception {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
@@ -1184,12 +1184,12 @@ public class DriverProfile extends RecordMapperValueObject {
         this.signatureImage = getString(rs, "signature_image", rsColumns);                                                                                              //		addVOField("signature_image", Types.VARCHAR, "setSignatureImage", String.class, "getSignatureImage");
         this.eldEventsLock = getDate(rs, "eld_events_lock", rsColumns);                                                                                                 //		addVOField("eld_events_lock", Types.TIMESTAMP, "setEldEventsLock", Date.class, "getEldEventsLock");
         this.ownerOperator = getCharacter(rs, "owner_operator", rsColumns);                                                                                             //		addVOField("owner_operator", Types.CHAR, "setOwnerOperator", Character.class, "getOwnerOperator");
-        // this.truckId = getLong(rs, "truck_id", rsColumns);                                                                                                              //		addVOField("truck_id", Types.BIGINT, "setTruckId", Long.class, "getTruckId");
-        // this.trailerId = getLong(rs, "trailer_id", rsColumns);                                                                                                          //		addVOField("trailer_id", Types.BIGINT, "setTrailerId", Long.class, "getTrailerId");
+        this.truckId = getLong(rs, "truck_id", rsColumns);                                                                                                              //		addVOField("truck_id", Types.BIGINT, "setTruckId", Long.class, "getTruckId");
+        this.trailerId = getLong(rs, "trailer_id", rsColumns);                                                                                                          //		addVOField("trailer_id", Types.BIGINT, "setTrailerId", Long.class, "getTrailerId");
         this.preferredDistanceUnit = getString(rs, "preferred_distance_unit", rsColumns);                                                                               //		addVOField("preferred_distance_unit", Types.VARCHAR, "setPreferredDistanceUnit", String.class, "getPreferredDistanceUnit");
         this.hasSetPreferredDistanceUnit = getCharacter(rs, "has_set_preferred_distance_unit", rsColumns, BOOLEAN_CHARACTER_NO);                           //		addVOField("has_set_preferred_distance_unit", Types.CHAR, "setHasSetPreferredDistanceUnit", Character.class, "getHasSetPreferredDistanceUnit");
         this.opentextPassword = getString(rs, "opentext_password", rsColumns);                                                                                          //		addVOField("opentext_password", Types.VARCHAR, "setOpentextPassword", String.class, "getOpentextPassword");
-        // this.ACLUserId = getLong(rs, "acl_user_id", rsColumns);                                                                                                         //		addVOField("acl_user_id", Types.BIGINT, "setACLUserId", Long.class, "getACLUserId");
+        this.ACLUserId = getLong(rs, "acl_user_id", rsColumns);                                                                                                         //		addVOField("acl_user_id", Types.BIGINT, "setACLUserId", Long.class, "getACLUserId");
         this.useDriverAddressForHOS = getCharacter(rs, "use_address_for_hos", rsColumns, BOOLEAN_CHARACTER_NO);                                            //		addVOField("use_address_for_hos", Types.CHAR, "setUseDriverAddressForHOS", Character.class, "getUseDriverAddressForHOS");
         this.addressForHOS = getString(rs, "address_for_hos", rsColumns);                                                                                               //		addVOField("address_for_hos", Types.VARCHAR, "setAddressForHOS", String.class, "getAddressForHOS");
         this.eventEditingIsPermitted = getCharacter(rs, "event_editing_is_permitted", rsColumns, BOOLEAN_CHARACTER_YES);                                   //		addVOField("event_editing_is_permitted", Types.CHAR, "setEventEditingIsPermitted", Character.class, "getEventEditingIsPermitted");
@@ -1221,17 +1221,17 @@ public class DriverProfile extends RecordMapperValueObject {
         this.showAlertOnNewMessage = getCharacter(rs, "show_alert_on_new_message", rsColumns, BOOLEAN_CHARACTER_NO);
         this.soundNotificationOnNewMessage = getCharacter(rs, "sound_notification_on_new_message", rsColumns, BOOLEAN_CHARACTER_NO);
         this.enableVoiceMessage = getCharacter(rs, "enable_voice_message", rsColumns, BOOLEAN_CHARACTER_NO);
-        // this.lastTripId = getLong(rs, "last_trip_id", rsColumns);
+        this.lastTripId = getLong(rs, "last_trip_id", rsColumns);
         this.legalFirstName = getString(rs, "legal_first_name", rsColumns);
         this.legalLastName = getString(rs, "legal_last_name", rsColumns);
         this.muteViolationSounds = getCharacter(rs, "mute_violation_sounds", rsColumns, BOOLEAN_CHARACTER_NO);
         this.pin = getString(rs, "pin", rsColumns);
-        // this.subscriptionId = getLong(rs, "subscription_id", rsColumns);
+        this.subscriptionId = getLong(rs, "subscription_id", rsColumns);
         this.deviceSequenceOutOfSync = getString(rs, "device_sequence_out_of_sync", rsColumns);
         this.startInspection = getDate(rs, "start_inspection", rsColumns);
         this.updateDate = getDate(rs, "update_date", rsColumns);
         this.onlyUsaDriving = getCharacter(rs, "only_usa_driving", rsColumns, BOOLEAN_CHARACTER_NO);
-        // this.dispatchingSystemId = getLong(rs, "dispatching_system_id", rsColumns);
+        this.dispatchingSystemId = getLong(rs, "dispatching_system_id", rsColumns);
         this.appVersionMsgIntervalMin = getInteger(rs, "app_version_msg_interval_min", rsColumns);
         this.csvSetMilesAndHoursZeroForManualEvents = getCharacter(rs, "csv_set_miles_and_hours_zero_for_manual_events", rsColumns, BOOLEAN_CHARACTER_NO);
         this.maxPersonalUseDistance = getInteger(rs, "max_personal_use_distance", rsColumns);
