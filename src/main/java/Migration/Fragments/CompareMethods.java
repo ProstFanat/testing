@@ -2,6 +2,7 @@ package Migration.Fragments;
 
 import Migration.*;
 import Migration.DAO.*;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Assertions;
 
 import java.sql.SQLException;
@@ -83,7 +84,7 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
-        if(oldValue.toString().equals(newValue.toString())){
+        if(newValue.toString().equals(oldValue.toString())){
             System.out.println("compareOrganizationsByOrgId " + id + " Done");
         }
     }
@@ -99,7 +100,7 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
-        if(oldValue.toString().equals(newValue.toString())){
+        if(newValue.toString().equals(oldValue.toString())){
             System.out.println("compareAddressesByOrgId " + id + " Done");
         }
     }
@@ -115,7 +116,7 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
-        if(oldValue.toString().equals(newValue.toString())){
+        if(newValue.toString().equals(oldValue.toString())){
             System.out.println("compareOptionsByOrgId " + id + " Done");
         }
     }
@@ -148,6 +149,10 @@ public class CompareMethods {
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
         if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareACLMatricesByOrgId " + id + " Done");
+        }
+
+        if(newValue.toString().equals(oldValue.toString())){
             System.out.println("compareACLMatricesByOrgId " + id + " Done");
         }
     }

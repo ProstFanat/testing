@@ -36,7 +36,7 @@ public class Department extends RecordMapperValueObject {
 //        this.createDate = getDate(rs, "create_date", rsColumns);
         this.refDepartmentCode = getString(rs, "ref_department_code", rsColumns);
 //        this.refDepartmentId = getString(rs, "ref_department_id", rsColumns);
-        this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
+      //  this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
     }
 
     @Override

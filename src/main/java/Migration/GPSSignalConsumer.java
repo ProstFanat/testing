@@ -22,7 +22,7 @@ public class GPSSignalConsumer extends RecordMapperValueObject {
 //        this.consumerId = getLong(rs, "consumer_id", rsColumns);
         this.type = getString(rs, "type", rsColumns);
 //        this.orgId = getLong(rs,"org_id", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
+     //   this.createDate = getDate(rs, "create_date", rsColumns);
         this.replayEmail = getString(rs, "reply_email", rsColumns);
         this.email = getString(rs, "email", rsColumns);
         this.emailSubject = getString(rs, "email_subject", rsColumns);

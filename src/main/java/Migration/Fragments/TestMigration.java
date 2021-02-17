@@ -4,6 +4,7 @@ import DB.DBConnection;
 import Migration.ACLUser;
 import Migration.InspectionReport;
 
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -98,7 +99,7 @@ public class TestMigration  extends CompareMethods{
     }
 
 
-    public static void testByMigrationId(String migrationId) throws SQLException {
+    public static void testByMigrationId(String migrationId) throws SQLException, FileNotFoundException {
         String orgID = getOrgIdForMigration(migrationId);
         List<String> drivers = getDriversForMigration(migrationId);
         List<String> trucks = getTrucksForMigration(migrationId);
@@ -107,27 +108,23 @@ public class TestMigration  extends CompareMethods{
 
         compareOrganizationsByOrgId(orgID);
         compareAddressesByOrgId(orgID);
-        //compareOptionsByOrgId(orgID);
         compareACLUserGroupsByOrgId(orgID);
-        compareACLMatricesByOrgId(orgID);
         compareDepartmentsByOrgId(orgID);
-        compareConsumersByOrgId(orgID);
+        //compareConsumersByOrgId(orgID);
         compareAccountsByOrgId(orgID);
-        //compareContactsByOrgId(orgID);
-
-        //compareAddressBooksByOrgId(orgID);
-        // Узнать кто именно переходи
-
-
-        compareGpsSignalProviderByOrgId(orgID);
+        //compareGpsSignalProviderByOrgId(orgID);
         compareHosProviderByOrgId(orgID);
         compareMessagingProviderByOrgId(orgID);
         compareGeocodeProviderByOrgId(orgID);
         compareGpsSignalConsumerByOrgId(orgID);
         compareEdiDataConsumerByOrgId(orgID);
+        //compareOptionsByOrgId(orgID);
+        //compareACLMatricesByOrgId(orgID);
+        compareContactsByOrgId(orgID);
+        compareAddressBooksByOrgId(orgID);
 
         for (String driver : drivers) {
-            compareDriverByDriverId(driver);
+            //compareDriverByDriverId(driver);
             compareEldEventsByDriverId(driver);
             compareEldOriginalEventsById(driver);
             compareInspectionReportDriverId(driver);
@@ -155,7 +152,6 @@ public class TestMigration  extends CompareMethods{
             compareACLUserMatricesByUserId(user);
            // compareACLUserInGroupByUserId(user);
         }
-
 
     }
 }
