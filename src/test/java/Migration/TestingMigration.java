@@ -12,6 +12,6 @@ public class TestingMigration extends CompareMethods{
 
     @Test
     public void testGet() throws SQLException, FileNotFoundException {
-        TestMigration.testByMigrationId("973");
+        TestMigration.testByMigrationId("975");
     }
 }

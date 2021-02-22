@@ -29,7 +29,7 @@ public class EldSubscriptionDAO {
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql =  "SELECT * FROM eld.eld_subscription WHERE stripe_subscription_item_id IN " +
                 "(SELECT id FROM eld.stripe_subscription_item WHERE user_id IN" +
-                "(SELECT acl_user_id FROM fleet.driver_profile WHERE driver_id = " + id + "))" + " ORDER BY ref_id";
+                "(SELECT acl_user_id FROM fleet.driver_profile WHERE driver_id = " + id + "))" + " ORDER BY subscription_id";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
