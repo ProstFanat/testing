@@ -161,4 +161,8 @@ public class MainPageMigration {
         return this;
     }
 
+    public MainPageMigration clickCreateNewBtn(){
+        createNewBtn.click();
+        return this;
+    }
 }

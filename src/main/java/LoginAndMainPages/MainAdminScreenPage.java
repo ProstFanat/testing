@@ -9,7 +9,8 @@ public class MainAdminScreenPage {
 
     SelenideElement loadSearchBtn = $x("//p[contains(text(), 'Load Search')]"),
     eldTransactionBtn = $x("//a[contains(@is-permitted-for, 'read.ELD-TRANSACTIONS')]"),
-    customersBtn = $x("//*[text() = 'Customers']");
+    customersBtn = $x("//*[text() = 'Customers']"),
+    migrationBtn = $x("//a[contains(@is-permitted-for, 'read.ADMIN-MIGRATION-DASHBOARD')]");
 
 
     public void clickLoadSearchBtn() {
@@ -22,5 +23,10 @@ public class MainAdminScreenPage {
 
     public void clickCustomers(){
         customersBtn.click();
+    }
+
+    public void clickSideMenuMigrationBtn() {
+        migrationBtn.click();
+
     }
 }

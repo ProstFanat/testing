@@ -27,7 +27,7 @@ public class InspectionReportDao {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.inspection_report WHERE driver_id_1=" + driverId +
-                " AND report_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY odometer";
+                " AND report_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY odometer, report_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

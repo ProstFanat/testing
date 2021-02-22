@@ -16,7 +16,8 @@ public class MainEldTableFragment {
     actionBtn = $x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]//button");
     ElementsCollection actionsBtns = $$x("//div[contains(@class, 'btn-group w-100 ng-star-inserted')]"),
             rowsDriverLists = $$x("//datatable-row-wrapper//datatable-body-cell[6]"),
-            actions = $$x("//ul[@id='dropdown-basic']//li//span");
+            actions = $$x("//ul[@id='dropdown-basic']//li//span"),
+            numbersOfPagination = $$x("//datatable-pager//li[contains(@class, 'pages')]");
 
     public MainEldTableFragment clickFirstActionBtn() {
         actionsBtns.first().click();
@@ -34,13 +35,20 @@ public class MainEldTableFragment {
     }
 
     public boolean findTransactionByComment(String comment) {
-        if (!($x("//p[text() = '" + comment + "']").isDisplayed()))
-        {
+//        if (!($x("//p[text() = '" + comment + "']").isDisplayed()))
+//        {
+        boolean result = false;
           do {
-                  switchTablePagesBtn.click();
-          } while (($x("//p[text() = '" + comment + "']").isDisplayed())||((switchNextBtn.getAttribute("class").equals("disabled")) && switchNextBtn.is(not(enabled))));
-        }
-        return ($x("//p[text() = '" + comment + "']").isDisplayed());
+              if ($x("//p[text() = '" + comment + "']").isDisplayed()) {
+                  result = true;
+                  break;
+              }
+              switchTablePagesBtn.click();
+              //} while (($x("//p[text() = '" + comment + "']").isDisplayed())||((switchNextBtn.getAttribute("class").equals("disabled")) && switchNextBtn.is(not(enabled))));
+          } while (numbersOfPagination.last().getAttribute("class").equals("pages active ng-star-inserted"));
+              return result;
+          //}
+//        return ($x("//p[text() = '" + comment + "']").isDisplayed());
     }
 
 
