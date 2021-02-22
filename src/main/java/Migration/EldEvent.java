@@ -757,7 +757,7 @@ public class EldEvent extends RecordMapperValueObject {
             rsColumns = getRSColumns(rs);
         }
        // this.eventId = getLong(rs, "event_id", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+       // this.orgId = getLong(rs, "org_id", rsColumns);
         //this.createDate = getDate(rs, "create_date", rsColumns);
        // this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
        // this.driverId2 = getLong(rs, "driver_id_2", rsColumns);

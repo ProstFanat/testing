@@ -43,7 +43,7 @@ public class FuelPurchaseReceipt extends RecordMapperValueObject {
 //        this.purchaseId = getLong(rs, "purchase_id", rsColumns);
 //        this.driverId = getLong(rs, "driver_id", rsColumns);
 //        this.truckId = getLong(rs, "truck_id", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+      //  this.orgId = getLong(rs, "org_id", rsColumns);
         //this.createDate = getDate(rs, "create_date", rsColumns);
         this.purchaseDate = getDate(rs, "purchase_date", rsColumns);
         this.odometer = getBigDecimal(rs, "odometer", rsColumns);

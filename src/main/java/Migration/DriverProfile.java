@@ -1020,7 +1020,7 @@ public class DriverProfile extends RecordMapperValueObject {
             rsColumns = getRSColumns(rs);
         }
         //this.driverId = getLong(rs, "driver_id", rsColumns);                                                                                                            //		addVOField("driver_id", Types.BIGINT, "setDriverId", Long.class, "getDriverId");
-        this.orgId = getLong(rs, "org_id", rsColumns);                                                                                                                  // 		addVOField("org_id", Types.BIGINT, "setOrgId", Long.class, "getOrgId");
+        //this.orgId = getLong(rs, "org_id", rsColumns);                                                                                                                  // 		addVOField("org_id", Types.BIGINT, "setOrgId", Long.class, "getOrgId");
         this.firstName = getString(rs, "first_name", rsColumns);                                                                                                        //		addVOField("first_name", Types.VARCHAR, "setFirstName", String.class, "getFirstName");
         this.lastName = getString(rs, "last_name", rsColumns);                                                                                                          //		addVOField("last_name", Types.VARCHAR, "setLastName", String.class, "getLastName");
         //this.createDate = getDate(rs, "create_date", rsColumns);                                                                                                        //		addVOField("create_date", Types.TIMESTAMP, "setCreateDate", Date.class, "getCreateDate");

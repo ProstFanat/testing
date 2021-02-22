@@ -17,6 +17,7 @@ public class Organization extends RecordMapperValueObject {
     private String usdotNumber;
     private String mcNumber;
     private Date createDate;
+    private Long master_dv_ref_id;
 
     private String accountPin;
     private Character ourSafetyService;
@@ -36,6 +37,23 @@ public class Organization extends RecordMapperValueObject {
         this.mcNumber = getString(rs, "mc_number", rsColumns);
         this.accountPin = getString(rs, "account_pin", rsColumns);
 //        this.createDate = getDate(rs, "create_date", rsColumns);
+    }
+
+    public Organization(final ResultSet rs, Set<String> rsColumns, String a) throws Exception {
+        if (rsColumns == null) {
+            rsColumns = getRSColumns(rs);
+        }
+        this.organizationId = getLong(rs, "organization_id", rsColumns);
+        this.organizationName = getString(rs, "organization_name", rsColumns);
+        this.addressId = getLong(rs, "address_id", rsColumns);
+        this.businessType = getString(rs, "business_type", rsColumns);
+        this.bannerUrl = getString(rs, "banner_url", rsColumns);
+        this.homeTerminalTimezone = getString(rs, "home_terminal_timezone", rsColumns);
+        this.usdotNumber = getString(rs, "usdot_number", rsColumns);
+        this.mcNumber = getString(rs, "mc_number", rsColumns);
+        this.accountPin = getString(rs, "account_pin", rsColumns);
+        this.createDate = getDate(rs, "create_date", rsColumns);
+        this.master_dv_ref_id = getLong(rs, "master_db_ref_id", rsColumns);
     }
 
     public Long getOrganizationId() {

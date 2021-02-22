@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import resources.BasePage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class ForTesting {
     public static BasePage basePage;
@@ -31,7 +32,16 @@ public class ForTesting {
     }
 
     @Test
-    public void editLoad() {
+    public void test() {
+        mainPageMigration.setMigrationDateFromTo(1, "Feb", 2021, 18, "Feb", 2021)
+                .setFromEld("TrackEnsure ELD")
+                .setToEld("Smart eLog")
+                .setCompanyName("Usko Express")
+                .setDriverName("Petr Damian", "Usko Express")
+                .setMigrationStatus("In Progress")
+                //.setResponsiblePerson("Sergey Yastreba")
+                .clickBtnApply();
 
+        sleep(10000);
     }
 }

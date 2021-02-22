@@ -1,9 +1,8 @@
 package Migration.DAO;
 
 import DB.DBConnection;
-import Migration.GPSSignalConsumer;
 import Migration.GPSSignalProvider;
-import Migration.MessagingProvider;
+import Migration.StripeCustomer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,32 +11,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GPSSignalProviderDAO {
+public class StripeCustomerDAO {
     private String db;
     private String user;
     private String pass;
 
-    public GPSSignalProviderDAO(String db, String user, String pass) {
+    public StripeCustomerDAO(String db, String user, String pass) {
         this.db = db;
         this.user = user;
         this.pass = pass;
     }
 
-    public List<String> getGpsSignalsProvideByOrgId(String orgId) throws SQLException {
-        GPSSignalProvider gpsSignalProvider = null;
-        List<String> gpsSignalsProvider = new ArrayList<>();
+    public List<String> getStripeCustomerByDriverId(String id) throws SQLException {
+        StripeCustomer stripeCustomer = null;
+        List<String> stripeCustomers = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.gps_signal_provider WHERE org_id=" + orgId + "and active = 'Y' ORDER BY login";
+        String sql =  "SELECT * FROM eld.stripe_customer WHERE user_id IN " +
+                "(SELECT acl_user_id FROM fleet.driver_profile WHERE driver_id = " + id + ")" + " ORDER BY ref_id, ref_email";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                gpsSignalProvider =  new GPSSignalProvider(rs, null);
-                gpsSignalsProvider.add(gpsSignalProvider.toString());
+                stripeCustomer =  new StripeCustomer(rs, null);
+                stripeCustomers.add(stripeCustomer.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return gpsSignalsProvider;
+        return stripeCustomers;
     }
 }

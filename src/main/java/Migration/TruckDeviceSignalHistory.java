@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.Date;
 import java.util.Set;
 
-public class TruckDeviceSignalHistory extends RecordMapperValueObject implements Serializable {
+public class  TruckDeviceSignalHistory extends RecordMapperValueObject implements Serializable {
     private Long signalHistoryId;
     private Long previousHistoryId;
     private Long truckId;
@@ -73,7 +73,7 @@ public class TruckDeviceSignalHistory extends RecordMapperValueObject implements
         this.processedZoneTrigger = getDate(rs, "processed_zone_trigger", rsColumns);
         this.processedMovementTrigger = getDate(rs, "processed_movement_trigger", rsColumns);
         this.processedVantagePointTrip = getDate(rs, "processed_vantage_point_trip", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+       // this.orgId = getLong(rs, "org_id", rsColumns);
         this.foundAddress = getString(rs, "found_address", rsColumns);
     }
 

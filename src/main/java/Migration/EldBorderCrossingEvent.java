@@ -239,7 +239,7 @@ public class EldBorderCrossingEvent extends RecordMapperValueObject {
             rsColumns = getRSColumns(rs);
         }
         //this.id = getLong(rs, "id", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+     //   this.orgId = getLong(rs, "org_id", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
         this.updateDate = getDate(rs, "update_date", rsColumns);
         this.crossingDate = getDate(rs, "crossing_date", rsColumns);

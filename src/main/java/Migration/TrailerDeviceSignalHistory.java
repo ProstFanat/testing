@@ -67,7 +67,7 @@ public class TrailerDeviceSignalHistory extends RecordMapperValueObject implemen
         this.processedZoneTrigger = getDate(rs, "processed_zone_trigger", rsColumns);
         this.processedMovementTrigger = getDate(rs, "processed_movement_trigger", rsColumns);
         this.processedVantagePointTrip = getDate(rs, "processed_vantage_point_trip", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+        //this.orgId = getLong(rs, "org_id", rsColumns);
     }
 
     @Override

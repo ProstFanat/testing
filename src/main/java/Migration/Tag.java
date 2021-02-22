@@ -33,7 +33,7 @@ public class Tag extends RecordMapperValueObject implements Serializable {
        // this.tagId = getLong(rs, "tag_id", rsColumns);
         this.tagName = getString(rs, "tag_name", rsColumns);
         this.tagType = getString(rs, "type", rsColumns, "address-book");
-        this.organizationId = getLong(rs, "organization_id", rsColumns);
+       // this.organizationId = getLong(rs, "organization_id", rsColumns);
         this.transportNumber = getLong(rs, "transport_number", rsColumns);
         this.truckNumber = getString(rs, "truck_number", rsColumns);
         this.trailerNumber = getString(rs, "trailer_number", rsColumns);

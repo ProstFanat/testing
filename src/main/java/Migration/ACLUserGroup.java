@@ -29,7 +29,7 @@ public class ACLUserGroup extends RecordMapperValueObject implements Serializabl
 //        this.groupId = getLong(rs, "group_id", rsColumns);
         this.userGroup = getString(rs, "user_group", rsColumns);
         this.description = getString(rs, "description", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+     //   this.orgId = getLong(rs, "org_id", rsColumns);
        // this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
     }
 

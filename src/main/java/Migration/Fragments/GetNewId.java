@@ -71,21 +71,21 @@ public class GetNewId {
         return trailer.getTrailerId().toString();
     }
 
-//    public String getNewOrgId(String id){
-//        Trailer trailer = null;
-//
-//        Connection connection = DBConnection.getConnection(db, user, pass);
-//        String sql = "SELECT * from public.trailer WHERE master_db_ref_id=" + id;
-//        try (PreparedStatement ps = connection.prepareStatement(sql)){
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()){
-//                trailer =  new Trailer(rs, null);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return trailer.getTrailerId().toString();
-//    }
+    public String getNewOrgId(String id){
+        Organization organization = null;
+
+        Connection connection = DBConnection.getConnection(db, user, pass);
+        String sql = "SELECT * from public.organization WHERE master_db_ref_id=" + id;
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                organization =  new Organization(rs, null, "a");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return organization.getOrganizationId().toString();
+    }
 
     public String getNewAclUserId(String id){
         ACLUser aclUser = null;

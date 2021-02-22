@@ -20,8 +20,8 @@ public class Consumer extends RecordMapperValueObject implements Serializable {
         }
 //        this.consumerId = getLong(rs, "consumer_id", rsColumns);
         this.consumerName = getString(rs, "consumer_name", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
-        this.comment = getString(rs, "comment", rsColumns);
+      //  this.orgId = getLong(rs, "org_id", rsColumns);
+     //   this.comment = getString(rs, "comment", rsColumns);
     }
 
     @Override

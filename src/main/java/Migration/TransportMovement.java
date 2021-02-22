@@ -50,7 +50,7 @@ public class TransportMovement extends RecordMapperValueObject {
             rsColumns = getRSColumns(rs);
         }
       //  this.transportId = getLong(rs, "transport_id", rsColumns);
-        this.orgId = getLong(rs, "org_id", rsColumns);
+       // this.orgId = getLong(rs, "org_id", rsColumns);
      //   this.tractorRefId = getLong(rs, "tractor_ref_id", rsColumns);
         this.tractorLat = getString(rs, "tractor_lat", rsColumns);
         this.tractorLng = getString(rs, "tractor_lng", rsColumns);

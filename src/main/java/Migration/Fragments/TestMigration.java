@@ -110,21 +110,20 @@ public class TestMigration  extends CompareMethods{
         compareAddressesByOrgId(orgID);
         compareACLUserGroupsByOrgId(orgID);
         compareDepartmentsByOrgId(orgID);
-        //compareConsumersByOrgId(orgID);
+        compareConsumersByOrgId(orgID);
         compareAccountsByOrgId(orgID);
-        //compareGpsSignalProviderByOrgId(orgID);
+        compareGpsSignalProviderByOrgId(orgID);
         compareHosProviderByOrgId(orgID);
         compareMessagingProviderByOrgId(orgID);
         compareGeocodeProviderByOrgId(orgID);
         compareGpsSignalConsumerByOrgId(orgID);
         compareEdiDataConsumerByOrgId(orgID);
-        //compareOptionsByOrgId(orgID);
-        //compareACLMatricesByOrgId(orgID);
+        compareOptionsByOrgId(orgID);
+        compareACLMatricesByOrgId(orgID);
         compareContactsByOrgId(orgID);
-        compareAddressBooksByOrgId(orgID);
 
         for (String driver : drivers) {
-            //compareDriverByDriverId(driver);
+            compareDriverByDriverId(driver);
             compareEldEventsByDriverId(driver);
             compareEldOriginalEventsById(driver);
             compareInspectionReportDriverId(driver);
@@ -133,6 +132,9 @@ public class TestMigration  extends CompareMethods{
             compareFmcsaEldExportDriverId(driver);
             compareFuelPurchaseReceiptDriverId(driver);
             compareACLUsersByDriverId(driver);
+            compareAddressBooksByDriverId(driver);
+
+
             //compareACLUserInGroupByDriverId(driver);
         }
 
@@ -150,6 +152,7 @@ public class TestMigration  extends CompareMethods{
         for (String user : users){
             compareACLUsersByUserId(user);
             compareACLUserMatricesByUserId(user);
+            compareAddressBooksByUserId(user);
            // compareACLUserInGroupByUserId(user);
         }
 

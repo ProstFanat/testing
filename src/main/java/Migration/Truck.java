@@ -84,7 +84,7 @@ public class Truck extends RecordMapperValueObject {
         //this.truckId                        = getLong(rs, "truck_id", rsColumns);
        // this.refTruckId                     = getString(rs, "ref_truck_id", rsColumns);
         this.truckNumber                    = getString(rs, "truck_number", rsColumns);
-        this.organizationId                 = getLong(rs, "organization_id", rsColumns);
+       // this.organizationId                 = getLong(rs, "organization_id", rsColumns);
         this.vin                            = getString(rs, "vin", rsColumns);
         this.licensePlate                   = getString(rs, "license_plate", rsColumns);
         this.licenseStateProvince           = getString(rs, "license_state_province", rsColumns);
@@ -109,8 +109,8 @@ public class Truck extends RecordMapperValueObject {
         this.readTruckFaultCode				= getCharacter(rs, "read_truck_fault_code", rsColumns, 'N');
         this.requestTruckFaultCode			= getDate(rs, "request_truck_fault_code", rsColumns);
         this.constantlyProcessFaultCodes	= getCharacter(rs, "constantly_process_fault_codes", rsColumns, 'N');
-        this.currentDriverProfileId1        = getLong(rs, "current_driver_profile_id_1", rsColumns);
-        this.currentDriverProfileId2        = getLong(rs, "current_driver_profile_id_2", rsColumns);
+       // this.currentDriverProfileId1        = getLong(rs, "current_driver_profile_id_1", rsColumns);
+     //   this.currentDriverProfileId2        = getLong(rs, "current_driver_profile_id_2", rsColumns);
         this.eldSequence 					= getLong(rs, "eld_sequence", rsColumns);
         //this.updateDate 					= getDate(rs, "update_date", rsColumns);
         this.pt30SerialNumber               = getString(rs, "pt30_serial_number", rsColumns);
@@ -120,7 +120,7 @@ public class Truck extends RecordMapperValueObject {
         this.yardMoveAllow				    = getCharacter(rs, "yard_move_allow", rsColumns, 'N');
         this.yardMoveLimit             		= getInteger(rs, "yard_move_limit", rsColumns);
         //this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
-        this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
+      //  this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
     }
 
     public Truck(final ResultSet rs, Set<String> rsColumns, String aaa) throws Exception {

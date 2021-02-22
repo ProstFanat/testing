@@ -64,7 +64,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         Account oldValue = daoOld.getAccountByOrgId(id);
-        Account newValue = daoNew.getAccountByOrgId(id);
+        Account newValue = daoNew.getAccountByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -80,7 +80,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         Organization oldValue = daoOld.getOrganizationById(id);
-        Organization newValue = daoNew.getOrganizationById(id);
+        Organization newValue = daoNew.getOrganizationById(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -96,7 +96,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         Address oldValue = daoOld.getAddressByOrgId(id);
-        Address newValue = daoNew.getAddressByOrgId(id);
+        Address newValue = daoNew.getAddressByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -112,7 +112,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getListOfOptionsByOrgId(id);
-        List<String> newValue = daoNew.getListOfOptionsByOrgId(id);
+        List<String> newValue = daoNew.getListOfOptionsByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -128,7 +128,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getListOfACLUserGroupsByOrgId(id);
-        List<String> newValue = daoNew.getListOfACLUserGroupsByOrgId(id);
+        List<String> newValue = daoNew.getListOfACLUserGroupsByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -144,7 +144,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getListOfACLMatrixByOrgId(id);
-        List<String> newValue = daoNew.getListOfACLMatrixByOrgId(id);
+        List<String> newValue = daoNew.getListOfACLMatrixByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -164,7 +164,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getListOfACLResourcesByOrgId(id);
-        List<String> newValue = daoNew.getListOfACLResourcesByOrgId(id);
+        List<String> newValue = daoNew.getListOfACLResourcesByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -180,7 +180,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getListOfDepartmentsByOrgId(id);
-        List<String> newValue = daoNew.getListOfDepartmentsByOrgId(id);
+        List<String> newValue = daoNew.getListOfDepartmentsByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -196,7 +196,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getListOfConsumersByOrgId(id);
-        List<String> newValue = daoNew.getListOfConsumersByOrgId(id);
+        List<String> newValue = daoNew.getListOfConsumersByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -212,7 +212,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         Contact oldValue = daoOld.getContactByOrgId(id);
-        Contact newValue = daoNew.getContactByOrgId(id);
+        Contact newValue = daoNew.getContactByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -221,21 +221,21 @@ public class CompareMethods {
         }
     }
 
-    public static void compareAddressBooksByOrgId(String id) throws SQLException {
-        AddressBookRecordDAO daoOld = new AddressBookRecordDAO(DB_URL, USER_DB, PASS_DB);
-        AddressBookRecordDAO daoNew = new AddressBookRecordDAO(DB_URL2, USER_DB2, PASS_DB2);
-
-        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
-
-        List<String> oldValue = daoOld.getListOfAddressBookRecordsByOrgId(id);
-        List<String> newValue = daoNew.getListOfAddressBookRecordsByOrgId(id);
-
-        Assertions.assertEquals(newValue.toString(), oldValue.toString());
-
-        if(oldValue.toString().equals(newValue.toString())){
-            System.out.println("compareAddressBooksByOrgId " + id + " Done");
-        }
-    }
+//    public static void compareAddressBooksByOrgId(String id) throws SQLException {
+//        AddressBookRecordDAO daoOld = new AddressBookRecordDAO(DB_URL, USER_DB, PASS_DB);
+//        AddressBookRecordDAO daoNew = new AddressBookRecordDAO(DB_URL2, USER_DB2, PASS_DB2);
+//
+//        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+//
+//        List<String> oldValue = daoOld.getListOfAddressBookRecordsByOrgId(id);
+//        List<String> newValue = daoNew.getListOfAddressBookRecordsByOrgId(getNewId.getNewOrgId(id));
+//
+//        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+//
+//        if(oldValue.toString().equals(newValue.toString())){
+//            System.out.println("compareAddressBooksByOrgId " + id + " Done");
+//        }
+//    }
 
     public static void compareACLUsersByDriverId(String id) throws SQLException {
         ACLUserDAO daoOld = new ACLUserDAO(DB_URL, USER_DB, PASS_DB);
@@ -267,6 +267,42 @@ public class CompareMethods {
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLUsersByUserId " + id + " Done");
+        }
+    }
+
+    public static void compareAddressBooksByDriverId(String id) throws SQLException {
+        AddressBookRecordDAO daoOld = new AddressBookRecordDAO(DB_URL, USER_DB, PASS_DB);
+        AddressBookRecordDAO daoNew = new AddressBookRecordDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfAddressBookRecordsByDriverId(id);
+        List<String> newValue = daoNew.getListOfAddressBookRecordsByDriverId(getNewId.getNewDriverId(id));
+
+        System.out.println(oldValue.toString());
+        System.out.println(newValue.toString());
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareAddressBooksByDriverId " + id + " Done");
+        }
+    }
+
+    public static void compareAddressBooksByUserId(String id) throws SQLException {
+        AddressBookRecordDAO daoOld = new AddressBookRecordDAO(DB_URL, USER_DB, PASS_DB);
+        AddressBookRecordDAO daoNew = new AddressBookRecordDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getListOfAddressBookRecordsByUserId(id);
+        List<String> newValue = daoNew.getListOfAddressBookRecordsByUserId(getNewId.getNewAclUserId(id));
+
+        System.out.println(oldValue.toString());
+        System.out.println(newValue.toString());
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareAddressBooksByUserId " + id + " Done");
         }
     }
 
@@ -517,7 +553,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getEdiDataConsumerByOrgId(id);
-        List<String> newValue = daoNew.getEdiDataConsumerByOrgId(id);
+        List<String> newValue = daoNew.getEdiDataConsumerByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -533,7 +569,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getGpsSignalConsumerByOrgId(id);
-        List<String> newValue = daoNew.getGpsSignalConsumerByOrgId(id);
+        List<String> newValue = daoNew.getGpsSignalConsumerByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -549,7 +585,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getGeocodeProvideByOrgId(id);
-        List<String> newValue = daoNew.getGeocodeProvideByOrgId(id);
+        List<String> newValue = daoNew.getGeocodeProvideByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -565,7 +601,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getMessagingProvideByOrgId(id);
-        List<String> newValue = daoNew.getMessagingProvideByOrgId(id);
+        List<String> newValue = daoNew.getMessagingProvideByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -581,7 +617,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getHOSProvideByOrgId(id);
-        List<String> newValue = daoNew.getHOSProvideByOrgId(id);
+        List<String> newValue = daoNew.getHOSProvideByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
@@ -597,12 +633,84 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getGpsSignalsProvideByOrgId(id);
-        List<String> newValue = daoNew.getGpsSignalsProvideByOrgId(id);
+        List<String> newValue = daoNew.getGpsSignalsProvideByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareGpsSignalProviderByOrgId " + id + " Done");
+        }
+    }
+
+    public static void compareStripeCustomer(String id) throws SQLException {
+        StripeCustomerDAO daoOld = new StripeCustomerDAO(DB_URL, USER_DB, PASS_DB);
+        StripeCustomerDAO daoNew = new StripeCustomerDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getStripeCustomerByDriverId(id);
+        List<String> newValue = daoNew.getStripeCustomerByDriverId(getNewId.getNewDriverId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareStripeCustomer " + id + " Done");
+        }
+    }
+
+    public static void compareStripeSubscription(String id) throws SQLException {
+        StripeSubscriptionDAO daoOld = new StripeSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
+        StripeSubscriptionDAO daoNew = new StripeSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getStripeSubscription(id);
+        List<String> newValue = daoNew.getStripeSubscription(getNewId.getNewDriverId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareStripeSubscription " + id + " Done");
+        }
+    }
+
+    public static void compareStripeSubscriptionItem(String id) throws SQLException {
+        StripeSubscriptionItemDAO daoOld = new StripeSubscriptionItemDAO(DB_URL, USER_DB, PASS_DB);
+        StripeSubscriptionItemDAO daoNew = new StripeSubscriptionItemDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getStripeSubscriptionItem(id);
+        List<String> newValue = daoNew.getStripeSubscriptionItem(getNewId.getNewDriverId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareStripeSubscriptionItem " + id + " Done");
+        }
+    }
+
+    public static void compareEldSubscriptions(String id) throws SQLException {
+        EldSubscriptionDAO daoOld = new EldSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
+        EldSubscriptionDAO daoNew = new EldSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getEldSubscription(id);
+        List<String> newValue = daoNew.getEldSubscription(getNewId.getNewDriverId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareEldSubscriptions " + id + " Done");
         }
     }
 }

@@ -27,7 +27,7 @@ public class Option extends RecordMapperValueObject {
         this.editable                       = getCharacter(rs, "editable", rsColumns);
         this.visibleToClient                = getCharacter(rs, "visible_to_client", rsColumns);
 //        this.valueId                        = getLong(rs, "value_id", rsColumns);
-        this.orgId                          = getLong(rs, "org_id", rsColumns);
+      //  this.orgId                          = getLong(rs, "org_id", rsColumns);
         this.value                          = getString(rs, "value", rsColumns);
      //   this.visibleToClientValue           = getCharacter(rs, "visible_to_client_value", rsColumns);
     }

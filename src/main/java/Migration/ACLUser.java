@@ -54,7 +54,7 @@ public class ACLUser extends RecordMapperValueObject implements Serializable {
         this.salt = getString(rs, "salt", rsColumns);
         this.userLanguage = getString(rs, "user_language", rsColumns);
         this.status = getString(rs, "status", rsColumns);
-        this.lastLoginDateTime = getDate(rs, "last_login_date_time", rsColumns);
+      //  this.lastLoginDateTime = getDate(rs, "last_login_date_time", rsColumns);
 //        this.driverId = getLong(rs, "driver_id", rsColumns);
         this.password = getString(rs, "password", rsColumns);
 //        this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
