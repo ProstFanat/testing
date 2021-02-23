@@ -106,58 +106,60 @@ public class TestMigration  extends CompareMethods{
         List<String> trailers = getTrailersForMigration(migrationId);
         List<String> users = getOtherUsersForMigration(migrationId);
 
-//        compareOrganizationsByOrgId(orgID);
-//        compareAddressesByOrgId(orgID);
-//        compareACLUserGroupsByOrgId(orgID);
-//        compareDepartmentsByOrgId(orgID);
-//        compareConsumersByOrgId(orgID);
-//        compareAccountsByOrgId(orgID);
-//        compareGpsSignalProviderByOrgId(orgID);
-//        compareHosProviderByOrgId(orgID);
-//        compareMessagingProviderByOrgId(orgID);
-//        compareGeocodeProviderByOrgId(orgID);
-//        compareGpsSignalConsumerByOrgId(orgID);
-//        compareEdiDataConsumerByOrgId(orgID);
-//        compareOptionsByOrgId(orgID);
-//        compareACLMatricesByOrgId(orgID);
-//        compareContactsByOrgId(orgID);
+        compareOrganizationsByOrgId(orgID);
+        compareAddressesByOrgId(orgID);
+        compareACLUserGroupsByOrgId(orgID);
+        compareDepartmentsByOrgId(orgID);
+        compareConsumersByOrgId(orgID);
+        compareAccountsByOrgId(orgID);
+        compareGpsSignalProviderByOrgId(orgID);
+        compareHosProviderByOrgId(orgID);
+        compareMessagingProviderByOrgId(orgID);
+        compareGeocodeProviderByOrgId(orgID);
+        compareGpsSignalConsumerByOrgId(orgID);
+        compareEdiDataConsumerByOrgId(orgID);
+        compareOptionsByOrgId(orgID);
+        compareACLMatricesByOrgId(orgID);
+        compareContactsByOrgId(orgID);
+
+        System.out.println("Hello World");
 
         for (String driver : drivers) {
-//            compareDriverByDriverId(driver);
-//            compareEldEventsByDriverId(driver);
-//            compareEldOriginalEventsById(driver);
-//            compareInspectionReportDriverId(driver);
-//            compareEldBorderCrossingEventsDriverId(driver);
-//            compareEldSignalsHistoryDriverId(driver);
-//            compareFmcsaEldExportDriverId(driver);
-//            compareFuelPurchaseReceiptDriverId(driver);
-//            compareACLUsersByDriverId(driver);
-//            compareAddressBooksByDriverId(driver);
+            compareDriverByDriverId(driver);
+            compareEldEventsByDriverId(driver);
+            compareEldOriginalEventsById(driver);
+            compareInspectionReportDriverId(driver);
+            compareEldBorderCrossingEventsDriverId(driver);
+            compareEldSignalsHistoryDriverId(driver);
+            compareFmcsaEldExportDriverId(driver);
+            compareFuelPurchaseReceiptDriverId(driver);
+            compareACLUsersByDriverId(driver);
+            compareAddressBooksByDriverId(driver);
 
             compareStripeCustomer(driver);
             compareStripeSubscription(driver);
             compareStripeSubscriptionItem(driver);
             compareEldSubscriptions(driver);
-            //compareACLUserInGroupByDriverId(driver);
+           // compareACLUserInGroupByDriverId(driver);
         }
 
-//        for (String truck : trucks) {
-//            compareTruckByTruckId(truck);
-//            compareTruckDeviceSignalHistoryByTruckId(truck);
-//            compareTagsByOrgId(truck);
-//            compareTransportMovementByTruckId(truck);
-//            compareTransportMovementHistoryByTruckId(truck);
-//        }
-//        for (String trailer : trailers ) {
-//            compareTrailerByTrailerId(trailer);
-//            compareTrailerDeviceSignalHistoryByTrailerId(trailer);
-//        }
-//        for (String user : users){
-//            compareACLUsersByUserId(user);
-//            compareACLUserMatricesByUserId(user);
-//            compareAddressBooksByUserId(user);
-//           // compareACLUserInGroupByUserId(user);
-//        }
+        for (String truck : trucks) {
+            compareTruckByTruckId(truck);
+            compareTruckDeviceSignalHistoryByTruckId(truck);
+            compareTagsByOrgId(truck);
+            compareTransportMovementByTruckId(truck);
+            compareTransportMovementHistoryByTruckId(truck);
+        }
+        for (String trailer : trailers ) {
+            compareTrailerByTrailerId(trailer);
+            compareTrailerDeviceSignalHistoryByTrailerId(trailer);
+        }
+        for (String user : users){
+            compareACLUsersByUserId(user);
+            compareACLUserMatricesByUserId(user);
+            compareAddressBooksByUserId(user);
+           // compareACLUserInGroupByUserId(user);
+        }
 
     }
 }
