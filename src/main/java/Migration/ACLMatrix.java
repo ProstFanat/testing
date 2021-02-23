@@ -19,7 +19,7 @@ public class ACLMatrix extends RecordMapperValueObject implements Serializable {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }
-//        this.groupId = getLong(rs, "group_id", rsColumns);
+
         this.resourceName = getString(rs, "resource_name", rsColumns);
         this.allowRead = getCharacter(rs, "allow_read", rsColumns);
         this.allowInsert = getCharacter(rs, "allow_insert", rsColumns);

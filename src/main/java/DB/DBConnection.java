@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import static sun.management.Agent.error;
-import static sun.security.ssl.SSLLogger.info;
 
 public class DBConnection {
 
@@ -29,7 +28,7 @@ public class DBConnection {
         } catch (SQLException e) {
             error("Connection Failed: " + e);
         }
-        //info("Connection is successful");
+
         return con;
     }
 
