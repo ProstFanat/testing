@@ -40,4 +40,22 @@ public class StripeSubscriptionDAO {
         }
         return stripeSubscriptions;
     }
+
+    public List<String> getStripeSubscriptionByUser(String id) throws SQLException {
+        StripeSubscription stripeSubscription = null;
+        List<String> stripeSubscriptions = new ArrayList<>();
+
+        Connection connection = DBConnection.getConnection(db, user, pass);
+        String sql =  "SELECT * FROM eld.stripe_subscription WHERE user_id = "  + id + " ORDER BY ref_id";
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                stripeSubscription =  new StripeSubscription(rs, null);
+                stripeSubscriptions.add(stripeSubscription.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return stripeSubscriptions;
+    }
 }

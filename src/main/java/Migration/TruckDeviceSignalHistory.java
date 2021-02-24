@@ -47,7 +47,7 @@ public class  TruckDeviceSignalHistory extends RecordMapperValueObject implement
        // this.signalHistoryId = getLong(rs, "signal_history_id", rsColumns);
        // this.previousHistoryId = getLong(rs, "previous_history_id", rsColumns);
       //  this.truckId = getLong(rs, "truck_id", rsColumns);
-        this.createDate = getDate(rs, "create_date", rsColumns);
+      //  this.createDate = getDate(rs, "create_date", rsColumns);
         this.signalTime = getDate(rs, "signal_time", rsColumns);
         this.lat = getString(rs, "lat", rsColumns);
         this.lng = getString(rs, "lng", rsColumns);
@@ -65,8 +65,8 @@ public class  TruckDeviceSignalHistory extends RecordMapperValueObject implement
         this.provState = getString(rs, "prov_state", rsColumns);
         this.extra = getString(rs, "extra", rsColumns);
         this.signalEvent = getString(rs, "signal_event", rsColumns);
-        this.driverUID1 = getString(rs, "driver_uid_1", rsColumns);
-        this.driverUID2 = getString(rs, "driver_uid_2", rsColumns);
+      //  this.driverUID1 = getString(rs, "driver_uid_1", rsColumns);
+     //   this.driverUID2 = getString(rs, "driver_uid_2", rsColumns);
       //  this.driverProfile1Id = getLong(rs, "driver_profile_1_id", rsColumns);
       //  this.driverProfile2Id = getLong(rs, "driver_profile_2_id", rsColumns);
         this.deltaDistance = getInteger(rs, "delta_distance", rsColumns);

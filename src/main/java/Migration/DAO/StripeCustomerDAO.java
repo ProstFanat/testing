@@ -40,4 +40,23 @@ public class StripeCustomerDAO {
         }
         return stripeCustomers;
     }
+
+    public List<String> getStripeCustomerByUser(String id) throws SQLException {
+        StripeCustomer stripeCustomer = null;
+        List<String> stripeCustomers = new ArrayList<>();
+
+        Connection connection = DBConnection.getConnection(db, user, pass);
+        String sql =  "SELECT * FROM eld.stripe_customer WHERE user_id = " +
+                  id +   " ORDER BY ref_id, ref_email";
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                stripeCustomer =  new StripeCustomer(rs, null);
+                stripeCustomers.add(stripeCustomer.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return stripeCustomers;
+    }
 }

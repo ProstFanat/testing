@@ -329,7 +329,7 @@ public class CompareMethods {
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         List<String> oldValue = daoOld.getAclUserInGroupList(id);
-        List<String> newValue = daoNew.getAclUserInGroupList(getNewId.getNewAclUserId(id));
+        List<String> newValue = daoNew.getAclUserInGroupList(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.size(), oldValue.size());
 
@@ -460,6 +460,9 @@ public class CompareMethods {
         List<String> newValue = daoNew.getTruckDeviceSignalsByTruckId(getNewId.getNewTruckId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTruckDeviceSignalHistoryByTruckId " + id + " Done");
@@ -642,7 +645,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeCustomer(String id) throws SQLException {
+    public static void compareStripeCustomerByDriver(String id) throws SQLException {
         StripeCustomerDAO daoOld = new StripeCustomerDAO(DB_URL, USER_DB, PASS_DB);
         StripeCustomerDAO daoNew = new StripeCustomerDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -660,7 +663,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeSubscription(String id) throws SQLException {
+    public static void compareStripeSubscriptionByDriver(String id) throws SQLException {
         StripeSubscriptionDAO daoOld = new StripeSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
         StripeSubscriptionDAO daoNew = new StripeSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -678,7 +681,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeSubscriptionItem(String id) throws SQLException {
+    public static void compareStripeSubscriptionItemByDriver(String id) throws SQLException {
         StripeSubscriptionItemDAO daoOld = new StripeSubscriptionItemDAO(DB_URL, USER_DB, PASS_DB);
         StripeSubscriptionItemDAO daoNew = new StripeSubscriptionItemDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -696,7 +699,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareEldSubscriptions(String id) throws SQLException {
+    public static void compareEldSubscriptionsByDriver(String id) throws SQLException {
         EldSubscriptionDAO daoOld = new EldSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
         EldSubscriptionDAO daoNew = new EldSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -704,6 +707,96 @@ public class CompareMethods {
 
         List<String> oldValue = daoOld.getEldSubscription(id);
         List<String> newValue = daoNew.getEldSubscription(getNewId.getNewDriverId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareEldSubscriptions " + id + " Done");
+        }
+    }
+
+    public static void compareStripeCustomerByUser(String id) throws SQLException {
+        StripeCustomerDAO daoOld = new StripeCustomerDAO(DB_URL, USER_DB, PASS_DB);
+        StripeCustomerDAO daoNew = new StripeCustomerDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getStripeCustomerByUser(id);
+        List<String> newValue = daoNew.getStripeCustomerByUser(getNewId.getNewAclUserId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareStripeCustomer " + id + " Done");
+        }
+    }
+
+    public static void compareStripeSubscriptionByUser(String id) throws SQLException {
+        StripeSubscriptionDAO daoOld = new StripeSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
+        StripeSubscriptionDAO daoNew = new StripeSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getStripeSubscriptionByUser(id);
+        List<String> newValue = daoNew.getStripeSubscriptionByUser(getNewId.getNewAclUserId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareStripeSubscription " + id + " Done");
+        }
+    }
+
+    public static void compareStripeSubscriptionItemByUser(String id) throws SQLException {
+        StripeSubscriptionItemDAO daoOld = new StripeSubscriptionItemDAO(DB_URL, USER_DB, PASS_DB);
+        StripeSubscriptionItemDAO daoNew = new StripeSubscriptionItemDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getStripeSubscriptionItemByUser(id);
+        List<String> newValue = daoNew.getStripeSubscriptionItemByUser(getNewId.getNewAclUserId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareStripeSubscriptionItem " + id + " Done");
+        }
+    }
+
+    public static void compareEldSubscriptionsByUser(String id) throws SQLException {
+        EldSubscriptionDAO daoOld = new EldSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
+        EldSubscriptionDAO daoNew = new EldSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getEldSubscriptionByUser(id);
+        List<String> newValue = daoNew.getEldSubscriptionByUser(getNewId.getNewAclUserId(id));
+
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
+            System.out.println("compareEldSubscriptions " + id + " Done");
+        }
+    }
+
+    public static void compareHosDayVerify(String id) throws SQLException {
+        HosDayVerifyDAO daoOld = new HosDayVerifyDAO(DB_URL, USER_DB, PASS_DB);
+        HosDayVerifyDAO daoNew = new HosDayVerifyDAO(DB_URL2, USER_DB2, PASS_DB2);
+
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
+
+        List<String> oldValue = daoOld.getHosVerifyByDriver(id);
+        List<String> newValue = daoNew.getHosVerifyByDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
         System.out.println(newValue.toString());

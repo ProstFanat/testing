@@ -29,7 +29,7 @@ public class EldSignalHistoryDao {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.eld_signal_history WHERE driver_id_1=" + driverId +
-                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY odometer, signal_time";
+                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY odometer, signal_time, create_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

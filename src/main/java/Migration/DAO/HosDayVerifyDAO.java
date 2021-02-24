@@ -1,7 +1,8 @@
 package Migration.DAO;
 
 import DB.DBConnection;
-import Migration.EldEvent;
+import Migration.GPSSignalProvider;
+import Migration.HosDayVerify;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,35 +11,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EldEventOriginalDao {
+public class HosDayVerifyDAO {
     private String db;
     private String user;
     private String pass;
 
-    public EldEventOriginalDao(String db, String user, String pass) {
+    public HosDayVerifyDAO(String db, String user, String pass) {
         this.db = db;
         this.user = user;
         this.pass = pass;
     }
 
-    public List<String> getEldEventsOriginalForDriver(String driverId) throws SQLException {
-        EldEvent eldEvent = null;
-        List<String> eldEvents = new ArrayList<>();
+    public List<String> getHosVerifyByDriver(String id) throws SQLException {
+        HosDayVerify hosDayVerify = null;
+        List<String> hosDaysVerify = new ArrayList<>();
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from eld.eld_event_original WHERE driver_id_1=" + driverId +
-                " AND event_timestamp BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY event_sequence ASC, event_timestamp ASC, eld_sequence ASC";
+        String sql = "SELECT * from eld.hos_day_verify WHERE driver_id = " + id +
+                " AND verified_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY verified_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                eldEvent =  new EldEvent(rs, null);
-                eldEvents.add(eldEvent.toString());
+                hosDayVerify =  new HosDayVerify(rs, null);
+                hosDaysVerify.add(hosDayVerify.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return eldEvents;
-
-
+        return hosDaysVerify;
     }
 }
