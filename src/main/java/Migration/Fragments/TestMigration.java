@@ -104,7 +104,7 @@ public class TestMigration extends CompareMethods {
         List<String> users = getOtherUsersForMigration(migrationId);
 
         compareOrganizationsByOrgId(orgID);
-        compareAddressesByOrgId(orgID);
+       // compareAddressesByOrgId(orgID);
         compareACLUserGroupsByOrgId(orgID);
         compareDepartmentsByOrgId(orgID);
         compareConsumersByOrgId(orgID);
