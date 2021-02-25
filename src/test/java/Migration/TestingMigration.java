@@ -2,7 +2,6 @@ package Migration;
 
 import Migration.Fragments.CompareMethods;
 import Migration.Fragments.TestMigration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
