@@ -1,0 +1,4 @@
+SELECT * FROM eld.eld_event WHERE driver_id_2 is not null
+and org_id != 1629
+and org_id != 1612
+AND event_timestamp BETWEEN now() - '8 days'::INTERVAL and now() ;

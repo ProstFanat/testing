@@ -461,8 +461,8 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
-        System.out.println(newValue.toString());
-        System.out.println(oldValue.toString());
+//        System.out.println(newValue.toString());
+//        System.out.println(oldValue.toString());
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTruckDeviceSignalHistoryByTruckId " + id + " Done");

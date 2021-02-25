@@ -119,10 +119,8 @@ public class TestMigration extends CompareMethods {
         compareACLMatricesByOrgId(orgID);
         compareContactsByOrgId(orgID);
 
-        System.out.println("Hello World");
-
         for (String driver : drivers) {
-            compareDriverByDriverId(driver);
+           // compareDriverByDriverId(driver);
             compareEldEventsByDriverId(driver);
             compareEldOriginalEventsById(driver);
             compareInspectionReportDriverId(driver);
@@ -134,15 +132,15 @@ public class TestMigration extends CompareMethods {
             compareAddressBooksByDriverId(driver);
             //compareHosDayVerify(driver);
 
-            compareStripeCustomerByDriver(driver);
-            compareStripeSubscriptionByDriver(driver);
-            compareStripeSubscriptionItemByDriver(driver);
-            compareEldSubscriptionsByDriver(driver);
+//            compareStripeCustomerByDriver(driver);
+//            compareStripeSubscriptionByDriver(driver);
+//            compareStripeSubscriptionItemByDriver(driver);
+//            compareEldSubscriptionsByDriver(driver);
            // compareACLUserInGroupByDriverId(driver);
         }
 
         for (String truck : trucks) {
-            compareTruckByTruckId(truck);
+            //compareTruckByTruckId(truck);
             compareTruckDeviceSignalHistoryByTruckId(truck);
             compareTagsByOrgId(truck);
             compareTransportMovementByTruckId(truck);
@@ -158,10 +156,10 @@ public class TestMigration extends CompareMethods {
             compareAddressBooksByUserId(user);
 
 
-            compareStripeCustomerByUser(user);
-            compareStripeSubscriptionByUser(user);
-            compareStripeSubscriptionItemByUser(user);
-            compareEldSubscriptionsByUser(user);
+//            compareStripeCustomerByUser(user);
+//            compareStripeSubscriptionByUser(user);
+//            compareStripeSubscriptionItemByUser(user);
+//            compareEldSubscriptionsByUser(user);
            // compareACLUserInGroupByUserId(user);
         }
 

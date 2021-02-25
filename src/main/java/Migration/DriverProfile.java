@@ -1113,7 +1113,7 @@ public class DriverProfile extends RecordMapperValueObject {
        // this.subscriptionId = getLong(rs, "subscription_id", rsColumns);
         this.deviceSequenceOutOfSync = getString(rs, "device_sequence_out_of_sync", rsColumns);
         this.startInspection = getDate(rs, "start_inspection", rsColumns);
-       // this.updateDate = getDate(rs, "update_date", rsColumns);
+        //this.updateDate = getDate(rs, "update_date", rsColumns);
         this.onlyUsaDriving = getCharacter(rs, "only_usa_driving", rsColumns, BOOLEAN_CHARACTER_NO);
        // this.dispatchingSystemId = getLong(rs, "dispatching_system_id", rsColumns);
         this.appVersionMsgIntervalMin = getInteger(rs, "app_version_msg_interval_min", rsColumns);
