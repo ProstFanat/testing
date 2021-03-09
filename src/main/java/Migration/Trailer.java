@@ -10,42 +10,42 @@ import java.util.List;
 import java.util.Set;
 
 public class Trailer extends RecordMapperValueObject implements Serializable {
-    private Long trailerId;
-    private String refTrailerId;
-    private String picture;
-    private String owner;
-    private String trailerLength;
-    private Long orgId;
-    private String trailerNumber;
-    private String gpsProvider; // constants in GPSSignalProvider
-    private String gpsUnitId;
-    private String vin;
-    private String make;
-    private String year;
-    private String trailerType;
-    private String licensePlate;
-    private String licenseStateProvince;
-    private String status;
-    private Long borderConnectTrailerTypeId;
+    public Long trailerId;
+    public String refTrailerId;
+    public String picture;
+    public String owner;
+    public String trailerLength;
+    public Long orgId;
+    public String trailerNumber;
+    public String gpsProvider; // constants in GPSSignalProvider
+    public String gpsUnitId;
+    public String vin;
+    public String make;
+    public String year;
+    public String trailerType;
+    public String licensePlate;
+    public String licenseStateProvince;
+    public String status;
+    public Long borderConnectTrailerTypeId;
 
-    private Long masterDBRefId;
-    private Long clientDBRefId;
+    public Long masterDBRefId;
+    public Long clientDBRefId;
 
-//    private Migration migration;
+//    public Migration migration;
 
     // JOIN customs.border_connect_trailer_type
-    private String borderConnectTrailerType;
+    public String borderConnectTrailerType;
 
     // join fields
-    private Date positionTime;
+    public Date positionTime;
 
-    private List<Tag> tags = new ArrayList<>();
+    public List<Tag> tags = new ArrayList<>();
 
-//    private TrailerDeviceSignal deviceSignal;
+//    public TrailerDeviceSignal deviceSignal;
 
-//    private List<MaintenancePartRecord> maintenanceList;
+//    public List<MaintenancePartRecord> maintenanceList;
 
-    private String battery;
+    public String battery;
 
     public Trailer(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

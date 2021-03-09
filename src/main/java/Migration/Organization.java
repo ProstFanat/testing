@@ -3,27 +3,26 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.sql.ResultSet;
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 
 public class Organization extends RecordMapperValueObject {
 
-    private Long organizationId;
-    private String organizationName;
-    private Long addressId;
-    private String businessType;
-    private String bannerUrl;
-    private String homeTerminalTimezone;
-    private String usdotNumber;
-    private String mcNumber;
-    private Date createDate;
-    private Long master_dv_ref_id;
+    public Long organizationId;
+    public String organizationName;
+    public Long addressId;
+    public String businessType;
+    public String bannerUrl;
+    public String homeTerminalTimezone;
+    public String usdotNumber;
+    public String mcNumber;
+    public Date createDate;
+    public Long master_dv_ref_id;
 
-    private String accountPin;
-    private Character ourSafetyService;
+    public String accountPin;
+    public Character ourSafetyService;
 
 
-    public Organization(final ResultSet rs, Set<String> rsColumns) throws Exception {
+    public  Organization(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {
             rsColumns = getRSColumns(rs);
         }

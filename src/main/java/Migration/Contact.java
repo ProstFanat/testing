@@ -8,11 +8,11 @@ import java.util.Set;
 
 public class Contact extends RecordMapperValueObject implements Serializable {
 
-    private Long contactId;
-    private String contactName;
-    private String contactPhone;
-    private String contactEmail;
-    private String additionalContact;
+    public Long contactId;
+    public String contactName;
+    public String contactPhone;
+    public String contactEmail;
+    public String additionalContact;
 
     public Contact(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

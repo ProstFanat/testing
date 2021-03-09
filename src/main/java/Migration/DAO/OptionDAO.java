@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OptionDAO {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public OptionDAO(String db, String user, String pass) {
         this.db = db;

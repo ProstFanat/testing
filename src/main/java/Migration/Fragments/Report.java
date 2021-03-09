@@ -15,25 +15,25 @@ import java.util.Date;
 
 public class Report {
 
-        private static Font anchorFont = new Font(Font.FontFamily.TIMES_ROMAN, 20,
+        public static Font anchorFont = new Font(Font.FontFamily.TIMES_ROMAN, 20,
                 Font.BOLD);
-        private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
+        public static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
                 Font.BOLD);
-        private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 14,
+        public static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 14,
                 Font.NORMAL, BaseColor.RED);
-        private static Font greyFont = new Font(Font.FontFamily.TIMES_ROMAN, 14,
+        public static Font greyFont = new Font(Font.FontFamily.TIMES_ROMAN, 14,
                 Font.NORMAL, BaseColor.DARK_GRAY);
-        private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,
+        public static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,
                 Font.BOLD);
-        private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 16,
+        public static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 16,
                 Font.BOLD);
-        private static Font bold = new Font(Font.FontFamily.TIMES_ROMAN, 14,
+        public static Font bold = new Font(Font.FontFamily.TIMES_ROMAN, 14,
                 Font.BOLD);
 
 
         public static Document document = null;
-        private static Anchor anchor;
-        private static Chapter catPart;
+        public static Anchor anchor;
+        public static Chapter catPart;
 
 
         public static void createReportFile(String migrationID) throws FileNotFoundException {

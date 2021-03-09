@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.util.Set;
 
 public class ACLUserMatrix extends RecordMapperValueObject implements Serializable {
-    private Long userId;
-    private String resourceName;
-    private Character allowRead;
-    private Character allowInsert;
-    private Character allowUpdate;
-    private Character allowDelete;
-    private Character allowExport;
+    public Long userId;
+    public String resourceName;
+    public Character allowRead;
+    public Character allowInsert;
+    public Character allowUpdate;
+    public Character allowDelete;
+    public Character allowExport;
 
     public ACLUserMatrix(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

@@ -8,26 +8,26 @@ import java.util.Set;
 
 public class InspectionReport extends RecordMapperValueObject {
 
-    private Long reportId;
-    private Long orgId;
-    private Long driverId1;
-    private Long driverId2;
-    private Date createDate;
-    private Date updateDate;
-    private Date reportDate;
-    private Long truckId;
-    private String odometer;
-    private String odometerUnit;
-    private String trailerNumber;
-    private String trailerLicense;
-    private String locationDescription;
-    private String comment;
-    private Character vehicleIsSafeToDrive;
-    private String defectsJson;
-    private String checklistJson;
-    private Long remoteReportId;
+    public Long reportId;
+    public Long orgId;
+    public Long driverId1;
+    public Long driverId2;
+    public Date createDate;
+    public Date updateDate;
+    public Date reportDate;
+    public Long truckId;
+    public String odometer;
+    public String odometerUnit;
+    public String trailerNumber;
+    public String trailerLicense;
+    public String locationDescription;
+    public String comment;
+    public Character vehicleIsSafeToDrive;
+    public String defectsJson;
+    public String checklistJson;
+    public Long remoteReportId;
 
-    private String truckNumber;
+    public String truckNumber;
 
     public Long getReportId() {
         return reportId;

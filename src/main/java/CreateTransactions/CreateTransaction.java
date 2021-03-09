@@ -49,7 +49,7 @@ public class CreateTransaction extends BasePage {
     }
 
     public void processTransaction(String comment){
-        if(btnTake.exists()){
+        if(btnTake.isDisplayed()){
             btnTake.click();
         }
         btnProcessed.click();
@@ -65,27 +65,27 @@ public class CreateTransaction extends BasePage {
         driversPage = new DriversPage();
         mainAdminScreenPage = new MainAdminScreenPage();
 
-        mainAdminScreenPage.clickCustomers();
-        customersPage.logAsOrgOfCompany("Company For Autotesting");
-        driversPage.openPage();
-        open("http://localhost:8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
+//        mainAdminScreenPage.clickCustomers();
+//        customersPage.logAsOrgOfCompany("Company For Autotesting");
+//        driversPage.openPage();
+        open("http://10.10.1.83:8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
         int createdTransactions = 0, counter = 1;
         while(createdTransactions < quantity){
             System.out.println("counter = " + counter + "  createdTransactions = " + createdTransactions);
             driverSelect.click();
             driversList.get(counter).click();
-            if(btnOpenTransaction.exists()){
+            if(btnOpenTransaction.isDisplayed()){
                 btnOpenTransaction.click();
                 descriptionInput.setValue("tesssst");
                 btnSave.click();
                 waitForPageToLoad();
                 processTransaction(commentTransaction);
                 createdTransactions++;
-            } else if (btnProcessed.exists()){
+            } else if (btnProcessed.isDisplayed()){
                 processTransaction(commentTransaction);
                 waitForPageToLoad();
                 createdTransactions++;
-            } else if (btnTake.exists()){
+            } else if (btnTake.isDisplayed()){
                 processTransaction(commentTransaction);
                 waitForPageToLoad();
                 createdTransactions++;

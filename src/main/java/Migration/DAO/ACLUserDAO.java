@@ -9,9 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ACLUserDAO {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public ACLUserDAO(String db, String user, String pass) {
         this.db = db;

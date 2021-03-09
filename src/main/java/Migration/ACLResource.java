@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.util.Set;
 
 public class ACLResource extends RecordMapperValueObject implements Serializable {
-    private String resourceName;
-    private String description;
-    private Long orgId;
+    public String resourceName;
+    public String description;
+    public Long orgId;
 
     public ACLResource(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

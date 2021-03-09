@@ -7,15 +7,15 @@ import java.util.Date;
 import java.util.Set;
 
 public class GeocodeProvider extends RecordMapperValueObject {
-    private Long providerId;
-    private String providerType;
-    private Integer priority;
-    private String apiKey;
-    private String appCode; //Only for Here Maps
-    private Long orgId;
-    private Character status = 'Y';
-    private Date createDate;
-    private String parameter1;
+    public Long providerId;
+    public String providerType;
+    public Integer priority;
+    public String apiKey;
+    public String appCode; //Only for Here Maps
+    public Long orgId;
+    public Character status = 'Y';
+    public Date createDate;
+    public String parameter1;
 
     public GeocodeProvider() {
     }

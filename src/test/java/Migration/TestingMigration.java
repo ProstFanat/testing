@@ -10,7 +10,10 @@ import java.sql.SQLException;
 public class TestingMigration extends CompareMethods{
 
     @Test
-    public void testGet() throws SQLException, FileNotFoundException {
-        TestMigration.testByMigrationId("1044");
+    public void testGet() throws SQLException, FileNotFoundException, IllegalAccessException {
+        TestMigration.testByMigrationId("1267");
+//        compareDriverByDriverId("63931");
+//        compareEldEventsByDriverId("63931");
+//        compareEldOriginalEventsById("63931");
     }
 }

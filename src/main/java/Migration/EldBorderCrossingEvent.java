@@ -8,31 +8,31 @@ import java.util.Set;
 
 public class EldBorderCrossingEvent extends RecordMapperValueObject {
 
-    private Long id;
-    private Long orgId;
-    private Date createDate;
-    private Date updateDate;
-    private Date crossingDate;
-    private Long driverId1;
-    private Long driverId2;
-    private Long truckId;
-    private String truckNumber;
-    private String eventOrigin;
-    private String timeZoneOffset;
-    private String odometer;
-    private String latBeforeCross;
-    private String lngBeforeCross;
-    private String latAfterCross;
-    private String lngAfterCross;
-    private String fromCountryCode;
-    private String toCountryCode;
-    private String shippingNumber;
-    private String trailerNumber;
-    private String comment;
-    private Long remoteId; // primary key on the phone/tablet database
-    private String firstName;
-    private String lastName;
-    private String locationDescription;
+    public Long id;
+    public Long orgId;
+    public Date createDate;
+    public Date updateDate;
+    public Date crossingDate;
+    public Long driverId1;
+    public Long driverId2;
+    public Long truckId;
+    public String truckNumber;
+    public String eventOrigin;
+    public String timeZoneOffset;
+    public String odometer;
+    public String latBeforeCross;
+    public String lngBeforeCross;
+    public String latAfterCross;
+    public String lngAfterCross;
+    public String fromCountryCode;
+    public String toCountryCode;
+    public String shippingNumber;
+    public String trailerNumber;
+    public String comment;
+    public Long remoteId; // primary key on the phone/tablet database
+    public String firstName;
+    public String lastName;
+    public String locationDescription;
 
     public Long getId() {
         return id;

@@ -7,12 +7,12 @@ import java.util.Date;
 import java.util.Set;
 
 public class EldSubscription extends RecordMapperValueObject {
-    private Long subscriptionId;
-    private Long orgId;
-    private Character active;
-    private String eldComputerItemId;
-    private Long stripeSubscriptionItemId;
-    private Long pricePerSubscription;
+    public Long subscriptionId;
+    public Long orgId;
+    public Character active;
+    public String eldComputerItemId;
+    public Long stripeSubscriptionItemId;
+    public Long pricePerSubscription;
 
     public EldSubscription(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

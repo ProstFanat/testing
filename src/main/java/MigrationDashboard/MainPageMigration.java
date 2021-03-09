@@ -19,10 +19,10 @@ public class MainPageMigration {
                     applyBtn = $x("//button[text() = ' Apply ']"),
                     clearBtn = $x("//button[text() = ' Clear ']"),
                     createNewBtn = $x("//button[text() = ' Create New ']"),
-                    actionBtn = $x(""),
-                    manageBtn = $x(""),
-                    cancelMigrationBtn = $x(""),
-                    retryMigrationBtn = $x("");
+                    actionBtn = $x("//button[text() = ' Actions '][1]"),
+                    manageBtn = $x("//*[@role = 'menuitem']//i[contains(@class, 'fa-pencil')]"),
+                    cancelMigrationBtn = $x("//*[@role = 'menuitem']//*[contains(@class, 'fa-times-circle')]"),
+                    retryMigrationBtn = $x("//*[@role = 'menuitem']//*[contains(@class, 'fa-refresh')]");
 
     ElementsCollection idTable = $$x(""),
                     orgTable = $$x(""),
@@ -34,7 +34,8 @@ public class MainPageMigration {
                     trailerTable = $$x(""),
                     userTable = $$x(""),
                     responsibleTable = $$x(""),
-                    commentTable = $$x("");
+                    commentTable = $$x(""),
+                    actionsBtns = $$x("//button[text() = ' Actions ']");
 
     ElementsCollection eldFromList = $$x("//*[@formcontrolname = 'originalELDType']//div[@role = 'option']"),
                         eldToList = $$x("//*[@formcontrolname = 'targetELDType']//div[@role = 'option']"),

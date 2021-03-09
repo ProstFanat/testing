@@ -8,18 +8,18 @@ import java.util.List;
 import java.util.Set;
 
 public class AddressBookRecord extends RecordMapperValueObject implements Serializable {
-    private Long recordId;
-    private Long organizationId;
-    private String name;
-    private String email;
-    private List<Tag> tags;
-    private Long aclUser;
-    private String userType;
-    private Character isPrimary;
-    private Long vpCustomerId;
-    private Character vpCustomerSendEmail;
+    public Long recordId;
+    public Long organizationId;
+    public String name;
+    public String email;
+    public List<Tag> tags;
+    public Long aclUser;
+    public String userType;
+    public Character isPrimary;
+    public Long vpCustomerId;
+    public Character vpCustomerSendEmail;
 
-    private Long recipientId;
+    public Long recipientId;
 
     public AddressBookRecord(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

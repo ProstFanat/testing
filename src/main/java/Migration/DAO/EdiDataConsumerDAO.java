@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EdiDataConsumerDAO {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public EdiDataConsumerDAO(String db, String user, String pass) {
         this.db = db;

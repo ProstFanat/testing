@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.util.Set;
 
 public class ACLUserInGroup extends RecordMapperValueObject implements Serializable {
-    private Long groupId;
-    private Long userId;
+    public Long groupId;
+    public Long userId;
 
     //join
-    private String groupName;
+    public String groupName;
 
-    private ACLUserGroup group;
+    public ACLUserGroup group;
 
     public ACLUserInGroup(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

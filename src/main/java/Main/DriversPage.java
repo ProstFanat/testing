@@ -41,7 +41,7 @@ public class DriversPage extends BasePage {
     eLogAppList = $$x("//label[text() = 'eLog App Mode: ']//..//*[@role = 'option']");
 
     public DriversPage openPage(){
-        open("http://localhost:8080/TrackEnsure/fleet/manager/cpDrivers/#/");
+        open("http://10.10.1.83:8080/TrackEnsure/fleet/manager/cpDrivers/#/");
         return this;
     }
 

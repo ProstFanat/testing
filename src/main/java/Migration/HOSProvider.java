@@ -7,16 +7,16 @@ import java.util.Date;
 import java.util.Set;
 
 public class HOSProvider extends RecordMapperValueObject {
-    private Long providerId;
-    private String type;
-    private String login;
-    private String password;
-    private Date lastTimeDataReceived;
-    private Long orgId;
-    private Date createDate;
-    private Character status;
+    public Long providerId;
+    public String type;
+    public String login;
+    public String password;
+    public Date lastTimeDataReceived;
+    public Long orgId;
+    public Date createDate;
+    public Character status;
 
-    private Long masterDBRefId;
+    public Long masterDBRefId;
 
     public HOSProvider(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

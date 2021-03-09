@@ -9,18 +9,18 @@ import java.util.List;
 import java.util.Set;
 
 public class ACLUserGroup extends RecordMapperValueObject implements Serializable {
-    private Long groupId;
-    private String userGroup;
-    private String description;
-    private Long orgId;
+    public Long groupId;
+    public String userGroup;
+    public String description;
+    public Long orgId;
 
-    private Long masterDBRefId;
+    public Long masterDBRefId;
 
-    private List<ACLMatrix> groupResources = new ArrayList<>();
+    public List<ACLMatrix> groupResources = new ArrayList<>();
 
-    private List<ACLAssetsInGroup> trailerInGroupList = new ArrayList<>();
-    private List<ACLAssetsInGroup> truckInGroupList = new ArrayList<>();
-    private List<ACLAssetsInGroup> driverInGroupList = new ArrayList<>();
+    public List<ACLAssetsInGroup> trailerInGroupList = new ArrayList<>();
+    public List<ACLAssetsInGroup> truckInGroupList = new ArrayList<>();
+    public List<ACLAssetsInGroup> driverInGroupList = new ArrayList<>();
 
     public ACLUserGroup(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

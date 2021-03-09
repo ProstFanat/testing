@@ -7,16 +7,16 @@ import java.util.Date;
 import java.util.Set;
 
 public class HosDayVerify extends RecordMapperValueObject {
-    private Long id;
-    private Long org_id;
-    private Date verified_date;
-    private Date create_date;
-    private Long events_count;
-    private Long driver_id;
-    private Long user_id;
-    private Character active;
-    private Character verified_status;
-    private String comment;
+    public Long id;
+    public Long org_id;
+    public Date verified_date;
+    public Date create_date;
+    public Long events_count;
+    public Long driver_id;
+    public Long user_id;
+    public Character active;
+    public Character verified_status;
+    public String comment;
 
     public HosDayVerify(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

@@ -6,15 +6,15 @@ import java.sql.ResultSet;
 import java.util.Set;
 
 public class Option extends RecordMapperValueObject {
-    private Long optionId;
-    private String optionName;
-    private String optionType; // see TYPE_* constatns
-    private Character editable;
-    private Character visibleToClient;
-    private Long valueId;
-    private Long orgId;
-    private String value;
-    private Character visibleToClientValue;
+    public Long optionId;
+    public String optionName;
+    public String optionType; // see TYPE_* constatns
+    public Character editable;
+    public Character visibleToClient;
+    public Long valueId;
+    public Long orgId;
+    public String value;
+    public Character visibleToClientValue;
 
     public Option(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

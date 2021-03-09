@@ -96,7 +96,7 @@ public class TestMigration extends CompareMethods {
     }
 
 
-    public static void testByMigrationId(String migrationId) throws SQLException{
+    public static void testByMigrationId(String migrationId) throws SQLException, IllegalAccessException {
         String orgID = getOrgIdForMigration(migrationId);
         List<String> drivers = getDriversForMigration(migrationId);
         List<String> trucks = getTrucksForMigration(migrationId);
@@ -104,7 +104,7 @@ public class TestMigration extends CompareMethods {
         List<String> users = getOtherUsersForMigration(migrationId);
 
         compareOrganizationsByOrgId(orgID);
-       // compareAddressesByOrgId(orgID);
+        compareAddressesByOrgId(orgID);
         compareACLUserGroupsByOrgId(orgID);
         compareDepartmentsByOrgId(orgID);
         compareConsumersByOrgId(orgID);
@@ -120,7 +120,7 @@ public class TestMigration extends CompareMethods {
         compareContactsByOrgId(orgID);
 
         for (String driver : drivers) {
-           // compareDriverByDriverId(driver);
+            compareDriverByDriverId(driver);
             compareEldEventsByDriverId(driver);
             compareEldOriginalEventsById(driver);
             compareInspectionReportDriverId(driver);
@@ -130,7 +130,7 @@ public class TestMigration extends CompareMethods {
             compareFuelPurchaseReceiptDriverId(driver);
             compareACLUsersByDriverId(driver);
             compareAddressBooksByDriverId(driver);
-            //compareHosDayVerify(driver);
+            compareHosDayVerify(driver);
 
 //            compareStripeCustomerByDriver(driver);
 //            compareStripeSubscriptionByDriver(driver);
@@ -140,7 +140,7 @@ public class TestMigration extends CompareMethods {
         }
 
         for (String truck : trucks) {
-            //compareTruckByTruckId(truck);
+            compareTruckByTruckId(truck);
             compareTruckDeviceSignalHistoryByTruckId(truck);
             compareTagsByOrgId(truck);
             compareTransportMovementByTruckId(truck);
@@ -160,7 +160,7 @@ public class TestMigration extends CompareMethods {
 //            compareStripeSubscriptionByUser(user);
 //            compareStripeSubscriptionItemByUser(user);
 //            compareEldSubscriptionsByUser(user);
-           // compareACLUserInGroupByUserId(user);
+//            compareACLUserInGroupByUserId(user);
         }
 
     }

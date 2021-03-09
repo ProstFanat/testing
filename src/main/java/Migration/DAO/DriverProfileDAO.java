@@ -13,9 +13,9 @@ import static DB.DBConstant.*;
 import static DB.RecordMapperValueObject.getRSColumns;
 
 public class DriverProfileDAO {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public DriverProfileDAO(String db, String user, String pass) {
         this.db = db;

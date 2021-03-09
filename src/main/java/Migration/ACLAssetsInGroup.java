@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.util.Set;
 
 public class ACLAssetsInGroup extends RecordMapperValueObject implements Serializable {
-    private Long groupId;
-    private Long trailerId;
-    private Long truckId;
-    private Long driverId;
+    public Long groupId;
+    public Long trailerId;
+    public Long truckId;
+    public Long driverId;
 
     public ACLAssetsInGroup(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

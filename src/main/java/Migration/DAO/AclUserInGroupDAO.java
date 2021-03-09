@@ -11,9 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AclUserInGroupDAO {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public AclUserInGroupDAO(String db, String user, String pass) {
         this.db = db;

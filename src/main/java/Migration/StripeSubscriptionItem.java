@@ -7,17 +7,17 @@ import java.util.Date;
 import java.util.Set;
 
 public class StripeSubscriptionItem extends RecordMapperValueObject {
-    private Long id;
-    private String refId;
-    private Long stripePlanId;
-    private Long stripeSubscriptionId;
-    private Long userId;
-    private Long orgId;
-    private Long quantity;
-    private Date createDate;
-    private String driverIdsJson;
-    private Character active;
-    private StripeSubscription stripeSubscription;
+    public Long id;
+    public String refId;
+    public Long stripePlanId;
+    public Long stripeSubscriptionId;
+    public Long userId;
+    public Long orgId;
+    public Long quantity;
+    public Date createDate;
+    public String driverIdsJson;
+    public Character active;
+    public StripeSubscription stripeSubscription;
 
     public StripeSubscriptionItem(Long id, String refId, Long stripePlanId, Long stripeSubscriptionId, Long userId, Long orgId, Long quantity,
                                   StripeSubscription stripeSubscription, Date createDate, String driverIdsJson, Character active) {

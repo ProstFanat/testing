@@ -8,23 +8,23 @@ import java.util.Set;
 
 public class Tag extends RecordMapperValueObject implements Serializable {
 
-    private Long tagId;
-    private String tagName;
-    private Long organizationId;
-    private Long transportNumber;
-    private String truckNumber;
-    private String trailerNumber;
-    private String driverNumber;
-    private String tagType;
-    private Long tagTruckId;
-    private Long tagTrailerId;
-    private Long tagTransportId;
-    private String tagAccessType = "public";
-    private Long userId;
+    public Long tagId;
+    public String tagName;
+    public Long organizationId;
+    public Long transportNumber;
+    public String truckNumber;
+    public String trailerNumber;
+    public String driverNumber;
+    public String tagType;
+    public Long tagTruckId;
+    public Long tagTrailerId;
+    public Long tagTransportId;
+    public String tagAccessType = "public";
+    public Long userId;
 
-    private Long masterDBRefId;
+    public Long masterDBRefId;
     //refers to personal tags that can have only one user it was created by.
-    private String userFullName;
+    public String userFullName;
 
     public Tag(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

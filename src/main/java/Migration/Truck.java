@@ -9,72 +9,72 @@ import java.util.List;
 import java.util.Set;
 
 public class Truck extends RecordMapperValueObject {
-    private Long truckId;
-    private String refTruckId;
-    private String truckNumber;
-    private Long organizationId;
-    private String vin;
-    private String licensePlate;
-    private String licenseStateProvince;
-    private String make;
-    private String model;
-    private String modelYear;
-    private String tare;
-    private Character fifthWheel;
-    private String gpsProvider; // constants for providers are in GPSSignalProvider class
-    private String gpsUnitId;
-    private String eldSerialNumber;
-    private Integer maxSpeedForStop;
-    private Integer minStopDuration;
-    private Integer minStopDeltaDistanceMeters = 200;
-    private String fuelType = "diesel";
-    private Character onTrip = 'N';
-    private Long borderConnectTruckTypeId;
-    private Integer odometerOffset; // for PT30 device
-    private Character readTruckFaultCode = 'N';
-    private Date requestTruckFaultCode;
-    private Character constantlyProcessFaultCodes = 'N';
-    private Long eldSequence;
-    private Long masterDBRefId;
-    private Long clientDBRefId;
+    public Long truckId;
+    public String refTruckId;
+    public String truckNumber;
+    public Long organizationId;
+    public String vin;
+    public String licensePlate;
+    public String licenseStateProvince;
+    public String make;
+    public String model;
+    public String modelYear;
+    public String tare;
+    public Character fifthWheel;
+    public String gpsProvider; // constants for providers are in GPSSignalProvider class
+    public String gpsUnitId;
+    public String eldSerialNumber;
+    public Integer maxSpeedForStop;
+    public Integer minStopDuration;
+    public Integer minStopDeltaDistanceMeters = 200;
+    public String fuelType = "diesel";
+    public Character onTrip = 'N';
+    public Long borderConnectTruckTypeId;
+    public Integer odometerOffset; // for PT30 device
+    public Character readTruckFaultCode = 'N';
+    public Date requestTruckFaultCode;
+    public Character constantlyProcessFaultCodes = 'N';
+    public Long eldSequence;
+    public Long masterDBRefId;
+    public Long clientDBRefId;
 
-    private Date updateDate;
+    public Date updateDate;
 
-    private String pt30SerialNumber;
-    private String pt30SerialVersion;
-    private boolean isNeedUpdatePt30SerialVersion;
+    public String pt30SerialNumber;
+    public String pt30SerialVersion;
+    public boolean isNeedUpdatePt30SerialVersion;
 
     // JOIN customs.border_connect_truck_type
-    private String borderConnectTruckType;
+    public String borderConnectTruckType;
 
-    private List<Tag> tags = new ArrayList<>();
+    public List<Tag> tags = new ArrayList<>();
 
-    private Date positionTime;
+    public Date positionTime;
 
 
-    private String status;
+    public String status;
 
-    private String odometer;//current odometer value (while from the myshawtracking_position_report)
+    public String odometer;//current odometer value (while from the myshawtracking_position_report)
 
-    private DriverProfile driverProfile;
+    public DriverProfile driverProfile;
 
-    private Long currentDriverProfileId1;
+    public Long currentDriverProfileId1;
 
-    private Long currentDriverProfileId2;
+    public Long currentDriverProfileId2;
 
-    private String refUnitAddress; //only for MyShawTracking
+    public String refUnitAddress; //only for MyShawTracking
 
-    private Long currentLoggedInDriver;
+    public Long currentLoggedInDriver;
 
-    private Boolean isExistUnidentifiedEvents;
+    public Boolean isExistUnidentifiedEvents;
 
-    private Character personalUseAllow = 'N';
+    public Character personalUseAllow = 'N';
 
-    private Integer personalUseLimit;
+    public Integer personalUseLimit;
 
-    private Character yardMoveAllow = 'N';
+    public Character yardMoveAllow = 'N';
 
-    private Integer yardMoveLimit;
+    public Integer yardMoveLimit;
 
 
     public Truck(final ResultSet rs, Set<String> rsColumns) throws Exception {

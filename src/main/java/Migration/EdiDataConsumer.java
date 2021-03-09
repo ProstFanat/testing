@@ -6,15 +6,15 @@ import java.sql.ResultSet;
 import java.util.Set;
 
 public class EdiDataConsumer extends RecordMapperValueObject {
-    private Long consumerId;
-    private Long customerId;
-    private Long orgId;
-    private String receiverId;
-    private String senderId;
-    private String authInfo;
-    private String securityInfo;
-    private String ftpInformation;
-    private Character invoice;
+    public Long consumerId;
+    public Long customerId;
+    public Long orgId;
+    public String receiverId;
+    public String senderId;
+    public String authInfo;
+    public String securityInfo;
+    public String ftpInformation;
+    public Character invoice;
 
 
     public EdiDataConsumer(ResultSet rs, Set<String> rsColumns) throws Exception {

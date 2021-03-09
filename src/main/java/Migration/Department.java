@@ -7,19 +7,19 @@ import java.util.Date;
 import java.util.Set;
 
 public class Department extends RecordMapperValueObject {
-    private Long departmentId;
-    private Long orgId;
-    private String name;
-    private Boolean hasOutbound;
-    private Boolean hasInbound;
-    private String colour;
-    private Boolean isLocal;
-    private Boolean collectRevenuePerMile;
-    private Date createDate;
-    private String refDepartmentCode;//TransPlus: Division.DivCode
-    private String refDepartmentId;//TransPlus: Division.DivisionID
+    public Long departmentId;
+    public Long orgId;
+    public String name;
+    public Boolean hasOutbound;
+    public Boolean hasInbound;
+    public String colour;
+    public Boolean isLocal;
+    public Boolean collectRevenuePerMile;
+    public Date createDate;
+    public String refDepartmentCode;//TransPlus: Division.DivCode
+    public String refDepartmentId;//TransPlus: Division.DivisionID
 
-    private Long masterDBRefId;
+    public Long masterDBRefId;
 
     public Department(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

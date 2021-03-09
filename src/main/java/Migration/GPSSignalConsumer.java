@@ -7,13 +7,13 @@ import java.util.Date;
 import java.util.Set;
 
 public class GPSSignalConsumer extends RecordMapperValueObject {
-    private Long consumerId;
-    private String type;
-    private Long orgId;
-    private Date createDate;
-    private String replayEmail;
-    private String email;
-    private  String emailSubject;
+    public Long consumerId;
+    public String type;
+    public Long orgId;
+    public Date createDate;
+    public String replayEmail;
+    public String email;
+    public  String emailSubject;
 
     public GPSSignalConsumer(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

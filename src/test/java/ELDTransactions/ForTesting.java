@@ -30,7 +30,7 @@ public class ForTesting {
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://10.10.1.83:8080/TrackEnsure/login.do");
         loginPage = new LoginPage();
         createTransaction = new CreateTransaction();
         customersPage = new CustomersPage();

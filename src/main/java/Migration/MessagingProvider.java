@@ -7,14 +7,14 @@ import java.util.Date;
 import java.util.Set;
 
 public class MessagingProvider extends RecordMapperValueObject {
-    private Long providerId;
-    private String type;
-    private String login;
-    private String password;
-    private Long orgId;
-    private Character status = 'Y';
-    private Date createDate;
-    private String parameter1;
+    public Long providerId;
+    public String type;
+    public String login;
+    public String password;
+    public Long orgId;
+    public Character status = 'Y';
+    public Date createDate;
+    public String parameter1;
 
 
     public MessagingProvider(final ResultSet rs, Set<String> rsColumns) throws Exception {

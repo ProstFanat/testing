@@ -6,30 +6,30 @@ import java.sql.ResultSet;
 import java.util.Set;
 
 public class Address extends RecordMapperValueObject {
-    private Long addressId;
-    private String country;
-    private String region;
-    private String city;
-    private String town;
-    private String village;
-    private String hamlet;
-    private String suburb;
-    private String addressLine1;
-    private String addressLine2;
-    private String postalCode;
-    private String latitude;
-    private String longitude;
+    public Long addressId;
+    public String country;
+    public String region;
+    public String city;
+    public String town;
+    public String village;
+    public String hamlet;
+    public String suburb;
+    public String addressLine1;
+    public String addressLine2;
+    public String postalCode;
+    public String latitude;
+    public String longitude;
 
-    private String locationName;
-    private String countryCode;
-    private String direction; // for ELogLocationDescriptionParser
-    private String remotenessOfDirection; // for ELogLocationDescriptionParser
-    private String addressAsOneLine;
+    public String locationName;
+    public String countryCode;
+    public String direction; // for ELogLocationDescriptionParser
+    public String remotenessOfDirection; // for ELogLocationDescriptionParser
+    public String addressAsOneLine;
 
-    private String hereLocationId; // for Here geocode api
+    public String hereLocationId; // for Here geocode api
 
-    private String street;
-    private String houseNumber;
+    public String street;
+    public String houseNumber;
 
     public Address(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

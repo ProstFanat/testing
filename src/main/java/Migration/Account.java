@@ -8,21 +8,21 @@ import java.util.Date;
 import java.util.Set;
 
 public class Account extends RecordMapperValueObject implements Serializable {
-    private Long accountId;
-    private Long primaryUserId;
-    private Long organizationId;
-    private String accountPin;
-    private String referralCode;
-    private Character active;
-    private Long billingAddressId;
-    private Long contactId;
-    private Date createDate;
-    private Character isPersonal;
-    private String subscriptionType = "stripe";
-    private Character sendLoadOffers = 'Y';
+    public Long accountId;
+    public Long primaryUserId;
+    public Long organizationId;
+    public String accountPin;
+    public String referralCode;
+    public Character active;
+    public Long billingAddressId;
+    public Long contactId;
+    public Date createDate;
+    public Character isPersonal;
+    public String subscriptionType = "stripe";
+    public Character sendLoadOffers = 'Y';
 
-    private String note;
-    private String salesNote;
+    public String note;
+    public String salesNote;
 
     public Account(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

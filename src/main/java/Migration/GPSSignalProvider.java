@@ -8,18 +8,18 @@ import java.util.Date;
 import java.util.Set;
 
 public class GPSSignalProvider extends RecordMapperValueObject implements Serializable {
-    private Long providerId;
-    private String type;
-    private String login;
-    private String password;
-    private Long myshawSubscriberId;
-    private Long spireonAccountId;
-    private String appMode; // For 'trackensure-app-gps' type only
-    private Date lastTimeDataReceived;
-    private Long orgId;
-    private Date createDate;
+    public Long providerId;
+    public String type;
+    public String login;
+    public String password;
+    public Long myshawSubscriberId;
+    public Long spireonAccountId;
+    public String appMode; // For 'trackensure-app-gps' type only
+    public Date lastTimeDataReceived;
+    public Long orgId;
+    public Date createDate;
 
-    private Long masterDBRefId;
+    public Long masterDBRefId;
 
     public GPSSignalProvider(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

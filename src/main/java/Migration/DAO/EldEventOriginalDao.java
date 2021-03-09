@@ -10,10 +10,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static DB.DBConstant.VALIDATION_DAYS;
+
 public class EldEventOriginalDao {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public EldEventOriginalDao(String db, String user, String pass) {
         this.db = db;
@@ -27,7 +29,7 @@ public class EldEventOriginalDao {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.eld_event_original WHERE driver_id_1=" + driverId +
-                " AND event_timestamp BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY event_sequence ASC, event_timestamp ASC, eld_sequence ASC";
+                " AND event_timestamp BETWEEN now() - '" + VALIDATION_DAYS + " days'::INTERVAL and now() ORDER BY event_sequence ASC, event_timestamp ASC, eld_sequence ASC";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

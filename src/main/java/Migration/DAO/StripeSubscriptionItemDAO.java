@@ -13,9 +13,9 @@ import java.util.List;
 
 public class StripeSubscriptionItemDAO {
 
-        private String db;
-        private String user;
-        private String pass;
+        public String db;
+        public String user;
+        public String pass;
 
         public StripeSubscriptionItemDAO(String db, String user, String pass) {
             this.db = db;

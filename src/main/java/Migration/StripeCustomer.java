@@ -10,34 +10,34 @@ import java.util.Set;
 import static DB.RecordMapperValueObject.getRSColumns;
 
 public class StripeCustomer extends RecordMapperValueObject {
-    private Long id;
-    private Long userId;
-    private Long orgId;
-    private Date createDate;
-    private String orgName;
+    public Long id;
+    public Long userId;
+    public Long orgId;
+    public Date createDate;
+    public String orgName;
 
     //Stripe
-    private String refId;
-    private String refSource;
-    private String refEmail;
+    public String refId;
+    public String refSource;
+    public String refEmail;
 
     //Shipping details
-    private String refCountry;
-    private String refCity;
-    private String refLine1;
-    private String refLine2;
-    private String refPostalCode;
-    private String refState;
-    private String refPhone;
+    public String refCountry;
+    public String refCity;
+    public String refLine1;
+    public String refLine2;
+    public String refPostalCode;
+    public String refState;
+    public String refPhone;
 
-    private ACLUser aclUser;
-    private Organization organization;
+    public ACLUser aclUser;
+    public Organization organization;
 
-    private String lastCardDigits;
-    private Long masterDBRefId;
+    public String lastCardDigits;
+    public Long masterDBRefId;
 
     // join organization
-    private String usdotNumber;
+    public String usdotNumber;
 
     public StripeCustomer(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

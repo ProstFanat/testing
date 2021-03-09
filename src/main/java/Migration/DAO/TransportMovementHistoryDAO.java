@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TransportMovementHistoryDAO {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public TransportMovementHistoryDAO(String db, String user, String pass) {
         this.db = db;

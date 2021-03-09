@@ -8,11 +8,11 @@ import java.util.Set;
 
 public class Consumer extends RecordMapperValueObject implements Serializable {
 
-    private Long consumerId;
-    private String consumerName;
-    private Long orgId;
-    private String token;
-    private String comment;
+    public Long consumerId;
+    public String consumerName;
+    public Long orgId;
+    public String token;
+    public String comment;
 
     public Consumer(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

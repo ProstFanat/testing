@@ -9,41 +9,41 @@ import java.util.List;
 import java.util.Set;
 
 public class TransportMovement extends RecordMapperValueObject {
-    private Long transportId;
-    private Long orgId;
-    private Long tractorRefId;
-    private String tractorLat;
-    private String tractorLng;
-    private Date tractorPositionTime;
-    private Long trailerRefId;
-    private String trailerLat;
-    private String trailerLng;
-    private Date trailerPositionTime;
-    private Integer confidenceLevel;
-    private Character activeStatus;
-    private Date createDate;
-    private Date updateDate;
-    private Long truckId;
-    private Long truckDeviceSignalId;
-    private Long trailerDeviceSignalId;
+    public Long transportId;
+    public Long orgId;
+    public Long tractorRefId;
+    public String tractorLat;
+    public String tractorLng;
+    public Date tractorPositionTime;
+    public Long trailerRefId;
+    public String trailerLat;
+    public String trailerLng;
+    public Date trailerPositionTime;
+    public Integer confidenceLevel;
+    public Character activeStatus;
+    public Date createDate;
+    public Date updateDate;
+    public Long truckId;
+    public Long truckDeviceSignalId;
+    public Long trailerDeviceSignalId;
 
     // these fields are used by the zone trigger processor, not part of the transport_movement
-    private String tractorNumber;
-    private Long tractorId;
-    private String trailerNumber;
+    public String tractorNumber;
+    public Long tractorId;
+    public String trailerNumber;
 
-    private List<Tag> tags = new ArrayList<>();
-    private Date positionTime;
+    public List<Tag> tags = new ArrayList<>();
+    public Date positionTime;
 
     // for transport_movement_history
-    private Long driverId;
-    private String driverName;
-    private Date deactivateDate;
-    private String deactivateTractorLat;
-    private String deactivateTractorLng;
-    private String deactivateTrailerLat;
-    private String deactivateTrailerLng;
-    private String truckNumber;
+    public Long driverId;
+    public String driverName;
+    public Date deactivateDate;
+    public String deactivateTractorLat;
+    public String deactivateTractorLng;
+    public String deactivateTrailerLat;
+    public String deactivateTrailerLng;
+    public String truckNumber;
 
     public TransportMovement(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

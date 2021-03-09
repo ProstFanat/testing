@@ -11,10 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static DB.DBConstant.VALIDATION_DAYS;
+
 public class HosDayVerifyDAO {
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public HosDayVerifyDAO(String db, String user, String pass) {
         this.db = db;
@@ -28,7 +30,7 @@ public class HosDayVerifyDAO {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.hos_day_verify WHERE driver_id = " + id +
-                " AND verified_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY verified_date";
+                " AND verified_date BETWEEN now() - '" + VALIDATION_DAYS + " days'::INTERVAL and now() ORDER BY verified_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

@@ -14,7 +14,7 @@ public class CustomersPage extends BasePage {
             btnIconOnSideBar = $x("//*[@tooltip = 'Customers']");
 
     public void openCustomersPage(){
-        open("http://localhost:8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
+        open("http://10.10.1.83:8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
         waitForPageToLoad();
     }
 

@@ -2,62 +2,107 @@ package Migration.Fragments;
 
 import Migration.*;
 import Migration.DAO.*;
+import com.google.gson.stream.JsonToken;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Assertions;
 
+import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 import static DB.DBConstant.*;
 
 public class CompareMethods {
+    public static void compareObjects(Object oldValue, Object newValue) throws IllegalAccessException {
+        Field[] fieldsOld = oldValue.getClass().getFields();
+        Field[] fieldsNew = newValue.getClass().getFields();
+//        for (Field field : fieldsOld) {
+//            try {
+//                System.out.println(field.getName() + ": " + field.get(o));
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
+//        }
+       // if(fieldsNew.equals(fieldsOld)) {
+            for (int i = 0; i < fieldsOld.length; i++) {
+                System.out.println(fieldsOld[i].getName() + " old = " + fieldsOld[i].get(oldValue));
+                System.out.println(fieldsNew[i].getName() + " new = " + fieldsNew[i].get(newValue));
+                if (fieldsOld[i].get(oldValue) != null && fieldsNew[i].get(newValue) != null) {
+                    if (!(fieldsOld[i].get(oldValue).equals(fieldsNew[i].get(newValue)))) {
+                        System.out.println(" ");
+                        System.out.println(fieldsOld[i].getName() + " old = " + fieldsOld[i].get(oldValue));
+                        System.out.println(fieldsNew[i].getName() + " new = " + fieldsNew[i].get(newValue));
+                        System.out.println(" ");
+                    }
+                }
+            }
+//        } else {
+//            System.out.println("TEST FAILED. SIZE OF OLD != NEW");
+//        }
+    }
 
-    public static void compareDriverByDriverId(String id) throws SQLException {
+    public static void compareDriverByDriverId(String id) throws SQLException, IllegalAccessException {
         DriverProfileDAO profileDAOOld = new DriverProfileDAO(DB_URL, USER_DB, PASS_DB);
         DriverProfileDAO profileDAONew = new DriverProfileDAO(DB_URL2, USER_DB2, PASS_DB2);
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
-        DriverProfile DriverProfileOld = profileDAOOld.getDriverById(id);
-        DriverProfile DriverProfileNew = profileDAONew.getDriverById(getNewId.getNewDriverId(id));
+        DriverProfile oldValue = profileDAOOld.getDriverById(id);
+        DriverProfile newValue = profileDAONew.getDriverById(getNewId.getNewDriverId(id));
 
-        Assertions.assertEquals(DriverProfileOld.toString(), DriverProfileNew.toString());
-        if(DriverProfileOld.toString().equals(DriverProfileNew.toString())){
+//        System.out.println(newValue.toString());
+//        System.out.println(oldValue.toString());
+
+        //compareObjects(DriverProfileOld, DriverProfileNew);
+        Assertions.assertEquals(oldValue.toString(), newValue.toString());
+        if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareDriverByDriverId " + id + " Done");
         }
     }
 
-    public static void compareEldEventsByDriverId(String id) throws SQLException {
+    public static void compareEldEventsByDriverId(String id) throws SQLException, IllegalAccessException {
         EldEventDao profileDAOOld = new EldEventDao(DB_URL, USER_DB, PASS_DB);
         EldEventDao profileDAONew = new EldEventDao(DB_URL2, USER_DB2, PASS_DB2);
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
 
-        List<String> eldEventOld = profileDAOOld.getEldEventsForDriver(id);
-        List<String> eldEventNew = profileDAONew.getEldEventsForDriver(getNewId.getNewDriverId(id));
+        List<String> oldValue = profileDAOOld.getEldEventsForDriver(id);
+        List<String> newValue = profileDAONew.getEldEventsForDriver(getNewId.getNewDriverId(id));
 
-        Assertions.assertEquals(eldEventNew.toString(), eldEventOld.toString());
-        if(eldEventOld.toString().equals(eldEventNew.toString())){
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+//        System.out.println(newValue.toString());
+//        System.out.println(oldValue.toString());
+
+        //compareObjects(eldEventOld, eldEventNew);
+
+        if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareEldEventsByDriverId " + id + " Done");
         }
     }
 
-    public static void compareEldOriginalEventsById(String id) throws SQLException {
+    public static void compareEldOriginalEventsById(String id) throws SQLException, IllegalAccessException {
         EldEventOriginalDao eldEventsOriginalOld = new EldEventOriginalDao(DB_URL, USER_DB, PASS_DB);
         EldEventOriginalDao eldEventsOriginalNew = new EldEventOriginalDao(DB_URL2, USER_DB2, PASS_DB2);
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
-        List<String> eldEventOld = eldEventsOriginalOld.getEldEventsOriginalForDriver(id);
-        List<String> eldEventNew = eldEventsOriginalNew.getEldEventsOriginalForDriver(getNewId.getNewDriverId(id));
+        List<String> newValue = eldEventsOriginalOld.getEldEventsOriginalForDriver(id);
+        List<String> oldValue = eldEventsOriginalNew.getEldEventsOriginalForDriver(getNewId.getNewDriverId(id));
 
-        Assertions.assertEquals(eldEventNew.toString(), eldEventOld.toString());
-        if(eldEventOld.toString().equals(eldEventNew.toString())){
+        Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        //compareObjects(eldEventOld, eldEventNew);
+//        System.out.println(newValue.toString());
+//        System.out.println(oldValue.toString());
+
+        if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareEldOriginalEventsById " + id + " Done");
         }
     }
 
-    public static void compareAccountsByOrgId(String id) throws SQLException {
+    public static void compareAccountsByOrgId(String id) throws SQLException, IllegalAccessException {
         AccountDAO daoOld = new AccountDAO(DB_URL, USER_DB, PASS_DB);
         AccountDAO daoNew = new AccountDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -68,12 +113,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareAccountsByOrgId " + id + " Done");
         }
     }
 
-    public static void compareOrganizationsByOrgId(String id) throws SQLException {
+    public static void compareOrganizationsByOrgId(String id) throws SQLException, IllegalAccessException {
         OrganizationDAO daoOld = new OrganizationDAO(DB_URL, USER_DB, PASS_DB);
         OrganizationDAO daoNew = new OrganizationDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -83,13 +130,15 @@ public class CompareMethods {
         Organization newValue = daoNew.getOrganizationById(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //System.out.println("compareOrganizationsByOrgId " + id);
+        //compareObjects(oldValue, newValue);
 
         if(newValue.toString().equals(oldValue.toString())){
             System.out.println("compareOrganizationsByOrgId " + id + " Done");
         }
     }
 
-    public static void compareAddressesByOrgId(String id) throws SQLException {
+    public static void compareAddressesByOrgId(String id) throws SQLException, IllegalAccessException {
         AddressDAO daoOld = new AddressDAO(DB_URL, USER_DB, PASS_DB);
         AddressDAO daoNew = new AddressDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -100,12 +149,15 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //System.out.println(newValue.toString());
+        //compareObjects(oldValue, newValue);
+
         if(newValue.toString().equals(oldValue.toString())){
             System.out.println("compareAddressesByOrgId " + id + " Done");
         }
     }
 
-    public static void compareOptionsByOrgId(String id) throws SQLException {
+    public static void compareOptionsByOrgId(String id) throws SQLException, IllegalAccessException {
         OptionDAO daoOld = new OptionDAO(DB_URL, USER_DB, PASS_DB);
         OptionDAO daoNew = new OptionDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -116,12 +168,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(newValue.toString().equals(oldValue.toString())){
             System.out.println("compareOptionsByOrgId " + id + " Done");
         }
     }
 
-    public static void compareACLUserGroupsByOrgId(String id) throws SQLException {
+    public static void compareACLUserGroupsByOrgId(String id) throws SQLException, IllegalAccessException {
         ACLUserGroupDAO daoOld = new ACLUserGroupDAO(DB_URL, USER_DB, PASS_DB);
         ACLUserGroupDAO daoNew = new ACLUserGroupDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -132,12 +186,16 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //System.out.println(newValue.toString());
+        //System.out.println(oldValue.toString());
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLUserGroupsByOrgId " + id + " Done");
         }
     }
 
-    public static void compareACLMatricesByOrgId(String id) throws SQLException {
+    public static void compareACLMatricesByOrgId(String id) throws SQLException, IllegalAccessException {
         ACLMatrixDAO daoOld = new ACLMatrixDAO(DB_URL, USER_DB, PASS_DB);
         ACLMatrixDAO daoNew = new ACLMatrixDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -148,16 +206,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
-        if(oldValue.toString().equals(newValue.toString())){
-            System.out.println("compareACLMatricesByOrgId " + id + " Done");
-        }
+        //compareObjects(oldValue, newValue);
 
-        if(newValue.toString().equals(oldValue.toString())){
+        if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLMatricesByOrgId " + id + " Done");
         }
     }
 
-    public static void compareACLResourcesByOrgId(String id) throws SQLException {
+    public static void compareACLResourcesByOrgId(String id) throws SQLException, IllegalAccessException {
         ACLResourceDAO daoOld = new ACLResourceDAO(DB_URL, USER_DB, PASS_DB);
         ACLResourceDAO daoNew = new ACLResourceDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -168,12 +224,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLResourcesByOrgId " + id + " Done");
         }
     }
 
-    public static void compareDepartmentsByOrgId(String id) throws SQLException {
+    public static void compareDepartmentsByOrgId(String id) throws SQLException, IllegalAccessException {
         DepartmentDAO daoOld = new DepartmentDAO(DB_URL, USER_DB, PASS_DB);
         DepartmentDAO daoNew = new DepartmentDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -184,12 +242,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareDepartmentsByOrgId " + id + " Done");
         }
     }
 
-    public static void compareConsumersByOrgId(String id) throws SQLException {
+    public static void compareConsumersByOrgId(String id) throws SQLException, IllegalAccessException {
         ConsumerDAO daoOld = new ConsumerDAO(DB_URL, USER_DB, PASS_DB);
         ConsumerDAO daoNew = new ConsumerDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -200,12 +260,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareConsumersByOrgId " + id + " Done");
         }
     }
 
-    public static void compareContactsByOrgId(String id) throws SQLException {
+    public static void compareContactsByOrgId(String id) throws SQLException, IllegalAccessException {
         ContactDAO daoOld = new ContactDAO(DB_URL, USER_DB, PASS_DB);
         ContactDAO daoNew = new ContactDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -215,6 +277,8 @@ public class CompareMethods {
         Contact newValue = daoNew.getContactByOrgId(getNewId.getNewOrgId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        //compareObjects(oldValue, newValue);
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareContactsByOrgId " + id + " Done");
@@ -237,7 +301,7 @@ public class CompareMethods {
 //        }
 //    }
 
-    public static void compareACLUsersByDriverId(String id) throws SQLException {
+    public static void compareACLUsersByDriverId(String id) throws SQLException, IllegalAccessException {
         ACLUserDAO daoOld = new ACLUserDAO(DB_URL, USER_DB, PASS_DB);
         ACLUserDAO daoNew = new ACLUserDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -248,13 +312,15 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLUsersByDriverId " + id + " Done");
         }
     }
 
 
-    public static void compareACLUsersByUserId(String id) throws SQLException {
+    public static void compareACLUsersByUserId(String id) throws SQLException, IllegalAccessException {
         ACLUserDAO daoOld = new ACLUserDAO(DB_URL, USER_DB, PASS_DB);
         ACLUserDAO daoNew = new ACLUserDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -265,12 +331,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLUsersByUserId " + id + " Done");
         }
     }
 
-    public static void compareAddressBooksByDriverId(String id) throws SQLException {
+    public static void compareAddressBooksByDriverId(String id) throws SQLException, IllegalAccessException {
         AddressBookRecordDAO daoOld = new AddressBookRecordDAO(DB_URL, USER_DB, PASS_DB);
         AddressBookRecordDAO daoNew = new AddressBookRecordDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -279,16 +347,19 @@ public class CompareMethods {
         List<String> oldValue = daoOld.getListOfAddressBookRecordsByDriverId(id);
         List<String> newValue = daoNew.getListOfAddressBookRecordsByDriverId(getNewId.getNewDriverId(id));
 
-        System.out.println(oldValue.toString());
-        System.out.println(newValue.toString());
+        //System.out.println(oldValue.toString());
+        //System.out.println(newValue.toString());
+
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        //compareObjects(oldValue, newValue);
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareAddressBooksByDriverId " + id + " Done");
         }
     }
 
-    public static void compareAddressBooksByUserId(String id) throws SQLException {
+    public static void compareAddressBooksByUserId(String id) throws SQLException, IllegalAccessException {
         AddressBookRecordDAO daoOld = new AddressBookRecordDAO(DB_URL, USER_DB, PASS_DB);
         AddressBookRecordDAO daoNew = new AddressBookRecordDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -296,17 +367,20 @@ public class CompareMethods {
 
         List<String> oldValue = daoOld.getListOfAddressBookRecordsByUserId(id);
         List<String> newValue = daoNew.getListOfAddressBookRecordsByUserId(getNewId.getNewAclUserId(id));
+//
+//        System.out.println(oldValue.toString());
+//        System.out.println(newValue.toString());
 
-        System.out.println(oldValue.toString());
-        System.out.println(newValue.toString());
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+
+        //compareObjects(oldValue, newValue);
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareAddressBooksByUserId " + id + " Done");
         }
     }
 
-    public static void compareACLUserMatricesByUserId(String id) throws SQLException {
+    public static void compareACLUserMatricesByUserId(String id) throws SQLException, IllegalAccessException {
         ACLUserMatrixDAO daoOld = new ACLUserMatrixDAO(DB_URL, USER_DB, PASS_DB);
         ACLUserMatrixDAO daoNew = new ACLUserMatrixDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -317,12 +391,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLUserMatricesByUserId " + id + " Done");
         }
     }
 
-    public static void compareACLUserInGroupByDriverId(String id) throws SQLException {
+    public static void compareACLUserInGroupByDriverId(String id) throws SQLException, IllegalAccessException {
         AclUserInGroupDAO daoOld = new AclUserInGroupDAO(DB_URL, USER_DB, PASS_DB);
         AclUserInGroupDAO daoNew = new AclUserInGroupDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -333,12 +409,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.size(), oldValue.size());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLUserInGroupByDriverId " + id + " Done");
         }
     }
 
-    public static void compareACLUserInGroupByUserId(String id) throws SQLException {
+    public static void compareACLUserInGroupByUserId(String id) throws SQLException, IllegalAccessException {
         AclUserInGroupDAO daoOld = new AclUserInGroupDAO(DB_URL, USER_DB, PASS_DB);
         AclUserInGroupDAO daoNew = new AclUserInGroupDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -349,12 +427,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.size(), oldValue.size());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareACLUserInGroupByUserId " + id + " Done");
         }
     }
 
-    public static void compareInspectionReportDriverId(String id) throws SQLException {
+    public static void compareInspectionReportDriverId(String id) throws SQLException, IllegalAccessException {
         InspectionReportDao daoOld = new InspectionReportDao(DB_URL, USER_DB, PASS_DB);
         InspectionReportDao daoNew = new InspectionReportDao(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -365,12 +445,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareInspectionReportDriverId " + id + " Done");
         }
     }
 
-    public static void compareEldBorderCrossingEventsDriverId(String id) throws SQLException {
+    public static void compareEldBorderCrossingEventsDriverId(String id) throws SQLException, IllegalAccessException {
         EldBorderCrossingEventDao daoOld = new EldBorderCrossingEventDao(DB_URL, USER_DB, PASS_DB);
         EldBorderCrossingEventDao daoNew = new EldBorderCrossingEventDao(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -381,12 +463,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareEldBorderCrossingEventsDriverId " + id + " Done");
         }
     }
 
-    public static void compareEldSignalsHistoryDriverId(String id) throws SQLException {
+    public static void compareEldSignalsHistoryDriverId(String id) throws SQLException, IllegalAccessException {
         EldSignalHistoryDao daoOld = new EldSignalHistoryDao(DB_URL, USER_DB, PASS_DB);
         EldSignalHistoryDao daoNew = new EldSignalHistoryDao(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -397,12 +481,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareEldSignalsHistoryDriverId " + id + " Done");
         }
     }
 
-    public static void compareFmcsaEldExportDriverId(String id) throws SQLException {
+    public static void compareFmcsaEldExportDriverId(String id) throws SQLException, IllegalAccessException {
         FMCSAELDExportDAO daoOld = new FMCSAELDExportDAO(DB_URL, USER_DB, PASS_DB);
         FMCSAELDExportDAO daoNew = new FMCSAELDExportDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -413,12 +499,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareFmcsaEldExportDriverId " + id + " Done");
         }
     }
 
-    public static void compareFuelPurchaseReceiptDriverId(String id) throws SQLException {
+    public static void compareFuelPurchaseReceiptDriverId(String id) throws SQLException, IllegalAccessException {
         FuelPurchaseReceiptDAO daoOld = new FuelPurchaseReceiptDAO(DB_URL, USER_DB, PASS_DB);
         FuelPurchaseReceiptDAO daoNew = new FuelPurchaseReceiptDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -429,12 +517,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareFuelPurchaseReceiptDriverId " + id + " Done");
         }
     }
 
-    public static void compareTruckByTruckId(String id) throws SQLException {
+    public static void compareTruckByTruckId(String id) throws SQLException, IllegalAccessException {
         TruckDAO daoOld = new TruckDAO(DB_URL, USER_DB, PASS_DB);
         TruckDAO daoNew = new TruckDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -445,12 +535,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTruckByTruckId " + id + " Done");
         }
     }
 
-    public static void compareTruckDeviceSignalHistoryByTruckId(String id) throws SQLException {
+    public static void compareTruckDeviceSignalHistoryByTruckId(String id) throws SQLException, IllegalAccessException {
         TruckDeviceSignalHistoryDAO daoOld = new TruckDeviceSignalHistoryDAO(DB_URL, USER_DB, PASS_DB);
         TruckDeviceSignalHistoryDAO daoNew = new TruckDeviceSignalHistoryDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -461,6 +553,8 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
 //        System.out.println(newValue.toString());
 //        System.out.println(oldValue.toString());
 
@@ -469,7 +563,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareTagsByOrgId(String id) throws SQLException {
+    public static void compareTagsByOrgId(String id) throws SQLException, IllegalAccessException {
         tagDAO daoOld = new tagDAO(DB_URL, USER_DB, PASS_DB);
         tagDAO daoNew = new tagDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -480,12 +574,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTagsByOrgId " + id + " Done");
         }
     }
 
-    public static void compareTransportMovementByTruckId(String id) throws SQLException {
+    public static void compareTransportMovementByTruckId(String id) throws SQLException, IllegalAccessException {
         TransportMovementDAO daoOld = new TransportMovementDAO(DB_URL, USER_DB, PASS_DB);
         TransportMovementDAO daoNew = new TransportMovementDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -496,12 +592,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTransportMovementByTruckId " + id + " Done");
         }
     }
 
-    public static void compareTransportMovementHistoryByTruckId(String id) throws SQLException {
+    public static void compareTransportMovementHistoryByTruckId(String id) throws SQLException, IllegalAccessException {
         TransportMovementHistoryDAO daoOld = new TransportMovementHistoryDAO(DB_URL, USER_DB, PASS_DB);
         TransportMovementHistoryDAO daoNew = new TransportMovementHistoryDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -512,12 +610,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTransportMovementHistoryByTruckId " + id + " Done");
         }
     }
 
-    public static void compareTrailerByTrailerId(String id) throws SQLException {
+    public static void compareTrailerByTrailerId(String id) throws SQLException, IllegalAccessException {
         TrailerDAO daoOld = new TrailerDAO(DB_URL, USER_DB, PASS_DB);
         TrailerDAO daoNew = new TrailerDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -528,12 +628,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTrailerByTrailerId " + id + " Done");
         }
     }
 
-    public static void compareTrailerDeviceSignalHistoryByTrailerId(String id) throws SQLException {
+    public static void compareTrailerDeviceSignalHistoryByTrailerId(String id) throws SQLException, IllegalAccessException {
         TrailerDeviceSignalHistoryDAO daoOld = new TrailerDeviceSignalHistoryDAO(DB_URL, USER_DB, PASS_DB);
         TrailerDeviceSignalHistoryDAO daoNew = new TrailerDeviceSignalHistoryDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -544,12 +646,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareTrailerDeviceSignalHistoryByTrailerId " + id + " Done");
         }
     }
 
-    public static void compareEdiDataConsumerByOrgId(String id) throws SQLException {
+    public static void compareEdiDataConsumerByOrgId(String id) throws SQLException, IllegalAccessException {
         EdiDataConsumerDAO daoOld = new EdiDataConsumerDAO(DB_URL, USER_DB, PASS_DB);
         EdiDataConsumerDAO daoNew = new EdiDataConsumerDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -560,12 +664,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareEdiDataConsumerByOrgId " + id + " Done");
         }
     }
 
-    public static void compareGpsSignalConsumerByOrgId(String id) throws SQLException {
+    public static void compareGpsSignalConsumerByOrgId(String id) throws SQLException, IllegalAccessException {
         GPSSignalConsumerDAO daoOld = new GPSSignalConsumerDAO(DB_URL, USER_DB, PASS_DB);
         GPSSignalConsumerDAO daoNew = new GPSSignalConsumerDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -576,12 +682,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareGpsSignalConsumerByOrgId " + id + " Done");
         }
     }
 
-    public static void compareGeocodeProviderByOrgId(String id) throws SQLException {
+    public static void compareGeocodeProviderByOrgId(String id) throws SQLException, IllegalAccessException {
         GeocodeProviderDAO daoOld = new GeocodeProviderDAO(DB_URL, USER_DB, PASS_DB);
         GeocodeProviderDAO daoNew = new GeocodeProviderDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -592,12 +700,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareGeocodeProviderByOrgId " + id + " Done");
         }
     }
 
-    public static void compareMessagingProviderByOrgId(String id) throws SQLException {
+    public static void compareMessagingProviderByOrgId(String id) throws SQLException, IllegalAccessException {
         MessagingProviderDAO daoOld = new MessagingProviderDAO(DB_URL, USER_DB, PASS_DB);
         MessagingProviderDAO daoNew = new MessagingProviderDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -608,12 +718,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareMessagingProviderByOrgId " + id + " Done");
         }
     }
 
-    public static void compareHosProviderByOrgId(String id) throws SQLException {
+    public static void compareHosProviderByOrgId(String id) throws SQLException, IllegalAccessException {
         HosProviderDAO daoOld = new HosProviderDAO(DB_URL, USER_DB, PASS_DB);
         HosProviderDAO daoNew = new HosProviderDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -624,12 +736,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareHosProviderByOrgId " + id + " Done");
         }
     }
 
-    public static void compareGpsSignalProviderByOrgId(String id) throws SQLException {
+    public static void compareGpsSignalProviderByOrgId(String id) throws SQLException, IllegalAccessException {
         GPSSignalProviderDAO daoOld = new GPSSignalProviderDAO(DB_URL, USER_DB, PASS_DB);
         GPSSignalProviderDAO daoNew = new GPSSignalProviderDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -640,12 +754,14 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        //compareObjects(oldValue, newValue);
+
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareGpsSignalProviderByOrgId " + id + " Done");
         }
     }
 
-    public static void compareStripeCustomerByDriver(String id) throws SQLException {
+    public static void compareStripeCustomerByDriver(String id) throws SQLException, IllegalAccessException {
         StripeCustomerDAO daoOld = new StripeCustomerDAO(DB_URL, USER_DB, PASS_DB);
         StripeCustomerDAO daoNew = new StripeCustomerDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -655,6 +771,8 @@ public class CompareMethods {
         List<String> newValue = daoNew.getStripeCustomerByDriverId(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
+
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -663,7 +781,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeSubscriptionByDriver(String id) throws SQLException {
+    public static void compareStripeSubscriptionByDriver(String id) throws SQLException, IllegalAccessException {
         StripeSubscriptionDAO daoOld = new StripeSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
         StripeSubscriptionDAO daoNew = new StripeSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -673,6 +791,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getStripeSubscription(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -681,7 +800,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeSubscriptionItemByDriver(String id) throws SQLException {
+    public static void compareStripeSubscriptionItemByDriver(String id) throws SQLException, IllegalAccessException {
         StripeSubscriptionItemDAO daoOld = new StripeSubscriptionItemDAO(DB_URL, USER_DB, PASS_DB);
         StripeSubscriptionItemDAO daoNew = new StripeSubscriptionItemDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -691,6 +810,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getStripeSubscriptionItem(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -699,7 +819,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareEldSubscriptionsByDriver(String id) throws SQLException {
+    public static void compareEldSubscriptionsByDriver(String id) throws SQLException, IllegalAccessException {
         EldSubscriptionDAO daoOld = new EldSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
         EldSubscriptionDAO daoNew = new EldSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -709,6 +829,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getEldSubscription(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -717,7 +838,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeCustomerByUser(String id) throws SQLException {
+    public static void compareStripeCustomerByUser(String id) throws SQLException, IllegalAccessException {
         StripeCustomerDAO daoOld = new StripeCustomerDAO(DB_URL, USER_DB, PASS_DB);
         StripeCustomerDAO daoNew = new StripeCustomerDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -727,6 +848,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getStripeCustomerByUser(getNewId.getNewAclUserId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -735,7 +857,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeSubscriptionByUser(String id) throws SQLException {
+    public static void compareStripeSubscriptionByUser(String id) throws SQLException, IllegalAccessException {
         StripeSubscriptionDAO daoOld = new StripeSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
         StripeSubscriptionDAO daoNew = new StripeSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -745,6 +867,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getStripeSubscriptionByUser(getNewId.getNewAclUserId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -753,7 +876,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareStripeSubscriptionItemByUser(String id) throws SQLException {
+    public static void compareStripeSubscriptionItemByUser(String id) throws SQLException, IllegalAccessException {
         StripeSubscriptionItemDAO daoOld = new StripeSubscriptionItemDAO(DB_URL, USER_DB, PASS_DB);
         StripeSubscriptionItemDAO daoNew = new StripeSubscriptionItemDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -763,6 +886,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getStripeSubscriptionItemByUser(getNewId.getNewAclUserId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -771,7 +895,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareEldSubscriptionsByUser(String id) throws SQLException {
+    public static void compareEldSubscriptionsByUser(String id) throws SQLException, IllegalAccessException {
         EldSubscriptionDAO daoOld = new EldSubscriptionDAO(DB_URL, USER_DB, PASS_DB);
         EldSubscriptionDAO daoNew = new EldSubscriptionDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -781,6 +905,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getEldSubscriptionByUser(getNewId.getNewAclUserId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 
@@ -789,7 +914,7 @@ public class CompareMethods {
         }
     }
 
-    public static void compareHosDayVerify(String id) throws SQLException {
+    public static void compareHosDayVerify(String id) throws SQLException, IllegalAccessException {
         HosDayVerifyDAO daoOld = new HosDayVerifyDAO(DB_URL, USER_DB, PASS_DB);
         HosDayVerifyDAO daoNew = new HosDayVerifyDAO(DB_URL2, USER_DB2, PASS_DB2);
 
@@ -799,6 +924,7 @@ public class CompareMethods {
         List<String> newValue = daoNew.getHosVerifyByDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+        //compareObjects(oldValue, newValue);
         System.out.println(newValue.toString());
         System.out.println(oldValue.toString());
 

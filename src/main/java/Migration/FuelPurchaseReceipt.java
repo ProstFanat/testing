@@ -9,32 +9,32 @@ import java.util.Set;
 
 public class FuelPurchaseReceipt extends RecordMapperValueObject {
 
-    private Long		purchaseId;
-    private Long		driverId;
-    private Long		truckId;
-    private Long 		orgId;
-    private Date createDate;
-    private Date		purchaseDate;
-    private BigDecimal odometer;
-    private String 		distanceUnit;
-    private String 		countryCode; // 2 letters all capital case
-    private String 		provStateCode; // 2 letters all capital case
-    private String 		latitude;
-    private String 		longitude;
-    private String 		vendorName;
-    private String 		fuelType;
-    private BigDecimal 	volume;
-    private String 		volumeUnit;
-    private BigDecimal 	price;
-    private String 		currency;
-    private BigDecimal 	pricePerUnit;
-    private String 		receiptImage;
-    private Long		purchaseDateUTC;
-    private String		refId;//received from eLog App (it is ID this receipt in TE DB)
-    private String      driverFullName;
-    private String		homeTerminalTimezone;
-    private String      truckNumber;
-    private Character   isValidReceipt;
+    public Long		purchaseId;
+    public Long		driverId;
+    public Long		truckId;
+    public Long 		orgId;
+    public Date createDate;
+    public Date		purchaseDate;
+    public BigDecimal odometer;
+    public String 		distanceUnit;
+    public String 		countryCode; // 2 letters all capital case
+    public String 		provStateCode; // 2 letters all capital case
+    public String 		latitude;
+    public String 		longitude;
+    public String 		vendorName;
+    public String 		fuelType;
+    public BigDecimal 	volume;
+    public String 		volumeUnit;
+    public BigDecimal 	price;
+    public String 		currency;
+    public BigDecimal 	pricePerUnit;
+    public String 		receiptImage;
+    public Long		purchaseDateUTC;
+    public String		refId;//received from eLog App (it is ID this receipt in TE DB)
+    public String      driverFullName;
+    public String		homeTerminalTimezone;
+    public String      truckNumber;
+    public Character   isValidReceipt;
 
     public FuelPurchaseReceipt(final ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

@@ -9,35 +9,35 @@ import java.util.List;
 import java.util.Set;
 
 public class ACLUser extends RecordMapperValueObject implements Serializable {
-    private Long userId;
-    private String firstName;
-    private String lastName;
-    private String fullName;
-    private String loginName;
-    private transient String password;
-    private transient String salt;
-    private Character activeInd;
-    private Character accessToAllOrg;
+    public Long userId;
+    public String firstName;
+    public String lastName;
+    public String fullName;
+    public String loginName;
+    public transient String password;
+    public transient String salt;
+    public Character activeInd;
+    public Character accessToAllOrg;
 
-    private Long masterDBRefId;
-    private Long clientDBRefId;
+    public Long masterDBRefId;
+    public Long clientDBRefId;
 
-    private String userLanguage;
+    public String userLanguage;
 
-    private Long organizationId;
-    private String userType;
+    public Long organizationId;
+    public String userType;
 
-    private String organizationName;
-    private Date lastLoginDateTime;
+    public String organizationName;
+    public Date lastLoginDateTime;
 
-    private List<ACLMatrix> permissionMatrix;
+    public List<ACLMatrix> permissionMatrix;
 
-    private List<ACLUserMatrix> userPermissionMatrix;
+    public List<ACLUserMatrix> userPermissionMatrix;
 
-    private String status;
-    private Character resetPassword = 'N';
+    public String status;
+    public Character resetPassword = 'N';
 
-    private Long driverId;
+    public Long driverId;
 
     public ACLUser(ResultSet rs, Set<String> rsColumns) throws Exception {
         if (rsColumns == null) {

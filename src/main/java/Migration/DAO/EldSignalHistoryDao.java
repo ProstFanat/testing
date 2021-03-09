@@ -11,11 +11,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static DB.DBConstant.VALIDATION_DAYS;
+
 public class EldSignalHistoryDao {
 
-    private String db;
-    private String user;
-    private String pass;
+    public String db;
+    public String user;
+    public String pass;
 
     public EldSignalHistoryDao(String db, String user, String pass) {
         this.db = db;
@@ -29,7 +31,7 @@ public class EldSignalHistoryDao {
 
         Connection connection = DBConnection.getConnection(db, user, pass);
         String sql = "SELECT * from eld.eld_signal_history WHERE driver_id_1=" + driverId +
-                " AND create_date BETWEEN now() - '8 days'::INTERVAL and now() ORDER BY odometer, signal_time, create_date";
+                " AND create_date BETWEEN now() - '" + VALIDATION_DAYS + " days'::INTERVAL and now() ORDER BY odometer, signal_time, create_date";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

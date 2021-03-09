@@ -8,94 +8,94 @@ import java.util.Date;
 import java.util.Set;
 
 public class EldEvent extends RecordMapperValueObject {
-    private Long eventId;
-    private Long orgId;
-    private Date createDate;
-    private Long driverId1;
-    private Long driverId2;
-    private Long truckId;
-    private String truckNumber;
-    private String trailerNumber;
-    private String truckVin;
-    private String deviceUid;
-    private Integer eventSequence;
-    private Integer recordStatus;
-    private Integer recordOrigin;
-    private Integer eventType;
-    private Integer eventCode;
-    private String eventDate;
-    private String eventTime;
-    private String timeZoneOffset;
-    private Date eventTimestamp;
-    private Long eventTimestampMs;
-    private String accumulatedVehicleMiles;
-    private String totalVehicleMiles;
-    private String elapsedEngineHours;
-    private String totalEngineHours;
-    private String latitude;
-    private String longitude;
-    private String latitudeSecondary;
-    private String longitudeSecondary;
-    private String locationDescription;
-    private String distanceSinceLastValidCoords;
-    private String malfunctionIndicatorStatus;
-    private String dataDiagnosticEventIdicatorStatus;
-    private String malfunctionDiagnosticCode;
-    private String comment;
-    private String dataCheckValue;
-    private Date driverCertified;
-    private String shippingNumber;
-    private String certifiedDate;
-    private Date borderCrossingDate;
-    private Integer deviceSequence;
-    private Date deleteTime;
-    private Double distanceCoord;
-    private Double distanceOdo;
-    private String metaDataStatus;
-    private Double speed;
-    private String homeTerminalTimeZone;
-    private Long eldSequence;
-    private String elogAppMode;
-    private String deviceType;
-    private String appVersion;
-    private String country;
-    private String provState;
-    private String city;
-    private Integer eventVersion;
-    private Long fuelPurchaseReceiptId;
-    private String platform;
-    private String rejectedDrivers;
-    private Character dataGap = 'N';
-    private Date processedSpeedViolationProcessor;
-    private Long duration;
+    public Long eventId;
+    public Long orgId;
+    public Date createDate;
+    public Long driverId1;
+    public Long driverId2;
+    public Long truckId;
+    public String truckNumber;
+    public String trailerNumber;
+    public String truckVin;
+    public String deviceUid;
+    public Integer eventSequence;
+    public Integer recordStatus;
+    public Integer recordOrigin;
+    public Integer eventType;
+    public Integer eventCode;
+    public String eventDate;
+    public String eventTime;
+    public String timeZoneOffset;
+    public Date eventTimestamp;
+    public Long eventTimestampMs;
+    public String accumulatedVehicleMiles;
+    public String totalVehicleMiles;
+    public String elapsedEngineHours;
+    public String totalEngineHours;
+    public String latitude;
+    public String longitude;
+    public String latitudeSecondary;
+    public String longitudeSecondary;
+    public String locationDescription;
+    public String distanceSinceLastValidCoords;
+    public String malfunctionIndicatorStatus;
+    public String dataDiagnosticEventIdicatorStatus;
+    public String malfunctionDiagnosticCode;
+    public String comment;
+    public String dataCheckValue;
+    public Date driverCertified;
+    public String shippingNumber;
+    public String certifiedDate;
+    public Date borderCrossingDate;
+    public Integer deviceSequence;
+    public Date deleteTime;
+    public Double distanceCoord;
+    public Double distanceOdo;
+    public String metaDataStatus;
+    public Double speed;
+    public String homeTerminalTimeZone;
+    public Long eldSequence;
+    public String elogAppMode;
+    public String deviceType;
+    public String appVersion;
+    public String country;
+    public String provState;
+    public String city;
+    public Integer eventVersion;
+    public Long fuelPurchaseReceiptId;
+    public String platform;
+    public String rejectedDrivers;
+    public Character dataGap = 'N';
+    public Date processedSpeedViolationProcessor;
+    public Long duration;
 
 
 
-    private Long remoteEventId;
+    public Long remoteEventId;
 
 
-    private Long oldEventId;
+    public Long oldEventId;
 
-    private Character isPersonalConveyanceOrYardMove; // for AOBRD mode only; used with OFF or ON events. OFF->PC, ON->YM
-    private String totalVehicleMilesEnd; // odometer at the end of the event, this is used for AOBRD mode for Personal Conveyance or Yard Move events.
-    private String eldSerialNumber;
+    public Character isPersonalConveyanceOrYardMove; // for AOBRD mode only; used with OFF or ON events. OFF->PC, ON->YM
+    public String totalVehicleMilesEnd; // odometer at the end of the event, this is used for AOBRD mode for Personal Conveyance or Yard Move events.
+    public String eldSerialNumber;
 
-    private String trailerHooked;  // FIXME: Remove this, we do not use this
-    private String trailerDropped; // FIXME: Remove this, we do not use this
-    private String shippingNumberStarted; // FIXME: Remove this, we do not use this
-    private String shippingNumberStopped; // FIXME: Remove this, we do not use this
-
-
-
-   // private ELDEvent originalEvent; // used as an original event to a requested change event (recordStatus=3)
-    private Date oldTimestamp; // used for special edit of events to (keep the original timestamp)
-
-   // private transient ELDEventMetaData meta = null;
+    public String trailerHooked;  // FIXME: Remove this, we do not use this
+    public String trailerDropped; // FIXME: Remove this, we do not use this
+    public String shippingNumberStarted; // FIXME: Remove this, we do not use this
+    public String shippingNumberStopped; // FIXME: Remove this, we do not use this
 
 
-    private String fleetManagerCommentUnnasign;
 
-    private String straightDistanceBetweenEvents = "";
+   // public ELDEvent originalEvent; // used as an original event to a requested change event (recordStatus=3)
+   public Date oldTimestamp; // used for special edit of events to (keep the original timestamp)
+
+   // public transient ELDEventMetaData meta = null;
+
+
+    public String fleetManagerCommentUnnasign;
+
+    public String straightDistanceBetweenEvents = "";
 
 
     public Long getEventId() {

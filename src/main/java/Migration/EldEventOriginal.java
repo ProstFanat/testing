@@ -10,8 +10,8 @@ public class EldEventOriginal extends RecordMapperValueObject {
     public static final Character REPLICATION_IS_ENABLED = 'Y';
     public static final Character REPLICATION_IS_DISABLED = 'N';
 
-    private Long eventOriginalId;
-    private Character replicable = REPLICATION_IS_ENABLED;
+    public Long eventOriginalId;
+    public Character replicable = REPLICATION_IS_ENABLED;
 
     public EldEventOriginal() {
     }

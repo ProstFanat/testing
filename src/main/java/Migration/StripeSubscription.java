@@ -9,36 +9,36 @@ import java.util.List;
 import java.util.Set;
 
 public class StripeSubscription extends RecordMapperValueObject {
-    private Long id;
-    private String refId;
-    private Long stripeCustomerId;
-    private Long userId;
-    private Long orgId;
-    private Character active;
-    private Date lastChargeDate;
-    private Date activeDueDate;
-    private Date createDate;
-    private String orgName;
-    private Double taxPercent = new Double(0);
-    private Character viewed = new Character('N');
-    private Date trialEnd;
-    private Long createdByUserId;
+    public Long id;
+    public String refId;
+    public Long stripeCustomerId;
+    public Long userId;
+    public Long orgId;
+    public Character active;
+    public Date lastChargeDate;
+    public Date activeDueDate;
+    public Date createDate;
+    public String orgName;
+    public Double taxPercent = new Double(0);
+    public Character viewed = new Character('N');
+    public Date trialEnd;
+    public Long createdByUserId;
 
     //join data
-    private Date lastBillingDate;
-    private Long totalBillingAmount;
-    private Long lastBillingAmount;
+    public Date lastBillingDate;
+    public Long totalBillingAmount;
+    public Long lastBillingAmount;
 
-    private StripeCustomer stripeCustomer;
-    private ACLUser createdByUser;
+    public StripeCustomer stripeCustomer;
+    public ACLUser createdByUser;
 
     //  1: Ok
     //  0: Invoices was not found
     // -1: Exists invoice with false paid
     // -2: The current month or year was not paid
-    private String status;
+    public String status;
 
-    private Long timeToEndSubscriptionMs;
+    public Long timeToEndSubscriptionMs;
 
     public StripeSubscription(ResultSet rs, Object o) {
     }
