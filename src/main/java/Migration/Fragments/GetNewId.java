@@ -25,7 +25,7 @@ public class GetNewId {
         DriverProfile driverProfile = null;
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.driver_profile WHERE master_db_ref_id=" + id;
+        String sql = "SELECT * from fleet.driver_profile WHERE master_db_ref_id=" + id + "and status = 'active'";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){

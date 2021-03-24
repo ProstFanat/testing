@@ -45,7 +45,6 @@ public class Tag extends RecordMapperValueObject implements Serializable {
       //  this.userId = getLong(rs, "user_id", rsColumns);
         this.userFullName = getString(rs, "user_full_name",rsColumns);
         this.masterDBRefId = getLong(rs, "master_db_ref_id",rsColumns);
-
     }
 
     @Override

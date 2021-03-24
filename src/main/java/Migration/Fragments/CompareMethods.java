@@ -73,8 +73,8 @@ public class CompareMethods {
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
-//        System.out.println(newValue.toString());
-//        System.out.println(oldValue.toString());
+      //  System.out.println(newValue.toString());
+      //  System.out.println(oldValue.toString());
 
         //compareObjects(eldEventOld, eldEventNew);
 
@@ -498,6 +498,10 @@ public class CompareMethods {
         List<String> newValue = daoNew.getFMCSAELDExportForDriver(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
+//
+//        System.out.println(oldValue.toString());
+//        System.out.println(newValue.toString());
+
 
         //compareObjects(oldValue, newValue);
 
@@ -563,17 +567,19 @@ public class CompareMethods {
         }
     }
 
-    public static void compareTagsByOrgId(String id) throws SQLException, IllegalAccessException {
+    public static void compareTagsByDriverId(String id) throws SQLException, IllegalAccessException {
         tagDAO daoOld = new tagDAO(DB_URL, USER_DB, PASS_DB);
         tagDAO daoNew = new tagDAO(DB_URL2, USER_DB2, PASS_DB2);
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
-        List<String> oldValue = daoOld.getTagsByOrgId(id);
-        List<String> newValue = daoNew.getTagsByOrgId(id);
+        List<String> oldValue = daoOld.getTagsByDriverId(id);
+        List<String> newValue = daoNew.getTagsByDriverId(getNewId.getNewDriverId(id));
 
         Assertions.assertEquals(newValue.toString(), oldValue.toString());
 
+        System.out.println(newValue.toString());
+        System.out.println(oldValue.toString());
         //compareObjects(oldValue, newValue);
 
         if(oldValue.toString().equals(newValue.toString())){
@@ -834,7 +840,7 @@ public class CompareMethods {
         System.out.println(oldValue.toString());
 
         if(oldValue.toString().equals(newValue.toString())){
-            System.out.println("compareEldSubscriptions " + id + " Done");
+            System.out.println("compareEldSubscriptionsByDriver " + id + " Done");
         }
     }
 

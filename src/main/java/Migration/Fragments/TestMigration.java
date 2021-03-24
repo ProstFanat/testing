@@ -115,7 +115,7 @@ public class TestMigration extends CompareMethods {
         compareGeocodeProviderByOrgId(orgID);
         compareGpsSignalConsumerByOrgId(orgID);
         compareEdiDataConsumerByOrgId(orgID);
-        compareOptionsByOrgId(orgID);
+        //compareOptionsByOrgId(orgID);
         compareACLMatricesByOrgId(orgID);
         compareContactsByOrgId(orgID);
 
@@ -129,8 +129,9 @@ public class TestMigration extends CompareMethods {
             compareFmcsaEldExportDriverId(driver);
             compareFuelPurchaseReceiptDriverId(driver);
             compareACLUsersByDriverId(driver);
-            compareAddressBooksByDriverId(driver);
+            //compareAddressBooksByDriverId(driver);
             compareHosDayVerify(driver);
+            //compareTagsByDriverId(driver);
 
 //            compareStripeCustomerByDriver(driver);
 //            compareStripeSubscriptionByDriver(driver);
@@ -142,7 +143,6 @@ public class TestMigration extends CompareMethods {
         for (String truck : trucks) {
             compareTruckByTruckId(truck);
             compareTruckDeviceSignalHistoryByTruckId(truck);
-            compareTagsByOrgId(truck);
             compareTransportMovementByTruckId(truck);
             compareTransportMovementHistoryByTruckId(truck);
         }
@@ -153,7 +153,7 @@ public class TestMigration extends CompareMethods {
         for (String user : users){
             compareACLUsersByUserId(user);
             compareACLUserMatricesByUserId(user);
-            compareAddressBooksByUserId(user);
+            //compareAddressBooksByUserId(user);
 
 
 //            compareStripeCustomerByUser(user);

@@ -111,7 +111,7 @@ public class Truck extends RecordMapperValueObject {
         this.constantlyProcessFaultCodes	= getCharacter(rs, "constantly_process_fault_codes", rsColumns, 'N');
        // this.currentDriverProfileId1        = getLong(rs, "current_driver_profile_id_1", rsColumns);
      //   this.currentDriverProfileId2        = getLong(rs, "current_driver_profile_id_2", rsColumns);
-        this.eldSequence 					= getLong(rs, "eld_sequence", rsColumns);
+       // this.eldSequence 					= getLong(rs, "eld_sequence", rsColumns);
         //this.updateDate 					= getDate(rs, "update_date", rsColumns);
         this.pt30SerialNumber               = getString(rs, "pt30_serial_number", rsColumns);
         this.pt30SerialVersion              = getString(rs, "pt30_serial_version", rsColumns);

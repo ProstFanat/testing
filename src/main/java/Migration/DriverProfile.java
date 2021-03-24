@@ -1096,8 +1096,8 @@ public class DriverProfile extends RecordMapperValueObject {
         this.allowDrivingEvents = getCharacter(rs, "allow_driving_events", rsColumns, BOOLEAN_CHARACTER_YES);
         this.collectGPSWithoutTruck = getCharacter(rs, "collect_gps_without_truck", rsColumns, BOOLEAN_CHARACTER_NO);
         this.generateLocationDescription = getString(rs, "generate_location_description", rsColumns, "Manual");														//		addVOField("generate_location_description", Types.VARCHAR, "setGenerateLocationDescription", String.class, "getGenerateLocationDescription");
-        this.editsOutOfSync = getDate(rs, "edits_out_of_sync", rsColumns);
-        this.inspectionReportOutOfSync = getDate(rs, "inspection_report_out_of_sync", rsColumns);
+       //this.editsOutOfSync = getDate(rs, "edits_out_of_sync", rsColumns);
+        // this.inspectionReportOutOfSync = getDate(rs, "inspection_report_out_of_sync", rsColumns);
         this.daySummaryOutOfSync = getDate(rs, "day_summary_out_of_sync", rsColumns);
         this.borderOutOfSync = getDate(rs, "border_out_of_sync", rsColumns);
         this.eldEventsSyncRequested = getCharacter(rs, "eld_events_sync_requested", rsColumns, BOOLEAN_CHARACTER_NO);

@@ -27,7 +27,7 @@ public class DriverProfileDAO {
         DriverProfile driverProfile = null;
 
         Connection connection = DBConnection.getConnection(db, user, pass);
-        String sql = "SELECT * from fleet.driver_profile WHERE driver_id=" + driverId;
+        String sql = "SELECT * from fleet.driver_profile WHERE driver_id=" + driverId + " and status = 'active'";
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             if (rs.next()){

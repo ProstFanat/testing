@@ -803,8 +803,8 @@ public class EldEvent extends RecordMapperValueObject {
         this.shippingNumberStopped = getString(rs, "shipping_number_stopped", rsColumns);
         this.eldSerialNumber = getString(rs, "eld_serial_number", rsColumns);
         this.deviceSequence = getInteger(rs, "device_sequence", rsColumns);
-        this.deleteTime = getDate(rs, "delete_time", rsColumns);
-        this.eldSequence = getLong(rs, "eld_sequence", rsColumns);
+        //this.deleteTime = getDate(rs, "delete_time", rsColumns);
+        //this.eldSequence = getLong(rs, "eld_sequence", rsColumns);
         this.country = getString(rs, "country", rsColumns);
         this.provState = getString(rs, "prov_state", rsColumns);
         this.city = getString(rs, "city", rsColumns);

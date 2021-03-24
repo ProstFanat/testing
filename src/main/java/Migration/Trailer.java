@@ -74,7 +74,7 @@ public class Trailer extends RecordMapperValueObject implements Serializable {
         this.battery = getString(rs, "battery", rsColumns);                                             //addVOField("battery", Types.VARCHAR, "setBattery", String.class, "getBattery");
 
        // this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
-        this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
+       // this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
     }
 
     public Trailer(ResultSet rs, Set<String> rsColumns, String a) throws Exception {
