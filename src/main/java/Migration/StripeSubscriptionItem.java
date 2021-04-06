@@ -2,8 +2,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class StripeSubscriptionItem extends RecordMapperValueObject {
@@ -151,5 +153,10 @@ public class StripeSubscriptionItem extends RecordMapperValueObject {
 
     public void setStripeSubscription(StripeSubscription stripeSubscription) {
         this.stripeSubscription = stripeSubscription;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

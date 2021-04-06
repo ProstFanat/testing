@@ -3,6 +3,7 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -129,5 +130,10 @@ public class ACLUserGroup extends RecordMapperValueObject implements Serializabl
 
     public void setDriverInGroupList(List<ACLAssetsInGroup> driverInGroupList) {
         this.driverInGroupList = driverInGroupList;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

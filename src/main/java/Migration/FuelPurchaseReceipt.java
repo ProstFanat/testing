@@ -2,9 +2,11 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class FuelPurchaseReceipt extends RecordMapperValueObject {
@@ -301,5 +303,10 @@ public class FuelPurchaseReceipt extends RecordMapperValueObject {
                 ", truckNumber='" + truckNumber + '\'' +
                 ", isValidReceipt=" + isValidReceipt +
                 '}';
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

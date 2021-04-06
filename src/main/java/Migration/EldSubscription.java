@@ -2,8 +2,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class EldSubscription extends RecordMapperValueObject {
@@ -85,5 +87,10 @@ public class EldSubscription extends RecordMapperValueObject {
 
     public void setPricePerSubscription(Long pricePerSubscription) {
         this.pricePerSubscription = pricePerSubscription;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

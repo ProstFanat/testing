@@ -2,7 +2,9 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Set;
 
 public class Option extends RecordMapperValueObject {
@@ -117,5 +119,10 @@ public class Option extends RecordMapperValueObject {
                 ", value='" + value + '\'' +
                 ", visibleToClientValue=" + visibleToClientValue +
                 '}';
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

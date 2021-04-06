@@ -3,6 +3,7 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
@@ -318,5 +319,10 @@ public class Trailer extends RecordMapperValueObject implements Serializable {
 
     public void setBattery(String battery) {
         this.battery = battery;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

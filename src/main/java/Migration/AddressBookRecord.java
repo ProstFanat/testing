@@ -3,6 +3,7 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Set;
@@ -139,5 +140,10 @@ public class AddressBookRecord extends RecordMapperValueObject implements Serial
 
     public void setRecipientId(Long recipientId) {
         this.recipientId = recipientId;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

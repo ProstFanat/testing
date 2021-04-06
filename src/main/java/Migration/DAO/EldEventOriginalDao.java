@@ -40,7 +40,7 @@ public class EldEventOriginalDao {
             e.printStackTrace();
         }
 
-        String sql2 = "SELECT * from eld.eld_event_original WHERE driver_id_1 =" + driverId + "AND event_timestamp < now() - '" + VALIDATION_DAYS + " days'::INTERVAL and event_type = 1 order by event_timestamp DESC limit 1";
+        String sql2 = "SELECT * from eld.eld_event_original WHERE driver_id_1 =" + driverId + "AND event_timestamp < now() - '" + VALIDATION_DAYS + " days'::INTERVAL and event_type = 1 and record_status = 1 order by event_timestamp DESC limit 1";
         try (PreparedStatement ps = connection.prepareStatement(sql2)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

@@ -2,8 +2,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class EldSignalHistory extends RecordMapperValueObject {
@@ -326,5 +328,10 @@ public class EldSignalHistory extends RecordMapperValueObject {
                 ", truckDeviceSignalHistoryId=" + truckDeviceSignalHistoryId +
                 ", locationDescription='" + locationDescription + '\'' +
                 '}';
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

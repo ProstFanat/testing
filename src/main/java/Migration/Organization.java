@@ -2,6 +2,7 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.*;
 
@@ -20,6 +21,7 @@ public class Organization extends RecordMapperValueObject {
 
     public String accountPin;
     public Character ourSafetyService;
+
 
 
     public  Organization(final ResultSet rs, Set<String> rsColumns) throws Exception {
@@ -53,6 +55,10 @@ public class Organization extends RecordMapperValueObject {
         this.accountPin = getString(rs, "account_pin", rsColumns);
         this.createDate = getDate(rs, "create_date", rsColumns);
         this.master_dv_ref_id = getLong(rs, "master_db_ref_id", rsColumns);
+    }
+
+    public Organization() {
+
     }
 
     public Long getOrganizationId() {
@@ -158,5 +164,10 @@ public class Organization extends RecordMapperValueObject {
                 ", accountPin='" + accountPin + '\'' +
                 ", ourSafetyService=" + ourSafetyService +
                 '}';
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

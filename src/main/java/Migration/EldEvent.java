@@ -3,8 +3,10 @@ package Migration;
 import DB.RecordMapperValueObject;
 import Migration.Fragments.GetNewId;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class EldEvent extends RecordMapperValueObject {
@@ -885,5 +887,10 @@ public class EldEvent extends RecordMapperValueObject {
         this.eldSerialNumber = eldSerialNumber;
         this.platform = platform;
         this.dataGap = dataGap;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

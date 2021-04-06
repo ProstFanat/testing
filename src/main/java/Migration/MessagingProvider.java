@@ -2,8 +2,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class MessagingProvider extends RecordMapperValueObject {
@@ -107,5 +109,10 @@ public class MessagingProvider extends RecordMapperValueObject {
 
     public void setParameter1(String parameter1) {
         this.parameter1 = parameter1;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

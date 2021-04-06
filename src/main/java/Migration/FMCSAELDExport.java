@@ -2,8 +2,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class FMCSAELDExport extends RecordMapperValueObject {
@@ -326,5 +328,10 @@ public class FMCSAELDExport extends RecordMapperValueObject {
                 ", coDrivers='" + coDrivers + '\'' +
                 ", truckNumbers='" + truckNumbers + '\'' +
                 '}';
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

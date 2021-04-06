@@ -2,8 +2,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class InspectionReport extends RecordMapperValueObject {
@@ -216,7 +218,7 @@ public class InspectionReport extends RecordMapperValueObject {
        // this.driverId1 = getLong(rs, "driver_id_1", rsColumns);
        // this.driverId2 = getLong(rs, "driver_id_2", rsColumns);
        // this.createDate = getDate(rs, "create_date", rsColumns);
-        this.updateDate = getDate(rs, "update_date", rsColumns);
+       // this.updateDate = getDate(rs, "update_date", rsColumns);
         this.reportDate = getDate(rs, "report_date", rsColumns);
      //   this.truckId = getLong(rs, "truck_id", rsColumns);
         this.odometer = getString(rs, "odometer", rsColumns);
@@ -230,5 +232,10 @@ public class InspectionReport extends RecordMapperValueObject {
         this.checklistJson = getString(rs, "checklist_json", rsColumns);
         this.remoteReportId = getLong(rs, "remote_report_id", rsColumns);
         this.truckNumber = getString(rs, "truck_number", rsColumns);
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

@@ -2,6 +2,7 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
@@ -319,5 +320,10 @@ public class TransportMovement extends RecordMapperValueObject {
 
     public void setTruckNumber(String truckNumber) {
         this.truckNumber = truckNumber;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

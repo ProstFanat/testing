@@ -2,8 +2,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class GeocodeProvider extends RecordMapperValueObject {
@@ -122,4 +124,8 @@ public class GeocodeProvider extends RecordMapperValueObject {
         this.parameter1 = parameter1;
     }
 
+    @Override
+    public List<Field> getFields() {
+        return null;
+    }
 }

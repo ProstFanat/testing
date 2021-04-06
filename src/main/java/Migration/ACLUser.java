@@ -3,6 +3,7 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
 import java.util.List;
@@ -276,5 +277,10 @@ public class ACLUser extends RecordMapperValueObject implements Serializable {
 
     public void setDriverId(Long driverId) {
         this.driverId = driverId;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

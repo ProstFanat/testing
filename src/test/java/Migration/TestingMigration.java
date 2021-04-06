@@ -1,17 +1,19 @@
 package Migration;
 
-import Migration.Fragments.CompareMethods;
+import Migration.Fragments.CompareMethodsAsserts;
 import Migration.Fragments.TestMigration;
+import com.itextpdf.text.DocumentException;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
-public class TestingMigration extends CompareMethods{
+public class TestingMigration extends CompareMethodsAsserts {
 
     @Test
-    public void testGet() throws SQLException, FileNotFoundException, IllegalAccessException {
-        TestMigration.testByMigrationId("2090");
+    public void testGet() throws SQLException, FileNotFoundException, IllegalAccessException, DocumentException, NoSuchFieldException {
+       //TestMigration.testByMigrationId("59");
+       TestMigration.testByMigrationIdWithDocument("59");
 //        compareDriverByDriverId("43356");
 //        compareEldEventsByDriverId("43356");
 //        compareEldOriginalEventsById("43356");

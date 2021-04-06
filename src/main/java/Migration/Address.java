@@ -2,7 +2,9 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Set;
 
 public class Address extends RecordMapperValueObject {
@@ -241,5 +243,10 @@ public class Address extends RecordMapperValueObject {
                 ", street='" + street + '\'' +
                 ", houseNumber='" + houseNumber + '\'' +
                 '}';
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

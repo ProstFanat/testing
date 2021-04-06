@@ -3,8 +3,10 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class GPSSignalProvider extends RecordMapperValueObject implements Serializable {
@@ -141,5 +143,10 @@ public class GPSSignalProvider extends RecordMapperValueObject implements Serial
 
     public void setMasterDBRefId(Long masterDBRefId) {
         this.masterDBRefId = masterDBRefId;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

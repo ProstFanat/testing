@@ -16,6 +16,7 @@ package DB;
 //import com.transplusconnector.valueobject.TPCDriver;
 //import org.apache.log4j.Logger;
 
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.*;
@@ -318,6 +319,8 @@ public abstract class RecordMapperValueObject {
             throw new Exception(e.getMessage());
         }
     }
+
+    public abstract List<Field> getFields();
 
 //	public Object serialize (Object object, Boolean key) {
 //		Map<String, Object> fieldsMap = new HashMap<>();

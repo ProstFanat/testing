@@ -2,6 +2,7 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
@@ -276,5 +277,10 @@ public class StripeSubscription extends RecordMapperValueObject {
 
     public void setTimeToEndSubscriptionMs(Long timeToEndSubscriptionMs) {
         this.timeToEndSubscriptionMs = timeToEndSubscriptionMs;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

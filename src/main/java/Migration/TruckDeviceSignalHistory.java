@@ -3,8 +3,10 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class  TruckDeviceSignalHistory extends RecordMapperValueObject implements Serializable {
@@ -360,5 +362,10 @@ public class  TruckDeviceSignalHistory extends RecordMapperValueObject implement
 
     public void setFoundAddress(String foundAddress) {
         this.foundAddress = foundAddress;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

@@ -1,7 +1,13 @@
 package Migration.Fragments;
 
 import DB.DBConnection;
+import Migration.DAO.MigrationDAO;
+import Migration.DAO.MigrationUserDAO;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,8 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static DB.DBConstant.*;
+import static Migration.Fragments.CompareMethodsAsserts.*;
+import static Migration.Fragments.CompareMethodsDocument.*;
+import static Migration.Fragments.Report.catFont;
 
-public class TestMigration extends CompareMethods {
+public class TestMigration{
 
     public static List<String> getDriversForMigration(String migrationID) {
         List<String> list = new ArrayList<>();
@@ -96,12 +105,17 @@ public class TestMigration extends CompareMethods {
     }
 
 
-    public static void testByMigrationId(String migrationId) throws SQLException, IllegalAccessException {
+    public static void testByMigrationId(String migrationId) throws SQLException, IllegalAccessException, FileNotFoundException, DocumentException, NoSuchFieldException {
         String orgID = getOrgIdForMigration(migrationId);
         List<String> drivers = getDriversForMigration(migrationId);
         List<String> trucks = getTrucksForMigration(migrationId);
         List<String> trailers = getTrailersForMigration(migrationId);
         List<String> users = getOtherUsersForMigration(migrationId);
+
+        MigrationUserDAO days = new MigrationUserDAO(DB_URL, USER_DB, PASS_DB);
+        List<String> validationDays = days.getEventsDayQuantityForMigration(migrationId);
+        VALIDATION_DAYS = validationDays.get(1);
+        System.out.println(VALIDATION_DAYS);
 
         compareOrganizationsByOrgId(orgID);
         compareAddressesByOrgId(orgID);
@@ -129,9 +143,9 @@ public class TestMigration extends CompareMethods {
             compareFmcsaEldExportDriverId(driver);
             compareFuelPurchaseReceiptDriverId(driver);
             compareACLUsersByDriverId(driver);
-            //compareAddressBooksByDriverId(driver);
+            compareAddressBooksByDriverId(driver);
             compareHosDayVerify(driver);
-            //compareTagsByDriverId(driver);
+            compareTagsByDriverId(driver);
 
 //            compareStripeCustomerByDriver(driver);
 //            compareStripeSubscriptionByDriver(driver);
@@ -153,7 +167,7 @@ public class TestMigration extends CompareMethods {
         for (String user : users){
             compareACLUsersByUserId(user);
             compareACLUserMatricesByUserId(user);
-            //compareAddressBooksByUserId(user);
+            compareAddressBooksByUserId(user);
 
 
 //            compareStripeCustomerByUser(user);
@@ -162,6 +176,90 @@ public class TestMigration extends CompareMethods {
 //            compareEldSubscriptionsByUser(user);
 //            compareACLUserInGroupByUserId(user);
         }
+    }
+
+    public static void testByMigrationIdWithDocument(String migrationId) throws SQLException, IllegalAccessException, FileNotFoundException, DocumentException, NoSuchFieldException{
+        String orgID = getOrgIdForMigration(migrationId);
+        List<String> drivers = getDriversForMigration(migrationId);
+        List<String> trucks = getTrucksForMigration(migrationId);
+        List<String> trailers = getTrailersForMigration(migrationId);
+        List<String> users = getOtherUsersForMigration(migrationId);
+
+        MigrationUserDAO days = new MigrationUserDAO(DB_URL, USER_DB, PASS_DB);
+        List<String> validationDays = days.getEventsDayQuantityForMigration(migrationId);
+        VALIDATION_DAYS = validationDays.get(1);
+        System.out.println(VALIDATION_DAYS);
+
+        Document document = new Document();
+        PdfWriter.getInstance(document,
+                new FileOutputStream("/home/user/Idea/ResultOfTestingMigration/Migration " + migrationId + ".pdf"));
+        document.open();
+
+        Paragraph title = new Paragraph("Migration " + migrationId, catFont);
+        title.setAlignment(Element.ALIGN_CENTER);
+        document.add(title);
+
+        compareOrganizationsByOrgId(orgID, document);
+        compareAddressesByOrgId(orgID, document);
+        compareACLUserGroupsByOrgId(orgID, document);
+        compareDepartmentsByOrgId(orgID, document);
+        compareConsumersByOrgId(orgID, document);
+        compareAccountsByOrgId(orgID, document);
+        compareGpsSignalProviderByOrgId(orgID, document);
+        compareHosProviderByOrgId(orgID, document);
+        compareMessagingProviderByOrgId(orgID, document);
+        compareGeocodeProviderByOrgId(orgID, document);
+        compareGpsSignalConsumerByOrgId(orgID, document);
+        compareEdiDataConsumerByOrgId(orgID, document);
+        //compareOptionsByOrgId(orgID, document);
+        compareACLMatricesByOrgId(orgID, document);
+        compareContactsByOrgId(orgID, document);
+
+        for (String driver : drivers) {
+            compareDriverByDriverId(driver, document);
+            compareEldEventsByDriverId(driver, document);
+            compareEldOriginalEventsById(driver, document);
+            compareInspectionReportDriverId(driver, document);
+            compareEldBorderCrossingEventsDriverId(driver, document);
+            compareEldSignalsHistoryDriverId(driver, document);
+            compareFmcsaEldExportDriverId(driver, document);
+            compareFuelPurchaseReceiptDriverId(driver, document);
+            compareACLUsersByDriverId(driver, document);
+            compareAddressBooksByDriverId(driver, document);
+            compareHosDayVerify(driver, document);
+            compareTagsByDriverId(driver, document);
+
+//            compareStripeCustomerByDriver(driver, document);
+//            compareStripeSubscriptionByDriver(driver, document);
+//            compareStripeSubscriptionItemByDriver(driver, document);
+//            compareEldSubscriptionsByDriver(driver, document);
+            // compareACLUserInGroupByDriverId(driver, document);
+        }
+
+        for (String truck : trucks) {
+            compareTruckByTruckId(truck, document);
+            compareTruckDeviceSignalHistoryByTruckId(truck, document);
+            compareTransportMovementByTruckId(truck, document);
+            compareTransportMovementHistoryByTruckId(truck, document);
+        }
+        for (String trailer : trailers ) {
+            compareTrailerByTrailerId(trailer, document);
+            compareTrailerDeviceSignalHistoryByTrailerId(trailer, document);
+        }
+        for (String user : users){
+            compareACLUsersByUserId(user, document);
+            compareACLUserMatricesByUserId(user, document);
+            compareAddressBooksByUserId(user, document);
+
+
+//            compareStripeCustomerByUser(user, document);
+//            compareStripeSubscriptionByUser(user, document);
+//            compareStripeSubscriptionItemByUser(user, document);
+//            compareEldSubscriptionsByUser(user, document);
+//            compareACLUserInGroupByUserId(user, document);
+        }
+
+        document.close();
 
     }
 }

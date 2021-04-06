@@ -3,8 +3,10 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import static DB.RecordMapperValueObject.getRSColumns;
@@ -247,5 +249,10 @@ public class StripeCustomer extends RecordMapperValueObject {
 
     public void setUsdotNumber(String usdotNumber) {
         this.usdotNumber = usdotNumber;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

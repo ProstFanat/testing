@@ -2,6 +2,7 @@ package Migration;
 
 import DB.RecordMapperValueObject;
 
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
@@ -596,5 +597,10 @@ public class Truck extends RecordMapperValueObject {
 
     public void setYardMoveLimit(Integer yardMoveLimit) {
         this.yardMoveLimit = yardMoveLimit;
+    }
+
+    @Override
+    public List<Field> getFields() {
+        return null;
     }
 }

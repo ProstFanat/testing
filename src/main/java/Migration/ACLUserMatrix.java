@@ -3,7 +3,9 @@ package Migration;
 import DB.RecordMapperValueObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Set;
 
 public class ACLUserMatrix extends RecordMapperValueObject implements Serializable {
@@ -98,4 +100,8 @@ public class ACLUserMatrix extends RecordMapperValueObject implements Serializab
     }
 
 
+    @Override
+    public List<Field> getFields() {
+        return null;
+    }
 }
