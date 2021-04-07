@@ -23,20 +23,12 @@ public class CheckMigrationProcessor {
         List<String> migrationList = migration.getCompletedMigrations();
         for(int i = 1; i > 0; i++) {
             System.out.println("Starts");
-            System.out.println("");
-            System.out.println("");
-            System.out.println("");
-            System.out.println("");
             for (String migrationId : migrationList) {
                 File f = new File("/home/user/Idea/ResultOfTestingMigration/Migration " + migrationId + ".pdf");
                 if (!(f.exists() && !f.isDirectory())) {
-                    TestMigration.testByMigrationIdWithDocument("199");
+                    TestMigration.testByMigrationIdWithDocument(migrationId);
                 }
             }
-            System.out.println("");
-            System.out.println("");
-            System.out.println("");
-            System.out.println("");
             System.out.println("Sleeeeeep....");
 
             Thread.sleep(60000);

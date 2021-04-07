@@ -184,11 +184,15 @@ public class TestMigration{
         List<String> trucks = getTrucksForMigration(migrationId);
         List<String> trailers = getTrailersForMigration(migrationId);
         List<String> users = getOtherUsersForMigration(migrationId);
+        GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
         MigrationUserDAO days = new MigrationUserDAO(DB_URL, USER_DB, PASS_DB);
         List<String> validationDays = days.getEventsDayQuantityForMigration(migrationId);
-        VALIDATION_DAYS = validationDays.get(1);
-        System.out.println(VALIDATION_DAYS);
+        if(validationDays.size() == 0) {
+            VALIDATION_DAYS = "8";
+        } else {
+            VALIDATION_DAYS = validationDays.get(0);
+        }
 
         Document document = new Document();
         PdfWriter.getInstance(document,
@@ -199,64 +203,76 @@ public class TestMigration{
         title.setAlignment(Element.ALIGN_CENTER);
         document.add(title);
 
-        compareOrganizationsByOrgId(orgID, document);
-        compareAddressesByOrgId(orgID, document);
-        compareACLUserGroupsByOrgId(orgID, document);
-        compareDepartmentsByOrgId(orgID, document);
-        compareConsumersByOrgId(orgID, document);
-        compareAccountsByOrgId(orgID, document);
-        compareGpsSignalProviderByOrgId(orgID, document);
-        compareHosProviderByOrgId(orgID, document);
-        compareMessagingProviderByOrgId(orgID, document);
-        compareGeocodeProviderByOrgId(orgID, document);
-        compareGpsSignalConsumerByOrgId(orgID, document);
-        compareEdiDataConsumerByOrgId(orgID, document);
-        //compareOptionsByOrgId(orgID, document);
-        compareACLMatricesByOrgId(orgID, document);
-        compareContactsByOrgId(orgID, document);
+        if (!(getNewId.getNewOrgId(orgID).equals("0"))) {
+            compareOrganizationsByOrgId(orgID, document);
+            compareAddressesByOrgId(orgID, document);
+            compareACLUserGroupsByOrgId(orgID, document);
+            compareDepartmentsByOrgId(orgID, document);
+            compareConsumersByOrgId(orgID, document);
+            compareAccountsByOrgId(orgID, document);
+            compareGpsSignalProviderByOrgId(orgID, document);
+            compareHosProviderByOrgId(orgID, document);
+            compareMessagingProviderByOrgId(orgID, document);
+            compareGeocodeProviderByOrgId(orgID, document);
+            compareGpsSignalConsumerByOrgId(orgID, document);
+            compareEdiDataConsumerByOrgId(orgID, document);
+            //compareOptionsByOrgId(orgID, document);
+            compareACLMatricesByOrgId(orgID, document);
+            compareContactsByOrgId(orgID, document);
+        }
 
         for (String driver : drivers) {
-            compareDriverByDriverId(driver, document);
-            compareEldEventsByDriverId(driver, document);
-            compareEldOriginalEventsById(driver, document);
-            compareInspectionReportDriverId(driver, document);
-            compareEldBorderCrossingEventsDriverId(driver, document);
-            compareEldSignalsHistoryDriverId(driver, document);
-            compareFmcsaEldExportDriverId(driver, document);
-            compareFuelPurchaseReceiptDriverId(driver, document);
-            compareACLUsersByDriverId(driver, document);
-            compareAddressBooksByDriverId(driver, document);
-            compareHosDayVerify(driver, document);
-            compareTagsByDriverId(driver, document);
+            if(getNewId.getNewDriverId(driver).equals("0")) {
+                System.out.println("new driver id is null for driver" + driver);
+            } else {
+                compareDriverByDriverId(driver, document);
+                compareEldEventsByDriverId(driver, document);
+                compareEldOriginalEventsById(driver, document);
+                compareInspectionReportDriverId(driver, document);
+                compareEldBorderCrossingEventsDriverId(driver, document);
+                compareEldSignalsHistoryDriverId(driver, document);
+                compareFmcsaEldExportDriverId(driver, document);
+                compareFuelPurchaseReceiptDriverId(driver, document);
+                compareACLUsersByDriverId(driver, document);
+                compareAddressBooksByDriverId(driver, document);
+                compareHosDayVerify(driver, document);
+                compareTagsByDriverId(driver, document);
 
-//            compareStripeCustomerByDriver(driver, document);
-//            compareStripeSubscriptionByDriver(driver, document);
-//            compareStripeSubscriptionItemByDriver(driver, document);
-//            compareEldSubscriptionsByDriver(driver, document);
-            // compareACLUserInGroupByDriverId(driver, document);
+//                compareStripeCustomerByDriver(driver, document);
+//                compareStripeSubscriptionByDriver(driver, document);
+//                compareStripeSubscriptionItemByDriver(driver, document);
+//                compareEldSubscriptionsByDriver(driver, document);
+//                compareACLUserInGroupByDriverId(driver, document);
+            }
         }
 
         for (String truck : trucks) {
-            compareTruckByTruckId(truck, document);
-            compareTruckDeviceSignalHistoryByTruckId(truck, document);
-            compareTransportMovementByTruckId(truck, document);
-            compareTransportMovementHistoryByTruckId(truck, document);
+            if(!(getNewId.getNewTruckId(truck).equals("0"))) {
+                compareTruckByTruckId(truck, document);
+                compareTruckDeviceSignalHistoryByTruckId(truck, document);
+                compareTransportMovementByTruckId(truck, document);
+                compareTransportMovementHistoryByTruckId(truck, document);
+            }
         }
         for (String trailer : trailers ) {
-            compareTrailerByTrailerId(trailer, document);
-            compareTrailerDeviceSignalHistoryByTrailerId(trailer, document);
+            if(!(getNewId.getNewTrailerId(trailer).equals("0"))) {
+                compareTrailerByTrailerId(trailer, document);
+                compareTrailerDeviceSignalHistoryByTrailerId(trailer, document);
+            }
         }
         for (String user : users){
-            compareACLUsersByUserId(user, document);
-            compareACLUserMatricesByUserId(user, document);
-            compareAddressBooksByUserId(user, document);
+            if(!(getNewId.getNewAclUserId(user).equals("0"))) {
+                compareACLUsersByUserId(user, document);
+                compareACLUserMatricesByUserId(user, document);
+                compareAddressBooksByUserId(user, document);
 
 
-//            compareStripeCustomerByUser(user, document);
-//            compareStripeSubscriptionByUser(user, document);
-//            compareStripeSubscriptionItemByUser(user, document);
-//            compareEldSubscriptionsByUser(user, document);
-//            compareACLUserInGroupByUserId(user, document);
+//                compareStripeCustomerByUser(user, document);
+//                compareStripeSubscriptionByUser(user, document);
+//                compareStripeSubscriptionItemByUser(user, document);
+//                compareEldSubscriptionsByUser(user, document);
+//                compareACLUserInGroupByUserId(user, document);
+            }
         }
 
         document.close();

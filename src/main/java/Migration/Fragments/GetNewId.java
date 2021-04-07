@@ -3,6 +3,7 @@ package Migration.Fragments;
 import DB.DBConnection;
 import Migration.*;
 
+import javax.print.attribute.standard.PresentationDirection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class GetNewId {
         this.pass = pass;
     }
 
-    public String getNewDriverId(String id){
+    public String  getNewDriverId(String id){
         DriverProfile driverProfile = null;
 
         Connection connection = DBConnection.getConnection(db, user, pass);
@@ -34,7 +35,13 @@ public class GetNewId {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return driverProfile.getDriverId().toString();
+
+        if ((driverProfile != null ? driverProfile.getDriverId() : null) == null){
+            System.out.println("null");
+            return "0";
+        } else {
+            return driverProfile.getDriverId().toString();
+        }
 
     }
 
@@ -52,7 +59,12 @@ public class GetNewId {
             e.printStackTrace();
         }
 
-        return truck.getTruckId().toString();
+        if ((truck != null ? truck.getTruckId() : null) == null){
+            System.out.println("null");
+            return "0";
+        } else {
+            return truck.getTruckId().toString();
+        }
     }
 
     public String getNewTrailerId(String id){
@@ -68,7 +80,12 @@ public class GetNewId {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return trailer.getTrailerId().toString();
+        if ((trailer != null ? trailer.getTrailerId() : null) == null){
+            System.out.println("null");
+            return "0";
+        } else {
+            return trailer.getTrailerId().toString();
+        }
     }
 
     public String getNewOrgId(String id){
@@ -84,7 +101,14 @@ public class GetNewId {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return organization.getOrganizationId().toString();
+
+        if ((organization != null ? organization.getOrganizationId() : null) == null){
+            System.out.println("null");
+            return "0";
+        } else {
+            return organization.getOrganizationId().toString();
+        }
+
     }
 
     public String getNewAclUserId(String id){
@@ -100,7 +124,12 @@ public class GetNewId {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return aclUser.getUserId().toString();
+        if ((aclUser != null ? aclUser.getUserId() : null) == null){
+            System.out.println("null");
+            return "0";
+        } else {
+            return aclUser.getUserId().toString();
+        }
     }
 
     public String getNewGpsSignalProviderId(String id){

@@ -37,7 +37,7 @@ public class StripeSubscriptionItemDAO {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()){
                     stripeSubscriptionItem =  new StripeSubscriptionItem(rs, null);
-                    stripeSubscriptionsItems.add(stripeSubscriptionsItems.toString());
+                    stripeSubscriptionsItems.add(stripeSubscriptionItem.toString());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -55,7 +55,7 @@ public class StripeSubscriptionItemDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 stripeSubscriptionItem =  new StripeSubscriptionItem(rs, null);
-                stripeSubscriptionsItems.add(stripeSubscriptionsItems.toString());
+                stripeSubscriptionsItems.add(stripeSubscriptionItem.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
