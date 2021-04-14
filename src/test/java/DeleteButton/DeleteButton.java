@@ -3,12 +3,15 @@ package DeleteButton;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import resources.ConfProperties;
 
 import java.io.IOException;
 
 import static DeleteButton.Main.*;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
+import resources.AppConstants;
 
 public class DeleteButton extends BasePage {
 

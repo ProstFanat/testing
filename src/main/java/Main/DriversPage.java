@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import resources.BasePage;
+import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -41,7 +42,7 @@ public class DriversPage extends BasePage {
     eLogAppList = $$x("//label[text() = 'eLog App Mode: ']//..//*[@role = 'option']");
 
     public DriversPage openPage(){
-        open("http://10.10.1.83:8080/TrackEnsure/fleet/manager/cpDrivers/#/");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDrivers/#/");
         return this;
     }
 

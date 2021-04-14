@@ -1,8 +1,10 @@
 package fleetEventsOld;
 
 import resources.BasePage;
+import resources.AppConstants;
 import resources.ConfProperties;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -36,7 +38,7 @@ public class OpenFleetPage extends BasePage {
         passwdField.sendKeys(ConfProperties.getProperty("fleet.password"));
         loginBtn.click();
         sleep(500);
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
     }
 
     /** Найти поле для трип номера*/

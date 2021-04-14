@@ -4,9 +4,11 @@ package fleetEventsOld;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.List;
 
@@ -350,7 +352,7 @@ public class TripBoard extends BasePage {
     public WebElement filterTableTrip;
 
     public String getLastTripNumber(){
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         waitToVisibilityOf(10, tableTripNumber);
         filterTableTrip.click();
         filterTableTrip.click();
@@ -358,7 +360,7 @@ public class TripBoard extends BasePage {
         String temp = getTripNumber();
         waitToVisibilityOf(10, fleet);
         waitToBeClickable(10, fleet);
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         return temp;
     }
 }

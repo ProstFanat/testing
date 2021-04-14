@@ -3,8 +3,13 @@ package fleetEventsOld.test;
 import fleetEventsOld.*;
 import fleetEventsOld.resources.ConfPropertiesFleet;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
+import resources.AppConstants;
+import resources.AppConstants;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +33,7 @@ public class TripBoardAlert {
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenFleetPage(driver);
         createTrip = new createNewFleetEvent(driver);
@@ -48,7 +53,7 @@ public class TripBoardAlert {
 
     @BeforeEach
     void beforeTest(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         basePage.waitToVisibilityOf(10, createTrip.btnCreateNew);
         basePage.waitToBeClickable(10, createTrip.btnCreateNew);
         createTrip.clickBtnCreateTrip();
@@ -59,7 +64,7 @@ public class TripBoardAlert {
     @Test
     public void testOnlyMandatory(){
         createTrip.createTrip("new", "Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -79,7 +84,7 @@ public class TripBoardAlert {
         createTrip.inputPlace();
         createTrip.inputDriver1("Adrian Gherghel");
         createTrip.clickBtnSave();
-        driver.get("http:/localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http:/" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -103,7 +108,7 @@ public class TripBoardAlert {
         createTrip.inputPlace();
         createTrip.inputDriver2("Adrian Gherghel");
         createTrip.clickBtnSave();
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -127,7 +132,7 @@ public class TripBoardAlert {
         createTrip.inputPlace();
         createTrip.inputTruck("1210");
         createTrip.clickBtnSave();
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -151,7 +156,7 @@ public class TripBoardAlert {
         createTrip.inputPlace();
         createTrip.inputTrailer("1210T");
         createTrip.clickBtnSave();
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -176,7 +181,7 @@ public class TripBoardAlert {
         createTrip.inputTrailer("1210T");
         createTrip.inputTruck("1210");
         createTrip.clickBtnSave();
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -205,7 +210,7 @@ public class TripBoardAlert {
         createTrip.inputDriver1("Adrian Gherghel");
         createTrip.inputTruck("1210");
         createTrip.clickBtnSave();
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -234,7 +239,7 @@ public class TripBoardAlert {
         createTrip.inputDriver1("Adrian Gherghel");
         createTrip.inputTrailer("1210T");
         createTrip.clickBtnSave();
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -264,7 +269,7 @@ public class TripBoardAlert {
         createTrip.inputTrailer("1210T");
         createTrip.inputTruck("1210");
         createTrip.clickBtnSave();
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -298,7 +303,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusNewTypeHighway(){
         createTrip.createTrip("new", "Highway");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
@@ -314,7 +319,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusDispatchedTypeHighway(){
         createTrip.createTrip("dispatched", "Highway");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("dispatched").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
@@ -330,7 +335,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusCancelledTypeHighway(){
         createTrip.createTrip("cancelled", "Highway");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("cancelled").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
@@ -346,7 +351,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusDoneTypeHighway(){
         createTrip.createTrip("done", "Highway");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("done").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
@@ -362,7 +367,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusBookedTypeHighway(){
         createTrip.createTrip("booked", "Highway");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("booked").equals(main.getTripStatus())){
             if(("Highway").equals(main.getTripType())){
@@ -379,7 +384,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusNewTypeHighwayLocal(){
         createTrip.createTrip("new", "Highway/Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
@@ -395,7 +400,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusDispatchedTypeHighwayLocal(){
         createTrip.createTrip("dispatched", "Highway/Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("dispatched").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
@@ -411,7 +416,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusCancelledTypeHighwayLocal(){
         createTrip.createTrip("cancelled", "Highway/Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("cancelled").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
@@ -427,7 +432,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusDoneTypeHighwayLocal(){
         createTrip.createTrip("done", "Highway/Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("done").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
@@ -443,7 +448,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusBookedTypeHighwayLocal(){
         createTrip.createTrip("booked", "Highway/Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("booked").equals(main.getTripStatus())){
             if(("Highway/Local").equals(main.getTripType())){
@@ -460,7 +465,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusNewTypeLocal(){
         createTrip.createTrip("new", "Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("new").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -476,7 +481,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusDispatchedTypeLocal(){
         createTrip.createTrip("dispatched", "Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("dispatched").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -492,7 +497,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusCancelledTypeLocal(){
         createTrip.createTrip("cancelled", "Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("cancelled").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -508,7 +513,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusDoneTypeLocal(){
         createTrip.createTrip("done", "Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("done").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){
@@ -524,7 +529,7 @@ public class TripBoardAlert {
     @Test
     public void testStatusBookedTypeLocal(){
         createTrip.createTrip("booked", "Local");
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         if(("booked").equals(main.getTripStatus())){
             if(("Local").equals(main.getTripType())){

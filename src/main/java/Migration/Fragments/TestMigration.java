@@ -207,6 +207,7 @@ public class TestMigration{
             compareOrganizationsByOrgId(orgID, document);
             compareAddressesByOrgId(orgID, document);
             compareACLUserGroupsByOrgId(orgID, document);
+            compareACLResourcesByOrgId(orgID, document);
             compareDepartmentsByOrgId(orgID, document);
             compareConsumersByOrgId(orgID, document);
             compareAccountsByOrgId(orgID, document);

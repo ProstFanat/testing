@@ -10,6 +10,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import resources.AppConstants;
 
 import java.util.Random;
 
@@ -28,7 +29,7 @@ public class ELDViewerTests {
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage = new LoginPage();
         eldMainPage = new EldTransactionPage();
         mainAdminScreenPage = new MainAdminScreenPage();
@@ -39,7 +40,7 @@ public class ELDViewerTests {
 
     @BeforeEach
     void beforeTest() {
-        open("http://localhost:8080/TrackEnsure/app-admin/hos/#/eldTransactions/transactions");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app-admin/hos/#/eldTransactions/transactions");
     }
 
     @Test

@@ -59,8 +59,8 @@ public class CompareMethodsDocument {
 
         GetNewId getNewId = new GetNewId(DB_URL2, USER_DB2, PASS_DB2);
 
-        List<String> newValue = daoOld.getEldEventsOriginalForDriver(id);
-        List<String> oldValue = daoNew.getEldEventsOriginalForDriver(getNewId.getNewDriverId(id));
+        List<String> oldValue = daoOld.getEldEventsOriginalForDriver(id);
+        List<String> newValue = daoNew.getEldEventsOriginalForDriver(getNewId.getNewDriverId(id));
 
         if(oldValue.toString().equals(newValue.toString())){
             System.out.println("compareEldOriginalEventsById " + id + " Done");

@@ -7,6 +7,7 @@ import MigrationDashboard.MainPageMigration;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -21,7 +22,7 @@ public class CreateMigration {
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage = new LoginPage();
         mainAdminScreenPage = new MainAdminScreenPage();
         loginPage.login("5", "test");

@@ -6,7 +6,9 @@ import com.codeborne.selenide.Configuration;
 import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
 
@@ -21,7 +23,7 @@ public class FilterLoadListMainPage {
     static void setup(){
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
 
         basePage = new BasePage();
         LoginPage loginPage = new LoginPage();

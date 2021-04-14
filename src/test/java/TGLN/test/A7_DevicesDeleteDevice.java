@@ -5,9 +5,12 @@ import TGLN.TabDevices;
 import TGLN.OpenGPSDevices;
 import fleetEvents.fleet.LogOut;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.openqa.selenium.interactions.Actions;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,7 +32,7 @@ public class A7_DevicesDeleteDevice {
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenGPSDevices(driver);
         basePage = new BasePage(driver);
@@ -40,7 +43,7 @@ public class A7_DevicesDeleteDevice {
         driver.manage().window().maximize();
         //задержка на выполнение теста = 10 сек.
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.get("http://localhost:8080/TrackEnsure/login.do");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         open.openGPSDevices();
     }
 

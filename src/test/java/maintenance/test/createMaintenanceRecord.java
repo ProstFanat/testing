@@ -7,7 +7,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 import org.junit.jupiter.api.Test;
 import java.util.concurrent.TimeUnit;
 
@@ -24,7 +26,7 @@ public class createMaintenanceRecord {
 
     @BeforeAll
     static void setup() {
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new openMaintenance(driver);
         basePage = new BasePage(driver);
@@ -34,7 +36,7 @@ public class createMaintenanceRecord {
 
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
-        driver.get("http://localhost:8080/TrackEnsure/login.do");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         open.openMaintenance();
         basePage.sleep(1000);
     }

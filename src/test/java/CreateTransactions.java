@@ -4,6 +4,7 @@ import CreateTransactions.*;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import resources.AppConstants;
 
 
 import static com.codeborne.selenide.Selenide.open;
@@ -18,7 +19,7 @@ public class CreateTransactions {
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         login = new LoginPage();
         openEditor = new OpenEditor();
         create = new CreateTransaction();
@@ -29,7 +30,9 @@ public class CreateTransactions {
 
     @Test
     public void test(){
-        create.createTransaction(10, "comment");
+
+
+        create.createTransaction(20, "comment");
     }
 
 }

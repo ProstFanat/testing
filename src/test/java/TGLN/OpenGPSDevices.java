@@ -1,9 +1,11 @@
 package TGLN;
 
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
+import resources.AppConstants;
 import resources.ConfProperties;
 
 public class OpenGPSDevices extends BasePage {
@@ -32,7 +34,7 @@ public class OpenGPSDevices extends BasePage {
         passwdField.sendKeys(ConfProperties.getProperty("fleet.password"));
         loginBtn.click();
         sleep(500);
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpGPSDevices/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpGPSDevices/#/");
     }
 
 }

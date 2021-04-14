@@ -7,12 +7,31 @@
     <groupId>org.example</groupId>
     <artifactId>testing</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
         <aspectj.version>1.9.5</aspectj.version>
     </properties>
     <build>
         <pluginManagement>
             <plugins>
+                <plugin><!-- don't pack the war  -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>default-war</id>
+                            <phase>none</phase>
+                        </execution>
+                        <execution>
+                            <id>war-exploded</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>exploded</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -41,17 +60,6 @@
                         <version>1.9.5</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <configuration>
-                    <properties>
-                        <allure.issues.tracker.pattern>http://example.com/%s</allure.issues.tracker.pattern>
-                        <resultsDirectory>${project.basedir}/target/allure-reports</resultsDirectory>
-                        <reportDirectory>${project.basedir}/target/allure-reports</reportDirectory>
-                    </properties>
-                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -114,6 +122,11 @@
             <version>2.13.0</version>
         </dependency>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>5.15.1</version>
@@ -124,6 +137,11 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.1.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

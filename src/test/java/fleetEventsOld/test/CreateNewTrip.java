@@ -4,9 +4,12 @@ import fleetEventsOld.*;
 import fleetEventsOld.resources.ConfPropertiesFleet;
 
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 ;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -32,7 +35,7 @@ public class CreateNewTrip {
 //         System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenFleetPage(driver);
         createTrip = new createNewFleetEvent(driver);
@@ -46,7 +49,7 @@ public class CreateNewTrip {
         //задержка на выполнение теста = 10 сек.
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         //получение ссылки на страницу входа из файла настроек
-        driver.get("http://localhost:8080/TrackEnsure/login.do");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         open.openFleetEvents();
         basePage.sleep(1000);
     }

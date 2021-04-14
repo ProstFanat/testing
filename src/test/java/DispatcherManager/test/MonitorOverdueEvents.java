@@ -8,9 +8,14 @@ import fleetEvents.fleet.createNewFleetEvent;
 import fleetEvents.fleet.editEvent;
 import fleetEvents.fleet.mainFleet;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
+import resources.AppConstants;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +42,7 @@ public class MonitorOverdueEvents {
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new openDispatcher(driver);
         createTrip = new createNewFleetEvent(driver);
@@ -51,14 +56,14 @@ public class MonitorOverdueEvents {
         //задержка на выполнение теста = 10 сек.
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         //получение ссылки на страницу входа из файла настроек
-        driver.get("http://localhost:8080/TrackEnsure/login.do");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         openFleet.openFleetEvents();
         basePage.sleep(1000);
     }
 
     @BeforeEach
     void beforeTest(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         main.waitToVisibilityOf(10, createTrip.btnCreateNew);
         main.waitToBeClickable(10, createTrip.btnCreateNew);
         createTrip.clickBtnCreateTrip();
@@ -88,7 +93,7 @@ public class MonitorOverdueEvents {
         mainFleet.btnYesConfirm.click();
         main.waitToVisibilityOf(10, mainFleet.btnOpenTransaction);
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -118,7 +123,7 @@ public class MonitorOverdueEvents {
         mainFleet.btnCommitTransaction.click();
         mainFleet.btnYesConfirm.click();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -148,7 +153,7 @@ public class MonitorOverdueEvents {
         mainFleet.btnCommitTransaction.click();
         mainFleet.btnYesConfirm.click();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -179,7 +184,7 @@ public class MonitorOverdueEvents {
         mainFleet.btnCommitTransaction.click();
         mainFleet.btnYesConfirm.click();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -209,7 +214,7 @@ public class MonitorOverdueEvents {
         mainFleet.btnCommitTransaction.click();
         mainFleet.btnYesConfirm.click();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();

@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -36,7 +37,7 @@ public class LoadStatus {
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage = new LoginPage();
         mainAdminScreenPage = new MainAdminScreenPage();
         editCreateLoadPage = new EditCreateLoadPage();
@@ -48,7 +49,7 @@ public class LoadStatus {
 
     @BeforeEach
     void beforeTest() {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
     }
 
     @Test()
@@ -91,7 +92,7 @@ public class LoadStatus {
 
     @Test
     public void loadStatusDispatched() throws SQLException, ClassNotFoundException {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -100,7 +101,7 @@ public class LoadStatus {
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         String load_id = editCreateLoadPage.getID();
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         dbLoads.updateLoadStatusByLoadId(load_id, "Dispatched");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id).clickBtnFilter();
         loadListPage.getTableFragment().loadActionBtnClick();
@@ -113,7 +114,7 @@ public class LoadStatus {
 
     @Test
     public void loadStatusDelivered() throws SQLException, ClassNotFoundException {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -122,7 +123,7 @@ public class LoadStatus {
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         String load_id = editCreateLoadPage.getID();
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         dbLoads.updateLoadStatusByLoadId(load_id, "Delivered");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id).clickBtnFilter();
         loadListPage.getTableFragment().loadActionBtnClick();
@@ -133,13 +134,13 @@ public class LoadStatus {
 
     @Test
     public void loadStatusWithOneOffer(){
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         String load_id = editCreateLoadPage.getID();
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Prebooked")
                 .clickBtnFilter()
@@ -153,7 +154,7 @@ public class LoadStatus {
                 .selectDriverByName("Mao Ntwari")
                 .clickSaveLoadAndSendOffersBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()
@@ -162,13 +163,13 @@ public class LoadStatus {
 
     @Test
     public void deleteOffersFromLoadWithStatusBooked(){
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().clickSaveBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         String load_id = editCreateLoadPage.getID();
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Prebooked")
                 .clickBtnFilter()
@@ -182,7 +183,7 @@ public class LoadStatus {
                 .selectDriverByName("Mao Ntwari")
                 .clickSaveLoadAndSendOffersBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()
@@ -193,7 +194,7 @@ public class LoadStatus {
         editCreateLoadPage.getLoadSettingsFragment()
                 .deleteOffer(1)
                 .buttonsActionsOffers.shouldHaveSize(0);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Prebooked")
                 .clickBtnFilter()
@@ -202,7 +203,7 @@ public class LoadStatus {
 
     @Test
     public void deleteOffersFromLoadWithStatusDispatched() throws SQLException, ClassNotFoundException {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -213,7 +214,7 @@ public class LoadStatus {
         dbLoads.updateOfferStatusByLoadId(load_id, "booked");
         editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
         editCreateLoadPage.getLoadSettingsFragment().confirmOffer(1);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Dispatched")
                 .clickBtnFilter()
@@ -224,7 +225,7 @@ public class LoadStatus {
         editCreateLoadPage.getLoadSettingsFragment()
                 .deleteOffer(1)
                 .buttonsActionsOffers.shouldHaveSize(0);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Prebooked")
                 .clickBtnFilter()
@@ -233,7 +234,7 @@ public class LoadStatus {
 
     @Test
     public void deleteOneOfferFromLoadWithStatusDispatched() throws SQLException, ClassNotFoundException {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -252,7 +253,7 @@ public class LoadStatus {
                 .clickSaveLoadAndSendOffersBtn();
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Dispatched")
                 .clickBtnFilter()
@@ -263,7 +264,7 @@ public class LoadStatus {
         editCreateLoadPage.getLoadSettingsFragment()
                 .deleteOffer(1)
                 .buttonsActionsOffers.shouldHaveSize(1);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()
@@ -272,7 +273,7 @@ public class LoadStatus {
 
     @Test
     public void addBookedOfferToLoadWithStatusBooked() throws SQLException, ClassNotFoundException {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -281,7 +282,7 @@ public class LoadStatus {
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         String load_id = editCreateLoadPage.getID();
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()
@@ -293,7 +294,7 @@ public class LoadStatus {
         dbLoads.updateOfferStatusByLoadId(load_id, "booked");
         editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()
@@ -302,7 +303,7 @@ public class LoadStatus {
 
     @Test
     public void rejectOfferFromLoadWithStatusDispatched() throws SQLException, ClassNotFoundException {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -313,7 +314,7 @@ public class LoadStatus {
         dbLoads.updateOfferStatusByLoadId(load_id, "booked");
         editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
         editCreateLoadPage.getLoadSettingsFragment().confirmOffer(1);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Dispatched")
                 .clickBtnFilter()
@@ -324,7 +325,7 @@ public class LoadStatus {
         editCreateLoadPage.getLoadSettingsFragment()
                 .rejectOffer(1)
                 .buttonsActionsOffers.shouldHaveSize(1);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()
@@ -333,8 +334,8 @@ public class LoadStatus {
 
     @Test
     public void rejectOffersFromLoadWithStatusBooked() throws SQLException, ClassNotFoundException {
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -344,7 +345,7 @@ public class LoadStatus {
         String load_id = editCreateLoadPage.getID();
         dbLoads.updateOfferStatusByLoadId(load_id, "booked");
         editCreateLoadPage.getLoadSettingsFragment().btnFilter.click();
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()
@@ -355,7 +356,7 @@ public class LoadStatus {
         editCreateLoadPage.getLoadSettingsFragment()
                 .rejectOffer(1)
                 .buttonsActionsOffers.shouldHaveSize(1);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list");
         loadListPage.getFilterLoadPageFragment().inputLoadId(load_id)
                 .inputStatus("Booked")
                 .clickBtnFilter()

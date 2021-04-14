@@ -1,0 +1,19 @@
+img {
+    display: block;
+    margin: auto;
+}
+
+img :hover {
+    cursor: pointer;
+}
+
+img :visited{
+    border: none;
+}
+
+.migrInput {
+    position: absolute;
+    margin-left: 800px;
+    margin-top: 250px;
+}
+

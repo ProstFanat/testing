@@ -2,9 +2,11 @@ package fleetEvents.fleet;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
+import resources.AppConstants;
 
 public class createNewFleetEvent extends BasePage {
     public WebDriver driver;

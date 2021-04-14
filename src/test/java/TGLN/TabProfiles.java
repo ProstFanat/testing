@@ -1,9 +1,11 @@
 package TGLN;
 
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
+import resources.AppConstants;
 
 public class TabProfiles extends BasePage {
     public TabProfiles(WebDriver driver) {

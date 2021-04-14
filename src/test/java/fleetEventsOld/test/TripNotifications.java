@@ -4,8 +4,11 @@ import fleetEventsOld.*;
 import fleetEventsOld.resources.ConfPropertiesFleet;
 
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,7 +34,7 @@ public class TripNotifications {
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenFleetPage(driver);
         createTrip = new createNewFleetEvent(driver);

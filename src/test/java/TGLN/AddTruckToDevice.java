@@ -2,6 +2,7 @@ package TGLN;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
@@ -17,7 +18,7 @@ public class AddTruckToDevice extends BasePage {
     public WebElement truckNumberInput;
 
     /** Find Edit Button*/
-    @FindBy(xpath = "//*[@href = 'http://localhost:8080/TrackEnsure/fleet/manager/truckProfile/#/id/283266']//..//*[contains(@class, 'fa-pencil')]")
+    @FindBy(xpath = "//*[@href = 'http://\"AppConstants.URL_OF_LOCAL_SERVER\":8080/TrackEnsure/fleet/manager/truckProfile/#/id/283266']//..//*[contains(@class, 'fa-pencil')]")
     public WebElement btnEditTruck;
 
     /** Find GPS Provider div*/
@@ -41,7 +42,7 @@ public class AddTruckToDevice extends BasePage {
     public WebElement btnSave;
 
     public void connectDeviceWithTruck(String truck, String deviceUID){
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpAssets/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpAssets/#/");
         waitToVisibilityOf(10, truckNumberInput);
         waitToBeClickable(10, truckNumberInput);
         truckNumberInput.sendKeys(truck);
@@ -56,7 +57,7 @@ public class AddTruckToDevice extends BasePage {
         gpsUnitIdInput.sendKeys(Keys.ENTER);
         btnSave.click();
         sleep(1000);
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpGPSDevices/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpGPSDevices/#/");
     }
 
 }

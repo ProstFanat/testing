@@ -3,6 +3,7 @@ package Main;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import resources.BasePage;
+import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
@@ -14,7 +15,7 @@ public class OptionsOfCompanyPage extends BasePage {
                             btnSaveDispatching = $x("//h4[text() = 'Dispatching']//..//input[@type = 'button']");
 
     public OptionsOfCompanyPage openPage(){
-        open("http://localhost:8080/TrackEnsure/fleet/manager/cpOptions/#/");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpOptions/#/");
         waitForPageToLoad();
         return this;
     }

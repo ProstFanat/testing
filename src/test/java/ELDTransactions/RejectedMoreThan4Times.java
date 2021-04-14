@@ -15,7 +15,9 @@ import loadDashboardPages.EditCreateLoadPage;
 import loadDashboardPages.LoadListPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +42,7 @@ public class RejectedMoreThan4Times {
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage = new LoginPage();
         createTransaction = new CreateTransaction();
         customersPage = new CustomersPage();
@@ -59,9 +61,9 @@ public class RejectedMoreThan4Times {
         driver = createTransaction.createWithReturningUrlAndDriverName("comment");
 
         for (int i = 1; i <= 4; i++) {
-            open("http://localhost:8080/TrackEnsure/login.do");
+            open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
             loginPage.login("adrian@mail.com", "test");
-            open("http://localhost:8080/TrackEnsure/app-admin/hos/#/eldTransactions/transactions");
+            open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app-admin/hos/#/eldTransactions/transactions");
             mainEldFilterFragment.filterByDriver("Company for Autotesting", driver.get("name"));
             eldTransactionPage.getMainEldTableFragment().clickActionBtn()
                     .clickActionView();

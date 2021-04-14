@@ -2,8 +2,11 @@ package fleet.test;
 
 import fleet.*;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -26,7 +29,7 @@ public class TripBoardAlert {
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenFleetPage(driver);
         createTrip = new createNewFleetEvent(driver);
@@ -40,13 +43,13 @@ public class TripBoardAlert {
         //задержка на выполнение теста = 10 сек.
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         //получение ссылки на страницу входа из файла настроек
-        driver.get("http://localhost:8080/TrackEnsure/login.do");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         open.openFleetEvents();
     }
 
     @BeforeEach
     void beforeTest(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         basePage.waitToVisibilityOf(10, createTrip.btnCreateNew);
         basePage.waitToBeClickable(10, createTrip.btnCreateNew);
         createTrip.clickBtnCreateTrip();
@@ -61,7 +64,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -88,7 +91,7 @@ public class TripBoardAlert {
 
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -119,7 +122,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -150,7 +153,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -181,7 +184,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -213,7 +216,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -249,7 +252,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -285,7 +288,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -322,7 +325,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -363,7 +366,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -386,7 +389,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -409,7 +412,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -432,7 +435,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -455,7 +458,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -479,7 +482,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -502,7 +505,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -525,7 +528,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -548,7 +551,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -571,7 +574,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -595,7 +598,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -618,7 +621,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -641,7 +644,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -663,7 +666,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);
@@ -686,7 +689,7 @@ public class TripBoardAlert {
         main.sleep(500);
         String trip = mainFleetEvents.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/app/trip-board/#/trip-list");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         basePage.sleep(1000);
         main.clickAdvancedSearch();
         main.inputTripNumber(trip);

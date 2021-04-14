@@ -3,7 +3,10 @@ package DeleteButton;
 import DeleteButton.resources.ConfPropertiesELD;
 
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
+
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -25,7 +28,7 @@ public class Main {
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesELD.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         loginPage = new LoginPage(driver);
         logOut = new LogOut(driver);

@@ -13,8 +13,10 @@ import loadDashboardPages.LoadListPage;
 import loadDashboardPages.fragments.FilterLoadPageFragment;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import org.testng.Assert;
 import resources.BasePage;
+import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
@@ -37,7 +39,7 @@ public class FilterTabAddOffers {
     static void setup(){
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
 
         optionsOfCompanyPage = new OptionsOfCompanyPage();
         driversPage = new DriversPage();

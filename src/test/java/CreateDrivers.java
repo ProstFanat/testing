@@ -1,52 +1,43 @@
-package ELDTransactions;
-
-import CreateTransactions.CreateTransaction;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import Main.CustomersPage;
 import Main.DriversPage;
 import com.codeborne.selenide.Configuration;
-import loadDashboardPages.EditCreateLoadPage;
-import loadDashboardPages.LoadListPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import resources.AppConstants;
-import resources.BasePage;
-import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
-public class ForTesting {
+public class CreateDrivers {
 
-    public static LoginPage loginPage;
-    public static MainAdminScreenPage mainAdminScreenPage;
-    public static EditCreateLoadPage editCreateLoadPage;
-    public static LoadListPage loadListPage;
-    public static BasePage basePage;
-    public static CustomersPage customersPage;
+    public static LoginPage login;
+    public static CreateTransactions create;
     public static DriversPage driversPage;
-    public static CreateTransaction createTransaction;
+    public static MainAdminScreenPage mainAdminScreenPage;
+    public static CustomersPage customersPage;
 
     @BeforeAll
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
-        loginPage = new LoginPage();
-        createTransaction = new CreateTransaction();
+        login = new LoginPage();
+        create = new CreateTransactions();
         customersPage = new CustomersPage();
         driversPage = new DriversPage();
-        mainAdminScreenPage = new MainAdminScreenPage();
-        loginPage.login("5", "test");
-        mainAdminScreenPage.clickCustomers();
+        login.login();
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
         customersPage.logAsOrgOfCompany("Company For Autotesting");
         driversPage.openPage();
+
     }
 
     @Test
     public void test(){
-        createTransaction.createTransaction(40, "comment");
-        sleep(5000);
+        driversPage.createNewDriver();
+        for(int i = 0; i < 100; i++) {
+            driversPage.createNewDriver();
+        }
     }
 }

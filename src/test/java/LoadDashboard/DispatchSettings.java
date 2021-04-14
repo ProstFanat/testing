@@ -13,7 +13,9 @@ import loadDashboardPages.fragments.FilterLoadPageFragment;
 import loadDashboardPages.fragments.LoadSettingsFragment;
 
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -36,7 +38,7 @@ public class DispatchSettings {
     static void setup(){
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
 
         optionsOfCompanyPage = new OptionsOfCompanyPage();
         driversPage = new DriversPage();
@@ -54,19 +56,19 @@ public class DispatchSettings {
 
     @BeforeEach
     void beforeTest(){
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
         mainAdminScreenPage.clickLoadSearchBtn();
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/dispatch-settings");
         basePage.waitForPageToLoad();
     }
 
     @AfterAll
     static void afterAll(){
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
         mainAdminScreenPage.clickLoadSearchBtn();
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/dispatch-settings");
         basePage.waitForPageToLoad();
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .setAllOrgCheckBoxes(true);
@@ -106,7 +108,7 @@ public class DispatchSettings {
                 .showDrivers(1)
                 .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(false);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -124,7 +126,7 @@ public class DispatchSettings {
                 .showDrivers(1)
                 .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(true);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -133,12 +135,12 @@ public class DispatchSettings {
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         basePage.waitForPageToLoad();
         String id = editCreateLoadPage.getID();
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/dispatch-settings");
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .showDrivers(1)
                 .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(false);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
         basePage.waitForPageToLoad();
         Assertions.assertFalse(editCreateLoadPage.getOffersTableFragment().isAclUserPresent());
     }
@@ -150,7 +152,7 @@ public class DispatchSettings {
                 .showDrivers(1)
                 .inputDriver("Mao Ntwari")
                 .setAllDriverCheckBoxes(true);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200")
@@ -159,10 +161,10 @@ public class DispatchSettings {
         basePage.waitToVisibilityOf(editCreateLoadPage.getLoadSettingsFragment().btnFilter);
         basePage.waitForPageToLoad();
         String id = editCreateLoadPage.getID();
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/dispatch-settings");
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .setAllOrgCheckBoxes(false);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/edit-load?loadId=" + id);
         basePage.waitForPageToLoad();
         Assertions.assertEquals(1, editCreateLoadPage.getOffersTableFragment().driversCollectionOnOffers.size());
     }
@@ -172,21 +174,21 @@ public class DispatchSettings {
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .setAllOrgCheckBoxes(true);
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200");
         int initSize = editCreateLoadPage.getOffersTableFragment().getDriversListSize();
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/dispatch-settings");
         dispatchingSettingsPage.inputOrgName("Test with DM")
                 .setAllOrgCheckBoxes(false);
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200");
 
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/load-list/create-load");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/load-list/create-load");
         editCreateLoadPage.setDefaultLoadSettings();
         editCreateLoadPage.getLoadSettingsFragment().setPickupLocation("Ukraina");
         editCreateLoadPage.getOffersTableFragment().searchDrivers("200");
@@ -208,10 +210,10 @@ public class DispatchSettings {
         optionsOfCompanyPage.setDispatchingCheckBox(false)
                 .clickBtnSave();
 
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
         mainAdminScreenPage.clickLoadSearchBtn();
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/dispatch-settings");
         basePage.waitForPageToLoad();
 
         dispatchingSettingsPage.inputOrgName("Test with DM");
@@ -229,10 +231,10 @@ public class DispatchSettings {
                     .setLoadBoardCheckBox(false)
                     .saveDriverProfile();
 
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         loginPage.login("5", "test");
         mainAdminScreenPage.clickLoadSearchBtn();
-        open("http://localhost:8080/TrackEnsure/app/load-board/#/dispatch-settings");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/load-board/#/dispatch-settings");
         basePage.waitForPageToLoad();
 
         dispatchingSettingsPage.inputOrgName("Test with DM")

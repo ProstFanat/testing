@@ -5,6 +5,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.ArrayList;
 import java.util.List;

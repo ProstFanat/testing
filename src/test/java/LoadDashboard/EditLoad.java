@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import resources.BasePage;
+import resources.AppConstants;
 import resources.*;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -27,7 +28,7 @@ public class EditLoad {
     static void setup() {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
 
         basePage = new BasePage();
         LoginPage loginPage = new LoginPage();

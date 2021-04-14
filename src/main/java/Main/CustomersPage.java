@@ -2,6 +2,7 @@ package Main;
 
 import com.codeborne.selenide.SelenideElement;
 import resources.BasePage;
+import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
@@ -14,7 +15,7 @@ public class CustomersPage extends BasePage {
             btnIconOnSideBar = $x("//*[@tooltip = 'Customers']");
 
     public void openCustomersPage(){
-        open("http://10.10.1.83:8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
         waitForPageToLoad();
     }
 

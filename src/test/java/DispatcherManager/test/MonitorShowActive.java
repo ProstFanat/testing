@@ -7,8 +7,12 @@ import fleetEvents.fleet.OpenFleetPage;
 import fleetEvents.fleet.createNewFleetEvent;
 import fleetEvents.fleet.mainFleet;
 import org.junit.jupiter.api.*;
+import resources.AppConstants;
 import org.openqa.selenium.WebDriver;
+import resources.AppConstants;
+import resources.AppConstants;
 import resources.BasePage;
+import resources.AppConstants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,7 +36,7 @@ public class MonitorShowActive {
 //        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
 //        //создание экземпляра драйвера
 //        driver = new ChromeDriver();
-        open("http://localhost:8080/TrackEnsure/login.do");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new openDispatcher(driver);
         createTrip = new createNewFleetEvent(driver);
@@ -45,7 +49,7 @@ public class MonitorShowActive {
         //задержка на выполнение теста = 10 сек.
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         //получение ссылки на страницу входа из файла настроек
-        driver.get("http://localhost:8080/TrackEnsure/login.do");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         openFleet.openFleetEvents();
         basePage.sleep(1000);
     }
@@ -56,14 +60,14 @@ public class MonitorShowActive {
 
     @Test
     public void testStatusNew(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
 
         createTrip.openFormCreate();
         createTrip.createTripWithDispatcher("new", "Local");
         String trip = mainFleet.getTripNumber();
 
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -77,13 +81,13 @@ public class MonitorShowActive {
 
     @Test
     public void testStatusDispatched(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
 
         createTrip.openFormCreate();
         createTrip.createTripWithDispatcher("dispatched", "Local");
         String trip = mainFleet.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -97,13 +101,13 @@ public class MonitorShowActive {
 
     @Test
     public void testStatusBooked(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
 
         createTrip.openFormCreate();
         createTrip.createTripWithDispatcher("booked", "Local");
         String trip = mainFleet.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -117,13 +121,13 @@ public class MonitorShowActive {
 
     @Test
     public void testStatusDone(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
 
         createTrip.openFormCreate();
         createTrip.createTripWithDispatcher("done", "Local");
         String trip = mainFleet.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();
@@ -144,13 +148,13 @@ public class MonitorShowActive {
 
     @Test
     public void testStatusCancelled(){
-        driver.get("http://localhost:8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
 
         createTrip.openFormCreate();
         createTrip.createTripWithDispatcher("cancelled", "Local");
         String trip = mainFleet.getTripNumber();
 
-        driver.get("http://localhost:8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
+        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDispatchers/#/");
         mainList.openTabMonitor();
         main.inputDispatcher("Adrian Boychuk");
         main.clickAdvancedSearch();

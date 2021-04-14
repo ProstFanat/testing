@@ -3,10 +3,9 @@ package CreateTransactions;
 import LoginAndMainPages.MainAdminScreenPage;
 import Main.CustomersPage;
 import Main.DriversPage;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import resources.AppConstants;
 import resources.BasePage;
 
 import java.util.HashMap;
@@ -65,10 +64,10 @@ public class CreateTransaction extends BasePage {
         driversPage = new DriversPage();
         mainAdminScreenPage = new MainAdminScreenPage();
 
-//        mainAdminScreenPage.clickCustomers();
-//        customersPage.logAsOrgOfCompany("Company For Autotesting");
-//        driversPage.openPage();
-        open("http://10.10.1.83:8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
+        mainAdminScreenPage.clickCustomers();
+        customersPage.logAsOrgOfCompany("Company For Autotesting");
+        driversPage.openPage();
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
         int createdTransactions = 0, counter = 1;
         while(createdTransactions < quantity){
             System.out.println("counter = " + counter + "  createdTransactions = " + createdTransactions);
@@ -106,7 +105,7 @@ public class CreateTransaction extends BasePage {
         customersPage.openCustomersPage();
         customersPage.logAsOrgOfCompany("Company For Autotesting");
         driversPage.openPage();
-        open("http://localhost:8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/63888/timestamp/1610575199999/timeZone/US%2FAlaska");
         int createdTransactions = 0, counter = 1;
         while(createdTransactions < 1){
             System.out.println("counter = " + counter + "  createdTransactions = " + createdTransactions);
