@@ -1125,8 +1125,8 @@ public class DriverProfile extends RecordMapperValueObject {
         this.violator = getCharacter(rs, "violator", rsColumns);
         this.violatorComment = getString(rs, "violator_comment", rsColumns);
         this.mobileAppOptions = getString(rs, "mobile_app_options", rsColumns);
-        //this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
-        //this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
+        this.masterDBRefId = getLong(rs, "master_db_ref_id", rsColumns);
+        this.clientDBRefId = getLong(rs, "client_db_ref_id", rsColumns);
         this.organizationName = getString(rs, "organization_name", rsColumns);
         this.sendLoadOffers = getCharacter(rs, "send_load_offers", rsColumns);
         this.mobileAppOptions = getString(rs, "mobile_app_options", rsColumns);

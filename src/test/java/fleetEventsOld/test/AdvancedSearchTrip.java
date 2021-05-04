@@ -1,15 +1,11 @@
 package fleetEventsOld.test;
 
 import fleetEventsOld.*;
-
 import org.junit.jupiter.api.*;
-import resources.AppConstants;
-import resources.AppConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import resources.AppConstants;
 import resources.BasePage;
-import resources.AppConstants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,10 +26,6 @@ public class AdvancedSearchTrip {
 
     @BeforeAll
     static void setup() {
-//        //определение пути до драйвера и его настройка
-//        System.setProperty("webdriver.chrome.driver", ConfPropertiesFleet.getProperty("chromedriver"));
-//        //создание экземпляра драйвера
-//        driver = new ChromeDriver();
         open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         driver = getWebDriver();
         open = new OpenFleetPage(driver);

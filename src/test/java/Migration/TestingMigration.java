@@ -14,7 +14,7 @@ public class TestingMigration extends CompareMethodsAsserts {
     @Test
     public void testGet() throws SQLException, FileNotFoundException, IllegalAccessException, DocumentException, NoSuchFieldException {
        //TestMigration.testByMigrationId("59");
-       TestMigration.testByMigrationIdWithDocument("2");
+       TestMigration.testByMigrationIdWithDocument("74");
 //        compareDriverByDriverId("43356");
 //        compareEldEventsByDriverId("43356");
 //        compareEldOriginalEventsById("43356");
