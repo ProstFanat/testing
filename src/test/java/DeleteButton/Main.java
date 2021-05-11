@@ -1,19 +1,17 @@
 package DeleteButton;
 
 import DeleteButton.resources.ConfPropertiesELD;
-
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import resources.AppConstants;
-import org.junit.jupiter.api.*;
-import resources.AppConstants;
-
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Main {
 
@@ -35,7 +33,7 @@ public class Main {
         deletebutton = new DeleteButton(driver);
         driver.manage().window().maximize();
         //задержка на выполнение теста = 10 сек.
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //получение ссылки на страницу входа из файла настроек
         driver.get(ConfPropertiesELD.getProperty("loginpage"));
     }
