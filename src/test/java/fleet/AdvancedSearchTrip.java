@@ -212,7 +212,7 @@ public class AdvancedSearchTrip {
 
     @Test
     public void filterWithAllFilters(){
-        filter.inputDriver("Adrian Gherghel");
+        filter.inputDriver("Adrian Greghel");
         filter.inputOrder("CO-20-61201", "409125");
         filter.inputTruck("1210");
         filter.inputTrailer("1210T");

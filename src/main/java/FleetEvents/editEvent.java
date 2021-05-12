@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
 
+import java.util.List;
+
 public class editEvent extends BasePage {
     public editEvent(WebDriver driver) {
         super(driver);
@@ -18,10 +20,20 @@ public class editEvent extends BasePage {
     @FindBy(xpath = "//*[@id = 'eventType']//input")
     public WebElement eventType;
 
+    @FindBy(xpath = "//*[@id = 'eventType']//*[@role = 'option']")
+    public List<WebElement> eventTypeList;
+
     public void inputEventType(String type){
         waitToBeClickable(10, eventType);
         eventType.sendKeys(type);
         eventType.sendKeys(Keys.ENTER);
+        //waitToBeClickable(10, eventTypeList.get(0));
+//        for(int i = 0 ; i <= eventTypeList.size(); i++){
+//            if(type.equals(eventTypeList.get(i).getText())){
+//                eventTypeList.get(i).click();
+//            }
+//        }
+
     }
 
     /** Find ETA input*/
@@ -265,22 +277,34 @@ public class editEvent extends BasePage {
     @FindBy(xpath = "//*[@id = 'driver1']//input")
     public WebElement driver1Input;
 
+    @FindBy(xpath = "//*[@id = 'driver1']//ng-dropdown-panel//*[@role = 'option'][1]")
+    public WebElement driver1InputList;
+
+
     public void inputDriver1(String driver1){
         waitToBeClickable(10, driver1Input);
         driver1Input.sendKeys(driver1);
         driver1Input.sendKeys(Keys.ENTER);
         driver1Input.sendKeys(Keys.ENTER);
+        waitToBeClickable(10, driver1InputList);
+        driver1InputList.click();
     }
 
     /** Find Driver 2 input*/
     @FindBy(xpath = "//*[@id = 'driver2']//input")
     public WebElement driver2Input;
 
+    @FindBy(xpath = "//*[@id = 'driver2']//ng-dropdown-panel//*[@role = 'option'][1]")
+    public WebElement driver2InputList;
+
+
     public void inputDriver2(String driver2){
         waitToBeClickable(10, driver2Input);
         driver2Input.sendKeys(driver2);
         driver2Input.sendKeys(Keys.ENTER);
         driver2Input.sendKeys(Keys.ENTER);
+        waitToBeClickable(10, driver2InputList);
+        driver2InputList.click();
     }
 
     /** Find Truck input*/

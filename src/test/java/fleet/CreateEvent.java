@@ -43,26 +43,15 @@ public class CreateEvent {
         logOut = new LogOut(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
-        open.openFleetEvents();
-        basePage.sleep(1000);
-        basePage.waitToVisibilityOf(10, createTrip.btnCreateNew);
-        basePage.waitToBeClickable(10, createTrip.btnCreateNew);
-        createTrip.clickBtnCreateTrip();
-        basePage.waitToVisibilityOf(10, createTrip.commentField);
-        basePage.waitToVisibilityOf(10, createTrip.commentField);
-        createTrip.createTrip("new", "Local");
-        main.clickBtnOpenTransaction();
-        main.saveNewTransaction();
-    }
 
-    @BeforeEach
-    void before(){
-        main.clickBtnAddNewEvent();
+        open.openFleetEvents();
+        createTrip.createTrip("new", "Local");
+        main.openTransaction();
     }
 
     @Test
     public void emptyAll(){
+        main.clickBtnAddNewEvent();
         edit.apllyChanges();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select an Event Type')]"));
         edit.cancelChanges();
@@ -70,6 +59,7 @@ public class CreateEvent {
 
     @Test
     public void emptyType(){
+        main.clickBtnAddNewEvent();
         edit.inputPlace("NEW YORK OF STATE");
         edit.apllyChanges();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select an Event Type')]"));
@@ -78,6 +68,7 @@ public class CreateEvent {
 
     @Test
     public void emptyPlace(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.apllyChanges();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[contains(text(), 'Please select a Place')]"));
@@ -86,6 +77,7 @@ public class CreateEvent {
 
     @Test
     public void testWithTypeAndPlace(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.apllyChanges();
@@ -100,6 +92,7 @@ public class CreateEvent {
 
     @Test
     public void testOnlyWithStartDate(){
+        main.clickBtnAddNewEvent();
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputEventType("pickup");
         edit.inputStartDate();
@@ -117,6 +110,7 @@ public class CreateEvent {
 
     @Test
     public void testOnlyWithFinishDate(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputFinishDate();
@@ -127,6 +121,7 @@ public class CreateEvent {
 
     @Test
     public void testWithStartDateAndFinishDate(){
+        main.clickBtnAddNewEvent();
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputEventType("pickup");
         edit.inputStartDate();
@@ -147,6 +142,7 @@ public class CreateEvent {
 
     @Test
     public void testWithStartDateLessThanFinishDate(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputStartDateLaterThanFinishDate();
@@ -157,6 +153,7 @@ public class CreateEvent {
 
     @Test
     public void testWithOrder(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputOrder("CO-20-61201");
@@ -167,6 +164,7 @@ public class CreateEvent {
 
     @Test
     public void testWithOrderAndProbill(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputOrder("CO-20-61201");
@@ -178,6 +176,7 @@ public class CreateEvent {
 
     @Test
     public void testWithOrderProbillAndCargo(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputOrder("CO-20-61201");
@@ -197,6 +196,7 @@ public class CreateEvent {
 
     @Test
     public void testWithOrderThatDoNotHaveProbill(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputOrder("CO-20-61200");
@@ -207,6 +207,7 @@ public class CreateEvent {
 
     @Test
     public void testWithDriver1(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputDriver1(ConfPropertiesFleet.getProperty("fleet.driver1"));
@@ -224,6 +225,7 @@ public class CreateEvent {
 
     @Test
     public void testWithDriver2(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputDriver2(ConfPropertiesFleet.getProperty("fleet.driver2"));
@@ -241,6 +243,7 @@ public class CreateEvent {
 
     @Test
     public void testWithSameDrivers(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputDriver1(ConfPropertiesFleet.getProperty("fleet.driver2"));
@@ -252,6 +255,7 @@ public class CreateEvent {
 
     @Test
     public void testWithETA(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputETA();
@@ -269,6 +273,7 @@ public class CreateEvent {
 
     @Test
     public void testWithTruck(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputTruck(ConfProperties.getProperty("fleet.truck"));
@@ -286,6 +291,7 @@ public class CreateEvent {
 
     @Test
     public void testWithTrailer(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputTrailer(ConfProperties.getProperty("fleet.trailer"));
@@ -303,6 +309,7 @@ public class CreateEvent {
 
     @Test
     public void testWithAll(){
+        main.clickBtnAddNewEvent();
         edit.inputEventType("pickup");
         edit.inputPlace("NEW YORK OF STATE");
         edit.inputETA();
@@ -342,125 +349,141 @@ public class CreateEvent {
     }
 
     /** More more tests....*/
+//
+//    @Test
+//    public void testWithTypePickup(){
+//        edit.inputEventType("pickup");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
+//
+//    @Test
+//    public void testWithTypeDelivery(){
+//        edit.inputEventType("delivery");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("delivery".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
+//
+//    @Test
+//    public void testWithTypeLoad(){
+//        edit.inputEventType("load");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("load".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
+//
+//    @Test
+//    public void testWithTypeUnload(){
+//        edit.inputEventType("unload");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("unload".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
+//
+//    @Test
+//    public void testWithTypeHookTrailer(){
+//        edit.inputEventType("hook-trailer");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("hook-trailer".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
+//
+//    @Test
+//    public void testWithTypeDropTrailer(){
+//        edit.inputEventType("drop-trailer");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("hook-trailer".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
+//
+//    @Test
+//    public void testWithTypeAcquire(){
+//        edit.inputEventType("acquire");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("acquire".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.clickBtnEditEvent();
+//        edit.inputEventType("unload");
+//        edit.apllyChanges();
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
+//
+//    @Test
+//    public void testWithTypeRelease(){
+//        edit.inputEventType("release");
+//        edit.inputPlace("NEW YORK OF STATE");
+//        edit.apllyChanges();
+//        if("release".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
+//            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
+//                Assertions.assertTrue(true);
+//            }
+//        }
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.clickBtnEditEvent();
+//        edit.inputEventType("unload");
+//        edit.apllyChanges();
+//        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
+//        main.deleteEvent();
+//    }
 
     @Test
-    public void testWithTypePickup(){
-        edit.inputEventType("pickup");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("pickup".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
+    public void createWithAllEventTypes(){
+        String[] types = {"pickup", "delivery", "load", "unload", "hook-trailer", "drop-trailer", "acquire", "release"};
+        int counter = 3;
+        for (String type: types) {
+            main.clickBtnAddNewEvent();
+            edit.inputEventType(type);
+            edit.inputPlace("NEW YORK OF STATE ");
+            edit.apllyChanges();
+            Assertions.assertEquals(type, driver.findElement(By.xpath("//datatable-row-wrapper[" + counter + "]//datatable-body-cell[4]//span")).getText());
+            counter++;
         }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
-    }
-
-    @Test
-    public void testWithTypeDelivery(){
-        edit.inputEventType("delivery");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("delivery".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
-        }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
-    }
-
-    @Test
-    public void testWithTypeLoad(){
-        edit.inputEventType("load");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("load".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
-        }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
-    }
-
-    @Test
-    public void testWithTypeUnload(){
-        edit.inputEventType("unload");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("unload".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
-        }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
-    }
-
-    @Test
-    public void testWithTypeHookTrailer(){
-        edit.inputEventType("hook-trailer");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("hook-trailer".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
-        }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
-    }
-
-    @Test
-    public void testWithTypeDropTrailer(){
-        edit.inputEventType("drop-trailer");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("hook-trailer".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
-        }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
-    }
-
-    @Test
-    public void testWithTypeAcquire(){
-        edit.inputEventType("acquire");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("acquire".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
-        }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.clickBtnEditEvent();
-        edit.inputEventType("unload");
-        edit.apllyChanges();
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
-    }
-
-    @Test
-    public void testWithTypeRelease(){
-        edit.inputEventType("release");
-        edit.inputPlace("NEW YORK OF STATE");
-        edit.apllyChanges();
-        if("release".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[4]//span")).getText())){
-            if(" 16 AVIS DRIVE, 12110, LATHAM, NYUSA ".equals(driver.findElement(By.xpath("//datatable-row-wrapper[2]//datatable-body-cell[9]//div")).getText())) {
-                Assertions.assertTrue(true);
-            }
-        }
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.clickBtnEditEvent();
-        edit.inputEventType("unload");
-        edit.apllyChanges();
-        driver.findElement(By.xpath("//datatable-scroller/datatable-row-wrapper[" + 3 + "]//button[@id = 'button-actions']")).click();
-        main.deleteEvent();
+        main.deleteTransaction();
+        main.openTransaction();
     }
 
     @AfterEach

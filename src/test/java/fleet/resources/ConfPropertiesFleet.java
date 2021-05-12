@@ -10,7 +10,7 @@ public class ConfPropertiesFleet {
     static {
         try {
             //указание пути до файла с настройками
-            fileInputStream = new FileInputStream("src/test/java/fleetEvents/fleet/resources/conf.properties");
+            fileInputStream = new FileInputStream("src/test/java/fleet/resources/conf.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
         } catch (IOException e) {

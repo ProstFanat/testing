@@ -2,11 +2,9 @@ package FleetEvents;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import resources.AppConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.BasePage;
-import resources.AppConstants;
 
 public class createNewFleetEvent extends BasePage {
     public WebDriver driver;
@@ -16,6 +14,8 @@ public class createNewFleetEvent extends BasePage {
     public WebElement btnCreateNew;
 
     public void clickBtnCreateTrip(){
+        waitToVisibilityOf(10, btnCreateNew);
+        waitToBeClickable(10, btnCreateNew);
         btnCreateNew.click();
     }
 
@@ -331,9 +331,11 @@ public class createNewFleetEvent extends BasePage {
     }
 
     public void createTrip(String status, String type){
+        clickBtnCreateTrip();
+        waitToVisibilityOf(10, commentField);
+        waitToVisibilityOf(10, commentField);
         inputTripStatus(status);
         inputType(type);
-        System.out.println(tripType.getText());
         inputPlace();
         clickBtnSave();
     }
