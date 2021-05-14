@@ -24,12 +24,6 @@ public class CreateEvent {
     public static BasePage basePage;
     public static LogOut logOut;
 
-    /** Тесты
-     * С типом release
-     * и типом acquire
-     * нужно проверить руками
-     * сделанно это */
-
     @BeforeAll
     static void setup() {
         open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");

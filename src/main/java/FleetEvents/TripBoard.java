@@ -181,7 +181,7 @@ public class TripBoard extends BasePage {
     }
 
     //////////////////////////////////////
-    @FindBy(xpath = "//datatable-row-wrapper[1]//*[contains(@class, 'datatable-body-cell')][2]//span")
+    @FindBy(xpath = "//datatable-row-wrapper[1]//*[contains(@class, 'datatable-body-cell')][1]//span")
     public WebElement tableTripNumber;
 
     public String getTripNumber(){
@@ -350,8 +350,6 @@ public class TripBoard extends BasePage {
         driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/trip-board/#/trip-list");
         waitToVisibilityOf(10, tableTripNumber);
         String temp = getTripNumber();
-        waitToVisibilityOf(10, fleet);
-        waitToBeClickable(10, fleet);
         driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/fleet-events/#/trip-view(details:trip-view-details)");
         return temp;
     }

@@ -36,16 +36,14 @@ public class CreateNewTrip {
         basePage = new BasePage(driver);
         logOut = new LogOut(driver);
         tripBoard = new TripBoard(driver);
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         open.openFleetEvents();
         basePage.sleep(1000);
     }
 
-    @BeforeEach
-    void before(){
-    }
+    // TODO переделать проверку трипа
 
     @Test
     public void testCancel(){
@@ -62,7 +60,6 @@ public class CreateNewTrip {
         createTrip.inputPlace();
         createTrip.btnCancel.click();
         Assertions.assertNotEquals(main.getTripNumber(), lastTripNumber);
-//        Assertions.assertFalse(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
@@ -84,7 +81,6 @@ public class CreateNewTrip {
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
         Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-        //Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
@@ -94,14 +90,13 @@ public class CreateNewTrip {
         createTrip.deleteOrder();
         createTrip.clickBtnCancel();
         Assertions.assertFalse(basePage.isElementDisplayedByPath("//*[contains(text(), 'Order # CO-20-61201')"));
-//        createTrip.clickBtnCancel();
     }
 
     @Test
     public void testAddOrdersAndDeleteAll(){
         createTrip.openFormCreate();
-        createTrip.inputOrder("CO-20-61201");
-        createTrip.inputOrder("CO-20-61202");
+        createTrip.inputOrder("CO-21-1");
+        createTrip.inputOrder("CO-21-143003");
         createTrip.clickRadioOrder();
         basePage.waitToBeClickable(10, createTrip.btnConfirmDeleteOrder);
         basePage.waitToVisibilityOf(10, createTrip.btnConfirmDeleteOrder);
@@ -291,205 +286,205 @@ public class CreateNewTrip {
     }
 
     /***/
-    @Test
-    public void testStatusNewTypeHighway(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("new", "Highway");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusDispatchedTypeHighway(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("dispatched", "Highway");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusCancelledTypeHighway(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("cancelled", "Highway");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusDoneTypeHighway(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("done", "Highway");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusBookedTypeHighway(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("booked", "Highway");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    /***/
-    @Test
-    public void testStatusNewTypeHighwayLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("new", "Highway/Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusDispatchedTypeHighwayLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("dispatched", "Highway/Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusCancelledTypeHighwayLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("cancelled", "Highway/Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusDoneTypeHighwayLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("done", "Highway/Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusBookedTypeHighwayLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("booked", "Highway/Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    /***/
-    @Test
-    public void testStatusNewTypeLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("new", "Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusDispatchedTypeLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("dispatched", "Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusCancelledTypeLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("cancelled", "Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusDoneTypeLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("done", "Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
-
-    @Test
-    public void testStatusBookedTypeLocal(){
-        String lastTripNumber = tripBoard.getLastTripNumber();
-        int tripNumber = Integer.parseInt(lastTripNumber);
-
-        createTrip.openFormCreate();
-        createTrip.createTrip("booked", "Local");
-
-        int currentTripNumber = Integer.parseInt(main.getTripNumber());
-        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-//        createTrip.clickBtnCancel();
-    }
+//    @Test
+//    public void testStatusNewTypeHighway(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//       // createTrip.openFormCreate();
+//        createTrip.createTrip("new", "Highway");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusDispatchedTypeHighway(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("dispatched", "Highway");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+//
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusCancelledTypeHighway(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("cancelled", "Highway");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+//
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusDoneTypeHighway(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("done", "Highway");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusBookedTypeHighway(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("booked", "Highway");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    /***/
+//    @Test
+//    public void testStatusNewTypeHighwayLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("new", "Highway/Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusDispatchedTypeHighwayLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("dispatched", "Highway/Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusCancelledTypeHighwayLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("cancelled", "Highway/Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusDoneTypeHighwayLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("done", "Highway/Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusBookedTypeHighwayLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("booked", "Highway/Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    /***/
+//    @Test
+//    public void testStatusNewTypeLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("new", "Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusDispatchedTypeLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("dispatched", "Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusCancelledTypeLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("cancelled", "Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusDoneTypeLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("done", "Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
+//
+//    @Test
+//    public void testStatusBookedTypeLocal(){
+//        String lastTripNumber = tripBoard.getLastTripNumber();
+//        int tripNumber = Integer.parseInt(lastTripNumber);
+//
+//        createTrip.openFormCreate();
+//        createTrip.createTrip("booked", "Local");
+//
+//        int currentTripNumber = Integer.parseInt(main.getTripNumber());
+//        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+////        createTrip.clickBtnCancel();
+//    }
 
     @AfterEach
     void beforeTest(){
