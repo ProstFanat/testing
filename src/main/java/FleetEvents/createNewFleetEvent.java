@@ -183,12 +183,14 @@ public class createNewFleetEvent extends BasePage {
             inputOrderFromList.click();
             waitToBeClickable(10,btnAddOrder);
             btnAddOrder.click();
+            waitForPageToLoad();
         } else {
             clickRadioOrder();
             inputOrder.sendKeys(order);
             btnSearchOrder.click();
             inputOrderFromList.click();
             btnAddOrder.click();
+            waitForPageToLoad();
         }
     }
 

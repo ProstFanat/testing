@@ -102,7 +102,6 @@ public class CreateNewTrip {
         basePage.waitToVisibilityOf(10, createTrip.btnConfirmDeleteOrder);
         createTrip.btnConfirmDeleteOrder.click();
         Assertions.assertFalse(createTrip.radioOrder.isSelected());
-//        createTrip.clickBtnCancel();
     }
 
     @Test
@@ -120,7 +119,7 @@ public class CreateNewTrip {
         createTrip.inputType(ConfPropertiesFleet.getProperty("fleet.tripType"));
         createTrip.inputOrder("CO-20-61202");
         createTrip.clickBtnSave();
-        main.sleep(500);
+        basePage.waitForPageToLoad();
         Assertions.assertTrue(main.isOrderInTable("CO-20-61202"));
     }
 
@@ -176,7 +175,6 @@ public class CreateNewTrip {
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
         Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-        //Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
@@ -186,7 +184,6 @@ public class CreateNewTrip {
         createTrip.inputPlace();
         createTrip.clickBtnSave();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Status is a required field!']"));
- //       createTrip.clickBtnCancel();
     }
 
     @Test
@@ -196,7 +193,6 @@ public class CreateNewTrip {
         createTrip.inputPlace();
         createTrip.clickBtnSave();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Type is a required field!']"));
- //       createTrip.clickBtnCancel();
     }
 
     @Test
@@ -213,11 +209,10 @@ public class CreateNewTrip {
 
         int currentTripNumber = Integer.parseInt(main.getTripNumber());
         Assertions.assertEquals(currentTripNumber, tripNumber + 1);
-        //Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[text() = 'Trip #: ']"));
     }
 
     @Test
-    public void testWithoutStartDate(){
+    public void testWithoutStartDate() {
         createTrip.openFormCreate();
         createTrip.inputTripStatus(ConfPropertiesFleet.getProperty("fleet.tripStatus"));
         createTrip.inputType(ConfPropertiesFleet.getProperty("fleet.tripType"));
@@ -225,7 +220,6 @@ public class CreateNewTrip {
         createTrip.inputPlace();
         createTrip.clickBtnSave();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Please select a Start Date']"));
- //       createTrip.clickBtnCancel();
     }
 
     @Test
@@ -237,7 +231,6 @@ public class CreateNewTrip {
         createTrip.inputPlace();
         createTrip.clickBtnSave();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@id ='toast-container']//div[contains(@aria-label, 'The Start Date')]"));
-//        createTrip.clickBtnCancel();
     }
 
     @Test
@@ -262,7 +255,6 @@ public class CreateNewTrip {
         createTrip.inputType(ConfPropertiesFleet.getProperty("fleet.tripType"));
         createTrip.clickBtnSave();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@id ='toast-container']//div[contains(@aria-label, 'Please select one')]"));
-//        createTrip.clickBtnCancel();
     }
 
     @Test
@@ -270,7 +262,6 @@ public class CreateNewTrip {
         createTrip.openFormCreate();
         createTrip.clickBtnSave();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Trip Status is a required field!']"));
-//        createTrip.clickBtnCancel();
     }
 
     @Test
@@ -282,7 +273,6 @@ public class CreateNewTrip {
         createTrip.inputPlace();
         createTrip.clickBtnSave();
         Assertions.assertTrue(basePage.isElementDisplayedByPath("//*[@aria-label = 'Driver 1 and Driver 2 is the same!']"));
-//        createTrip.clickBtnCancel();
     }
 
     /***/
@@ -485,6 +475,25 @@ public class CreateNewTrip {
 //        Assertions.assertEquals(currentTripNumber, tripNumber + 1);
 ////        createTrip.clickBtnCancel();
 //    }
+
+    @Test
+    public void testWithAllTypes(){
+        String[] statuses = {"new", "dispatched", "cancelled", "done", "booked"};
+        String[] types = {"Local", "Highway", "Highway/Local"};
+
+        for(String status : statuses){
+            for(String type : types){
+                String lastTripNumber = tripBoard.getLastTripNumber();
+                int tripNumber = Integer.parseInt(lastTripNumber);
+
+                createTrip.createTrip(status, type);
+
+                int currentTripNumber = Integer.parseInt(main.getTripNumber());
+                Assertions.assertEquals(currentTripNumber, tripNumber + 1);
+            }
+        }
+    }
+
 
     @AfterEach
     void beforeTest(){
