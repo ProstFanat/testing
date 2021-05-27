@@ -4,27 +4,21 @@ import CreateTransactions.CreateTransaction;
 import ELDTransactionPages.ELDMonitorPage;
 import ELDTransactionPages.EldTransactionPage;
 import ELDTransactionPages.Fragments.MainEldFilterFragment;
-import ELDTransactionPages.Fragments.MainEldTableFragment;
 import LoginAndMainPages.LoginPage;
 import LoginAndMainPages.MainAdminScreenPage;
 import Main.CustomersPage;
 import Main.DriversPage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import loadDashboardPages.EditCreateLoadPage;
-import loadDashboardPages.LoadListPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import resources.AppConstants;
 import resources.BasePage;
-import resources.AppConstants;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static ELDTransactions.Actions.eldMainPage;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class RejectedMoreThan4Times {
 
@@ -52,7 +46,7 @@ public class RejectedMoreThan4Times {
         basePage = new BasePage();
         mainAdminScreenPage = new MainAdminScreenPage();
         mainEldFilterFragment = new MainEldFilterFragment();
-        loginPage.login("adrian@mail.com", "test");
+        loginPage.login("5", "test");
     }
 
     @Test
@@ -62,7 +56,7 @@ public class RejectedMoreThan4Times {
 
         for (int i = 1; i <= 4; i++) {
             open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
-            loginPage.login("adrian@mail.com", "test");
+            loginPage.login("5", "test");
             open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app-admin/hos/#/eldTransactions/transactions");
             mainEldFilterFragment.filterByDriver("Company for Autotesting", driver.get("name"));
             eldTransactionPage.getMainEldTableFragment().clickActionBtn()

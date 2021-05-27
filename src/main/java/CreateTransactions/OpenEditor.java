@@ -15,7 +15,7 @@ public class OpenEditor extends BasePage {
     public void openEditor(){
         Selenide.open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
         waitForPageToLoad();
-        orgInput.setValue("Usko Express Inc");
+        orgInput.setValue("Company For Autotesting");
         btnSearch.click();
         btnLogAsOrg.click();
         waitForPageToLoad();

@@ -133,17 +133,6 @@ public class CreateTransaction extends BasePage {
                 System.out.println(result.get("url"));
                 System.out.println(result.get("name"));
             }
-//            } else if (btnTake.exists()){
-////                processTransaction(commentTransaction);
-////                waitForPageToLoad();
-////                createdTransactions++;
-////
-////                result.put("url", url());
-////                result.put("name", driverInfo.getText());
-////                System.out.println(result.get("url"));
-////                System.out.println(result.get("name"));
-//                continue;
-//            }
             counter++;
         }
         return result;
