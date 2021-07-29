@@ -17,22 +17,19 @@ public class CreateTransactions {
 
     @BeforeAll
     static void setup() {
-        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/login.do");
         login = new LoginPage();
         openEditor = new OpenEditor();
         create = new CreateTransaction();
         login.login();
         openEditor.openEditor();
-
     }
 
     @Test
     public void test(){
-
-
-        create.createTransaction(20, "comment");
+        create.createTransaction(4, "comment");
     }
 
 }

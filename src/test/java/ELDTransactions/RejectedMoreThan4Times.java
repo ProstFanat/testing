@@ -50,7 +50,7 @@ public class RejectedMoreThan4Times {
     }
 
     @Test
-    public void test(){
+    void rejected4Times(){
         Map<String, String> driver = new HashMap<>();
         driver = createTransaction.createWithReturningUrlAndDriverName("comment");
 
@@ -62,7 +62,7 @@ public class RejectedMoreThan4Times {
             eldTransactionPage.getMainEldTableFragment().clickActionBtn()
                     .clickActionView();
             eldMonitorPage.getEldMonitorHeaderFragment().clickRejectBtn();
-            eldMonitorPage.getEldMonitorModalWindowFragment().typeComment("Ths is a " + i + "Reject");
+            eldMonitorPage.getEldMonitorModalWindowFragment().typeComment("This is a " + i + "Reject");
             eldMonitorPage.getEldMonitorModalWindowFragment().clickRejectBtn();
             mainEldFilterFragment.driverFilter.waitUntil(Condition.visible, 10000);
             customersPage.openCustomersPageFromSideBar();

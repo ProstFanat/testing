@@ -14,12 +14,9 @@ public class ELDMonitorPage {
     public ELDMonitorHeaderFragment getEldMonitorHeaderFragment() {
         return eldMonitorHeaderFragment;
     }
-
     public ELDMonitorModalWindowFragment getEldMonitorModalWindowFragment() {
         return eldMonitorModalWindowFragment;
     }
-
-
     public ELDMonitorTabsFragment getEldMonitorTabsFragment() {
         return eldMonitorTabsFragment;
     }

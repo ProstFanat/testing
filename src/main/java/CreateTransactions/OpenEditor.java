@@ -5,20 +5,29 @@ import com.codeborne.selenide.SelenideElement;
 import resources.AppConstants;
 import resources.BasePage;
 
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class OpenEditor extends BasePage {
-    SelenideElement orgInput = $x("//input[@placeholder = 'Organization']");
-    SelenideElement btnSearch = $x("//button[@ng-click='vm.searchOrganizations()']");
-    SelenideElement btnLogAsOrg = $x("//a[@uib-tooltip='Login As Organization']");
+    SelenideElement orgInput = $x("//input[@placeholder = 'Organization']"),
+                    btnSearch = $x("//button[@ng-click='vm.searchOrganizations()']"),
+                    btnLogAsOrg = $x("//a[@uib-tooltip='Login As Organization']"),
+                    viewHosPageBtn = $x("//*[@is-permitted-for='!read.HOS-DAY-VERIFY']"),
+                    hosReportTab = $x("//*[@is-permitted-for = 'read.ELD-VIEWER']"),
+                    btnGenerateReport = $x("//*[@ng-click='vm.goToHosReport()']"),
+                    btnGoToEditor = $x("//*[@ispermittedfor='read.ELD-EDITOR']");
 
     public void openEditor(){
         Selenide.open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
-        waitForPageToLoad();
         orgInput.setValue("Company For Autotesting");
         btnSearch.click();
         btnLogAsOrg.click();
         waitForPageToLoad();
-        Selenide.open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/app/hos/#/eldHOS/editor/driver/17663/timestamp/1606427999999/timeZone/US%2FEastern");
+        open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/manager/cpDrivers/#/");
+        waitForPageToLoad();
+        viewHosPageBtn.click();
+        switchTo().window(1);
+        hosReportTab.click();
+        btnGenerateReport.click();
+        btnGoToEditor.click();
     }
 }

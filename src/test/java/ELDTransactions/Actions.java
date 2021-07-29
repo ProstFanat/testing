@@ -61,6 +61,8 @@ public class Actions {
         Assertions.assertEquals(Arrays.toString(expectedActions), actualActions);
 
     }
+
+    // test
     @Test
     void rejectedActionsTest() {
         mainAdminScreenPage.clickSideMenuELDTransactionBtn();

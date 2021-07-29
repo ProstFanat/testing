@@ -1,5 +1,4 @@
 import LoginAndMainPages.LoginPage;
-import LoginAndMainPages.MainAdminScreenPage;
 import Main.CustomersPage;
 import Main.DriversPage;
 import com.codeborne.selenide.Configuration;
@@ -14,7 +13,6 @@ public class CreateDrivers {
     public static LoginPage login;
     public static CreateTransactions create;
     public static DriversPage driversPage;
-    public static MainAdminScreenPage mainAdminScreenPage;
     public static CustomersPage customersPage;
 
     @BeforeAll
@@ -30,13 +28,12 @@ public class CreateDrivers {
         open("http://" + AppConstants.URL_OF_LOCAL_SERVER + ":8080/TrackEnsure/fleet/admin-dashboard.jsp#/customers");
         customersPage.logAsOrgOfCompany("Company For Autotesting");
         driversPage.openPage();
-
     }
 
     @Test
     public void test(){
         driversPage.createNewDriver();
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < 1; i++) {
             driversPage.createNewDriver();
         }
     }
