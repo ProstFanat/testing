@@ -3,7 +3,6 @@ package loadDashboardPages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import resources.BasePage;
-import resources.AppConstants;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;

@@ -1,6 +1,6 @@
-import LoginAndMainPages.LoginPage;
-import Main.CustomersPage;
-import Main.DriversPage;
+import loginAndMainPages.LoginPage;
+import main.CustomersPage;
+import main.DriversPage;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ public class CreateDrivers {
     @Test
     public void test(){
         driversPage.createNewDriver();
-        for(int i = 0; i < 1; i++) {
+        for(int i = 0; i < 100; i++) {
             driversPage.createNewDriver();
         }
     }

@@ -4,7 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import resources.BasePage;
-import resources.AppConstants;
+
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
